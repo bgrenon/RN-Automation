@@ -1,0 +1,85 @@
+<noinclude>
+This is the "EditComponentRN" form.
+To create a page with this form, enter the page name below;
+if a page with that name already exists, you will be sent to a form to edit that page.
+
+
+{{#forminput:form=EditComponentRN|autocomplete on category=EditComponentRN}}
+
+</noinclude><includeonly>
+<div id="wikiPreview" style="display: none; padding-bottom: 25px; margin-bottom: 25px; border-bottom: 1px solid #AAAAAA;"></div>
+{{{info|edit title=Editing {{#explode:{{FULLPAGENAME}}|/|2}}  }}}
+
+{{{for template|ComponentRN}}}
+{{{field|Release Number|hidden}}}
+
+<div class="col-md-2 form-label">Supported deployments:</div> 
+<div class="col-md-10">
+{{{field|DeploymentType|input type=radiobutton|existing values only|values=all,cloud,private edition,on-premises}}}</div>  
+ 
+<div class="col-md-2 form-label">Release Type:</div> 
+<div class="col-md-10">{{{field|ReleaseType|input type=radiobutton|values=General, Hotfix|placeholder=Click to select release type|cargo table=ComponentRN|cargo field=Release_Type}}}</div>  
+<div class="col-md-2 form-label">Release Date:</div>
+<div class="col-md-10">{{{field|ReleaseDate|input type=datepicker|default=now}}}</div> 
+<div class="col-md-2 form-label">Highlight:{{FormTip|Craft a single sentence that sums up the main selling point for this release. For example, <need 2 or 3 solid examples>}}</div>
+<div class="col-md-10">{{{field|Highlight|input type=textarea|editor=visual editor}}}</div>
+<div style="clear:both"></div>
+{{{end template}}}
+
+{{{for template|JiraIssue|multiple|displayed fields when minimized=Issue,Type}}}
+<div class="col-md-2 form-label">Issue</div>
+<div class="col-md-10">{{{field|Issue|restricted=GenericUser}}}</div>
+<div class="col-md-2 form-label">Type</div>
+<div class="col-md-10">{{{field|Type|input type=dropdown|values=New,Deprecations,Security,Resolved,Known
+Dependencies,Known Issue}}}</div>
+<div class="col-md-2 form-label">Deployment Type</div>
+<div class="col-md-10">{{{field|DeploymentType|input type=tokens|cargo table=DeploymentType|cargo field=Id|mapping template=DeploymentTypeMap}}}</div>
+<div class="col-md-2 form-label">Last Updated</div>
+<div class="col-md-10">{{{field|LastUpdated|input type=datepicker}}}</div>
+<div class="col-md-2 form-label">Content</div>
+<div class="col-md-10">{{{field|Content|input type=textarea|restricted=GenericUser}}}</div>
+<div class="col-md-2 form-label">Local Content</div>
+<div class="col-md-10">{{{field|LocalContent|input type=textarea|editor=visualeditor}}}</div>
+
+{{{end template}}}
+
+
+<!--{{#invoke:RNAutomation|EditRN}}-->
+
+
+
+{{{standard input|summary}}}
+
+
+
+{{{standard input|save}}}  {{{standard input|changes}}} {{{standard input|cancel}}}
+
+{{#css:
+.form-label {clear:both}
+.col-md-2, .col-md-4, .col-md-10, .col-md-12 { padding-left:0; margin-bottom: 15px;}
+.col-md-4 p { margin-bottom: 0; }
+.select2-container-multi .select2-choices { border-color: #BBB; background-image: none; }
+.select2-container-multi .select2-choices .select2-search-field input { font-family: roboto; }
+.select2-container-multi .select2-choices .select2-search-field { height: 30px; }
+input { font-size: 16px; }
+.form-label { font-weight: 500; text-align:left; }
+.bottom { font-size: 80%; margin-top: -10px; font-weight: 300; }
+.radioButtonItem, .checkboxLabel { padding-top: 0; margin-bottom: 0; font-weight: 300}
+.ve-height .ve-area-wrapper .ve-ce-documentNode { min-height: 100px; }
+.ve-area-wrapper .ve-ce-documentNode { padding: 0.6em 0.8em; min-height: 325px; max-height: 500px; overflow-y: scroll; }
+#mw-content-text .select2-container .select2-choice { height: 34px; line-height: normal; }
+div.pfComboBox { margin-bottom: 0; }
+#pf-expand-all { margin: 20px 0 30px 0; }
+#pf-expand-all a { background-color: #5d3e5d; border: 2px solid #5d3e5d; padding: 0.45em 2.50em; color: white; margin-top: 20px; border-radius: 3px; }
+.panel-title { padding: 10px; }
+.panel>.panel-heading { padding: 0 }
+.toggle-wrap { margin: 20px 0 25px; }
+.toggle-wrap>a{ display: block; padding: 10px; color: #333; background-color: #f5f5f5; border: 1px solid #ddd; border-top-left-radius: 3px; border-top-right-radius: 3px; }
+.toggle-wrap>a:before { content: '\f0d7'; float: left; font-family: FontAwesome; margin-right: 10px; text-decoration: none; }
+.toggle-content { padding: 10px 20px; border: 1px solid #ddd; border-top: none; border-bottom-left-radius: 3px; border-bottom-right-radius: 3px; }
+.multipleTemplateInstanceTable table > tbody > tr > td, .multipleTemplateInstanceTable table > tbody > tr > th {
+    padding: 5px;
+    background-color: white !important;
+    border: 1px solid lightgrey;
+}}
+</includeonly><noinclude>[[Category:RNAutomation]]</noinclude>
