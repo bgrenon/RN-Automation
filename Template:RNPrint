@@ -1,0 +1,12 @@
+<includeonly><h2>{{#time:F d, Y|{{{ReleaseDate|}}}}} ({{{ReleaseNumber|}}}) </h2>
+
+{{#cargo_query:
+tables=ComponentRN,JiraIssue
+|join on=ComponentRN._pageName=JiraIssue._pageName
+|fields=CONCAT('<h3>',IF (Type="New","What's New", Type),'</h3>')=Type,,LocalContent
+|format=outline
+|outline fields=Type
+|where=ComponentRN.Component="{{{Component|}}}" AND ReleaseNumber="{{{ReleaseNumber|}}}" AND LocalContent IS NOT NULL AND Type IS NOT NULL
+|order by=Type DESC
+}}
+<span style="font-size:80%">[[{{{Page|}}}|(Link to source)]]</span></includeonly><noinclude>[[Category:RNAutomation]]</noinclude>
