@@ -1,0 +1,21 @@
+<noinclude>
+This is the "JiraIssue" template.
+It should be called in the following format:
+<pre>
+{{JiraIssue
+|Type=
+|Issue=
+|LastUpdated=
+|Content=
+|LocalContent=
+}}
+
+</pre>
+Edit the page to see the template text.
+{{#cargo_declare:_table=JiraIssue|Type=String|Issue=String|LastUpdated=Date|Content=Wikitext|LocalContent=Wikitext}}
+</noinclude><includeonly>{{#cargo_store:_table=JiraIssue
+|Type={{{Type|}}}
+|Issue={{{Issue|}}}
+|LastUpdated={{{LastUpdated|}}}
+|Content={{{Content|}}}
+|LocalContent={{{LocalContent|}}} }}[[Category:JiraIssue]]</includeonly><noinclude>[[Category:RNAutomation]]</noinclude>
