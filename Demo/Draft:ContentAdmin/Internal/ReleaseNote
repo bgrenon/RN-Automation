@@ -1,0 +1,40 @@
+{{MintyDocsManual
+|product=Draft:ContentAdmin
+|version=Internal
+|manual=ReleaseNote
+|alternateforms=
+|displayname=Genesys Engage Cloud Release Notes
+|pagination=no
+|topicslist=* -CX Contact
+** CX Contact
+* -Designer
+** Designer
+* -Workspace Web Edition
+** WWE
+|topicslistpage=
+|defaultform=Form:ArticleUnstructured
+|inherit=no
+|Auto=Manual sections
+|Section={{SectionTest
+|Type=Structured
+|sectionHeading=Applications / Most Recent releases
+|anchor=
+|alignment=Vertical
+|image=
+|Media=
+|structuredtext={{#cargo_query:
+tables=ComponentRN,JiraIssue
+|join on=ComponentRN._pageName=JiraIssue._pageName
+|fields=Component=Application,CONCAT('[[',ComponentRN._pageName,'|',ComponentRN.ReleaseNumber,']]')=Release Number,ComponentRN.ReleaseDate,Highlight=Highlights
+|format=dynamic table
+|where=DeploymentType="cloud"
+|group by=ReleaseDate
+|delimiter=
+}}
+|structuredtextwide=
+|FAQHeading=
+|Status=No
+}}
+}}
+[[Category:RNAutomation]]
+__NOCACHE__
