@@ -1,0 +1,25 @@
+{{ArticleUnstructured
+|PageType=
+|Standalone=No
+|DisplayName=CX Contact - Sample Release Note
+|TocName=
+|Context=Not all releases or changes listed below may pertain to your deployment. The following labels indicate a release or change as unique to a certain type of deployment environment:
+
+* Genesys Engage cloud for AWS
+* Genesys Engage cloud for Azure
+* Genesys Engage cloud private edition
+}}
+
+{{#cargo_query:
+tables=ComponentRN,JiraIssue
+|join on=ComponentRN._pageName=JiraIssue._pageName
+|fields=Component=Component,ComponentRN.ReleaseNumber=ReleaseNumber,ComponentRN.ReleaseDate=ReleaseDate,ComponentRN._pageName=Page
+|format=template
+|template=RNPrint
+|where=DeploymentType="cloud" AND Component="Designer"
+|named args=yes
+|group by=ReleaseNumber
+|order by=ComponentRN.ReleaseDate DESC
+}}
+__NOCACHE__
+[[Category:RNAutomation]]
