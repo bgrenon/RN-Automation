@@ -1,0 +1,51 @@
+{{ComponentRN
+|Component=Designer
+|ReleaseNumber=100.0.000.24
+|ReleaseType=General
+|ReleaseDate=2020/11/25
+|JQL=
+}}
+{{JiraIssue
+|Issue=HTCC-28956
+|Type=Closed
+|Content=[PEC]: You can now specify which agent group is displayed in the Team Communicator by using Agent Setup.
+
+[PREM]:
+Miscellaneous Enhancements
+* You can now configure which agent group is displayed in the Team Communicator by using the permissions.agent-group.restrict option.
+|LocalContent=[PEC]: You can now specify which agent group is displayed in the Team Communicator by using Agent Setup.
+
+[PREM]:
+Miscellaneous Enhancements
+* You can now configure which agent group is displayed in the Team Communicator by using the permissions.agent-group.restrict option.
+}}
+{{JiraIssue
+|Issue=HTCC-28585
+|Type=Closed
+|Content=[PEC] 
+
+Agent Desktop deployed as an embedded application in Salesforce Lightning Experience supports the following:
+ * Genesys Outbound Campaign
+ ** Screen pop for Pull Preview.
+ ** Activity tracking for Outbound calls established through the Pull Preview mode.
+
+[PREM]
+
+Workspace Web Edition deployed as an embedded application in Salesforce Lightning Experience supports the following:
+ * Genesys Outbound Campaign
+ ** Screen pop for Pull Preview and Push Preview.
+ ** Activity tracking for Outbound calls established through both the Pull Preview and Push Preview modes.
+|LocalContent=[PEC] 
+
+Agent Desktop deployed as an embedded application in Salesforce Lightning Experience supports the following:
+ * Genesys Outbound Campaign
+ ** Screen pop for Pull Preview.
+ ** Activity tracking for Outbound calls established through the Pull Preview mode.
+
+[PREM]
+
+Workspace Web Edition deployed as an embedded application in Salesforce Lightning Experience supports the following:
+ * Genesys Outbound Campaign
+ ** Screen pop for Pull Preview and Push Preview.
+ ** Activity tracking for Outbound calls established through both the Pull Preview and Push Preview modes.
+}}
