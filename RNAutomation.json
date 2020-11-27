@@ -16,66 +16,66 @@
 				{
 					"name": "RNAutomation",
 					"namespace": "NS_MODULE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Module%3ARNAutomation"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Module%3ARNAutomation"
 				},
 				{
 					"name": "Component",
 					"namespace": "PF_NS_FORM",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Form%3AComponent"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Form%3AComponent"
 				},
 				{
 					"name": "Component",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Template%3AComponent"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Form%3ACreateRN"
 				},
 				{
 					"name": "ComponentMap",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Template%3AComponentMap"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Template%3AComponentMap"
 				},
 				{
 					"name": "CreateRN",
 					"namespace": "PF_NS_FORM",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Template%3AComponentMap"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Template%3AComponentMap"
 				},
 				{
 					"name": "DeploymentType",
 					"namespace": "PF_NS_FORM",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Template%3AComponentMap"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Template%3AComponentMap"
 				},
 				{
 					"name": "EditRN",
 					"namespace": "PF_NS_FORM",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Template%3AComponentMap"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Template%3AComponentMap"
 				},
 				{
 					"name": "RNStart",
 					"namespace": "PF_NS_FORM",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Template%3AComponentMap"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Template%3AComponentMap"
 				},
 				{
 					"name": "DeploymentType",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Template%3AComponentMap"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Template%3AComponentMap"
 				},
 				{
 					"name": "DeploymentTypeMap",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Template%3AComponentMap"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Template%3AComponentMap"
 				},{
 					"name": "JiraIssue",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Template%3AComponentMap"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Template%3AComponentMap"
 				},
 				{
 					"name": "RNPrint",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Template%3AComponentMap"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Template%3AComponentMap"
 				},
 				{
 					"name": "RNStart",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Template%3AComponentMap"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Template%3AComponentMap"
 				}
 				
 			],
