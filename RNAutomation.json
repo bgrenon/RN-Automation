@@ -114,7 +114,7 @@
 			"requiredPackages": [
 				"com.all.docs.genesys.Category:RNAutomation"
 			]
-		}
+		},
 
 		"RN Automation sample data": {
 			"globalID": "com.all.docs.genesys.Category:RNAutomation.demobook",
