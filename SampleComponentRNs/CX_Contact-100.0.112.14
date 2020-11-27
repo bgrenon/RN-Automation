@@ -1,0 +1,112 @@
+{{ComponentRN
+|Release Number=
+|DeploymentType=cloud
+|ReleaseType=General
+|ReleaseDate=2020/11/23
+|Highlight=Improved handling for various columns.
+|Component=CX Contact
+|ReleaseNumber=100.0.112.14
+|JQL=5e8d6e50753e041b892b95e8
+}}
+{{JiraIssue
+|Issue=CLOUDCON-11583
+|Type=New
+|Content=CX Contact is now capable to decrypt PGP files encrypted with older PGP encryption standards.
+|LocalContent=CX Contact is now capable to decrypt PGP files encrypted with older PGP encryption standards.
+}}
+{{JiraIssue
+|Issue=CLOUDCON-11455
+|Type=New
+|Content=CX Contact analytics Call Result Records index now contain ChainID, ChainN, and ClientID data fields.
+|LocalContent=CX Contact analytics Call Result Records index now contain ChainID, ChainN, and ClientID data fields.
+}}
+{{JiraIssue
+|Issue=CLOUDCON-11174
+|Type=New
+|Content=The Attempt Rule can now be configured to govern attempts at specific time periods during the day. For example, an Attempt Rule can be configured to run 2 attempts in the morning (9am - 2pm), 1 in the afternoon (2pm - 4pm), and 2 in the evening (4pm - 9pm).
+|LocalContent=The Attempt Rule can now be configured to govern attempts at specific time periods during the day. For example, an Attempt Rule can be configured to run 2 attempts in the morning (9am - 2pm), 1 in the afternoon (2pm - 4pm), and 2 in the evening (4pm - 9pm).
+}}
+{{JiraIssue
+|Issue=CLOUDCON-10959
+|Type=New
+|Content=All Compliance Tools have been significantly extended to include the ability to define the scope of each compliance rule for a particular country and for subdivisions by regions, states, and provinces within a defined country.
+|LocalContent=*Compliance Tools Improvements
+*All Compliance Tools have been significantly extended to include the ability to define the scope of each compliance rule for a particular country and for subdivisions by regions, states, and provinces within a defined country.
+*The Contact Times rule can now work in '''strict''' Contact Times mode (applied during pre-loading by the Campaign Manager), and apply a Disposition Code.
+*The Contact Times rule can now support device position and device type configuration options.
+*Attempt Rules can now work in a '''Today''' time interval and apply a Disposition Code.
+*Attempt Rules now support device position and device type configuration options.
+*Location Rules now support device position and device type configuration options.
+*The Custom Timezones Table has been extended to include the ability to optionally define the exchange code for each Timezone mapping.
+*Custom Compliance rules can now apply a Disposition Code.
+}}
+{{JiraIssue
+|Issue=CLOUDCON-11616
+|Type=Resolved
+|DeploymentType=01
+|Content=You can now set the time format using the time diff mode in the Custom table Panel.
+|LocalContent=You can now set the time format using the time diff mode in the Custom table Panel.
+}}
+{{JiraIssue
+|Issue=CLOUDCON-11472
+|Type=Resolved
+|DeploymentType=01
+|Content=List Automation no longer attempts to import an input file that was not encrypted by the CXC Public Key.
+|LocalContent=List Automation no longer attempts to import an input file that was not encrypted by the CXC Public Key.
+}}
+{{JiraIssue
+|Issue=CLOUDCON-11470
+|Type=Resolved
+|DeploymentType=01
+|Content=An issue with List/ Campaign statistics not updating when one of lists did not have a DB table created has now been resolved.
+|LocalContent=An issue with List/ Campaign statistics not updating when one of lists did not have a DB table created has now been resolved.
+}}
+{{JiraIssue
+|Issue=CLOUDCON-11424
+|Type=Resolved
+|DeploymentType=01
+|Content=List Automation jobs no longer fail when a custom time interval is configured.
+|LocalContent=List Automation jobs no longer fail when a custom time interval is configured.
+}}
+{{JiraIssue
+|Issue=CLOUDCON-11369
+|Type=Resolved
+|DeploymentType=01
+|Content=When a new Campaign Group is created using List Automation with action type Send Campaign Group, it is now configured according to the selected template.
+|LocalContent=When a new Campaign Group is created using List Automation with action type Send Campaign Group, it is now configured according to the selected template.
+}}
+{{JiraIssue
+|Issue=CLOUDCON-11320
+|Type=Resolved
+|DeploymentType=01
+|Content=CX Contact analytics Call Details index now shows the correct scheduledTime value. Previously, the scheduledTime value appeared as the current time.
+|LocalContent=CX Contact analytics Call Details index now shows the correct scheduledTime value. Previously, the scheduledTime value appeared as the current time.
+}}
+{{JiraIssue
+|Issue=CLOUDCON-11275
+|Type=Resolved
+|DeploymentType=01
+|Content=The Last Run and the Status columns are now populated in the Schedules tab.
+|LocalContent=The Last Run and the Status columns are now populated in the Schedules tab.
+}}
+{{JiraIssue
+|Issue=CLOUDCON-11616
+|Type=Resolved
+|DeploymentType=01
+|Content=You can now set the time format using the time diff mode in the Custom table Panel.
+|LocalContent=You can now set the time format using the time diff mode in the Custom table Panel.
+}}
+{{JiraIssue
+|Issue=CLOUDCON-11180
+|Type=Resolved
+|DeploymentType=01
+|Content=Expired Suppression Lists are now removed from the configuration. Previously, an error occurred because expired Suppression Lists were not removed.
+|LocalContent=Expired Suppression Lists are now removed from the configuration. Previously, an error occurred because expired Suppression Lists were not removed.
+}}
+{{JiraIssue
+|Issue=CLOUDCON-11153
+|Type=Resolved
+|DeploymentType=01
+|Content=ECX Contact analytics, Contact History Dashboard, and the ScheduleTime value now appear in the date-time format instead of minutes.
+|LocalContent=CX Contact analytics, Contact History Dashboard, and the ScheduleTime value now appear in the date-time format instead of minutes.
+}}
