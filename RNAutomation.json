@@ -1,0 +1,156 @@
+{
+	"publisher": "Genesys IX",
+	"author": [
+		"Barry Grenon",
+		"Ed Jamer"
+	],
+	"language": "en",
+	"url": "https://github.com/bgrenon/RN-Automation",
+	"packages": {
+		"RN Automation": {
+			"globalID": "com.all.docs.genesys.Category:RNAutomation",
+			"publisherURL": "https://all.docs.genesys.com",
+			"description": "A data structure for handling incoming release note content from both cloud and premise Jira instances in Genesys, using the Cargo and Page Forms extensions.",
+			"version": "0.1",
+			"pages": [
+				{
+					"name": "RNAutomation",
+					"namespace": "NS_MODULE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Module%3ARNAutomation"
+				},
+				{
+					"name": "Component",
+					"namespace": "PF_NS_FORM",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Form%3AComponent"
+				},
+				{
+					"name": "Component",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Template%3AComponent"
+				},
+				{
+					"name": "ComponentMap",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Template%3AComponentMap"
+				},
+				{
+					"name": "CreateRN",
+					"namespace": "PF_NS_FORM",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Template%3AComponentMap"
+				},
+				{
+					"name": "DeploymentType",
+					"namespace": "PF_NS_FORM",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Template%3AComponentMap"
+				},
+				{
+					"name": "EditRN",
+					"namespace": "PF_NS_FORM",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Template%3AComponentMap"
+				},
+				{
+					"name": "RNStart",
+					"namespace": "PF_NS_FORM",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Template%3AComponentMap"
+				},
+				{
+					"name": "DeploymentType",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Template%3AComponentMap"
+				},
+				{
+					"name": "DeploymentTypeMap",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Template%3AComponentMap"
+				},{
+					"name": "JiraIssue",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Template%3AComponentMap"
+				},
+				{
+					"name": "RNPrint",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Template%3AComponentMap"
+				},
+				{
+					"name": "RNStart",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Template%3AComponentMap"
+				},
+				
+			],
+			"requiredExtensions": [
+				"Page Forms",
+				"Cargo"
+			]
+		},
+		"RN Automation demo book (Cargo)": {
+			"globalID": "com.all.docs.genesys.Category:RNAutomation.demobook",
+			"description": "Sample mintydocs manual for RN Automation project",
+			"version": "0.1",
+			"pages": [
+				{
+					"name": "Draft:ContentAdmin/Internal/ReleaseNote",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Demo/About"
+				}
+				{
+					"name": "Draft:ContentAdmin/Internal/ReleaseNote/CX Contact",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Demo/CX%20Contact"
+				}
+				{
+					"name": "Draft:ContentAdmin/Internal/ReleaseNote/Designer",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Demo/Designer"
+				}
+				{
+					"name": "Draft:ContentAdmin/Internal/ReleaseNote/WWE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Demo/WWE"
+				}
+				
+			],
+			"requiredExtensions": [
+				"Cargo",
+				"Page Forms"
+			],
+			"requiredPackages": [
+				"com.all.docs.genesys.Category:RNAutomation"
+			]
+		}
+
+		"RN Automation sample data": {
+			"globalID": "com.all.docs.genesys.Category:RNAutomation.demobook",
+			"description": "Sample admin data and component RNs RN Automation",
+			"version": "0.1",
+			"pages": [
+				{
+					"name": "Draft:RN/CX_Contact-100.0.112.14",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Data/CX_Contact-100.0.112.14"
+				}
+				{
+					"name": "Draft:RN/Designer-100.0.000.24",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Data/Designer-100.0.000.24"
+				}
+				{
+					"name": "Draft:RN/Workspace_Web_Edition-100.0.113.05",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Data/Workspace_Web_Edition-100.0.113.05"
+				}
+				{
+					"name": "Draft:ContentAdmin/Internal/SiteDashboard/Components",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Data/Components"
+				}
+				{
+					"name": "Draft:ContentAdmin/Internal/SiteDashboard/DeploymentType",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Data/DeploymentTypes"
+				}
+				
+				
+			],
+			"requiredExtensions": [
+				"Cargo",
+				"Page Forms"
+			],
+			"requiredPackages": [
+				"com.all.docs.genesys.Category:RNAutomation"
+			]
+		}
+	}
+}
