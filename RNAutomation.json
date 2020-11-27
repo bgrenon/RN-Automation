@@ -76,7 +76,7 @@
 					"name": "RNStart",
 					"namespace": "NS_TEMPLATE",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Template%3AComponentMap"
-				},
+				}
 				
 			],
 			"requiredExtensions": [
