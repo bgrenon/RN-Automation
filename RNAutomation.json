@@ -92,15 +92,15 @@
 				{
 					"name": "Draft:ContentAdmin/Internal/ReleaseNote",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Demo/About"
-				}
+				},
 				{
 					"name": "Draft:ContentAdmin/Internal/ReleaseNote/CX Contact",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Demo/CX%20Contact"
-				}
+				},
 				{
 					"name": "Draft:ContentAdmin/Internal/ReleaseNote/Designer",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Demo/Designer"
-				}
+				},
 				{
 					"name": "Draft:ContentAdmin/Internal/ReleaseNote/WWE",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Demo/WWE"
@@ -124,19 +124,19 @@
 				{
 					"name": "Draft:RN/CX_Contact-100.0.112.14",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Data/CX_Contact-100.0.112.14"
-				}
+				},
 				{
 					"name": "Draft:RN/Designer-100.0.000.24",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Data/Designer-100.0.000.24"
-				}
+				},
 				{
 					"name": "Draft:RN/Workspace_Web_Edition-100.0.113.05",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Data/Workspace_Web_Edition-100.0.113.05"
-				}
+				},
 				{
 					"name": "Draft:ContentAdmin/Internal/SiteDashboard/Components",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Data/Components"
-				}
+				},
 				{
 					"name": "Draft:ContentAdmin/Internal/SiteDashboard/DeploymentType",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Data/DeploymentTypes"
