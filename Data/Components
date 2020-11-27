@@ -1,0 +1,88 @@
+{{Component
+|Id=15
+|Name=Digital Services
+|DeploymentType=hosted AWS
+}}
+{{Component
+|Id=14
+|Name=Genesys CX Insights
+}}
+{{Component
+|Id=13
+|Name=Designer
+|DeploymentType=hosted AWS
+}}
+{{Component
+|Id=12
+|Name=Web Services API
+|DeploymentType=hosted AWS
+}}
+{{Component
+|Id=11
+|Name=Gplus Adaptor for Salesforce
+|DeploymentType=hosted AWS
+}}
+{{Component
+|Id=10
+|Name=Workspace Web Edition
+|DeploymentType=hosted AWS
+}}
+{{Component
+|Id=09
+|Name=Genesys Media Server
+}}
+{{Component
+|Id=08
+|Name=CX Contact
+}}
+{{Component
+|Id=07
+|Name=Management Framework
+|DeploymentType=private edition
+}}
+{{Component
+|Id=06
+|Name=GVP
+}}
+{{Component
+|Id=05
+|Name=Platform SDK
+}}
+{{Component
+|Id=04
+|Name=GAX
+}}
+{{Component
+|Id=03
+|Name=eServices
+}}
+{{Component
+|Id=02
+|Name=Pulse
+}}
+{{Component
+|Id=01
+|Name=GIM
+}}
+{{ArticleUnstructured
+|DisplayName=Set up Components
+|ComingSoon=No
+|Context=Use this page to set up the list of Components used in the Engage content (specifically for Release Note automation). 
+
+}}
+<div class="template-form">
+{{#formlink:form=Component
+|link text=Add or edit
+|link type=button
+|target={{FULLPAGENAME}} 
+}}
+</div>
+{{#cargo_query:tables=Component|fields=Id,Name,DeploymentType|where=_pageNamespace="{{NAMESPACENUMBER}}"}}
+
+
+
+
+
+
+__NOCACHE__
+[[Category:RNAutomation]]
