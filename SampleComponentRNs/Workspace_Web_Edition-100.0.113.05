@@ -1,0 +1,66 @@
+{{ComponentRN
+|Release Number=
+|DeploymentType=cloud
+|ReleaseType=
+|ReleaseDate=2020/11/26
+|Highlight=Various updates to channels.
+|Component=Workspace Web Edition
+|ReleaseNumber=100.0.113.05
+}}
+{{JiraIssue
+|Issue=HTCC-31269
+|Type=New
+|LastUpdated=
+|Content=[WWE]
+[Premise]
+
+Channels are now correctly displayed in the My Channels tab and status menu, and the agent Global Status tooltip is now correctly displayed after an agent logs in to Workspace.
+
+Previously, in some specific scenarios, all channels were displayed as Out of Service in the My Channels tab and no channels or agent states were displayed in the Global Status tooltip in the Navigation bar. An example of a scenario which could cause the display issue is: an agent tries to login for the first time and the login operation fails, then the agent tries to login again and the login operation succeeds.
+|LocalContent=Channels are now correctly displayed in the My Channels tab and status menu, and the agent Global Status tooltip is now correctly displayed after an agent logs in to Workspace.
+
+Previously, in some specific scenarios, all channels were displayed as Out of Service in the My Channels tab and no channels or agent states were displayed in the Global Status tooltip in the Navigation bar. An example of a scenario which could cause the display issue is: an agent tries to login for the first time and the login operation fails, then the agent tries to login again and the login operation succeeds.
+}}
+{{JiraIssue
+|Issue=HTCC-31267
+|Type=Known Issue
+|LastUpdated=
+|Content=[eServices]:
+
+[Known Issue]:
+GWS sends the ParticipantsUpdated notification after the StatusChange notification when reconnecting to Chat Server. As a result, the StatusChange notification contains an empty list of participants.
+
+[PEC]:
+N/A
+
+[Prem]:
+To force GWS to send the ParticipantsUpdated notification first and then the StatusChange notification, set the value of the new sendParticipantsUpdatedBeforeStatusChange option to "true".
+|LocalContent=GWS sends the ParticipantsUpdated notification after the StatusChange notification when reconnecting to Chat Server. As a result, the StatusChange notification contains an empty list of participants.
+}}
+{{JiraIssue
+|Issue=HTCC-31202
+|Type=New
+|LastUpdated=
+|Content=[eServices]
+[PEC]
+N/A
+
+[Prem]
+The new "disableCreatorAppIdUpdates" option is added to the "ServerSettings" section of the "application.yaml" file. Setting the value of this option to "true" preserves the the original CreatorAppId of the interaction. The default value is "false".
+|LocalContent=The new "disableCreatorAppIdUpdates" option is added to the "ServerSettings" section of the "application.yaml" file. Setting the value of this option to "true" preserves the the original CreatorAppId of the interaction. The default value is "false".
+}}
+{{JiraIssue
+|Issue=HTCC-31091
+|Type=Known Issue
+|LastUpdated=
+|Content=[eServices]:
+[Known issue]:
+GWS does not save in UCS UserData of the email parent interaction to the child email interaction when performing Reply and ReplyAll operations. As a result, field codes referencing UserData of the parent interaction cannot be rendered by UCS.
+
+[PEC]:
+N/A
+
+[Prem]:
+To force GWS to save the UserData of the parent email interaction to the child email interaction for Reply and ReplyAll operations, set the value of the "enableSaveEmailReplyUserDataToUCS" option to true. As a result, GWS sends AttachedData filled with the UserData of the parent interaction to UCS, and UCS can render the corresponding field codes in Standard Responses.
+|LocalContent=GWS does not save in UCS UserData of the email parent interaction to the child email interaction when performing Reply and ReplyAll operations. As a result, field codes referencing UserData of the parent interaction cannot be rendered by UCS.
+}}
