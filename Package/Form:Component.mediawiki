@@ -1,0 +1,33 @@
+<noinclude>
+This is the "Component" form.
+To create a page with this form, enter the page name below;
+if a page with that name already exists, you will be sent to a form to edit that page.
+
+
+{{#forminput:form=Component|autocomplete on category=Component}}
+
+</noinclude><includeonly>
+<div id="wikiPreview" style="display: none; padding-bottom: 25px; margin-bottom: 25px; border-bottom: 1px solid #AAAAAA;"></div>
+{{{for template|Component|multiple|displayed fields when minimized=Name}}}
+<div class="col-md-2 form-label">Id</div> 
+<div class="col-md-10">{{{field|Id|default=uuid}}}</div>
+
+<div class="col-md-2 form-label">Name</div> 
+<div class="col-md-10">{{{field|Name}}}</div>   
+    
+<div class="col-md-2 form-label">Deployment Type {{FormTip|This component will populate all possible release note display types by default. To constrain this component to a subset of possible display types, set that list here.
+
+For example, SIP Server is constrained to '''on-premises''' and '''private edition''' displays only.
+}}</div> 
+<div class="col-md-10">{{{field|DeploymentType|input type=tokens|cargo table=DeploymentType|cargo field=Name}}}</div>   
+{{{end template}}}
+
+{{{standard input|summary}}}
+
+{{{standard input|minor edit}}} {{{standard input|watch}}}
+
+{{{standard input|save}}} {{{standard input|preview}}} {{{standard input|changes}}} {{{standard input|cancel}}}
+</includeonly>
+{{HideExpandAll}}
+
+<noinclude>[[Category:RNAutomation]]</noinclude>
