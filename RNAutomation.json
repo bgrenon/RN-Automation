@@ -49,11 +49,6 @@
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Form%3AEditRN.mediawiki"
 				},
 				{
-					"name": "RNStart",
-					"namespace": "PF_NS_FORM",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Form%3ARNStart.mediawiki"
-				},
-				{
 					"name": "DeploymentType",
 					"namespace": "NS_TEMPLATE",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Template%3ADeploymentType.mediawiki"
@@ -72,11 +67,6 @@
 					"namespace": "NS_TEMPLATE",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Template%3ARNPrint.mediawiki"
 				},
-				{
-					"name": "RNStart",
-					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Template%3ARNStart.mediawiki"
-				}
 				
 			],
 			"requiredExtensions": [
