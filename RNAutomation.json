@@ -66,7 +66,7 @@
 					"name": "RNPrint",
 					"namespace": "NS_TEMPLATE",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Template%3ARNPrint.mediawiki"
-				},
+				}
 				
 			],
 			"requiredExtensions": [
