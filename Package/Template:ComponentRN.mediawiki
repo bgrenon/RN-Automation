@@ -13,12 +13,14 @@ It should be called in the following format:
 }}
 </pre>
 Edit the page to see the template text.
-{{#cargo_declare:_table=ComponentRN|Highlight=|ComponentId=String|ReleaseNumber=String|ReleaseType=String|ReleaseDate=String|JQL=String|DeploymentType=String}}
+{{#cargo_declare:_table=ComponentRN|Highlight=|ComponentId=List (,) of String|ReleaseNumber=String|ReleaseType=String|ReleaseDate=String|JQL=String|DeploymentType=String}}
 </noinclude><includeonly>{{#cargo_store:_table=ComponentRN|Highlight={{{Highlight|}}}|ComponentId={{{ComponentId|}}}|ReleaseNumber={{{ReleaseNumber|}}}|ReleaseType={{{ReleaseType|}}}|ReleaseDate={{{ReleaseDate|}}}|JQL={{{JQL|}}}|DeploymentType={{{DeploymentType|}}} }}
 
 {{#mintydocs_topic:
 |display name=Base unit of content for {{#cargo_query:tables=Component|fields=Name|where=Id="{{{ComponentId|}}}"|no html}} - {{{ReleaseNumber|}}}
 }}
+
+Link to page in use: {{#cargo_query:tables=ArticleCloudRN|field=_pageName|where=ComponentId HOLDS '{{{ComponentId|}}}'}}
 
 {| class="wikitable"
 ! Component

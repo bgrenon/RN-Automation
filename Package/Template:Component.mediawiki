@@ -1,7 +1,7 @@
 <noinclude>
 This is the "Component" template.
-test
 It should be called in the following format:
+TEST
 <pre>
 {{Component
 |Id=
@@ -12,5 +12,4 @@ It should be called in the following format:
 Edit the page to see the template text.
 {{#cargo_declare:_table=Component|Id=String|Name=String|DeploymentType=String}}
 </noinclude><includeonly>{{#cargo_store:_table=Component|Id={{{Id|}}}|Name={{{Name|}}}|DeploymentType={{{DeploymentType|}}} }}
-</includeonly><noinclude>[[Category:RNAutomation]]
-</noinclude>
+</includeonly><noinclude>[[Category:RNAutomation]]</noinclude>

@@ -18,5 +18,4 @@ Edit the page to see the template text.
 |Issue={{{Issue|}}}
 |LastUpdated={{{LastUpdated|}}}
 |Content={{{Content|}}}
-|LocalContent={{{LocalContent|}}} }}[[Category:JiraIssue]]</includeonly><noinclude>[[Category:RNAutomation]]
-</noinclude>
+|LocalContent={{{LocalContent|}}} }}[[Category:JiraIssue]]</includeonly><noinclude>[[Category:RNAutomation]]</noinclude>

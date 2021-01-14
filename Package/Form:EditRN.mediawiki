@@ -82,5 +82,4 @@ div.pfComboBox { margin-bottom: 0; }
     background-color: white !important;
     border: 1px solid lightgrey;
 }}
-</includeonly><noinclude>[[Category:RNAutomation]]
-</noinclude>
+</includeonly><noinclude>[[Category:RNAutomation]]</noinclude>

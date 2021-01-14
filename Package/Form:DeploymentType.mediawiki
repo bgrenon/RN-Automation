@@ -8,13 +8,14 @@ if a page with that name already exists, you will be sent to a form to edit that
 
 </noinclude><includeonly>
 <div id="wikiPreview" style="display: none; padding-bottom: 25px; margin-bottom: 25px; border-bottom: 1px solid #AAAAAA;"></div>
-{{{for template|DeploymentType|multiple|display=spreadsheet}}}
+{{{for template|DeploymentType|multiple|displayed fields when minimized=Name}}}
 {| class="formtable"
 ! Id: 
 | {{{field|Id|default=uuid}}}
 |-
 ! Name: 
 | {{{field|Name}}}
+|}
 {{{end template}}}
 
 {{{standard input|summary}}}
@@ -25,5 +26,4 @@ if a page with that name already exists, you will be sent to a form to edit that
 </includeonly>
 {{HideExpandAll}}
 
-<noinclude>[[Category:RNAutomation]]
-</noinclude>
+<noinclude>[[Category:RNAutomation]]</noinclude>
