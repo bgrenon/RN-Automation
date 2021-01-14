@@ -14,11 +14,6 @@
 			"version": "0.1",
 			"pages": [
 				{
-					"name": "RNAutomation",
-					"namespace": "NS_MODULE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Module%3ARNAutomation"
-				},
-				{
 					"name": "Component",
 					"namespace": "PF_NS_FORM",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Form%3AComponent.mediawiki"
