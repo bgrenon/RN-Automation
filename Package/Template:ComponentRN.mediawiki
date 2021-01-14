@@ -1,0 +1,98 @@
+<noinclude>
+This is the "ComponentRN" template.
+It should be called in the following format:
+<pre>
+{{ComponentRN
+|Highlight=
+|ComponentId=
+|ReleaseNumber=
+|ReleaseType=
+|ReleaseDate=
+|JQL=
+|DeploymentType=
+}}
+</pre>
+Edit the page to see the template text.
+{{#cargo_declare:_table=ComponentRN|Highlight=|ComponentId=String|ReleaseNumber=String|ReleaseType=String|ReleaseDate=String|JQL=String|DeploymentType=String}}
+</noinclude><includeonly>{{#cargo_store:_table=ComponentRN|Highlight={{{Highlight|}}}|ComponentId={{{ComponentId|}}}|ReleaseNumber={{{ReleaseNumber|}}}|ReleaseType={{{ReleaseType|}}}|ReleaseDate={{{ReleaseDate|}}}|JQL={{{JQL|}}}|DeploymentType={{{DeploymentType|}}} }}
+
+{{#mintydocs_topic:
+|display name=Base unit of content for {{#cargo_query:tables=Component|fields=Name|where=Id="{{{ComponentId|}}}"|no html}} - {{{ReleaseNumber|}}}
+}}
+
+{| class="wikitable"
+! Component
+| {{#cargo_query:tables=Component|fields=Name|where=Id="{{{ComponentId|}}}"|no html}}
+|-
+! Deployment Type
+| {{{DeploymentType|}}}
+|-
+! Release Number
+| {{{ReleaseNumber|}}}
+|-
+! Release Type
+| {{#arraymap:{{{ReleaseType|}}}|,|x|x}}
+|-
+!Highlight
+|{{{Highlight|}}}
+|-
+! Release Date
+| {{{ReleaseDate|}}}
+|-
+! JQL
+| {{{JQL|}}}
+
+|}{{#cargo_query:
+tables=JiraIssue
+|intro=<h2>New In This Release</h2>
+|fields=CONCAT ('<b>',Issue, '</b><br/>',LocalContent)
+|format=ul
+|where=_pageName="{{FULLPAGENAME}}" AND Type="New"
+|default=}}{{#cargo_query:
+tables=JiraIssue
+|intro=<h2>Security Fixes</h2>
+|fields=CONCAT ('<b>',Issue, '</b><br/>',LocalContent)|format=ul
+|where=_pageName="{{FULLPAGENAME}}" AND Type="Security"
+|default=
+}}{{#cargo_query:
+tables=JiraIssue
+|intro=<h2>Deprecations</h2>
+|fields=CONCAT ('<b>',Issue, '</b><br/>',LocalContent)|format=ul
+|where=_pageName="{{FULLPAGENAME}}" AND Type="Deprecations"
+|default=}}{{#cargo_query:
+tables=JiraIssue
+|intro=<h2>Dependencies</h2>
+|fields=CONCAT ('<b>',Issue, '</b><br/>',LocalContent)|format=ul
+|where=_pageName="{{FULLPAGENAME}}" AND Type="Dependencies"
+|default=}}{{#cargo_query:
+tables=JiraIssue
+|intro=<h2>Resolved Issues</h2>
+|fields=CONCAT ('<b>',Issue, '</b><br/>',LocalContent)|format=ul
+|where=_pageName="{{FULLPAGENAME}}" AND Type="Resolved"
+|default=}}{{#cargo_query:
+tables=JiraIssue
+|intro=<h2>Known Issues</h2>
+|fields=CONCAT ('<b>',Issue, '</b><br/>',LocalContent)|format=ul
+|where=_pageName="{{FULLPAGENAME}}" AND Type="Known Issue"
+|default=}}{{#cargo_query:
+tables=JiraIssue
+|intro=<h2>These issues need a type - please fix!</h2>
+|fields=CONCAT ('<b>',Issue, '</b><br/>',LocalContent)|format=ul
+|where=_pageName="{{FULLPAGENAME}}" AND Type IS NULL
+|default=
+}}
+<!--
+<h3>{{{Issue|}}}</h3>
+Type: {{{Type|}}}
+Last Updated: {{{LastUpdated|}}}
+
+Jira source text: 
+ {{{Content|}}}
+
+Writer-edited text: 
+ {{{LocalContent|}}}-->
+__NOCACHE__
+[[Category:EditRN]]
+__TOC__
+</includeonly>
+<noinclude>[[Category:RNAutomation]]</noinclude>
