@@ -24,6 +24,11 @@
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Template%3AComponent.mediawiki"
 				},
 				{
+					"name": "Component",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Template%3AComponentRN.mediawiki"
+				},
+				{
 					"name": "ComponentMap",
 					"namespace": "NS_TEMPLATE",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Template%3AComponentMap.mediawiki"
