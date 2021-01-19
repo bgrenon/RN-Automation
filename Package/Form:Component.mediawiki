@@ -2,7 +2,7 @@
 This is the "Component" form.
 To create a page with this form, enter the page name below;
 if a page with that name already exists, you will be sent to a form to edit that page.
-
+Sonya just created a fork and will submit changes to a new branch in the fork. Send a pull request afterwards. 
 
 {{#forminput:form=Component|autocomplete on category=Component}}
 
