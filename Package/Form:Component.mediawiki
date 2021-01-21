@@ -2,13 +2,13 @@
 This is the "Component" form.
 To create a page with this form, enter the page name below;
 if a page with that name already exists, you will be sent to a form to edit that page.
-TEST
+
 
 {{#forminput:form=Component|autocomplete on category=Component}}
 
 </noinclude><includeonly>
 <div id="wikiPreview" style="display: none; padding-bottom: 25px; margin-bottom: 25px; border-bottom: 1px solid #AAAAAA;"></div>
-{{{for template|Component|multiple}}}
+{{{for template|Component|multiple|displayed fields when minimized=Name}}}
 <div class="col-md-2 form-label">Id</div> 
 <div class="col-md-10">{{{field|Id|default=uuid}}}</div>
 
@@ -30,5 +30,4 @@ For example, SIP Server is constrained to '''on-premises''' and '''private editi
 </includeonly>
 {{HideExpandAll}}
 
-<noinclude>[[Category:RNAutomation]]
-</noinclude>
+<noinclude>[[Category:RNAutomation]]</noinclude>
