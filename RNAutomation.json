@@ -82,19 +82,19 @@
 			"pages": [
 				{
 					"name": "Draft:ContentAdmin/Internal/ReleaseNote",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Demo/About"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Demo/About.mediawiki"
 				},
 				{
-					"name": "Draft:ContentAdmin/Internal/ReleaseNote/CX Contact",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Demo/CX%20Contact"
+					"name": "Draft:ContentAdmin/Internal/ReleaseNote/Genesys_Info_Mart",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Demo/Genesys_Info_Mart.mediawiki"
 				},
 				{
 					"name": "Draft:ContentAdmin/Internal/ReleaseNote/Designer",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Demo/Designer"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Demo/Designer.mediawiki"
 				},
 				{
-					"name": "Draft:ContentAdmin/Internal/ReleaseNote/WWE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Demo/WWE"
+					"name": "Draft:ContentAdmin/Internal/ReleaseNote/Agent_Desktop",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Demo/Agent_Desktop.mediawiki"
 				}
 				
 			],
