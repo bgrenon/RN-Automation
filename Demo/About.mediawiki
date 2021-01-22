@@ -1,0 +1,44 @@
+{{MintyDocsManual
+|product=Draft:ContentAdmin
+|version=Internal
+|manual=ReleaseNote
+|displayname=Genesys Engage Cloud Release Notes
+|pagination=no
+|topicslist=* -CX Contact
+** CXContact
+* -Designer
+** Designer
+* -Workspace Web Edition
+** WWE
+* -Test
+** Test
+* -Pulse
+** PulseCollector
+* -Agent Desktop
+** Agent Desktop
+* -Genesys Info Mart
+** Genesys Info Mart
+|defaultform=Form:ArticleCloudRN
+|inherit=no
+|Auto=Manual sections
+|Section={{SectionTest
+|Type=Structured
+|sectionHeading=Applications / Most Recent releases
+|anchor=
+|alignment=Vertical
+|image=
+|Media=
+|structuredtext=
+{{#cargo_query:
+tables=ComponentRN,Component
+|join on=ComponentRN.ComponentId HOLDS Component.Id
+|fields=Component.Name=Application,CONCAT('[[',ComponentRN._pageName,'|',ComponentRN.ReleaseNumber,']]')=Release Number,DATE_FORMAT("ComponentRN.ReleaseDate", "%M")=Date,Highlight=Highlights
+|where=ComponentRN.DeploymentType="cloud"
+}}
+|structuredtextwide=
+|FAQHeading=
+|Status=No
+}}
+}}
+[[Category:RNAutomation]]
+__NOCACHE__

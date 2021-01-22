@@ -1,0 +1,4 @@
+{{ArticleCloudRN
+|DisplayName=Sample RN for Agent Desktop
+|ComponentId=acaca529-aedd-4820-8557-4966ab8490db
+}}

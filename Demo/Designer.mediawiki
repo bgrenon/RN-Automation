@@ -1,0 +1,5 @@
+{{ArticleCloudRN
+|DisplayName=Designer - Sample RN
+|ComponentId=b9e5e9d4-37a0-4fa2-87a3-957773249c9b
+|TocName=Designer
+}}

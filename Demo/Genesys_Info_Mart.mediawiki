@@ -1,0 +1,4 @@
+{{ArticleCloudRN
+|DisplayName=Sample RN for Genesys Info Mart
+|ComponentId=456eb773-9bac-427c-8780-b59c203173e4
+}}
