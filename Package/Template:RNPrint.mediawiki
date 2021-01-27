@@ -1,12 +1,12 @@
 <includeonly><h2>{{#time:F d, Y|{{{ReleaseDate|}}}}} ({{{ReleaseNumber|}}}) </h2>
 
 {{#cargo_query:
-tables=ComponentRN,JiraIssue
-|join on=ComponentRN._pageName=JiraIssue._pageName
-|fields=CONCAT('<h3>',IF (Type="New","What's New", Type),'</h3>')=Type,LocalContent
+tables=ComponentRN,JiraIssue,IssueType
+|join on=ComponentRN._pageName=JiraIssue._pageName,JiraIssue.IssueType=IssueType.Id
+|fields=CONCAT('<h3>',IF (IssueType.Name="New","What's New", IssueType.Name),'</h3>')=Name,LocalContent
 |format=outline
-|outline fields=Type
-|where=ComponentRN.ComponentId HOLDS '{{{Component|}}}' AND ReleaseNumber="{{{ReleaseNumber|}}}" AND LocalContent IS NOT NULL AND Type IS NOT NULL
-|order by=Type DESC
+|outline fields=Name
+|where=ComponentRN.ComponentId HOLDS '{{{Component|}}}' AND ReleaseNumber="{{{ReleaseNumber|}}}" AND LocalContent IS NOT NULL AND IssueType IS NOT NULL
+|order by=IssueType.Name DESC
 }}
 <span style="font-size:80%">[[{{{Page|}}}|(Link to source)]]</span></includeonly><noinclude>[[Category:RNAutomation]]</noinclude>
