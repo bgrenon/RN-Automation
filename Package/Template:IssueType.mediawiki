@@ -1,0 +1,13 @@
+<noinclude>
+This is the "IssueType" template.
+It should be called in the following format:
+<pre>
+{{IssueType
+|Id=
+|Name=
+}}
+</pre>
+Edit the page to see the template text.
+{{#cargo_declare:_table=IssueType|Id=String|Name=String|}}
+</noinclude><includeonly>{{#cargo_store:_table=IssueType|Id={{{Id|}}}|Name={{{Name|}}} }}
+</includeonly><noinclude>[[Category:RNAutomation]]</noinclude>
