@@ -11,7 +11,9 @@ if a page with that name already exists, you will be sent to a form to edit that
 {{{info|edit title=Editing {{#explode:{{FULLPAGENAME}}|/|2}}  }}}
 
 {{{for template|ComponentRN}}}
-{{{field|Release Number|hidden}}}
+{{{field|ReleaseNumber|hidden}}}
+{{{field|ComponentId|hidden}}}
+{{{field|JQL|hidden}}}
 
 <div class="col-md-2 form-label">Supported deployments:</div> 
 <div class="col-md-10">
@@ -26,12 +28,11 @@ if a page with that name already exists, you will be sent to a form to edit that
 <div style="clear:both"></div>
 {{{end template}}}
 
-{{{for template|JiraIssue|multiple|displayed fields when minimized=Issue,Type}}}
+{{{for template|JiraIssue|multiple|displayed fields when minimized=Issue,IssueType}}}
 <div class="col-md-2 form-label">Issue</div>
 <div class="col-md-10">{{{field|Issue|restricted=GenericUser}}}</div>
 <div class="col-md-2 form-label">Type</div>
-<div class="col-md-10">{{{field|Type|input type=dropdown|values=New,Deprecations,Security,Resolved,Known
-Dependencies,Known Issue}}}</div>
+<div class="col-md-10">{{{field|IssueType|input type=dropdown|cargo table=IssueType|cargo field=Id|mapping template=IssueTypeMap}}}</div>
 <div class="col-md-2 form-label">Deployment Type</div>
 <div class="col-md-10">{{{field|DeploymentType|input type=tokens|cargo table=DeploymentType|cargo field=Id|mapping template=DeploymentTypeMap}}}</div>
 <div class="col-md-2 form-label">Last Updated</div>
