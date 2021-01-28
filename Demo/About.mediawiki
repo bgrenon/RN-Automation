@@ -32,7 +32,7 @@
 {{#cargo_query:
 tables=ComponentRN,Component
 |join on=ComponentRN.ComponentId HOLDS Component.Id
-|fields=Component.Name=Application,CONCAT('[[',ComponentRN._pageName,'|',ComponentRN.ReleaseNumber,']]')=Release Number,DATE_FORMAT("ComponentRN.ReleaseDate", "%M")=Date,Highlight=Highlights
+|fields=Component.Name=Application,CONCAT('[[',ComponentRN._pageName,'|',ComponentRN.ReleaseNumber,']]')=Release Number,DATE_FORMAT(ComponentRN.ReleaseDate, '%M %d, %Y')=Date,Highlight=Highlights
 |where=ComponentRN.DeploymentType="cloud"
 }}
 |structuredtextwide=

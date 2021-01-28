@@ -5,19 +5,6 @@ It should be called in the following format:
 <pre>
 {{ArticleCloudRN
 |ComponentId=
-|Platform=
-|DisplayName=
-|TocName=
-|Dimension=
-|Context=
-|Product=
-|ProductShort=
-|ComingSoon=
-|Role=
-|Manual=
-|Application=
-|UseCase=
-|Prereq=
 }}
 
 </pre>
@@ -25,37 +12,12 @@ Edit the page to see the template text.
 
 {{#cargo_declare:_table=ArticleCloudRN
 |ComponentId=List (,) of String
-|Platform=String
-|DisplayName=String
-|TocName=String
-|Dimension=String
-|Context=Wikitext (size=10000)
-|Product=String
-|ProductShort=String
-|ComingSoon=String
-|Role=String
-|Manual=String
-|Application=String
-|UseCase=String
-|Prereq=Wikitext (size=10000)
 }}
 
 </noinclude>
 <includeonly>{{#css: .MintyDocsTopicDesc {display:none} }}[[Category:ArticleCloudRN]]__TOC__
 __NOEDITSECTION__{{#cargo_store:_table=Article|Standalone={{{Standalone}}}|productshort={{#explode:{{FULLPAGENAME}}|/|0}}|DisplayName={{{DisplayName|}}}|Context={{{Context|}}}}}{{#cargo_store:_table=ArticleCloudRN
 |ComponentId={{{ComponentId|}}}
-|Platform={{{Platform|}}}
-|DisplayName={{{DisplayName|}}}
-|TocName={{{TocName|}}}
-|Dimension={{{Dimension|}}}
-|Context={{{Context|}}}
-|Product={{MINTYDOCSPRODUCT}}
-|ProductShort={{#explode:{{FULLPAGENAME}}|/|0}}
-|ComingSoon={{{ComingSoon|}}}
-|Role={{{Role|}}}
-|Manual={{#explode:{{FULLPAGENAME}}|/|2}}
-|Application={{{Application|}}}
-|UseCase={{{UseCase|}}}
 |Prereq={{{Prereq|}}}
 }}<!-- Set MintyDocs topic, including a switch for different treatment for Manual pages -->{{#switch:{{{PageType|}}}|Manual=|#default={{#mintydocs_topic:
 |display name={{{DisplayName|}}}

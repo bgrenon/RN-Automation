@@ -1,6 +1,0 @@
-{{#cargo_query:
-table=Component
-|fields=Name
-|where=Id="{{{1}}}"
-|no html
-}}
