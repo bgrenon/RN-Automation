@@ -33,7 +33,7 @@ tables=ComponentRN,JiraIssue
 |fields=ComponentId=Component,ComponentRN.ReleaseNumber=ReleaseNumber,ComponentRN.ReleaseDate=ReleaseDate,ComponentRN._pageName=Page
 |format=template
 |template=RNPrint
-|where=DeploymentType="cloud" AND ComponentId HOLDS '{{{ComponentId|}}}'
+|where=DeploymentTypeId HOLDS '{{{DeploymentType|}}}' AND ComponentId HOLDS '{{{ComponentId|}}}'
 |named args=yes
 |group by=ReleaseNumber
 |order by=ComponentRN.ReleaseDate DESC

@@ -13,7 +13,13 @@ if a page with that name already exists, you will be sent to a form to edit that
 <div class="col-md-10">{{{field|Id|default=uuid}}}</div>
 
 <div class="col-md-2 form-label">Name</div> 
-<div class="col-md-10">{{{field|Name}}}</div>   
+<div class="col-md-10">{{{field|Name}}}</div>  
+
+<div class="col-md-2 form-label">Section Name{{FormTip|This will default to the Name value. If you want the section to appear with a different label on the page, set an alternate display name here.}}</div> 
+<div class="col-md-10">{{{field|SectionName}}}</div>   
+
+<div class="col-md-2 form-label">Order of sections{{FormTip|This value controls the order that these sections appear on the page.}}</div> 
+<div class="col-md-10">{{{field|PrintOrder|input type=dropdown|values=1,2,3,4,5,6,|unique}}}</div>  
       
 {{{end template}}}
 
@@ -23,6 +29,6 @@ if a page with that name already exists, you will be sent to a form to edit that
 
 {{{standard input|save}}} {{{standard input|preview}}} {{{standard input|changes}}} {{{standard input|cancel}}}
 </includeonly>
-{{HideExpandAll}}
+{{FormCSS}}
 
 <noinclude>[[Category:RNAutomation]]</noinclude>
