@@ -33,7 +33,7 @@ tables=ComponentRN,JiraIssue
 |fields=ComponentId=Component,ComponentRN.ReleaseNumber=ReleaseNumber,ComponentRN.ReleaseDate=ReleaseDate,ComponentRN._pageName=Page
 |format=template
 |template=RNPrint
-|where=DeploymentTypeId HOLDS '{{{DeploymentType|}}}' AND ComponentId HOLDS '{{{ComponentId|}}}'
+|where=ComponentId HOLDS '{{{ComponentId|}}}'
 |named args=yes
 |group by=ReleaseNumber
 |order by=ComponentRN.ReleaseDate DESC
@@ -43,4 +43,4 @@ tables=ComponentRN,JiraIssue
 
 <!-- Removing the version dropdown for Standalone (version-less) pages -->{{#switch:{{{Standalone}}}|Yes={{#css: 
 button#version-dropdown { display: none; }
-}}|#default=}}<nowiki /></includeonly><noinclude>[[Category:MintyDocs_Cargo]]</noinclude>
+}}|#default=}}<nowiki /></includeonly><noinclude>[[Category:RNAutomation]]</noinclude>

@@ -1,0 +1,54 @@
+{{MintyDocsManual
+|product=Draft:ContentAdmin
+|version=Internal
+|manual=ReleaseNote
+|displayname=Genesys Engage Cloud Release Notes
+|pagination=no
+|topicslist=* -CX Contact
+** CXContact
+* -Designer
+** Designer
+* -Workspace Web Edition
+** WWE
+* -Pulse
+** Pulse
+** PulseCollector
+* -Agent Desktop
+** Agent Desktop
+* -Genesys Info Mart
+** Genesys Info Mart
+* -Genesys Web Services
+** WebServices
+|defaultform=Form:ArticleCloudRN
+|inherit=no
+|Auto=Manual sections
+|Section={{SectionTest
+|Type=Structured
+|sectionHeading=Applications / Most Recent releases
+|anchor=
+|alignment=Vertical
+|image=
+|Media=
+|structuredtext=
+
+{{#cargo_query:
+tables=ArticleCloudRN,Component,ComponentRN
+|join on=ArticleCloudRN.ComponentId HOLDS Component.Id,ComponentRN.ComponentId__full=ArticleCloudRN.ComponentId__full
+|fields=Component.Name=Service,CONCAT('[[',ArticleCloudRN._pageName,'#',ReleaseNumber,'|',ReleaseNumber,']]')=Release Number,ComponentRN._pageName=Page Name
+
+}}
+<!--
+{{#cargo_query:
+tables=ComponentRN,ComponentRN__ComponentId,ArticleCloudRN
+|join on=ComponentRN._ID=ComponentRN__ComponentId._rowID,ComponentRN.ComponentId__full=ArticleCloudRN.ComponentId__full
+|fields=DisplayName=Service,CONCAT('[[',ArticleCloudRN._pageName,'#',ReleaseNumber,'|',ReleaseNumber,']]')=ReleaseNumber,DATE_FORMAT(ReleaseDate,'%M %d, %Y')=Date,Highlight=Highlights
+}}
+-->
+
+|structuredtextwide=
+|FAQHeading=
+|Status=No
+}}
+}}
+[[Category:RNAutomation]]
+__NOCACHE__
