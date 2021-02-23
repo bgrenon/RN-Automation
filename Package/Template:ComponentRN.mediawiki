@@ -15,11 +15,10 @@ It should be called in the following format:
 Edit the page to see the template text.
 {{#cargo_declare:_table=ComponentRN|Highlight=|ComponentId=List (,) of String|ReleaseNumber=String|ReleaseType=String|ReleaseDate=String|JQL=String|DeploymentTypeId=List (,) of String}}
 </noinclude><includeonly>{{#cargo_store:_table=ComponentRN|Highlight={{{Highlight|}}}|ComponentId={{{ComponentId|}}}|ReleaseNumber={{#explode:{{FULLPAGENAME}}|/|2}}
-|ReleaseType={{{ReleaseType|}}}|ReleaseDate={{{ReleaseDate|}}}|JQL={{{JQL|}}}|DeploymentTypeId={{{DeploymentTypeId|}}} }}
+|ReleaseType={{{ReleaseType|}}}|ReleaseDate={{{ReleaseDate|}}}|JQL={{{JQL|}}}|DeploymentTypeId={{{DeploymentTypeId|}}}}}
 
 {{#mintydocs_topic:
-|display name=Base unit of content for {{#cargo_query:tables=Component|fields=Name|where=Id="{{{ComponentId|}}}"|no html}} - {{{ReleaseNumber|}}}
-}}
+|display name=Base unit of content for {{#cargo_query:tables=Component|fields=Name|where=Id="{{{ComponentId|}}}"|no html}} - {{#explode:{{FULLPAGENAME}}|/|2}}}}
 
 ==Component RN Definition==
 {| class="wikitable"
@@ -54,7 +53,7 @@ tables=ComponentRN,JiraIssue,IssueType
 |fields=CONCAT('<h3>',IF (IssueType.Name="New","What's New", IssueType.Name),'</h3>')=Name,LocalContent
 |format=outline
 |outline fields=Name
-|where=ComponentRN.ComponentId HOLDS '{{{Component|}}}' AND ReleaseNumber="{{{ReleaseNumber|}}}" AND LocalContent IS NOT NULL AND IssueType IS NOT NULL
+|where=ComponentRN.ComponentId HOLDS '{{{ComponentId|}}}' AND ReleaseNumber="{{#explode:{{FULLPAGENAME}}|/|2}}" AND LocalContent IS NOT NULL AND IssueType IS NOT NULL
 |order by=IssueType.PrintOrder ASC
 }}
 <!--
