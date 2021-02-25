@@ -1,15 +1,15 @@
-<includeonly><h2>{{#if:{{{ReleaseDate|}}}|{{#time:F d, Y|{{{ReleaseDate|}}}}}|<span style="background-color:yellow">Date needed</span>}} ({{{ReleaseNumber|}}}) {{#cargo_query:
+<includeonly><h2>{{{ComponentName|}}}: {{#if:{{{ReleaseDate|}}}|{{#time:F d, Y|{{{ReleaseDate|}}}}}|<span style="background-color:yellow">Date needed</span>}} {{#cargo_query:
 tables=ComponentRN,DeploymentType=DT
 |join on=ComponentRN.DeploymentTypeId HOLDS DT.Id
-|fields=IF (DT.Name = "hosted Azure" , '[[File:Azure.png|80px]]' , '[[File:AWS.png|80px]]')
+|fields=CONCAT('[[File:',DT.Image,'|80px]]')
 |delimiter=
 |where=ComponentRN.ComponentId HOLDS '{{{Component|}}}' AND ReleaseNumber="{{{ReleaseNumber|}}}"
 }}</h2>
-
+{{AnchorDiv|{{{ReleaseNumber|}}}}}
 {{#cargo_query:
 tables=ComponentRN,JiraIssue,IssueType
 |join on=ComponentRN._pageName=JiraIssue._pageName,JiraIssue.IssueType=IssueType.Id
-|fields=CONCAT('<h3>',IssueType.SectionName,'</h3>')=Name,LocalContent
+|fields=CONCAT('<h3>',IssueType.SectionName,'</h3>')=Name,IF (SupportingDocumentation IS NOT NULL, CONCAT (LocalContent,'</br><b>More info</b>: ',SupportingDocumentation), LocalContent)
 |format=outline
 |outline fields=Name
 |where=ComponentRN.ComponentId HOLDS '{{{Component|}}}' AND ReleaseNumber="{{{ReleaseNumber|}}}" AND LocalContent IS NOT NULL AND IssueType IS NOT NULL

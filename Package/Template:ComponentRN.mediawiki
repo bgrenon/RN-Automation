@@ -50,7 +50,7 @@ Edit the page to see the template text.
 |}{{#cargo_query:
 tables=ComponentRN,JiraIssue,IssueType
 |join on=ComponentRN._pageName=JiraIssue._pageName,JiraIssue.IssueType=IssueType.Id
-|fields=CONCAT('<h3>',IF (IssueType.Name="New","What's New", IssueType.Name),'</h3>')=Name,LocalContent
+|fields=CONCAT('<h3>',IF (IssueType.Name="New","What's New", IssueType.Name),'</h3>')=Name,IF (SupportingDocumentation IS NOT NULL, CONCAT (LocalContent,'</br><b>More info</b>: ',SupportingDocumentation), LocalContent)
 |format=outline
 |outline fields=Name
 |where=ComponentRN.ComponentId HOLDS '{{{ComponentId|}}}' AND ReleaseNumber="{{#explode:{{FULLPAGENAME}}|/|2}}" AND LocalContent IS NOT NULL AND IssueType IS NOT NULL

@@ -5,9 +5,10 @@ It should be called in the following format:
 {{DeploymentType
 |Id=
 |Name=
+|Image=
 }}
 </pre>
 Edit the page to see the template text.
-{{#cargo_declare:_table=DeploymentType|Id=String|Name=String|DeploymentType=String}}
-</noinclude><includeonly>{{#cargo_store:_table=DeploymentType|Id={{{Id|}}}|Name={{{Name|}}}|DeploymentType={{{DeploymentType|}}} }}
+{{#cargo_declare:_table=DeploymentType|Id=String|Name=String|DeploymentType=String|Image=File}}
+</noinclude><includeonly>{{#cargo_store:_table=DeploymentType|Id={{{Id|}}}|Name={{{Name|}}}|DeploymentType={{{DeploymentType|}}}|Image={{{Image|}}} }}
 </includeonly><noinclude>[[Category:RNAutomation]]</noinclude>

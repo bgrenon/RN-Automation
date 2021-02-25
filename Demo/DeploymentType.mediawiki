@@ -1,0 +1,38 @@
+{{DeploymentType
+|Id=5439f1be-1868-4091-b058-1667389b6ce1
+|Name=hosted Azure
+}}
+{{DeploymentType
+|Id=ec194bf2-b79a-436d-8ff6-eaff94d9f43a
+|Name=hosted AWS
+}}
+{{DeploymentType
+|Id=3f9bd410-8714-466d-ab5d-ab40ab3121e7
+|Name=private edition
+}}
+{{DeploymentType
+|Id=e947319f-35a1-44dc-9ec7-d52a5b4d1c65
+|Name=cloud
+}}
+{{ArticleUnstructured
+|DisplayName=Set up Deployment Types
+|ComingSoon=No
+|Context=Use this page to set up the list of Deployment Types used in the Engage content (specifically for Release Note automation). 
+
+}}
+<div class="template-form">
+{{#formlink:form=DeploymentType
+|link text=Add or edit
+|link type=button
+|target={{FULLPAGENAME}} 
+}}
+</div>
+{{#cargo_query:tables=DeploymentType|fields=Id,Name,Image|where=_pageNamespace="{{NAMESPACENUMBER}}"}}
+
+
+
+
+
+
+__NOCACHE__
+[[Category:RNAutomation]]

@@ -5,6 +5,7 @@ It should be called in the following format:
 <pre>
 {{ArticleCloudRN
 |ComponentId=
+|DeploymentTypeId=
 }}
 
 </pre>
@@ -12,13 +13,14 @@ Edit the page to see the template text.
 
 {{#cargo_declare:_table=ArticleCloudRN
 |ComponentId=List (,) of String
+|DeploymentTypeId=List (,) of String
 }}
 
 </noinclude>
 <includeonly>{{#css: .MintyDocsTopicDesc {display:none} }}[[Category:ArticleCloudRN]]__TOC__
 __NOEDITSECTION__{{#cargo_store:_table=Article|Standalone={{{Standalone}}}|productshort={{#explode:{{FULLPAGENAME}}|/|0}}|DisplayName={{{DisplayName|}}}|Context={{{Context|}}}}}{{#cargo_store:_table=ArticleCloudRN
 |ComponentId={{{ComponentId|}}}
-|Prereq={{{Prereq|}}}
+|DeploymentTypeId={{{DeploymentTypeId|}}}
 }}<!-- Set MintyDocs topic, including a switch for different treatment for Manual pages -->{{#switch:{{{PageType|}}}|Manual=|#default={{#mintydocs_topic:
 |display name={{{DisplayName|}}}
 |toc name={{{TocName|}}}
@@ -26,18 +28,24 @@ __NOEDITSECTION__{{#cargo_store:_table=Article|Standalone={{{Standalone}}}|produ
 
 *Genesys Engage cloud for AWS
 *Genesys Engage cloud for Azure
-*Genesys Engage cloud private edition|UseCase={{{UseCase|}}}|Application={{{Application|}}}|Platform={{{Platform|}}}|PageType=ArticleCloudRN}}<!--Defining the Prerequisite Head -->{{PrerequisitesHead|Prereq={{{Prereq|}}}}}<!-- Query for showing component list -->
+*Genesys Engage cloud private edition|UseCase={{{UseCase|}}}|Application={{{Application|}}}|Platform={{{Platform|}}}|PageType=Article}}<!--Defining the Prerequisite Head -->{{PrerequisitesHead|Prereq={{{Prereq|}}}}}<!-- Query for showing component list -->
+
 {{#cargo_query:
-tables=ComponentRN,JiraIssue
-|join on=ComponentRN._pageName=JiraIssue._pageName
-|fields=ComponentId=Component,ComponentRN.ReleaseNumber=ReleaseNumber,ComponentRN.ReleaseDate=ReleaseDate,ComponentRN._pageName=Page
+tables=JiraIssue,ComponentRN,ComponentRN__ComponentId,ComponentRN__DeploymentTypeId,Component
+|join on=JiraIssue._pageName=ComponentRN._pageName,ComponentRN._ID=ComponentRN__ComponentId._rowID,ComponentRN._ID=ComponentRN__DeploymentTypeId._rowID,ComponentRN.ComponentId HOLDS Component.Id
+|fields=ComponentId=Component,ComponentRN.ReleaseNumber=ReleaseNumber,ComponentRN.ReleaseDate=ReleaseDate,ComponentRN._pageName=Page,Component.Name=ComponentName
 |format=template
 |template=RNPrint
-|where=ComponentId HOLDS '{{{ComponentId|}}}'
+|where=(ComponentRN__ComponentId._value IN ({{#arraymap:{{{ComponentId|}}}|,|x|'x'}})) AND (ComponentRN__DeploymentTypeId._value IN ({{#arraymap:{{{DeploymentTypeId|}}}|,|x|'x'}}))
 |named args=yes
 |group by=ReleaseNumber
 |order by=ComponentRN.ReleaseDate DESC
 }}
+
+
+<!--|join on=ArticleCloudRN.ComponentId HOLDS Component.Id,ComponentRN.ComponentId__full=ArticleCloudRN.ComponentId__full,ComponentRN.DeploymentTypeId HOLDS DeploymentType.Id
+-->
+
 
 
 
