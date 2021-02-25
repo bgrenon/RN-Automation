@@ -1,26 +1,34 @@
 {{IssueType
-|Id=8855be77-8fb8-4200-ac5c-9a9855b1881e
-|Name=Deprecations
-}}
-{{IssueType
-|Id=5c483167-c133-4dc5-87c0-bd2719670bc1
-|Name=Resolved
-}}
-{{IssueType
 |Id=720446c8-10b6-42b8-af36-34a298aa1c72
 |Name=New
+|SectionName=What's New
+|PrintOrder=1
 }}
 {{IssueType
 |Id=c749afa5-fd21-49e4-83d4-0e6ebd8ed618
 |Name=Security
+|SectionName=TEST SECURITY DISPLAY NAME
+|PrintOrder=2
+}}
+{{IssueType
+|Id=5c483167-c133-4dc5-87c0-bd2719670bc1
+|Name=Resolved
+|PrintOrder=3
 }}
 {{IssueType
 |Id=fb5466cd-c57c-4def-9436-dbf18e51694c
 |Name=Dependencies
+|PrintOrder=4
 }}
 {{IssueType
 |Id=7677e764-86f7-44e3-92bc-f13b59c71260
 |Name=Known Issue
+|PrintOrder=6
+}}
+{{IssueType
+|Id=8855be77-8fb8-4200-ac5c-9a9855b1881e
+|Name=Deprecations
+|PrintOrder=5
 }}
 {{ArticleUnstructured
 |DisplayName=Set up Issue Types
@@ -35,7 +43,7 @@
 |target={{FULLPAGENAME}} 
 }}
 </div>
-{{#cargo_query:tables=IssueType|fields=Id,Name,SectionName=Display Name,SectionOrder=Order|where=_pageNamespace="{{NAMESPACENUMBER}}"}}
+{{#cargo_query:tables=IssueType|fields=Id,Name,SectionName=Display Name,PrintOrder=Order|where=_pageNamespace="{{NAMESPACENUMBER}}"}}
 
 
 

@@ -98,8 +98,9 @@
 			"pages": [
 				{
 					"name": "Draft:ContentAdmin/Internal/ReleaseNote",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Demo/About.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Demo/ReleaseNote.mediawiki"
 				},
+
 				{
 					"name": "Draft:ContentAdmin/Internal/ReleaseNote/Genesys_Info_Mart",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Demo/Genesys_Info_Mart.mediawiki"
@@ -123,32 +124,24 @@
 			]
 		},
 
-		"RN Automation sample data": {
+		"RN Automation sample Admin management data": {
 			"globalID": "com.all.docs.genesys.Category:RNAutomation.demobook",
-			"description": "Sample admin data and component RNs RN Automation",
+			"description": "Sample admin data for RN Automation",
 			"version": "0.1",
 			"pages": [
-				{
-					"name": "Draft:RN/CX_Contact-100.0.112.14",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Data/CX_Contact-100.0.112.14"
-				},
-				{
-					"name": "Draft:RN/Designer-100.0.000.24",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Data/Designer-100.0.000.24"
-				},
-				{
-					"name": "Draft:RN/Workspace_Web_Edition-100.0.113.05",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Data/Workspace_Web_Edition-100.0.113.05"
-				},
+				
 				{
 					"name": "Draft:ContentAdmin/Internal/SiteDashboard/Components",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Data/Components"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Data/Components.mediawiki"
 				},
 				{
 					"name": "Draft:ContentAdmin/Internal/SiteDashboard/DeploymentType",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Data/DeploymentTypes"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Data/DeploymentType.mediawiki"
+				},
+					"name": "Draft:ContentAdmin/Internal/SiteDashboard/IssueType",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Data/IssueType.mediawiki"
 				}
-				
+
 				
 			],
 			"requiredExtensions": [
