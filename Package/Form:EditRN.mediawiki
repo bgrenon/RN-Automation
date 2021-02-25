@@ -34,12 +34,12 @@ if a page with that name already exists, you will be sent to a form to edit that
 <div class="col-md-10">{{{field|IssueType|input type=dropdown|cargo table=IssueType|cargo field=Id|mapping template=IssueTypeMap}}}</div>
 <div class="col-md-2 form-label">Deployment Type</div>
 <div class="col-md-10">{{{field|DeploymentTypeId|input type=tokens|cargo table=DeploymentType|cargo field=Id|mapping template=DeploymentTypeMap}}}</div>
-<div class="col-md-2 form-label">Last Updated</div>
-<div class="col-md-10">{{{field|LastUpdated|input type=datepicker}}}</div>
 <div class="col-md-2 form-label">Content</div>
 <div class="col-md-10">{{{field|Content|input type=textarea|restricted=GenericUser}}}</div>
 <div class="col-md-2 form-label">Local Content</div>
 <div class="col-md-10">{{{field|LocalContent|input type=textarea|editor=visualeditor}}}</div>
+<div class="col-md-2 form-label">Link to docs</div>
+<div class="col-md-10">{{{field|SupportingDocumentation|input type=text|size=70}}}</div>
 
 {{{end template}}}
 
