@@ -3,19 +3,24 @@ This is the "JiraIssue" template.
 It should be called in the following format:
 <pre>
 {{JiraIssue
-|Type=
+|IssueType=
 |Issue=
 |LastUpdated=
 |Content=
 |LocalContent=
+|SupportingDocumentation=
+|DeploymentTypeId=
 }}
 
 </pre>
+
 Edit the page to see the template text.
-{{#cargo_declare:_table=JiraIssue|Type=String|Issue=String|LastUpdated=Date|Content=Wikitext|LocalContent=Wikitext}}
+{{#cargo_declare:_table=JiraIssue|IssueType=String|Issue=String|LastUpdated=Date|Content=Wikitext|LocalContent=Wikitext|SupportingDocumentation=Wikitext|DeploymentTypeId=List (,) of String}}
 </noinclude><includeonly>{{#cargo_store:_table=JiraIssue
-|Type={{{Type|}}}
+|IssueType={{{IssueType|}}}
 |Issue={{{Issue|}}}
 |LastUpdated={{{LastUpdated|}}}
 |Content={{{Content|}}}
-|LocalContent={{{LocalContent|}}} }}[[Category:JiraIssue]]</includeonly><noinclude>[[Category:RNAutomation]]</noinclude>
+|LocalContent={{{LocalContent|}}}
+|SupportingDocumentation={{{SupportingDocumentation|}}}
+|DeploymentTypeId={{{DeploymentTypeId|}}} }}[[Category:JiraIssue]]</includeonly><noinclude>[[Category:RNAutomation]]</noinclude>
