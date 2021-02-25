@@ -70,6 +70,11 @@
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Template%3AArticleCloudRN.mediawiki"
 				},
 				{
+					"name": "ArticleCloudRN",
+					"namespace": "PF_NS_FORM",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Form%3AArticleCloudRN.mediawiki"
+				},
+				{
 					"name": "IssueType",
 					"namespace": "NS_TEMPLATE",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Template%3AIssueType.mediawiki"
@@ -86,7 +91,7 @@
 				},
 				{
 					"name": "ArticleCloudRN",
-					"namespace": "NS_Category",
+					"namespace": "14",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Category%3AArticleCloudRN.mediawiki"
 				}
 				
