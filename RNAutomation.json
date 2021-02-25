@@ -138,6 +138,7 @@
 					"name": "Draft:ContentAdmin/Internal/SiteDashboard/DeploymentType",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Data/DeploymentType.mediawiki"
 				},
+				{
 					"name": "Draft:ContentAdmin/Internal/SiteDashboard/IssueType",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Data/IssueType.mediawiki"
 				}
