@@ -15,11 +15,8 @@ It should be called in the following format:
 Edit the page to see the template text.
 {{#cargo_declare:_table=ComponentRN|Highlight=|ComponentId=List (,) of String|ReleaseNumber=String|ReleaseType=String|ReleaseDate=String|JQL=String|DeploymentTypeId=List (,) of String}}
 </noinclude><includeonly>{{#cargo_store:_table=ComponentRN|Highlight={{{Highlight|}}}|ComponentId={{{ComponentId|}}}|ReleaseNumber={{#explode:{{FULLPAGENAME}}|/|2}}
-|ReleaseType={{{ReleaseType|}}}|ReleaseDate={{{ReleaseDate|}}}|JQL={{{JQL|}}}|DeploymentTypeId={{{DeploymentTypeId|}}}}}
-
-{{#mintydocs_topic:
+|ReleaseType={{{ReleaseType|}}}|ReleaseDate={{{ReleaseDate|}}}|JQL={{{JQL|}}}|DeploymentTypeId={{{DeploymentTypeId|}}}}}{{#mintydocs_topic:
 |display name=Base unit of content for {{#cargo_query:tables=Component|fields=Name|where=Id="{{{ComponentId|}}}"|no html}} - {{#explode:{{FULLPAGENAME}}|/|2}}}}
-
 ==Component RN Definition==
 {| class="wikitable"
 ! Component
@@ -46,7 +43,6 @@ Edit the page to see the template text.
 ! Links
 | Links to customer-facing pages in use:
 {{#cargo_query:tables=ArticleCloudRN|field=_pageName|where=ComponentId HOLDS '{{{ComponentId|}}}'|format=ul}}
-
 |}{{#cargo_query:
 tables=ComponentRN,JiraIssue,IssueType
 |join on=ComponentRN._pageName=JiraIssue._pageName,JiraIssue.IssueType=IssueType.Id
@@ -55,19 +51,7 @@ tables=ComponentRN,JiraIssue,IssueType
 |outline fields=Name
 |where=ComponentRN.ComponentId HOLDS '{{{ComponentId|}}}' AND ReleaseNumber="{{#explode:{{FULLPAGENAME}}|/|2}}" AND LocalContent IS NOT NULL AND IssueType IS NOT NULL
 |order by=IssueType.PrintOrder ASC
-}}
-<!--
-<h3>{{{Issue|}}}</h3>
-Type: {{{IssueType|}}}
-Last Updated: {{{LastUpdated|}}}
-
-Jira source text: 
- {{{Content|}}}
-
-Writer-edited text: 
- {{{LocalContent|}}}-->
-__NOCACHE__
-[[Category:EditRN]]
+}}__NOCACHE__
 __TOC__
-</includeonly>
+[[Category:EditRN]]</includeonly>
 <noinclude>[[Category:RNAutomation]]</noinclude>
