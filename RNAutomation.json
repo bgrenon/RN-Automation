@@ -91,7 +91,8 @@
 				},
 				{
 					"name": "ArticleCloudRN",
-					"namespace": "14",
+
+					"namespace": "NS_CATEGORY",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Category%3AArticleCloudRN.mediawiki"
 				}
 				
