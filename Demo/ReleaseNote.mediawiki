@@ -32,15 +32,15 @@
 |structuredtext=
 
 {{#cargo_query:
-tables=ArticleCloudRN,Component,ComponentRN
-|join on=ArticleCloudRN.ComponentId HOLDS Component.Id,ComponentRN.ComponentId__full=ArticleCloudRN.ComponentId__full
-|fields=Component.Name=Service,CONCAT('[[',ArticleCloudRN._pageName,'#',ReleaseNumber,'|',ReleaseNumber,']]')=Release Number,ComponentRN._pageName=Page Name
+tables=ArticleCloudRN,Component,ComponentRN,DeploymentType
+|join on=ArticleCloudRN.ComponentId HOLDS Component.Id,ComponentRN.ComponentId__full=ArticleCloudRN.ComponentId__full,ComponentRN.DeploymentTypeId HOLDS DeploymentType.Id
+|fields=Component.Name=Service,CONCAT('[[',ArticleCloudRN._pageName,'#',ReleaseNumber,'|',ReleaseNumber,']]')=Release Number,CONCAT('[[File:',Image,'|80px]]')=Supported Cloud,DATE_FORMAT(ReleaseDate,'%M %d, %Y')=Date,Highlight=Highlights
 
 }}
 <!--
 {{#cargo_query:
-tables=ComponentRN,ComponentRN__ComponentId,ArticleCloudRN
-|join on=ComponentRN._ID=ComponentRN__ComponentId._rowID,ComponentRN.ComponentId__full=ArticleCloudRN.ComponentId__full
+tables=ComponentRN,ComponentRN__ComponentId,ArticleCloudRN,DeploymentType
+|join on=ComponentRN._ID=ComponentRN__ComponentId._rowID,ComponentRN.ComponentId__full=ArticleCloudRN.ComponentId__full,ComponentRN.DeploymentTypeId=DeploymentType.Id
 |fields=DisplayName=Service,CONCAT('[[',ArticleCloudRN._pageName,'#',ReleaseNumber,'|',ReleaseNumber,']]')=ReleaseNumber,DATE_FORMAT(ReleaseDate,'%M %d, %Y')=Date,Highlight=Highlights
 }}
 -->
