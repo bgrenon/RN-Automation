@@ -83,6 +83,11 @@
 					"name": "IssueType",
 					"namespace": "PF_NS_FORM",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Form%3AIssueType.mediawiki"
+				},
+				{
+					"name": "ArticleCloudRN",
+					"namespace": "NS_Category",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Category%3AArticleCloudRN.mediawiki"
 				}
 				
 			],
