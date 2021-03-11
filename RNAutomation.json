@@ -99,6 +99,16 @@
 					"name": "EditRN",
 					"namespace": "NS_CATEGORY",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Category%3AEditRN.mediawiki"
+				},
+				{
+					"name": "ReleaseType",
+					"namespace": "PF_NS_FORM",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Form%3AReleaseType.mediawiki"
+				},
+				{
+					"name": "ReleaseType",
+					"namespace": "NS_Template",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Template%3AReleaseType.mediawiki"
 				}
 				
 			],
@@ -157,6 +167,10 @@
 				{
 					"name": "Draft:ContentAdmin/Internal/SiteDashboard/IssueType",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Data/IssueType.mediawiki"
+				},
+				{
+					"name": "Draft:ContentAdmin/Internal/SiteDashboard/ReleaseType",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Data/ReleaseType.mediawiki"
 				}
 
 				
