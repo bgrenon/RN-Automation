@@ -24,7 +24,14 @@ Set up the H1 for your page. It should have some meat to establish context. The 
 
 <div class="col-md-10">{{{field|DeploymentTypeId|input type=tokens|cargo table=DeploymentType|cargo field=Id|mapping template=DeploymentTypeMap}}}</div>
 
+<div class="col-md-2 form-label">Release Type</div>
+
+<div class="col-md-10">{{{field|ReleaseType|input type=tokens|cargo table=ReleaseType|cargo field=Id|mapping template=ReleaseTypeMap}}}</div>
+
+
 <div class="col-md-2 form-label">TOC Title {{FormTip|(Optional) Choose a shorter name for the left-hand navigation tree/TOC. Be careful to keep your Display and TOC page names logically consistent.|&nbsp;Help|width=600}}</div>
+
+
 
 <div class="col-md-10">{{{field|TocName}}}</div>
 

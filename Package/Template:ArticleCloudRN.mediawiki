@@ -6,6 +6,7 @@ It should be called in the following format:
 {{ArticleCloudRN
 |ComponentId=
 |DeploymentTypeId=
+|ReleaseTypeId=
 }}
 
 </pre>
@@ -14,6 +15,7 @@ Edit the page to see the template text.
 {{#cargo_declare:_table=ArticleCloudRN
 |ComponentId=List (,) of String
 |DeploymentTypeId=List (,) of String
+|ReleaseTypeId=List (,) of String
 }}
 
 </noinclude>
@@ -21,6 +23,7 @@ Edit the page to see the template text.
 __NOEDITSECTION__{{#cargo_store:_table=Article|Standalone={{{Standalone}}}|productshort={{#explode:{{FULLPAGENAME}}|/|0}}|DisplayName={{{DisplayName|}}}|Context={{{Context|}}}}}{{#cargo_store:_table=ArticleCloudRN
 |ComponentId={{{ComponentId|}}}
 |DeploymentTypeId={{{DeploymentTypeId|}}}
+|ReleaseTypeId={{{ReleaseTypeId|}}}
 }}<!-- Set MintyDocs topic, including a switch for different treatment for Manual pages -->{{#switch:{{{PageType|}}}|Manual=|#default={{#mintydocs_topic:
 |display name={{{DisplayName|}}}
 |toc name={{{TocName|}}}

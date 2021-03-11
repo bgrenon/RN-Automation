@@ -1,7 +1,7 @@
 <noinclude>
 This is the "Component" template.
 It should be called in the following format:
-
+TEST
 <pre>
 {{Component
 |Id=

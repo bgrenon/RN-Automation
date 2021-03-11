@@ -6,16 +6,16 @@ It should be called in the following format:
 |Highlight=
 |ComponentId=
 |ReleaseNumber=
-|ReleaseType=
 |ReleaseDate=
+|ReleaseTypeId=
 |JQL=
 |DeploymentTypeId=
 }}
 </pre>
 Edit the page to see the template text.
-{{#cargo_declare:_table=ComponentRN|Highlight=|ComponentId=List (,) of String|ReleaseNumber=String|ReleaseType=String|ReleaseDate=String|JQL=String|DeploymentTypeId=List (,) of String}}
+{{#cargo_declare:_table=ComponentRN|Highlight=|ComponentId=List (,) of String|ReleaseNumber=String|ReleaseDate=String|ReleaseTypeId=String|JQL=String|DeploymentTypeId=List (,) of String}}
 </noinclude><includeonly>{{#cargo_store:_table=ComponentRN|Highlight={{{Highlight|}}}|ComponentId={{{ComponentId|}}}|ReleaseNumber={{#explode:{{FULLPAGENAME}}|/|2}}
-|ReleaseType={{{ReleaseType|}}}|ReleaseDate={{{ReleaseDate|}}}|JQL={{{JQL|}}}|DeploymentTypeId={{{DeploymentTypeId|}}}}}{{#mintydocs_topic:
+|ReleaseDate={{{ReleaseDate|}}}|ReleaseTypeId={{{ReleaseTypeId|}}}|JQL={{{JQL|}}}|DeploymentTypeId={{{DeploymentTypeId|}}}}}{{#mintydocs_topic:
 |display name=Base unit of content for {{#cargo_query:tables=Component|fields=Name|where=Id="{{{ComponentId|}}}"|no html}} - {{#explode:{{FULLPAGENAME}}|/|2}}}}
 ==Component RN Definition==
 {| class="wikitable"
@@ -29,7 +29,7 @@ Edit the page to see the template text.
 | {{#explode:{{FULLPAGENAME}}|/|2}} ([[Special:MovePage/{{FULLPAGENAME}}|Change release number]])
 |-
 ! Release Type
-| {{#arraymap:{{{ReleaseType|}}}|,|x|x}}
+| {{#arraymap:{{{ReleaseTypeId|}}}|,|x|{{#cargo_query:tables=ReleaseType|fields=Name|where=Id="x"|no html}}}}
 |-
 !Highlight
 |{{{Highlight|}}}

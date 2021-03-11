@@ -4,6 +4,12 @@ tables=ComponentRN,DeploymentType=DT
 |fields=CONCAT('[[File:',DT.Image,'|80px]]')
 |delimiter=
 |where=ComponentRN.ComponentId HOLDS '{{{Component|}}}' AND ReleaseNumber="{{{ReleaseNumber|}}}"
+}}
+{{#cargo_query:
+tables=ComponentRN,ReleaseType=RT
+|join on=ComponentRN.ReleaseTypeId=RT.Id
+|fields=Label
+|where=ComponentRN.ComponentId HOLDS '{{{Component|}}}' AND ReleaseNumber="{{{ReleaseNumber|}}}"
 }}</h2>
 {{AnchorDiv|{{{ReleaseNumber|}}}}}
 {{#cargo_query:

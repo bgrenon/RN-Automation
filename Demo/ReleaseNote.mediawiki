@@ -22,28 +22,36 @@
 |defaultform=Form:ArticleCloudRN
 |inherit=no
 |Auto=Manual sections
-|Section={{SectionTest
+|Section={{Section
 |Type=Structured
-|sectionHeading=Applications / Most Recent releases
+|sectionHeading=Services/ Most Recent releases
 |anchor=
 |alignment=Vertical
 |image=
 |Media=
 |structuredtext=
 
-{{#cargo_query:
-tables=ArticleCloudRN,Component,ComponentRN,DeploymentType
-|join on=ArticleCloudRN.ComponentId HOLDS Component.Id,ComponentRN.ComponentId__full=ArticleCloudRN.ComponentId__full,ComponentRN.DeploymentTypeId HOLDS DeploymentType.Id
-|fields=Component.Name=Service,CONCAT('[[',ArticleCloudRN._pageName,'#',ReleaseNumber,'|',ReleaseNumber,']]')=Release Number,CONCAT('[[File:',Image,'|80px]]')=Supported Cloud,DATE_FORMAT(ReleaseDate,'%M %d, %Y')=Date,Highlight=Highlights
+Break into two sections one for Azure, one for AWS.
+Each table lists only the latest release per component.
+Service level page needs a similar table to capture the N-2 release history and highlights to link to the release info further down the page. ie., combine pathfinder snapshot with the actual cotnent on the same page
 
-}}
-<!--
+===testing multiple components per article without using HOLDS===
+
 {{#cargo_query:
-tables=ComponentRN,ComponentRN__ComponentId,ArticleCloudRN,DeploymentType
-|join on=ComponentRN._ID=ComponentRN__ComponentId._rowID,ComponentRN.ComponentId__full=ArticleCloudRN.ComponentId__full,ComponentRN.DeploymentTypeId=DeploymentType.Id
-|fields=DisplayName=Service,CONCAT('[[',ArticleCloudRN._pageName,'#',ReleaseNumber,'|',ReleaseNumber,']]')=ReleaseNumber,DATE_FORMAT(ReleaseDate,'%M %d, %Y')=Date,Highlight=Highlights
+tables=ArticleCloudRN__ComponentId=ArticleCloudRN__ComponentId,ArticleCloudRN=ArticleCloudRN,Component=Component,ComponentRN__ComponentId=ComponentRN__ComponentId,ComponentRN=ComponentRN,ComponentRN__DeploymentTypeId=ComponentRN__DeploymentTypeId,DeploymentType=DeploymentType,Article
+|join on=ArticleCloudRN__ComponentId._rowID =  ArticleCloudRN._ID,
+ArticleCloudRN__ComponentId._value = Component.Id,
+Component.Id = ComponentRN__ComponentId._value,
+ComponentRN__ComponentId._rowID = ComponentRN._ID,
+ComponentRN._ID = ComponentRN__DeploymentTypeId._rowID,
+ComponentRN__DeploymentTypeId._value = DeploymentType.Id,
+ArticleCloudRN._pageName=Article._pageName
+|fields=CONCAT('[[',ArticleCloudRN._pageName,'|',Article.DisplayName,']]')=Service, Component.Name=Component,CONCAT('[[',ArticleCloudRN._pageName,'#',ReleaseNumber,'|',ReleaseNumber,']]')=Release Number,GROUP_CONCAT(DISTINCT CONCAT('[[File:',Image,'|80px]]') SEPARATOR ' ')=Supported Cloud,DATE_FORMAT(ReleaseDate,'%M %d, %Y')=Date,Highlight=Highlights|where=ComponentRN._pageNamespace="{{NAMESPACENUMBER}}"
+|group by=ReleaseNumber
+|order by=ReleaseDate
+|where=ReleaseDate IS NOT NULL
 }}
--->
+
 
 |structuredtextwide=
 |FAQHeading=

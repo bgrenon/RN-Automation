@@ -1,0 +1,50 @@
+{{ReleaseType
+|Id=c2aeaad4-d6c9-4e43-9ea3-8a2486ca53b0
+|Name=Preview
+|Label=Pre-release
+|PrintOrder=1
+}}
+{{ReleaseType
+|Id=46f08752-fdf0-4b25-b776-f4f17a4c30f0
+|Name=Restricted
+|Label=Restricted
+|PrintOrder=2
+}}
+{{ReleaseType
+|Id=4c538d48-3234-4838-882c-d37201150ca7
+|Name=Release Type Test Name
+|Label=Release Type Label
+|PrintOrder=3
+}}
+{{ReleaseType
+|Id=bd29a217-74d6-4220-a07b-3bdb36d5cf26
+|Name=General
+|Label=General
+}}
+{{ReleaseType
+|Id=88a6c954-78a6-4268-a0aa-3035c11b1aeb
+|Name=Update
+|Label=Update
+}}
+{{ReleaseType
+|Id=df56faec-9751-4db7-a158-53fc7e6f4e50
+|Name=Hot Fix
+|Label=Hot Fix
+}}
+{{ArticleUnstructured
+|DisplayName=Set up Release Types
+|ComingSoon=No
+|Context=Use this page to set up the list of Release Types used in the Engage content (specifically for Release Note automation). 
+
+}}
+<div class="template-form">
+{{#formlink:form=ReleaseType
+|link text=Add or edit
+|link type=button
+|target={{FULLPAGENAME}} 
+}}
+</div>
+{{#cargo_query:tables=ReleaseType|fields=Id,Name,Label=Label,PrintOrder=Order|where=_pageNamespace="{{NAMESPACENUMBER}}"}}
+
+__NOCACHE__
+[[Category:RNAutomation]]
