@@ -1,0 +1,15 @@
+<noinclude>
+This is the "ReleaseType" template.
+It should be called in the following format:
+<pre>
+{{ReleaseType
+|Id=
+|Name=
+|Label=
+|PrintOrder=
+}}
+</pre>
+Edit the page to see the template text.
+{{#cargo_declare:_table=ReleaseType|Id=String|Name=String|Label=String|PrintOrder=String}}
+</noinclude><includeonly>{{#cargo_store:_table=ReleaseType|Id={{{Id|}}}|Name={{{Name|}}}|Label={{#if:{{{Label|}}}|{{{Label|}}}|{{{Name|}}}}}|PrintOrder={{{PrintOrder|}}} }}
+</includeonly><noinclude>[[Category:RNAutomation]]</noinclude>
