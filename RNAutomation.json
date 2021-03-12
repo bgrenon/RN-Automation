@@ -7,7 +7,7 @@
 	"language": "en",
 	"url": "https://github.com/bgrenon/RN-Automation",
 	"packages": {
-		"RN Automation": {
+		"RN Automation: Data Structure": {
 			"globalID": "com.docs.genesys.Category:RNAutomation",
 			"publisherURL": "https://all.docs.genesys.com",
 			"description": "A data structure for handling incoming release note content from both cloud and premise Jira instances in Genesys, using the Cargo and Page Forms extensions.",
@@ -122,7 +122,7 @@
 				"Cargo"
 			]
 		},
-		"RN Automation demo book (Cargo)": {
+		"RN Automation: Sample customer-facing content pages": {
 			"globalID": "com.docs.genesys.Category:RNAutomation.demobook",
 			"description": "Sample mintydocs manual for RN Automation project",
 			"version": "0.1",
@@ -155,9 +155,9 @@
 			]
 		},
 
-		"RN Automation sample Admin management data": {
+		"RN Automation: Admin-managed content pages": {
 			"globalID": "com.all.docs.genesys.Category:RNAutomation.demobook",
-			"description": "Sample admin data for RN Automation",
+			"description": "Caveat: mix of sample data and structure, be careful updating to not overwrite production content",
 			"version": "0.1",
 			"pages": [
 				
