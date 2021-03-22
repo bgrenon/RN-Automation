@@ -26,15 +26,27 @@ __NOEDITSECTION__{{#cargo_store:_table=Article|Standalone={{{Standalone}}}|produ
 |ServiceId={{{ServiceId|}}}
 |ComponentId={{{ComponentId|}}}
 |DeploymentTypeId={{{DeploymentTypeId|}}}
-<!--|ReleaseTypeId={{{ReleaseTypeId|}}}-->
+|ReleaseTypeId={{{ReleaseTypeId|}}}
 }}<!-- Set MintyDocs topic, including a switch for different treatment for Manual pages -->{{#switch:{{{PageType|}}}|Manual=|#default={{#mintydocs_topic:
 |display name={{{DisplayName|}}}
 |toc name={{{TocName|}}}
-}}}}<!-- Defining the EPPO Header; all parameters need to be passed to it -->{{EPPOHead|Role={{{Role|}}}|ComingSoon={{{ComingSoon|}}}|Dimension={{{Dimension|}}}|Context=Not all releases or changes listed below may pertain to your deployment. The following labels indicate a release or change as unique to a certain type of deployment environment:
+}}}}<!-- Defining the EPPO Header; all parameters need to be passed to it -->{{EPPOHead|Role={{{Role|}}}|ComingSoon={{{ComingSoon|}}}|Dimension={{{Dimension|}}}|Context=Not all releases or changes listed below may pertain to your deployment. Check the table below to see which releases apply to you.
+|UseCase={{{UseCase|}}}|Application={{{Application|}}}|Platform={{{Platform|}}}|PageType=Article}}<!--Defining the Prerequisite Head -->{{PrerequisitesHead|Prereq={{{Prereq|}}}}}<!-- Query for showing component list -->
 
-*Genesys Engage cloud for AWS
-*Genesys Engage cloud for Azure
-*Genesys Engage cloud private edition|UseCase={{{UseCase|}}}|Application={{{Application|}}}|Platform={{{Platform|}}}|PageType=Article}}<!--Defining the Prerequisite Head -->{{PrerequisitesHead|Prereq={{{Prereq|}}}}}<!-- Query for showing component list -->
+{{#cargo_query:
+tables=ArticleCloudRN__ComponentId,ArticleCloudRN,Component,ComponentRN__ComponentId,ComponentRN,DeploymentType
+|join on=ArticleCloudRN__ComponentId._value=Component.Id,ArticleCloudRN__ComponentId._rowID=ArticleCloudRN._ID,ArticleCloudRN__ComponentId._value = ComponentRN__ComponentId._value,ComponentRN__ComponentId._rowID=ComponentRN._ID,ComponentRN.DeploymentTypeId HOLDS DeploymentType.Id
+|fields=Component.Name=Service,CONCAT('[[',ArticleCloudRN._pageName,'#',DATE_FORMAT(ReleaseDate,'%M %d, %Y'),'|',DATE_FORMAT(ReleaseDate,'%M %d, %Y'),']]')=Release Date,CONCAT('[[File:',Image,'|80px]]')=Supported Cloud,Highlight=Highlights,ComponentId=ComponentId,ReleaseDate=ReleaseDate
+|where=(ComponentRN__ComponentId._value IN ({{#arraymap:{{{ComponentId|}}}|,|x|'x'}})) AND (ComponentRN__DeploymentTypeId._value IN ({{#arraymap:{{{DeploymentTypeId|}}}|,|x|'x'}})) AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}"
+|intro=<table><tr>{{#ifeq:{{#cargo_query:tables=ArticleCloudRN,ArticleCloudRN__ComponentId|join on=ArticleCloudRN._ID=ArticleCloudRN__ComponentId._rowID|fields=COUNT(*)|where=ArticleCloudRN._pageName="{{FULLPAGENAME}}" AND ArticleCloudRN._pageNamespace="{{NAMESPACENUMBER}}"|no html}}|1||<th>Service</th>}} 
+<th>Release Date</th><th>Supported Cloud</th><th>Highlights</th></tr>
+|outro=</table>
+|format=template
+|template=PrintTopRN
+|named args=yes
+|group by=ReleaseNumber
+|order by=ComponentRN.ReleaseDate DESC
+}}
 
 {{#cargo_query:
 tables=JiraIssue,ComponentRN,ComponentRN__ComponentId,ComponentRN__DeploymentTypeId,Component
@@ -42,7 +54,7 @@ tables=JiraIssue,ComponentRN,ComponentRN__ComponentId,ComponentRN__DeploymentTyp
 |fields=ComponentId=Component,ComponentRN.ReleaseNumber=ReleaseNumber,ComponentRN.ReleaseDate=ReleaseDate,ComponentRN._pageName=Page,Component.Name=ComponentName
 |format=template
 |template=RNPrint
-|where=(ComponentRN__ComponentId._value IN ({{#arraymap:{{{ComponentId|}}}|,|x|'x'}})) AND (ComponentRN__DeploymentTypeId._value IN ({{#arraymap:{{{DeploymentTypeId|}}}|,|x|'x'}}))
+|where=(ComponentRN__ComponentId._value IN ({{#arraymap:{{{ComponentId|}}}|,|x|'x'}})) AND (ComponentRN__DeploymentTypeId._value IN ({{#arraymap:{{{DeploymentTypeId|}}}|,|x|'x'}})) AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}"
 |named args=yes
 |group by=ReleaseNumber
 |order by=ComponentRN.ReleaseDate DESC

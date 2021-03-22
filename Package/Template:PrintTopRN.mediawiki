@@ -1,11 +1,11 @@
 <tr>
-<td>{{{Service|}}}</td>
+{{#ifeq:{{#cargo_query:tables=ArticleCloudRN,ArticleCloudRN__ComponentId|join on=ArticleCloudRN._ID=ArticleCloudRN__ComponentId._rowID|fields=COUNT(*)|where=ArticleCloudRN._pageName="{{FULLPAGENAME}}" AND ArticleCloudRN._pageNamespace="{{NAMESPACENUMBER}}"|no html}}|1||<td>{{{Service|}}}</td>}} 
 <td>{{{Release Date|}}}</td>
 <td>{{#cargo_query:
 	table=ComponentRN,DeploymentType
 	|join on=ComponentRN.DeploymentTypeId HOLDS DeploymentType.Id
 	|fields=CONCAT('[[File:',Image,'|80px]]')
 	|delimiter=
-	|where=ComponentId HOLDS "{{{ComponentId|}}}" AND ReleaseDate="{{{ReleaseDate|}}}"}}</td>
+	|where=ComponentId HOLDS "{{{ComponentId|}}}" AND ReleaseDate="{{{ReleaseDate|}}}" AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}"}}</td>
 <td>{{{Highlights|}}}</td>
 </tr><noinclude>[[Category:RNAutomation]]</noinclude>

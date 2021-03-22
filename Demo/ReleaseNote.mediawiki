@@ -19,35 +19,34 @@
 ** Genesys Info Mart
 * -Genesys Web Services
 ** WebServices
+* -intelligent Workload Distribution
+** intelligent Workload Distribution
+* -Stat Server
+** Stat Server
 |defaultform=Form:ArticleCloudRN
 |inherit=no
 |Auto=Manual sections
 |Section={{Section
 |Type=Structured
-|sectionHeading=Services/ Most Recent releases
+|sectionHeading=Latest release per service
 |anchor=
 |alignment=Vertical
 |image=
 |Media=
 |structuredtext=
-
-
 {{#cargo_query:
-tables=ArticleCloudRN__ComponentId=ArticleCloudRN__ComponentId,ArticleCloudRN=ArticleCloudRN,Component=Component,ComponentRN__ComponentId=ComponentRN__ComponentId,ComponentRN=ComponentRN,ComponentRN__DeploymentTypeId=ComponentRN__DeploymentTypeId,DeploymentType=DeploymentType,Article
-|join on=ArticleCloudRN__ComponentId._rowID =  ArticleCloudRN._ID,
-ArticleCloudRN__ComponentId._value = Component.Id,
-Component.Id = ComponentRN__ComponentId._value,
-ComponentRN__ComponentId._rowID = ComponentRN._ID,
-ComponentRN._ID = ComponentRN__DeploymentTypeId._rowID,
-ComponentRN__DeploymentTypeId._value = DeploymentType.Id,
-ArticleCloudRN._pageName=Article._pageName
-|fields=Component.Name=Component,CONCAT('[[',ArticleCloudRN._pageName,'#',ReleaseNumber,'|',ReleaseNumber,']]')=Release Number,GROUP_CONCAT(DISTINCT CONCAT('[[File:',Image,'|80px]]') SEPARATOR ' ')=Supported Cloud,DATE_FORMAT(ReleaseDate,'%M %d, %Y')=Date,MAX(ReleaseDate)=MaxDate,Highlight=Highlights|where=ComponentRN._pageNamespace="{{NAMESPACENUMBER}}"
-|group by=ReleaseNumber
-|order by=ReleaseDate
-|where=ReleaseDate IS NOT NULL
+tables=ArticleCloudRN__ComponentId,ArticleCloudRN,Component,ComponentRN__ComponentId,ComponentRN,DeploymentType
+|join on=ArticleCloudRN__ComponentId._value=Component.Id,ArticleCloudRN__ComponentId._rowID=ArticleCloudRN._ID,ArticleCloudRN__ComponentId._value = ComponentRN__ComponentId._value,ComponentRN__ComponentId._rowID=ComponentRN._ID,ComponentRN.DeploymentTypeId HOLDS DeploymentType.Id
+|fields=Component.Name=Service,CONCAT('[[',ArticleCloudRN._pageName,'#',DATE_FORMAT(MAX(ReleaseDate),'%M %d, %Y'),'|',DATE_FORMAT(MAX(ReleaseDate),'%M %d, %Y'),']]')=Release Date,CONCAT('[[File:',Image,'|80px]]')=Supported Cloud,Highlight=Highlights,ComponentId=ComponentId,ReleaseDate=ReleaseDate
+|where=ComponentRN._pageNamespace="{{NAMESPACENUMBER}}" AND ArticleCloudRN._pageNamespace="{{NAMESPACENUMBER}}"
+|intro=<table><tr><th>Service</th><th>Release Date</th><th>Supported Cloud</th><th>Highlights</th></tr>
+|outro=</table>
+|format=template
+|template=PrintTopRN
+|named args=yes
+|group by=ComponentRN.ComponentId
+|order by=ComponentRN.ReleaseDate DESC
 }}
-
-
 |structuredtextwide=
 |FAQHeading=
 |Status=No

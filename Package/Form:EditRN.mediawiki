@@ -17,9 +17,8 @@ if a page with that name already exists, you will be sent to a form to edit that
 <div class="col-md-2 form-label">Supported deployments:</div> 
 <div class="col-md-10">
 {{{field|DeploymentTypeId|input type=tokens|existing values only|cargo table=DeploymentType|cargo field=Id|mapping template=DeploymentTypeMap}}}</div>  
- 
 <div class="col-md-2 form-label">Release Type:</div> 
-<div class="col-md-10">{{{field|ReleaseTypeId|input type=radiobutton|cargo table=ReleaseType|cargo field=Id|mapping template=ReleaseTypeMap|placeholder=Click to select release type|}}}</div>  
+<div class="col-md-10">{{{field|ReleaseTypeId|input type=radiobutton|cargo table=ReleaseType|cargo field=Id|mapping template=ReleaseTypeMap|placeholder=Click to select release type|}}}</div> 
 <div class="col-md-2 form-label">Release Date:</div>
 <div class="col-md-10">{{{field|ReleaseDate|input type=datepicker|default=now}}}</div> 
 <div class="col-md-2 form-label">Highlight:{{FormTip|Craft a single sentence that sums up the main selling point for this release. For example, <need 2 or 3 solid examples>}}</div>
@@ -29,7 +28,7 @@ if a page with that name already exists, you will be sent to a form to edit that
 
 {{{for template|JiraIssue|multiple|displayed fields when minimized=Issue,IssueType}}}
 <div class="col-md-2 form-label">Issue</div>
-<div class="col-md-10">{{{field|Issue|restricted=GenericUser}}}</div>
+<div class="col-md-10">{{{field|Issue}}}</div>
 <div class="col-md-2 form-label">Type</div>
 <div class="col-md-10">{{{field|IssueType|input type=dropdown|cargo table=IssueType|cargo field=Id|mapping template=IssueTypeMap}}}</div>
 <div class="col-md-2 form-label">Deployment Type</div>

@@ -16,6 +16,7 @@ Edit the page to see the template text.
 {{#cargo_declare:_table=ComponentRN|Highlight=|ComponentId=List (,) of String|ReleaseNumber=String|ReleaseDate=String|ReleaseTypeId=String|JQL=String|DeploymentTypeId=List (,) of String}}
 </noinclude><includeonly>{{#cargo_store:_table=ComponentRN|Highlight={{{Highlight|}}}|ComponentId={{{ComponentId|}}}|ReleaseNumber={{#explode:{{FULLPAGENAME}}|/|2}}
 |ReleaseDate={{{ReleaseDate|}}}|ReleaseTypeId={{{ReleaseTypeId|}}}|JQL={{{JQL|}}}|DeploymentTypeId={{{DeploymentTypeId|}}}}}{{#mintydocs_topic:
+|standalone
 |display name=Base unit of content for {{#cargo_query:tables=Component|fields=Name|where=Id="{{{ComponentId|}}}"|no html}} - {{#explode:{{FULLPAGENAME}}|/|2}}}}
 ==Component RN Definition==
 {| class="wikitable"
@@ -28,7 +29,7 @@ Edit the page to see the template text.
 ! Release Number
 | {{#explode:{{FULLPAGENAME}}|/|2}} ([[Special:MovePage/{{FULLPAGENAME}}|Change release number]])
 |-
-! Release Type
+!Release Type
 | {{#arraymap:{{{ReleaseTypeId|}}}|,|x|{{#cargo_query:tables=ReleaseType|fields=Name|where=Id="x"|no html}}}}
 |-
 !Highlight
@@ -44,12 +45,12 @@ Edit the page to see the template text.
 | Links to customer-facing pages in use:
 {{#cargo_query:tables=ArticleCloudRN|field=_pageName|where=ComponentId HOLDS '{{{ComponentId|}}}'|format=ul}}
 |}{{#cargo_query:
-tables=ComponentRN,JiraIssue,IssueType
-|join on=ComponentRN._pageName=JiraIssue._pageName,JiraIssue.IssueType=IssueType.Id
-|fields=CONCAT('<h3>',IF (IssueType.Name="New","What's New", IssueType.Name),'</h3>')=Name,IF (SupportingDocumentation IS NOT NULL, CONCAT (LocalContent,'</br><b>More info</b>: ',SupportingDocumentation), LocalContent)
-|format=outline
-|outline fields=Name
+tables=ComponentRN,JiraIssue,IssueType,DeploymentType
+|join on=ComponentRN._pageName=JiraIssue._pageName,JiraIssue.IssueType=IssueType.Id,ComponentRN.DeploymentTypeId HOLDS DeploymentType.Id
+|fields=CONCAT ('[https://jira.genesys.com/browse/',JiraIssue.Issue,' ',JiraIssue.Issue,']')=Issue,IssueType.Name=Issue Category,DeploymentType.Name=Deployment Type,LocalContent=Description,SupportingDocumentation
+|format=dynamic table
 |where=ComponentRN.ComponentId HOLDS '{{{ComponentId|}}}' AND ReleaseNumber="{{#explode:{{FULLPAGENAME}}|/|2}}" AND LocalContent IS NOT NULL AND IssueType IS NOT NULL
+|group by=JiraIssue.Issue
 |order by=IssueType.PrintOrder ASC
 }}__NOCACHE__
 __TOC__
