@@ -114,6 +114,11 @@
 					"name": "ReleaseTypeMap",
 					"namespace": "NS_TEMPLATE",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Template%3AReleaseTypeMap.mediawiki"
+				},
+				{
+					"name": "PrintTopRN",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Template%3APrintTopRN.mediawiki"
 				}
 				
 			],
@@ -155,7 +160,7 @@
 			]
 		},
 
-		"RN Automation: Admin-managed content pages": {
+		"RN Automation: Sample admin-managed content pages": {
 			"globalID": "com.all.docs.genesys.Category:RNAutomation.demobook",
 			"description": "Caveat: mix of sample data and structure, be careful updating to not overwrite production content",
 			"version": "0.1",

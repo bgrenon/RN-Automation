@@ -1,0 +1,11 @@
+<tr>
+<td>{{{Service|}}}</td>
+<td>{{{Release Date|}}}</td>
+<td>{{#cargo_query:
+	table=ComponentRN,DeploymentType
+	|join on=ComponentRN.DeploymentTypeId HOLDS DeploymentType.Id
+	|fields=CONCAT('[[File:',Image,'|80px]]')
+	|delimiter=
+	|where=ComponentId HOLDS "{{{ComponentId|}}}" AND ReleaseDate="{{{ReleaseDate|}}}"}}</td>
+<td>{{{Highlights|}}}</td>
+</tr><noinclude>[[Category:RNAutomation]]</noinclude>

@@ -4,6 +4,7 @@ This is the "ArticleCloudRN" template.
 It should be called in the following format:
 <pre>
 {{ArticleCloudRN
+|ServiceId=
 |ComponentId=
 |DeploymentTypeId=
 |ReleaseTypeId=
@@ -13,6 +14,7 @@ It should be called in the following format:
 Edit the page to see the template text.
 
 {{#cargo_declare:_table=ArticleCloudRN
+|ServiceId=String
 |ComponentId=List (,) of String
 |DeploymentTypeId=List (,) of String
 |ReleaseTypeId=List (,) of String
@@ -21,9 +23,10 @@ Edit the page to see the template text.
 </noinclude>
 <includeonly>{{#css: .MintyDocsTopicDesc {display:none} }}[[Category:ArticleCloudRN]]__TOC__
 __NOEDITSECTION__{{#cargo_store:_table=Article|Standalone={{{Standalone}}}|productshort={{#explode:{{FULLPAGENAME}}|/|0}}|DisplayName={{{DisplayName|}}}|Context={{{Context|}}}}}{{#cargo_store:_table=ArticleCloudRN
+|ServiceId={{{ServiceId|}}}
 |ComponentId={{{ComponentId|}}}
 |DeploymentTypeId={{{DeploymentTypeId|}}}
-|ReleaseTypeId={{{ReleaseTypeId|}}}
+<!--|ReleaseTypeId={{{ReleaseTypeId|}}}-->
 }}<!-- Set MintyDocs topic, including a switch for different treatment for Manual pages -->{{#switch:{{{PageType|}}}|Manual=|#default={{#mintydocs_topic:
 |display name={{{DisplayName|}}}
 |toc name={{{TocName|}}}

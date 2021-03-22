@@ -1,16 +1,17 @@
-<includeonly><h2>{{{ComponentName|}}}: {{#if:{{{ReleaseDate|}}}|{{#time:F d, Y|{{{ReleaseDate|}}}}}|<span style="background-color:yellow">Date needed</span>}} {{#cargo_query:
+<includeonly><h2>{{#ifeq:{{#cargo_query:tables=ArticleCloudRN,ArticleCloudRN__ComponentId|join on=ArticleCloudRN._ID=ArticleCloudRN__ComponentId._rowID|fields=COUNT(*)|where=ArticleCloudRN._pageName="{{FULLPAGENAME}}"|no html}}|1||{{{ComponentName|}}}:}} {{#if:{{{ReleaseDate|}}}|{{#time:F d, Y|{{{ReleaseDate|}}}}}|<span style="background-color:yellow">Date needed</span>}} {{#cargo_query:
 tables=ComponentRN,DeploymentType=DT
 |join on=ComponentRN.DeploymentTypeId HOLDS DT.Id
 |fields=CONCAT('[[File:',DT.Image,'|80px]]')
 |delimiter=
 |where=ComponentRN.ComponentId HOLDS '{{{Component|}}}' AND ReleaseNumber="{{{ReleaseNumber|}}}"
-}}
+}}<!-- removing release type from display until required
 {{#cargo_query:
 tables=ComponentRN,ReleaseType=RT
 |join on=ComponentRN.ReleaseTypeId=RT.Id
 |fields=Label
 |where=ComponentRN.ComponentId HOLDS '{{{Component|}}}' AND ReleaseNumber="{{{ReleaseNumber|}}}"
-}}</h2>
+}}--></h2> 
+
 {{AnchorDiv|{{{ReleaseNumber|}}}}}
 {{#cargo_query:
 tables=ComponentRN,JiraIssue,IssueType

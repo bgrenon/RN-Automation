@@ -31,11 +31,6 @@
 |Media=
 |structuredtext=
 
-Break into two sections one for Azure, one for AWS.
-Each table lists only the latest release per component.
-Service level page needs a similar table to capture the N-2 release history and highlights to link to the release info further down the page. ie., combine pathfinder snapshot with the actual cotnent on the same page
-
-===testing multiple components per article without using HOLDS===
 
 {{#cargo_query:
 tables=ArticleCloudRN__ComponentId=ArticleCloudRN__ComponentId,ArticleCloudRN=ArticleCloudRN,Component=Component,ComponentRN__ComponentId=ComponentRN__ComponentId,ComponentRN=ComponentRN,ComponentRN__DeploymentTypeId=ComponentRN__DeploymentTypeId,DeploymentType=DeploymentType,Article
@@ -46,7 +41,7 @@ ComponentRN__ComponentId._rowID = ComponentRN._ID,
 ComponentRN._ID = ComponentRN__DeploymentTypeId._rowID,
 ComponentRN__DeploymentTypeId._value = DeploymentType.Id,
 ArticleCloudRN._pageName=Article._pageName
-|fields=CONCAT('[[',ArticleCloudRN._pageName,'|',Article.DisplayName,']]')=Service, Component.Name=Component,CONCAT('[[',ArticleCloudRN._pageName,'#',ReleaseNumber,'|',ReleaseNumber,']]')=Release Number,GROUP_CONCAT(DISTINCT CONCAT('[[File:',Image,'|80px]]') SEPARATOR ' ')=Supported Cloud,DATE_FORMAT(ReleaseDate,'%M %d, %Y')=Date,Highlight=Highlights|where=ComponentRN._pageNamespace="{{NAMESPACENUMBER}}"
+|fields=Component.Name=Component,CONCAT('[[',ArticleCloudRN._pageName,'#',ReleaseNumber,'|',ReleaseNumber,']]')=Release Number,GROUP_CONCAT(DISTINCT CONCAT('[[File:',Image,'|80px]]') SEPARATOR ' ')=Supported Cloud,DATE_FORMAT(ReleaseDate,'%M %d, %Y')=Date,MAX(ReleaseDate)=MaxDate,Highlight=Highlights|where=ComponentRN._pageNamespace="{{NAMESPACENUMBER}}"
 |group by=ReleaseNumber
 |order by=ReleaseDate
 |where=ReleaseDate IS NOT NULL
