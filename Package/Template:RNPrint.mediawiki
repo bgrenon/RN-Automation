@@ -1,7 +1,7 @@
 <includeonly><h2>{{#ifeq:{{#cargo_query:tables=ArticleCloudRN,ArticleCloudRN__ComponentId|join on=ArticleCloudRN._ID=ArticleCloudRN__ComponentId._rowID|fields=COUNT(*)|where=ArticleCloudRN._pageName="{{FULLPAGENAME}}" AND ArticleCloudRN._pageNamespace="{{NAMESPACENUMBER}}"|no html}}|1||{{{ComponentName|}}}:}} {{#if:{{{ReleaseDate|}}}|{{#time:F d, Y|{{{ReleaseDate|}}}}}|<span style="background-color:yellow">Date needed</span>}} {{#cargo_query:
 tables=ComponentRN,DeploymentType=DT
 |join on=ComponentRN.DeploymentTypeId HOLDS DT.Id
-|fields=CONCAT('[[File:',DT.Image,'|80px]]')
+|fields=CONCAT('[[File:',DT.Image,'|50px]]')
 |delimiter=
 |where=ComponentRN.ComponentId HOLDS '{{{Component|}}}' AND ReleaseNumber="{{{ReleaseNumber|}}}" AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}"
 }}<!-- removing release type from display until required
@@ -12,11 +12,11 @@ tables=ComponentRN,ReleaseType=RT
 |where=ComponentRN.ComponentId HOLDS '{{{Component|}}}' AND ReleaseNumber="{{{ReleaseNumber|}}}"
 }}--></h2> 
 
-{{AnchorDiv|{{{ReleaseNumber|}}}}}
+{{AnchorDiv|{{{ComponentName|}}}-{{{ReleaseNumber|}}}}}
 {{#cargo_query:
 tables=ComponentRN,JiraIssue,IssueType
 |join on=ComponentRN._pageName=JiraIssue._pageName,JiraIssue.IssueType=IssueType.Id
-|fields=CONCAT('<h3>',IssueType.SectionName,'</h3>')=Name,IF (SupportingDocumentation IS NOT NULL, CONCAT (LocalContent,'</br><b>More info</b>: ',SupportingDocumentation), LocalContent)
+|fields=CONCAT('<h3>',IssueType.SectionName,'</h3>')=Name,IF (SupportingDocumentation IS NOT NULL, CONCAT (LocalContent,' (',JiraIssue.Issue,')</br><b>More info</b>: ',SupportingDocumentation),CONCAT (LocalContent,' (',JiraIssue.Issue,')'))
 |format=outline
 |outline fields=Name
 |where=ComponentRN.ComponentId HOLDS '{{{Component|}}}' AND ReleaseNumber="{{{ReleaseNumber|}}}" AND LocalContent IS NOT NULL AND IssueType IS NOT NULL AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}"

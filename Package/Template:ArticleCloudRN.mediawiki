@@ -33,10 +33,13 @@ __NOEDITSECTION__{{#cargo_store:_table=Article|Standalone={{{Standalone}}}|produ
 }}}}<!-- Defining the EPPO Header; all parameters need to be passed to it -->{{EPPOHead|Role={{{Role|}}}|ComingSoon={{{ComingSoon|}}}|Dimension={{{Dimension|}}}|Context=Not all releases or changes listed below may pertain to your deployment. Check the table below to see which releases apply to you.
 |UseCase={{{UseCase|}}}|Application={{{Application|}}}|Platform={{{Platform|}}}|PageType=Article}}<!--Defining the Prerequisite Head -->{{PrerequisitesHead|Prereq={{{Prereq|}}}}}<!-- Query for showing component list -->
 
+<div class="toggle-wrap">
+<toggledisplay linkstyle font-size:larger showtext="Quick lookup table" hidetext="Quick lookup table">
+<div class="toggle-content">
 {{#cargo_query:
 tables=ArticleCloudRN__ComponentId,ArticleCloudRN,Component,ComponentRN__ComponentId,ComponentRN,DeploymentType
 |join on=ArticleCloudRN__ComponentId._value=Component.Id,ArticleCloudRN__ComponentId._rowID=ArticleCloudRN._ID,ArticleCloudRN__ComponentId._value = ComponentRN__ComponentId._value,ComponentRN__ComponentId._rowID=ComponentRN._ID,ComponentRN.DeploymentTypeId HOLDS DeploymentType.Id
-|fields=Component.Name=Service,CONCAT('[[',ArticleCloudRN._pageName,'#',DATE_FORMAT(ReleaseDate,'%M %d, %Y'),'|',DATE_FORMAT(ReleaseDate,'%M %d, %Y'),']]')=Release Date,CONCAT('[[File:',Image,'|80px]]')=Supported Cloud,Highlight=Highlights,ComponentId=ComponentId,ReleaseDate=ReleaseDate
+|fields=Component.Name=Service,CONCAT('[[#',Component.Name,'-',ReleaseNumber,'|',DATE_FORMAT(ReleaseDate,'%M %d, %Y'),']]')=Release Date,CONCAT('[[File:',Image,'|80px]]')=Supported Cloud,Highlight=Highlights,ComponentId=ComponentId,ReleaseDate=ReleaseDate
 |where=(ComponentRN__ComponentId._value IN ({{#arraymap:{{{ComponentId|}}}|,|x|'x'}})) AND (ComponentRN__DeploymentTypeId._value IN ({{#arraymap:{{{DeploymentTypeId|}}}|,|x|'x'}})) AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}"
 |intro=<table><tr>{{#ifeq:{{#cargo_query:tables=ArticleCloudRN,ArticleCloudRN__ComponentId|join on=ArticleCloudRN._ID=ArticleCloudRN__ComponentId._rowID|fields=COUNT(*)|where=ArticleCloudRN._pageName="{{FULLPAGENAME}}" AND ArticleCloudRN._pageNamespace="{{NAMESPACENUMBER}}"|no html}}|1||<th>Service</th>}} 
 <th>Release Date</th><th>Supported Cloud</th><th>Highlights</th></tr>
@@ -47,6 +50,8 @@ tables=ArticleCloudRN__ComponentId,ArticleCloudRN,Component,ComponentRN__Compone
 |group by=ReleaseNumber
 |order by=ComponentRN.ReleaseDate DESC
 }}
+</div>
+</toggledisplay></div>
 
 {{#cargo_query:
 tables=JiraIssue,ComponentRN,ComponentRN__ComponentId,ComponentRN__DeploymentTypeId,Component
@@ -64,7 +69,15 @@ tables=JiraIssue,ComponentRN,ComponentRN__ComponentId,ComponentRN__DeploymentTyp
 <!--|join on=ArticleCloudRN.ComponentId HOLDS Component.Id,ComponentRN.ComponentId__full=ArticleCloudRN.ComponentId__full,ComponentRN.DeploymentTypeId HOLDS DeploymentType.Id
 -->
 
-
+{{#css:
+#mw-content-text .select2-container .select2-choice { height: 34px; line-height: normal; }
+.panel-title { padding: 10px; }
+.panel>.panel-heading { padding: 0 }
+.toggle-wrap { margin: 20px 0 25px; }
+.toggle-wrap>a{ display: block; padding: 10px; color: #333; background-color: #f5f5f5; border: 1px solid #ddd; border-top-left-radius: 3px; border-top-right-radius: 3px; }
+.toggle-wrap>a:before { content: '\f0d7'; float: left; font-family: FontAwesome; margin-right: 10px; text-decoration: none; }
+.toggle-content { padding: 10px 20px; border: 1px solid #ddd; border-top: none; border-bottom-left-radius: 3px; border-bottom-right-radius: 3px; }
+}}
 
 
 <!-- Removing the version dropdown for Standalone (version-less) pages -->{{#switch:{{{Standalone}}}|Yes={{#css: 

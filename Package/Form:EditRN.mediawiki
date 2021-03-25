@@ -22,7 +22,7 @@ if a page with that name already exists, you will be sent to a form to edit that
 <div class="col-md-2 form-label">Release Date:</div>
 <div class="col-md-10">{{{field|ReleaseDate|input type=datepicker|default=now}}}</div> 
 <div class="col-md-2 form-label">Highlight:{{FormTip|Craft a single sentence that sums up the main selling point for this release. For example, <need 2 or 3 solid examples>}}</div>
-<div class="col-md-10">{{{field|Highlight|input type=textarea|editor=visual editor}}}</div>
+<div class="col-md-10">{{{field|Highlight|input type=textarea|editor=visualeditor}}}</div>
 <div style="clear:both"></div>
 {{{end template}}}
 
@@ -31,8 +31,8 @@ if a page with that name already exists, you will be sent to a form to edit that
 <div class="col-md-10">{{{field|Issue}}}</div>
 <div class="col-md-2 form-label">Type</div>
 <div class="col-md-10">{{{field|IssueType|input type=dropdown|cargo table=IssueType|cargo field=Id|mapping template=IssueTypeMap}}}</div>
-<div class="col-md-2 form-label">Deployment Type</div>
-<div class="col-md-10">{{{field|DeploymentTypeId|input type=tokens|cargo table=DeploymentType|cargo field=Id|mapping template=DeploymentTypeMap}}}</div>
+<!-- removing deployment type <div class="col-md-2 form-label">Deployment Type</div>
+<div class="col-md-10">{{{field|DeploymentTypeId|input type=tokens|cargo table=DeploymentType|cargo field=Id|mapping template=DeploymentTypeMap}}}</div>-->
 <div class="col-md-2 form-label">Content</div>
 <div class="col-md-10">{{{field|Content|input type=textarea|restricted=GenericUser}}}</div>
 <div class="col-md-2 form-label">Local Content</div>

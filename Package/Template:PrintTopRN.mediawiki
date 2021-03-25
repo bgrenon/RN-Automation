@@ -4,8 +4,12 @@
 <td>{{#cargo_query:
 	table=ComponentRN,DeploymentType
 	|join on=ComponentRN.DeploymentTypeId HOLDS DeploymentType.Id
-	|fields=CONCAT('[[File:',Image,'|80px]]')
+	|intro=<div style="margin: -10px 0 -10px 0">
+	|outro=</div>
+	|fields=CONCAT('[[File:',Image,'|50px]]')
 	|delimiter=
 	|where=ComponentId HOLDS "{{{ComponentId|}}}" AND ReleaseDate="{{{ReleaseDate|}}}" AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}"}}</td>
 <td>{{{Highlights|}}}</td>
-</tr><noinclude>[[Category:RNAutomation]]</noinclude>
+</tr>
+<noinclude>[[Category:RNAutomation]]</noinclude>
+

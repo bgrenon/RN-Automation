@@ -47,7 +47,8 @@ Edit the page to see the template text.
 |}{{#cargo_query:
 tables=ComponentRN,JiraIssue,IssueType,DeploymentType
 |join on=ComponentRN._pageName=JiraIssue._pageName,JiraIssue.IssueType=IssueType.Id,ComponentRN.DeploymentTypeId HOLDS DeploymentType.Id
-|fields=CONCAT ('[https://jira.genesys.com/browse/',JiraIssue.Issue,' ',JiraIssue.Issue,']')=Issue,IssueType.Name=Issue Category,DeploymentType.Name=Deployment Type,LocalContent=Description,SupportingDocumentation
+|fields=CONCAT ('[https://jira.genesys.com/browse/',JiraIssue.Issue,' ',JiraIssue.Issue,']')=Issue,IssueType.Name=Issue Category,<!--DeploymentType.Name=Deployment Type,-->IF(LENGTH(LocalContent) > 100, CONCAT(
+SUBSTRING(LocalContent, 1, 100),"..."), LocalContent)=Description,SupportingDocumentation
 |format=dynamic table
 |where=ComponentRN.ComponentId HOLDS '{{{ComponentId|}}}' AND ReleaseNumber="{{#explode:{{FULLPAGENAME}}|/|2}}" AND LocalContent IS NOT NULL AND IssueType IS NOT NULL
 |group by=JiraIssue.Issue
