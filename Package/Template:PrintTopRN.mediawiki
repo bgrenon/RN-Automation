@@ -12,4 +12,3 @@
 <td>{{{Highlights|}}}</td>
 </tr>
 <noinclude>[[Category:RNAutomation]]</noinclude>
-

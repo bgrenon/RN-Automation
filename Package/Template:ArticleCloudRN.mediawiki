@@ -33,9 +33,9 @@ __NOEDITSECTION__{{#cargo_store:_table=Article|Standalone={{{Standalone}}}|produ
 }}}}<!-- Defining the EPPO Header; all parameters need to be passed to it -->{{EPPOHead|Role={{{Role|}}}|ComingSoon={{{ComingSoon|}}}|Dimension={{{Dimension|}}}|Context=Not all releases or changes listed below may pertain to your deployment. Check the table below to see which releases apply to you.
 |UseCase={{{UseCase|}}}|Application={{{Application|}}}|Platform={{{Platform|}}}|PageType=Article}}<!--Defining the Prerequisite Head -->{{PrerequisitesHead|Prereq={{{Prereq|}}}}}<!-- Query for showing component list -->
 
-<div class="toggle-wrap">
+<!-- removing toggle display for now<div class="toggle-wrap">
 <toggledisplay linkstyle font-size:larger showtext="Quick lookup table" hidetext="Quick lookup table">
-<div class="toggle-content">
+<div class="toggle-content"> -->
 {{#cargo_query:
 tables=ArticleCloudRN__ComponentId,ArticleCloudRN,Component,ComponentRN__ComponentId,ComponentRN,DeploymentType
 |join on=ArticleCloudRN__ComponentId._value=Component.Id,ArticleCloudRN__ComponentId._rowID=ArticleCloudRN._ID,ArticleCloudRN__ComponentId._value = ComponentRN__ComponentId._value,ComponentRN__ComponentId._rowID=ComponentRN._ID,ComponentRN.DeploymentTypeId HOLDS DeploymentType.Id
@@ -50,8 +50,8 @@ tables=ArticleCloudRN__ComponentId,ArticleCloudRN,Component,ComponentRN__Compone
 |group by=ReleaseNumber
 |order by=ComponentRN.ReleaseDate DESC
 }}
-</div>
-</toggledisplay></div>
+<!-- removing toggle display for now </div>
+</toggledisplay></div> -->
 
 {{#cargo_query:
 tables=JiraIssue,ComponentRN,ComponentRN__ComponentId,ComponentRN__DeploymentTypeId,Component

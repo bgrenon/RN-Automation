@@ -1,0 +1,15 @@
+{{#switch:{{{Boilerplate|}}}
+|First=First Azure release boilerplate
+|#default=
+}}<noinclude>[[Category:RNAutomation]]<templatedata>
+{
+	"params": {
+		"Boilerplate": {
+			"type": "string",
+			"autovalue": "First"
+		}
+	},
+	"description": "Add boilerplate text for various Azure mentions."
+}
+</templatedata>
+</noinclude>
