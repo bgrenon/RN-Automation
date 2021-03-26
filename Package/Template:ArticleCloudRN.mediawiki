@@ -8,6 +8,7 @@ It should be called in the following format:
 |ComponentId=
 |DeploymentTypeId=
 |ReleaseTypeId=
+|Footer=
 }}
 
 </pre>
@@ -18,6 +19,7 @@ Edit the page to see the template text.
 |ComponentId=List (,) of String
 |DeploymentTypeId=List (,) of String
 |ReleaseTypeId=List (,) of String
+|Footer=Wikitext
 }}
 
 </noinclude>
@@ -27,6 +29,7 @@ __NOEDITSECTION__{{#cargo_store:_table=Article|Standalone={{{Standalone}}}|produ
 |ComponentId={{{ComponentId|}}}
 |DeploymentTypeId={{{DeploymentTypeId|}}}
 |ReleaseTypeId={{{ReleaseTypeId|}}}
+|Footer={{{Footer|}}}
 }}<!-- Set MintyDocs topic, including a switch for different treatment for Manual pages -->{{#switch:{{{PageType|}}}|Manual=|#default={{#mintydocs_topic:
 |display name={{{DisplayName|}}}
 |toc name={{{TocName|}}}
@@ -64,6 +67,8 @@ tables=JiraIssue,ComponentRN,ComponentRN__ComponentId,ComponentRN__DeploymentTyp
 |group by=ComponentRN._pageName
 |order by=ComponentRN.ReleaseDate DESC
 }}
+
+{{#if:{{{Footer|}}}|{{{Footer|}}}}}
 
 
 <!--|join on=ArticleCloudRN.ComponentId HOLDS Component.Id,ComponentRN.ComponentId__full=ArticleCloudRN.ComponentId__full,ComponentRN.DeploymentTypeId HOLDS DeploymentType.Id

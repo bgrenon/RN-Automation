@@ -45,7 +45,7 @@ tables=ArticleCloudRN__ComponentId,ArticleCloudRN,Component,ComponentRN__Compone
 |template=PrintTopRN
 |named args=yes
 |group by=ComponentRN.ComponentId
-|order by=ComponentRN.ReleaseDate DESC
+<!--|order by=ComponentRN.ReleaseDate DESC-->
 }}
 |structuredtextwide=
 |FAQHeading=

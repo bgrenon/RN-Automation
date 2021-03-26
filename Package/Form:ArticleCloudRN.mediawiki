@@ -34,10 +34,15 @@ Set up the H1 for your page. It should have some meat to establish context. The 
 
 <div class="col-md-10">{{{field|TocName}}}</div>
 
-<div class="col-md-2 form-label">Contextual statement {{FormTip|Add an introductory sentence to set up the context for this page. This sentence will be highlighted in the library card, and also re-used on portal pages and other global lists. Make it good!|&nbsp;Help}}</div>
 
 <div class="col-md-10">{{{field|Context|hidden}}}</div>
+
+<div class="col-md-2 form-label">Footer {{FormTip|Add a closing paragraph to appear beneath the list of RN sections}}</div>
+
+<div class="col-md-10">{{{field|Footer|input type=textarea|editor=visualeditor}}}</div>
 <div style="clear:both;"></div>
+
+
 </div>
 
 
