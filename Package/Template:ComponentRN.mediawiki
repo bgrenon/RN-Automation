@@ -43,7 +43,11 @@ Edit the page to see the template text.
 |-
 ! Links
 | Links to customer-facing pages in use:
-{{#cargo_query:tables=ArticleCloudRN|field=_pageName|where=ComponentId HOLDS '{{{ComponentId|}}}'|format=ul}}
+{{#cargo_query:tables=ArticleCloudRN|field=_pageName|where=ComponentId HOLDS '{{{ComponentId|}}}' AND ArticleCloudRN._pageName NOT LIKE "%Internal%"|format=ul|default=None yet!}}
+|-
+!Test Links
+| Links to test pages (for RN Admins only)
+{{#cargo_query:tables=ArticleCloudRN|field=_pageName|where=ComponentId HOLDS '{{{ComponentId|}}}' AND ArticleCloudRN._pageName LIKE "%Internal%"|format=ul|default=None yet!}}
 |}{{#cargo_query:
 tables=ComponentRN,JiraIssue,IssueType,DeploymentType
 |join on=ComponentRN._pageName=JiraIssue._pageName,JiraIssue.IssueType=IssueType.Id,ComponentRN.DeploymentTypeId HOLDS DeploymentType.Id
