@@ -68,7 +68,10 @@ tables=JiraIssue,ComponentRN,ComponentRN__ComponentId,ComponentRN__DeploymentTyp
 |order by=ComponentRN.ReleaseDate DESC
 }}
 
-{{#if:{{{Footer|}}}|{{{Footer|}}}}}
+{{#if:{{{Footer|}}}|
+==Prior Releases==
+
+{{{Footer|}}}}}
 
 
 <!--|join on=ArticleCloudRN.ComponentId HOLDS Component.Id,ComponentRN.ComponentId__full=ArticleCloudRN.ComponentId__full,ComponentRN.DeploymentTypeId HOLDS DeploymentType.Id

@@ -1,12 +1,19 @@
 {{#switch:{{{Boilerplate|}}}
-|First=First Azure release boilerplate
+|1=Support for Genesys Engage cloud on Azure
+|2=Starting with this release, {{#cargo_query:tables=Component|fields=Component.Name|no html|where=Component.Name="{{#explode:{{FULLPAGENAME}}|/|1}}" }} is available in Genesys Engage cloud on Azure.
 |#default=
 }}<noinclude>[[Category:RNAutomation]]<templatedata>
 {
 	"params": {
 		"Boilerplate": {
 			"type": "string",
-			"autovalue": "First"
+			"autovalue": "",
+			"aliases": [
+				"Select your message"
+			],
+			"label": "Select your message",
+			"description": "1 = Highlights, 2 = New, 3 = TBD",
+			"default": "First"
 		}
 	},
 	"description": "Add boilerplate text for various Azure mentions."

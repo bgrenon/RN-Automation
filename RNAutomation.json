@@ -121,7 +121,7 @@
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Template%3APrintTopRN.mediawiki"
 				},
 				{
-					"name": "AzureBoilerplte",
+					"name": "AzureBoilerplate",
 					"namespace": "NS_TEMPLATE",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Template%3AAzureBoilerplate.mediawiki"
 				}
