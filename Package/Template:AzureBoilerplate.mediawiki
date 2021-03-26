@@ -1,6 +1,7 @@
 {{#switch:{{{Boilerplate|}}}
 |1=Support for Genesys Engage cloud on Azure
-|2=Starting with this release, {{#cargo_query:tables=Component|fields=Component.Name|no html|where=Component.Name="{{#explode:{{FULLPAGENAME}}|/|1}}" }} is available in Genesys Engage cloud on Azure.
+|2=
+Starting with this release, {{#cargo_query:tables=ComponentRN,Component|join on=ComponentRN.ComponentId HOLDS Component.Id|fields=Component.Name|no html|where=ComponentRN._pageName="{{FULLPAGENAME}}"}} is available in Genesys Engage cloud on Azure.
 |#default=
 }}<noinclude>[[Category:RNAutomation]]<templatedata>
 {
@@ -20,3 +21,8 @@
 }
 </templatedata>
 </noinclude>
+
+{{#cargo_query:tables=ComponentRN__ComponentId,ComponentRN,Component
+|join on=ComponentRN__ComponentId._rowID=ComponentRN._ID,ComponentRN._rowID=Component._rowID
+|fields=Component.Name
+|where=ComponentRN._pageName="{{FULLPAGENAME}}"}}
