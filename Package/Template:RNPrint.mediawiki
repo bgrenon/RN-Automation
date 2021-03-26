@@ -16,7 +16,7 @@ tables=ComponentRN,ReleaseType=RT
 {{#cargo_query:
 tables=ComponentRN,JiraIssue,IssueType
 |join on=ComponentRN._pageName=JiraIssue._pageName,JiraIssue.IssueType=IssueType.Id
-|fields=CONCAT('<h3>',IssueType.SectionName,'</h3>')=Name,IF (SupportingDocumentation IS NOT NULL, CONCAT (LocalContent,IF (JiraIssue.Issue IS NOT NULL, CONCAT(' (',JiraIssue.Issue,'), ' ')) </br><b>More info</b>: ',SupportingDocumentation),CONCAT (LocalContent,IF (JiraIssue.Issue IS NOT NULL, CONCAT(' (',JiraIssue.Issue,'), ' ')))
+|fields=CONCAT('<h3>',IssueType.SectionName,'</h3>')=Name,IF (SupportingDocumentation IS NOT NULL, CONCAT (LocalContent,IF (JiraIssue.Issue IS NOT NULL, CONCAT (' (',JiraIssue.Issue,')'), ' '),' </br><b>More info</b>:' ,SupportingDocumentation),CONCAT (LocalContent,IF (JiraIssue.Issue IS NOT NULL, CONCAT(' (',JiraIssue.Issue,')'), ' ')))
 |format=outline
 |outline fields=Name
 |where=ComponentRN.ComponentId HOLDS '{{{Component|}}}' AND ReleaseNumber="{{{ReleaseNumber|}}}" AND LocalContent IS NOT NULL AND IssueType IS NOT NULL AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}"
@@ -24,3 +24,5 @@ tables=ComponentRN,JiraIssue,IssueType
 }}
 __NOCACHE__
 <span style="font-size:80%">[[{{{Page|}}}|(Link to source)]]</span></includeonly><noinclude>[[Category:RNAutomation]]</noinclude>
+
+
