@@ -73,7 +73,7 @@ tables=JiraIssue,ComponentRN,ComponentRN__ComponentId,ComponentRN__DeploymentTyp
 
 {{{Footer|}}}}}
 
-
+{{{AzureBoilerplate|}}}
 <!--|join on=ArticleCloudRN.ComponentId HOLDS Component.Id,ComponentRN.ComponentId__full=ArticleCloudRN.ComponentId__full,ComponentRN.DeploymentTypeId HOLDS DeploymentType.Id
 -->
 
@@ -87,7 +87,7 @@ tables=JiraIssue,ComponentRN,ComponentRN__ComponentId,ComponentRN__DeploymentTyp
 .toggle-content { padding: 10px 20px; border: 1px solid #ddd; border-top: none; border-bottom-left-radius: 3px; border-bottom-right-radius: 3px; }
 }}
 
-
+{{{ArticleCloudRN|}}}
 <!-- Removing the version dropdown for Standalone (version-less) pages -->{{#switch:{{{Standalone}}}|Yes={{#css: 
 button#version-dropdown { display: none; }
 }}|#default=}}<nowiki /></includeonly><noinclude>[[Category:RNAutomation]]</noinclude>
