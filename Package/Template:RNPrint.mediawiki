@@ -23,4 +23,4 @@ tables=ComponentRN,JiraIssue,IssueType
 |order by=IssueType.PrintOrder ASC
 }}
 __NOCACHE__
-<span style="font-size:80%">[[{{{Page|}}}|(Link to source)]]</span></includeonly><noinclude>[[Category:RNAutomation]]</noinclude>
+{{#switch:{{NAMESPACENUMBER}}|620=<span style="font-size:80%">[[{{{Page|}}}|(Link to source)]]</span>|#default=}}</includeonly><noinclude>[[Category:RNAutomation]]</noinclude>
