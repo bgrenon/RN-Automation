@@ -6,7 +6,7 @@
 	|join on=ComponentRN.DeploymentTypeId HOLDS DeploymentType.Id
 	|intro=<div style="margin: -10px 0 -10px 0">
 	|outro=</div>
-	|fields=CONCAT('[[File:',Image,'|50px]]')
+	|fields=CONCAT('[[File:',Image,'|50px|link=]]')
 	|delimiter=
 	|where=ComponentId HOLDS "{{{ComponentId|}}}" AND ReleaseDate="{{{ReleaseDate|}}}" AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}"}}</td>
 <td>{{{Highlights|}}}</td>
