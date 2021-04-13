@@ -9,6 +9,12 @@
 	|fields=CONCAT('[[File:',Image,'|50px|link=]]')
 	|delimiter=
 	|where=ComponentId HOLDS "{{{ComponentId|}}}" AND ReleaseDate="{{{ReleaseDate|}}}" AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}"}}</td>
-<td>{{{Highlights|}}}</td>
+<td>{{#cargo_query:
+	table=ComponentRN,DeploymentType
+	|join on=ComponentRN.DeploymentTypeId HOLDS DeploymentType.Id
+	|fields=Highlight
+	|group by=Highlight
+	|delimiter=
+	|where=ComponentId HOLDS "{{{ComponentId|}}}" AND ReleaseDate="{{{ReleaseDate|}}}" AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}"}}</td>
 </tr>
 <noinclude>[[Category:RNAutomation]]</noinclude>
