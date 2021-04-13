@@ -51,7 +51,6 @@ tables=ArticleCloudRN__ComponentId,ArticleCloudRN,Component,ComponentRN__Compone
 |template=PrintTopRN
 |named args=yes
 |group by=ComponentRN._pageName
-|order by=ComponentRN.ReleaseDate DESC
 }}
 <!-- removing toggle display for now </div>
 </toggledisplay></div> -->
