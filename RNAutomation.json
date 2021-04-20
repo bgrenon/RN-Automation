@@ -55,9 +55,9 @@
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Template%3ADeploymentTypeMap.mediawiki"
 				},
 				{
-					"name": "JiraIssue",
+					"name": "Issue",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Template%3AJiraIssue.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Template%3AIssue.mediawiki"
 				},
 				{
 					"name": "RNPrint",
@@ -75,19 +75,19 @@
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Form%3AArticleCloudRN.mediawiki"
 				},
 				{
-					"name": "IssueType",
+					"name": "IssueCategory",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Template%3AIssueType.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Template%3AIssueCategory.mediawiki"
 				},
 				{
-					"name": "IssueTypeMap",
+					"name": "IssueCategoryMap",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Template%3AIssueTypeMap.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Template%3AIssueCategoryMap.mediawiki"
 				},
 				{
-					"name": "IssueType",
+					"name": "IssueCategory",
 					"namespace": "PF_NS_FORM",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Form%3AIssueType.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Form%3AIssueCategory.mediawiki"
 				},
 				{
 					"name": "ArticleCloudRN",
@@ -186,8 +186,11 @@
 				{
 					"name": "Draft:ContentAdmin/Internal/SiteDashboard/ReleaseType",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Data/ReleaseType.mediawiki"
+				},
+				{
+					"name": "Draft:ContentAdmin/Internal/SiteDashboard/IssueCategory",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Data/IssueCategory.mediawiki"
 				}
-
 				
 			],
 			"requiredExtensions": [
