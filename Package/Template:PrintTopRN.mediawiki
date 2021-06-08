@@ -16,6 +16,5 @@
 	|group by=Highlight
 	|delimiter=
 	|where=ComponentId HOLDS "{{{ComponentId|}}}" AND ReleaseDate="{{{ReleaseDate|}}}" AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}"}}</td>
-</tr>  
-
+</tr>
 <noinclude>[[Category:RNAutomation]]</noinclude>

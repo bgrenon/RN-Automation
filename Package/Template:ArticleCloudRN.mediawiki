@@ -45,19 +45,20 @@ tables=ArticleCloudRN__ComponentId,ArticleCloudRN,Component,ComponentRN__Compone
 |fields=Component.Name=Service,CONCAT('[[#',Component.Name,'-',ReleaseNumber,'|',DATE_FORMAT(ReleaseDate,'%M %d, %Y'),']]')=Release Date,CONCAT('[[File:',Image,'|80px]]')=Supported Cloud,Highlight=Highlights,ComponentId=ComponentId,ReleaseDate=ReleaseDate
 |where=(ComponentRN__ComponentId._value IN ({{#arraymap:{{{ComponentId|}}}|,|x|'x'}})) AND (ComponentRN__DeploymentTypeId._value IN ({{#arraymap:{{{DeploymentTypeId|}}}|,|x|'x'}})) AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}"
 |intro=<table><tr>{{#ifeq:{{#cargo_query:tables=ArticleCloudRN,ArticleCloudRN__ComponentId|join on=ArticleCloudRN._ID=ArticleCloudRN__ComponentId._rowID|fields=COUNT(*)|where=ArticleCloudRN._pageName="{{FULLPAGENAME}}" AND ArticleCloudRN._pageNamespace="{{NAMESPACENUMBER}}"|no html}}|1||<th>Service</th>}} 
-<th>Release Date</th><th>Supported Cloud</th><th>Highlights</th></tr>
+<th>Released on</th><th>Released for</th><th>Highlights</th></tr>
 |outro=</table>
 |format=template
 |template=PrintTopRN
 |named args=yes
 |group by=ComponentRN._pageName
+|order by=ComponentRN.ReleaseDate DESC
 }}
 <!-- removing toggle display for now </div>
 </toggledisplay></div> -->
 
 {{#cargo_query:
-tables=JiraIssue,ComponentRN,ComponentRN__ComponentId,ComponentRN__DeploymentTypeId,Component
-|join on=JiraIssue._pageName=ComponentRN._pageName,ComponentRN._ID=ComponentRN__ComponentId._rowID,ComponentRN._ID=ComponentRN__DeploymentTypeId._rowID,ComponentRN.ComponentId HOLDS Component.Id
+tables=Issue,ComponentRN,ComponentRN__ComponentId,ComponentRN__DeploymentTypeId,Component
+|join on=Issue._pageName=ComponentRN._pageName,ComponentRN._ID=ComponentRN__ComponentId._rowID,ComponentRN._ID=ComponentRN__DeploymentTypeId._rowID,ComponentRN.ComponentId HOLDS Component.Id
 |fields=ComponentId=Component,ComponentRN.ReleaseNumber=ReleaseNumber,ComponentRN.ReleaseDate=ReleaseDate,ComponentRN._pageName=Page,Component.Name=ComponentName
 |format=template
 |template=RNPrint
