@@ -1,15 +1,14 @@
 <noinclude>
 This is the "Component" template.
 It should be called in the following format:
-TEST
 <pre>
 {{Component
 |Id=
 |Name=
-|DeploymentType=
+|DeploymentTypeId=
 }}
 </pre>
 Edit the page to see the template text.
-{{#cargo_declare:_table=Component|Id=String|Name=String|DeploymentType=String}}
-</noinclude><includeonly>{{#cargo_store:_table=Component|Id={{{Id|}}}|Name={{{Name|}}}|DeploymentType={{{DeploymentType|}}} }}
+{{#cargo_declare:_table=Component|Id=String|Name=String|DeploymentTypeId=String}}
+</noinclude><includeonly>{{#cargo_store:_table=Component|Id={{{Id|}}}|Name={{{Name|}}}|DeploymentTypeId={{{DeploymentTypeId|}}} }}
 </includeonly><noinclude>[[Category:RNAutomation]]</noinclude>

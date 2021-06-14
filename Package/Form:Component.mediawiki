@@ -19,7 +19,7 @@ if a page with that name already exists, you will be sent to a form to edit that
 
 For example, SIP Server is constrained to '''on-premises''' and '''private edition''' displays only.
 }}</div> 
-<div class="col-md-10">{{{field|DeploymentType|input type=tokens|cargo table=DeploymentType|cargo field=Name}}}</div>   
+<div class="col-md-10">{{{field|DeploymentTypeId|input type=tokens|cargo table=DeploymentType|cargo field=Id}}}</div>   
 {{{end template}}}
 
 {{{standard input|summary}}}

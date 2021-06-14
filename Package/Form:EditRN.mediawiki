@@ -3,6 +3,7 @@ This is the "EditComponentRN" form.
 To create a page with this form, enter the page name below;
 if a page with that name already exists, you will be sent to a form to edit that page.
 
+TEST
 
 {{#forminput:form=EditComponentRN|autocomplete on category=EditComponentRN}}
 
@@ -26,11 +27,11 @@ if a page with that name already exists, you will be sent to a form to edit that
 <div style="clear:both"></div>
 {{{end template}}}
 
-{{{for template|JiraIssue|multiple|displayed fields when minimized=Issue,IssueType}}}
+{{{for template|Issue|multiple|displayed fields when minimized=TicketNumber,IssueCategoryId}}}
 <div class="col-md-2 form-label">Issue</div>
-<div class="col-md-10">{{{field|Issue}}}</div>
+<div class="col-md-10">{{{field|TicketNumber}}}</div>
 <div class="col-md-2 form-label">Type</div>
-<div class="col-md-10">{{{field|IssueType|input type=dropdown|cargo table=IssueType|cargo field=Id|mapping template=IssueTypeMap}}}</div>
+<div class="col-md-10">{{{field|IssueCategoryId|input type=dropdown|cargo table=IssueCategory|cargo field=Id|mapping template=IssueCategoryMap}}}</div>
 <!-- removing deployment type <div class="col-md-2 form-label">Deployment Type</div>
 <div class="col-md-10">{{{field|DeploymentTypeId|input type=tokens|cargo table=DeploymentType|cargo field=Id|mapping template=DeploymentTypeMap}}}</div>-->
 <div class="col-md-2 form-label">Content</div>

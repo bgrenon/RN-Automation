@@ -1,0 +1,15 @@
+<noinclude>
+This is the "IssueCategory" template.
+It should be called in the following format:
+<pre>
+{{IssueCategory
+|Id=
+|Name=
+|SectionName=
+|PrintOrder=
+}}
+</pre>
+Edit the page to see the template text.
+{{#cargo_declare:_table=IssueCategory|Id=String|Name=String|SectionName=String|PrintOrder=String}}
+</noinclude><includeonly>{{#cargo_store:_table=IssueCategory|Id={{{Id|}}}|Name={{{Name|}}}|SectionName={{#if:{{{SectionName|}}}|{{{SectionName|}}}|{{{Name|}}}}}|PrintOrder={{{PrintOrder|}}} }}
+</includeonly><noinclude>[[Category:RNAutomation]]</noinclude>

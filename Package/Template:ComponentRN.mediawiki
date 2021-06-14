@@ -49,15 +49,16 @@ Edit the page to see the template text.
 | Links to test pages (for RN Admins only)
 {{#cargo_query:tables=ArticleCloudRN|field=_pageName|where=ComponentId HOLDS '{{{ComponentId|}}}' AND ArticleCloudRN._pageName LIKE "%Internal%"|format=ul|default=None yet!}}
 |}{{#cargo_query:
-tables=ComponentRN,JiraIssue,IssueType,DeploymentType
-|join on=ComponentRN._pageName=JiraIssue._pageName,JiraIssue.IssueType=IssueType.Id,ComponentRN.DeploymentTypeId HOLDS DeploymentType.Id
-|fields=CONCAT ('[https://jira.genesys.com/browse/',JiraIssue.Issue,' ',JiraIssue.Issue,']')=Issue,IssueType.Name=Issue Category,<!--DeploymentType.Name=Deployment Type,-->IF(LENGTH(LocalContent) > 100, CONCAT(
+tables=ComponentRN,Issue,IssueCategory
+|join on=ComponentRN._pageName=Issue._pageName,Issue.IssueCategoryId=IssueCategory.Id
+|fields=CONCAT ('[https://jira.genesys.com/browse/',Issue.TicketNumber,' ',Issue.TicketNumber,']')=Issue,IssueCategory.Name=Issue Category,<!--DeploymentType.Name=Deployment Type,-->IF(LENGTH(LocalContent) > 100, CONCAT(
 SUBSTRING(LocalContent, 1, 100),"..."), LocalContent)=Description,SupportingDocumentation
 |format=dynamic table
-|where=ComponentRN.ComponentId HOLDS '{{{ComponentId|}}}' AND ReleaseNumber="{{#explode:{{FULLPAGENAME}}|/|2}}" AND LocalContent IS NOT NULL AND IssueType IS NOT NULL
-|group by=JiraIssue.Issue
-|order by=IssueType.PrintOrder ASC
+|where=ComponentRN.ComponentId HOLDS '{{{ComponentId|}}}' AND ReleaseNumber="{{#explode:{{FULLPAGENAME}}|/|2}}"
+|group by=Issue.TicketNumber
+|order by=IssueCategory.PrintOrder ASC
 }}__NOCACHE__
 __TOC__
+__NOINDEX__
 [[Category:EditRN]]</includeonly>
 <noinclude>[[Category:RNAutomation]]</noinclude>

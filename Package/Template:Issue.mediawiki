@@ -1,0 +1,28 @@
+<noinclude>
+This is the "Issue" template.
+It should be called in the following format:
+<pre>
+{{Issue
+|JiraType=
+|TicketNumber=
+|IssueCategoryId=
+|LastUpdated=
+|Content=
+|LocalContent=
+|SupportingDocumentation=
+|DeploymentTypeId=
+}}
+
+</pre>
+
+Edit the page to see the template text.
+{{#cargo_declare:_table=Issue|JiraType=String|TicketNumber=String|IssueCategoryId=String|LastUpdated=Date|Content=Wikitext|LocalContent=Wikitext|SupportingDocumentation=Wikitext|DeploymentTypeId=List (,) of String}}
+</noinclude><includeonly>{{#cargo_store:_table=Issue
+|JiraType={{{JiraType|}}}
+|TicketNumber={{{TicketNumber|}}}
+|IssueCategoryId={{{IssueCategoryId|}}}
+|LastUpdated={{{LastUpdated|}}}
+|Content={{{Content|}}}
+|LocalContent={{{LocalContent|}}}
+|SupportingDocumentation={{{SupportingDocumentation|}}}
+|DeploymentTypeId={{{DeploymentTypeId|}}} }}[[Category:Issue]]</includeonly><noinclude>[[Category:RNAutomation]]</noinclude>
