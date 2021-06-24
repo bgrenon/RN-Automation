@@ -1,0 +1,20 @@
+{{ArticleUnstructured
+|Standalone=No
+|DisplayName=Genesys Engage Cloud Release Notes
+|TocName=Cloud Release Notes
+|Context=These Release Notes provide information about recent releases of Genesys Engage cloud services, starting with March 31, 2021. Click the Release Date next to a particular service name to see detailed information for that release. The release date indicates the earliest date when a service release might be available in your environments. Some updates might not apply to all environments.
+}}
+{{#cargo_query:
+tables=ArticleCloudRN__ComponentId,ArticleCloudRN,Component,ComponentRN__ComponentId,ComponentRN,DeploymentType
+|join on=ArticleCloudRN__ComponentId._value=Component.Id,ArticleCloudRN__ComponentId._rowID=ArticleCloudRN._ID,ArticleCloudRN__ComponentId._value = ComponentRN__ComponentId._value,ComponentRN__ComponentId._rowID=ComponentRN._ID,ComponentRN.DeploymentTypeId HOLDS DeploymentType.Id
+|fields=Component.Name=Service,CONCAT('[[',ArticleCloudRN._pageName,'#',DATE_FORMAT(MAX(ReleaseDate),'%M %d, %Y'),'|',DATE_FORMAT(MAX(ReleaseDate),'%M %d, %Y'),']]')=Release Date,CONCAT('[[File:',Image,'|80px]]')=Supported Cloud,Highlight=Highlights,ComponentId=ComponentId,MAX(ReleaseDate)=ReleaseDate
+|where=ComponentRN._pageNamespace="{{NAMESPACENUMBER}}" AND ArticleCloudRN._pageNamespace="{{NAMESPACENUMBER}}" AND ArticleCloudRN._pageName LIKE "%{{#explode:{{FULLPAGENAME}}|/|2}}%"
+|having=MAX(ReleaseDate)
+|intro=<h3>Latest release per service</h3><table><tr><th>Service</th><th style="width:12%">Released on</th><th style="width:12%">Released for</th><th>Highlights</th></tr>
+|outro=</table>
+|format=template
+|template=PrintTopRN
+|named args=yes
+|group by=ComponentRN.ComponentId
+<!--|order by=ComponentRN.ReleaseDate DESC-->
+}}

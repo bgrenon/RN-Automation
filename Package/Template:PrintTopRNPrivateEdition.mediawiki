@@ -1,0 +1,20 @@
+<tr>
+{{#ifeq:{{#cargo_query:tables=ArticleCloudRN,ArticleCloudRN__ComponentId|join on=ArticleCloudRN._ID=ArticleCloudRN__ComponentId._rowID|fields=COUNT(*)|where=ArticleCloudRN._pageName="{{FULLPAGENAME}}" AND ArticleCloudRN._pageNamespace="{{NAMESPACENUMBER}}"|no html}}|1||<td>{{{Service|}}}</td>}} 
+<td>{{{Release Date|}}}</td>
+<td>{{#cargo_query:
+	table=ComponentRN,DeploymentType
+	|join on=ComponentRN.DeploymentTypeId HOLDS DeploymentType.Id
+	|fields=MAX(ReleaseNumber)
+	|delimiter=
+	|where=ComponentId HOLDS "{{{ComponentId|}}}" AND ReleaseDate="{{{ReleaseDate|}}}" AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}"}}</td>
+<td>{{#cargo_query:
+	table=ComponentRN,DeploymentType
+	|join on=ComponentRN.DeploymentTypeId HOLDS DeploymentType.Id
+	|fields=Highlight
+	|group by=Highlight
+	|delimiter=
+	|where=ComponentId HOLDS "{{{ComponentId|}}}" AND ReleaseDate="{{{ReleaseDate|}}}" AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}"}}</td>
+</tr>
+
+
+<noinclude>[[Category:RNAutomation]]</noinclude>
