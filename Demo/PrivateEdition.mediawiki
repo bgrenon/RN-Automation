@@ -10,7 +10,7 @@ tables=ArticleCloudRN__ComponentId,ArticleCloudRN,Component,ComponentRN__Compone
 |fields=Component.Name=Service,CONCAT('[[',ArticleCloudRN._pageName,'#',DATE_FORMAT(MAX(ReleaseDate),'%M %d, %Y'),'|',DATE_FORMAT(MAX(PrivateEditionReleaseDate),'%M %d, %Y'),']]')=Release Date,MAX(ReleaseNumber),CONCAT('[[File:',Image,'|80px]]')=Supported Cloud,Highlight=Highlights,ComponentId=ComponentId,MAX(ReleaseDate)=ReleaseDate
 |where=ComponentRN._pageNamespace="{{NAMESPACENUMBER}}" AND ArticleCloudRN._pageNamespace="{{NAMESPACENUMBER}}" AND ArticleCloudRN._pageName LIKE "%{{#explode:{{FULLPAGENAME}}|/|2}}%" AND PrivateEditionReleaseDate IS NOT NULL
 |having=MAX(ReleaseNumber)
-|intro=<h3>Latest release per service</h3><table><tr><th>Service</th><th style="width:12%">Released on</th><th style="width:12%">Release Number</th><th>Highlights</th></tr>
+|intro=<h3>Latest release per service</h3><table class="wikitable sortable"><tr><th style="width:35%">Service</th><th>Released on</th><th>Release Number</th></tr>
 |outro=</table>
 |format=template
 |template=PrintTopRNPrivateEdition

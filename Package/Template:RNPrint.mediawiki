@@ -10,9 +10,13 @@ tables=ComponentRN,ReleaseType=RT
 |join on=ComponentRN.ReleaseTypeId=RT.Id
 |fields=Label
 |where=ComponentRN.ComponentId HOLDS '{{{Component|}}}' AND ReleaseNumber="{{{ReleaseNumber|}}}"
-}}--></h2> 
-
-{{AnchorDiv|{{{ComponentName|}}}-{{{ReleaseNumber|}}}}}
+}}--></h2> {{AnchorDiv|{{{ComponentName|}}}-{{{ReleaseNumber|}}}}}{{#if:{{{PrivateEditionReleaseDate}}}|<div style="margin-top:-30px">{{#cargo_query:
+tables=ComponentRN,DeploymentType=DT
+|join on=ComponentRN.DeploymentTypeId HOLDS DT.Id
+|fields=CONCAT('[[File:',DT.Image,'|30px|link={{#switch:{{NAMESPACENUMBER}}|620=Draft:|#default=}}ReleaseNotes/Current/GenesysEngage-cloud/PrivateEdition]] ')
+|delimiter=
+|where=ComponentRN.ComponentId HOLDS '{{{Component|}}}' AND ReleaseNumber="{{{ReleaseNumber|}}}" AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}" AND DT.Name="Private Edition"
+}}{{Link-AnywhereElse|product=ReleaseNotes|version=Current|manual=GenesysEngage-cloud|topic=PrivateEdition|display text=Private edition}}: {{{ReleaseNumber|}}} available {{#time:F d, Y|{{{PrivateEditionReleaseDate|}}}}}</div>|}}
 {{#cargo_query:
 tables=ComponentRN,Issue,IssueCategory
 |join on=ComponentRN._pageName=Issue._pageName,Issue.IssueCategoryId=IssueCategory.Id
@@ -21,6 +25,4 @@ tables=ComponentRN,Issue,IssueCategory
 |outline fields=Name
 |where=ComponentRN.ComponentId HOLDS '{{{Component|}}}' AND ReleaseNumber="{{{ReleaseNumber|}}}" AND LocalContent IS NOT NULL AND IssueCategoryId IS NOT NULL AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}"
 |order by=IssueCategory.PrintOrder ASC
-}}
-__NOCACHE__
-{{#switch:{{NAMESPACENUMBER}}|620=<span style="font-size:80%">[[{{{Page|}}}|(Link to source)]]</span>|#default=}}</includeonly><noinclude>[[Category:RNAutomation]]</noinclude>
+}}__NOCACHE__{{#switch:{{NAMESPACENUMBER}}|620=<span style="font-size:80%">[[{{{Page|}}}|(Link to source)]]</span>|#default=}}</includeonly><noinclude>[[Category:RNAutomation]]</noinclude>

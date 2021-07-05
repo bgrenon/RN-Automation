@@ -8,7 +8,7 @@
 	|outro=</div>
 	|fields=CONCAT('[[File:',Image,'|50px|link=]]')
 	|delimiter=
-	|where=ComponentId HOLDS "{{{ComponentId|}}}" AND ReleaseDate="{{{ReleaseDate|}}}" AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}"}}</td>
+	|where=ComponentId HOLDS "{{{ComponentId|}}}" AND ReleaseDate="{{{ReleaseDate|}}}" AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}" {{#switch:{{#explode:{{FULLPAGENAME}}|/|3}}|Hosted=AND DeploymentType.Name!="Private Edition"|#default=}} }}</td>
 <td>{{#cargo_query:
 	table=ComponentRN,DeploymentType
 	|join on=ComponentRN.DeploymentTypeId HOLDS DeploymentType.Id

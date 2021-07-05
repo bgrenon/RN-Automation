@@ -129,6 +129,21 @@
 					"name": "AzureBoilerplate",
 					"namespace": "NS_TEMPLATE",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Template%3AAzureBoilerplate.mediawiki"
+				},
+				{
+					"name": "ArticleHelmRN",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Template%3AArticleHelmRN.mediawiki"
+				},
+				{
+					"name": "ArticleHelmRN",
+					"namespace": "NS_Form",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Form%3AArticleHelmRN.mediawiki"
+				},
+				{
+					"name": "ArticleHelmRN",
+					"namespace": "NS_CATEGORY",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Category%3AArticleHelmRN.mediawiki"
 				}
 				
 			],
@@ -146,7 +161,14 @@
 					"name": "Draft:ContentAdmin/Internal/ReleaseNote",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Demo/ReleaseNote.mediawiki"
 				},
-
+				{
+					"name": "Draft:ReleaseNotes/Current/GenesysEngage-cloud/PrivateEdition",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Demo/PrivateEdition.mediawiki"
+				},
+				{
+					"name": "Draft:ReleaseNotes/Current/GenesysEngage-cloud/Hosted",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Demo/Hosted.mediawiki"
+				},
 				{
 					"name": "Draft:ContentAdmin/Internal/ReleaseNote/Genesys_Info_Mart",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Demo/Genesys_Info_Mart.mediawiki"
