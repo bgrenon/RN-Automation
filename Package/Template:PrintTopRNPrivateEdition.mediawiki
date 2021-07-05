@@ -4,11 +4,9 @@
 <td>{{#cargo_query:
 	table=ComponentRN,DeploymentType
 	|join on=ComponentRN.DeploymentTypeId HOLDS DeploymentType.Id
-	|intro=<div style="margin: -10px 0 -10px 0">
-	|outro=</div>
-	|fields=CONCAT('[[File:',Image,'|50px|link=]]')
+	|fields=MAX(ReleaseNumber)
 	|delimiter=
-	|where=ComponentId HOLDS "{{{ComponentId|}}}" AND ReleaseDate="{{{ReleaseDate|}}}" AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}" {{#switch:{{#explode:{{FULLPAGENAME}}|/|3}}|Hosted=AND DeploymentType.Name!="Private Edition"|#default=}} }}</td>
+	|where=ComponentId HOLDS "{{{ComponentId|}}}" AND ReleaseDate="{{{ReleaseDate|}}}" AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}"}}</td>
 <td>{{#cargo_query:
 	table=ComponentRN,DeploymentType
 	|join on=ComponentRN.DeploymentTypeId HOLDS DeploymentType.Id
@@ -17,4 +15,6 @@
 	|delimiter=
 	|where=ComponentId HOLDS "{{{ComponentId|}}}" AND ReleaseDate="{{{ReleaseDate|}}}" AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}"}}</td>
 </tr>
+
+
 <noinclude>[[Category:RNAutomation]]</noinclude>

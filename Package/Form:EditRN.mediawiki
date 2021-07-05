@@ -3,7 +3,6 @@ This is the "EditComponentRN" form.
 To create a page with this form, enter the page name below;
 if a page with that name already exists, you will be sent to a form to edit that page.
 
-TEST
 
 {{#forminput:form=EditComponentRN|autocomplete on category=EditComponentRN}}
 
@@ -18,12 +17,21 @@ TEST
 <div class="col-md-2 form-label">Supported deployments:</div> 
 <div class="col-md-10">
 {{{field|DeploymentTypeId|input type=tokens|existing values only|cargo table=DeploymentType|cargo field=Id|mapping template=DeploymentTypeMap}}}</div>  
-<div class="col-md-2 form-label">Release Type:</div> 
-<div class="col-md-10">{{{field|ReleaseTypeId|input type=radiobutton|cargo table=ReleaseType|cargo field=Id|mapping template=ReleaseTypeMap|placeholder=Click to select release type|}}}</div> 
+<!-- removing release type until valid <div class="col-md-2 form-label">Release Type:</div> 
+<div class="col-md-10">{{{field|ReleaseTypeId|input type=radiobutton|cargo table=ReleaseType|cargo field=Id|mapping template=ReleaseTypeMap|placeholder=Click to select release type|}}}</div> -->
 <div class="col-md-2 form-label">Release Date:</div>
-<div class="col-md-10">{{{field|ReleaseDate|input type=datepicker|default=now}}}</div> 
+<div class="col-md-10">{{{field|ReleaseDate|input type=datepicker|default=now}}}</div>
+<div class="col-md-2 form-label">Private Edition Release Date:</div>
+<div class="col-md-10">{{{field|PrivateEditionReleaseDate|input type=datepicker|default=now}}}</div>  
 <div class="col-md-2 form-label">Highlight:{{FormTip|Craft a single sentence that sums up the main selling point for this release. For example, <need 2 or 3 solid examples>}}</div>
 <div class="col-md-10">{{{field|Highlight|input type=textarea|editor=visualeditor}}}</div>
+<div class="col-md-2 form-label">Containers (PE only):{{FormTip|On the IP Report for this release, extract the list of containers from the "promotion elements" table at the bottom of the form. 
+
+Example:
+[[File:HelmExample.png]]
+
+Craft these into an unordered (bulleted) list. Note: this will be automated at some point, not now.}}</div>
+<div class="col-md-10">{{{field|Containers|input type=textarea|editor=visualeditor}}}</div>
 <div style="clear:both"></div>
 {{{end template}}}
 
