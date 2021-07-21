@@ -238,27 +238,27 @@
 				{
 					"name": "EditMintyDocsManual",
 					"namespace": "PF_NS_FORM",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Form%3AEditMintyDocsManual.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/MintyDocs/Form%3AEditMintyDocsManual.mediawiki"
 				},
 				{
 					"name": "Article",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Template%3AArticle.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/MintyDocs/Template%3AArticle.mediawiki"
 				},
 				{
 					"name": "EPPOHead",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Template%3AEPPOHead.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/MintyDocs/Template%3AEPPOHead.mediawiki"
 				},
 				{
 					"name": "MintyDocsManual",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Template%3AMintyDocsManual.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/MintyDocs/Template%3AMintyDocsManual.mediawiki"
 				},
 				{
 					"name": "TaskSummary",
 					"namespace": "PF_NS_FORM",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Form%3ATaskSummary.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/MintyDocs/Form%3ATaskSummary.mediawiki"
 				}
 			]
 		}
