@@ -1,0 +1,80 @@
+<noinclude>
+This is the "TaskSummary" template.
+It should be called in the following format:
+<pre>
+{{TaskSummary
+|overviewtext=
+|productshort=
+|ComingSoon=
+|Role=
+|DisplayName=
+|TocName=
+|Dimension=
+|Context=
+|Product=
+|Manual=
+|Application=
+|UseCase=
+|Platform=
+|PEPageType=
+}}
+</pre>
+Edit the page to see the template text.
+{{#cargo_declare:_table=TaskSummary
+|overviewtext=Wikitext (size=1000)
+|productshort=String
+|ComingSoon=String
+|Role=String
+|DisplayName=String
+|TocName=String
+|Dimension=String
+|Context=Wikitext (size=10000)
+|Product=String
+|Manual=String
+|Application=String
+|UseCase=String
+|Platform=String
+|PEPageType=String
+}}
+{{#cargo_attach:_table=Article}}
+
+</noinclude><includeonly>{{#css: .MintyDocsTopicDesc {display:none} }}{{#cargo_store:_table=Article
+|productshort={{#explode:{{FULLPAGENAME}}|/|0}}
+|Role={{{Role|}}}
+|ComingSoon={{{ComingSoon|}}}
+|DisplayName={{{DisplayName|}}}
+|TocName={{{TocName|}}}
+|Dimension={{{Dimension|}}}
+|Context={{{Context|}}}
+|Product={{MINTYDOCSPRODUCT}}
+|Manual={{#explode:{{FULLPAGENAME}}|/|2}}
+|Application={{{Application|}}}
+|UseCase={{{UseCase|}}}
+|Platform={{{Platform|}}}
+|PEPageType={{{PEPageType|}}}
+}}{{#cargo_store:_table=TaskSummary
+|overviewtext={{{overviewtext|}}}
+|productshort={{#explode:{{FULLPAGENAME}}|/|0}}
+|Role={{{Role|}}}
+|ComingSoon={{{ComingSoon|}}}
+|DisplayName={{{DisplayName|}}}
+|TocName={{{TocName|}}}
+|Dimension={{{Dimension|}}}
+|Context={{{Context|}}}
+|Product={{MINTYDOCSPRODUCT}}
+|Manual={{#explode:{{FULLPAGENAME}}|/|2}}
+|Application={{{Application|}}}
+|UseCase={{{UseCase|}}}
+|Platform={{{Platform|}}}
+|PEPageType={{{PEPageType|}}}
+}}{{#switch:{{{PageTypeSummary|}}}|Manual=[[Category:MintyDocsManual]]|#default=[[Category:TaskSummary]]}}<!-- Set MintyDocs topic, including a switch for different treatment for Manual pages -->{{#switch:{{{PageType|}}}|Manual=|#default={{#mintydocs_topic:
+|display name={{{DisplayName|}}}
+|toc name={{{TocName|}}}
+}}}}<!-- Defining the EPPO Header; all parameters need to be passed to it -->{{EPPOHead|Role={{{Role|}}}|ComingSoon={{{ComingSoon|}}}|Dimension={{{Dimension|}}}|Context={{{Context|}}}|UseCase={{{UseCase|}}}|Application={{{Application|}}}|Platform={{{Platform|}}}|PageType=TaskSummary}}
+__TOC__
+{{{overviewtext|}}}
+
+{{{TSSection|}}}
+
+[[Category:Linkable]][[Category:TaskSummary]]
+</includeonly>

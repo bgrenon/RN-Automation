@@ -1,0 +1,134 @@
+<onlyinclude>{{#css: 
+ul.related-links, ul.related-links li {display: inline; margin-left: 0;}
+ul.related-links li, ul.related-links>a {padding: 0 20px;  border-left: 1px solid #5d3e5d; font-size: 15px;}
+ul#prod-link li {border: 0 none;}
+ul.related-links li:last-child { border-right: 0 none;}
+ul.related-links li.roles {padding:0 18px; border-left: 1px solid #77828f;}
+ul.related-links li.roles a, ul.related-links li.roles a:focus, ul.related-links li.roles a:hover {font-weight: 400; color: #77828f;}
+ul.related-links li.apps {padding: 0 18px 0 18px;}
+ul.related-links li.apps:last-child {padding-right: 18px;}
+ul.related-links li.apps:first-child {padding-left: 18px;border-left: 1px solid #77828f;}
+ul.related-links.pages li:first-child, ul.related-links>a:first-child {border:0 none;}
+}}<div class="eppo-head" style="background-color:#f6f6f6; color: #5d3e5d;margin:-20px -18px 20px -36px; padding:20px 20px 30px 40px;">
+<div class="col-md-10" id="eppo-links" style="padding:0; margin-top:-10px;min-height:20px;">
+<ul class="related-links">{{#if:{{{Application|}}}|
+{{#arraymaptemplate:{{{Application|}}}|ApplicationsMap|,|}}
+}}</ul>
+<ul class="related-links">{{#if:{{{Role|}}}|
+{{#arraymaptemplate:{{{Role|}}}|RolesMap|,|}}
+}}</ul>
+</div>
+<div class="col-md-2" id="eppo-version" style="padding:0;"></div>
+<div class="clearfix"></div>
+<div id="eppo-heading" style="margin-bottom: 15px;"></div>
+{{#ifeq:{{{ComingSoon|}}}|Yes|
+<span style="background-color: #5D3E5D; color: #fff; padding: 3px 10px; border: 1px solid #5D3E5D; border-radius: 3px; font-size: 90%; font-weight: 500;margin-right: 5px;"><i class="glyphicon glyphicon-flag" style="margin-right: 5px;"></i>Feature coming soon!</span>
+|}}{{#if:{{{Context|}}}|
+<span>{{{Context}}}</span>
+}}
+{{#if:{{#cargo_query:
+tables=HIW
+|fields=CONCAT('[[PEC-Admin/HIW|Getting started with Genesys Engage cloud]]')
+|where=HIW._pageName="{{FULLPAGENAME}}"
+|format=template
+|template=ListItems
+|default=
+}}{{#cargo_query:
+   tables=HIW
+   |fields=CONCAT('[[',HIW._pageName ,'|',HIW.DisplayName,']]')
+   |where=HIW.productshort LIKE '%{{#explode:{{FULLPAGENAME}}|/|0}}%' AND HIW._pageNamespace="{{NAMESPACENUMBER}}" AND HIW._pageName!="{{FULLPAGENAME}}"
+   |format=template
+   |template=ListItems
+   |default=
+}}{{#cargo_query:
+   tables=GetStarted
+   |fields=CONCAT('[[',GetStarted._pageName,'|',GetStarted.DisplayName,']]')
+   |where=GetStarted.productshort LIKE '%{{#explode:{{FULLPAGENAME}}|/|0}}%' AND GetStarted._pageNamespace="{{NAMESPACENUMBER}}" AND GetStarted._pageName!="{{FULLPAGENAME}}" AND _pageName LIKE "%/{{#explode:{{FULLPAGENAME}}|/|2}}/%"
+   |format=template
+   |template=ListItems
+   |default=
+}}{{#cargo_query:
+    tables={{{PageType|}}}
+    |fields=CONCAT('[[',_pageName,'|',DisplayName,']]')
+    |where=Dimension="{{{Dimension|}}}" AND Dimension IS NOT NULL AND _pageName!="{{FULLPAGENAME}}" AND {{{PageType|}}}._pageName LIKE '%{{#explode:{{FULLPAGENAME}}|/|1}}%' AND {{{PageType|}}}._pageNamespace="{{NAMESPACENUMBER}}"
+    |format=template
+    |template=ListItems
+    |default=
+ }}|<div style="margin-top:20px;"><span style="font-weight:600;">Related pages:</span><ul class="related-links pages">
+{{#cargo_query:
+tables=HIW
+|fields=CONCAT('[[PEC-Admin/HIW|Getting started with Genesys Engage cloud]]')
+|where=HIW._pageName="{{FULLPAGENAME}}"
+|format=template
+|template=ListItems
+|default=
+}}{{#cargo_query:
+   tables=HIW
+   |fields=CONCAT('[[',HIW._pageName ,'|',HIW.DisplayName,']]')
+   |where=HIW.productshort LIKE '%{{#explode:{{FULLPAGENAME}}|/|0}}%' AND HIW._pageNamespace="{{NAMESPACENUMBER}}" AND HIW._pageName!="{{FULLPAGENAME}}"
+   |format=template
+   |template=ListItems
+   |default=
+}}{{#cargo_query:
+   tables=GetStarted
+   |fields=CONCAT('[[',GetStarted._pageName,'|',GetStarted.DisplayName,']]')
+   |where=GetStarted.productshort LIKE '%{{#explode:{{FULLPAGENAME}}|/|0}}%' AND GetStarted._pageNamespace="{{NAMESPACENUMBER}}" AND GetStarted._pageName!="{{FULLPAGENAME}}" AND _pageName LIKE "%/{{#explode:{{FULLPAGENAME}}|/|2}}/%"
+   |format=template
+   |template=ListItems
+   |default=
+}}{{#cargo_query:
+    tables={{{PageType|}}}
+    |fields=CONCAT('[[',_pageName,'|',DisplayName,']]')
+    |where=Dimension="{{{Dimension|}}}" AND Dimension IS NOT NULL AND _pageName!="{{FULLPAGENAME}}" AND {{{PageType|}}}._pageName LIKE '%{{#explode:{{FULLPAGENAME}}|/|1}}%' AND {{{PageType|}}}._pageNamespace="{{NAMESPACENUMBER}}"
+    |format=template
+    |template=ListItems
+    |default=
+ }}|}}
+ {{#if:{{#cargo_query:
+     tables=Article,MintyDocsManual|join on=Article.Manual=MintyDocsManual.Manual
+     |fields=CONCAT('Link to Service RN',ServiceId)
+     |where=Article._pageName="{{FULLPAGENAME}}" AND ServiceID IS NOT NULL
+     |format=template
+     |template=ListItems
+     |default=
+ }}{{#cargo_query:
+	 tables=ArticleCloudRN,MintyDocsManual,Service
+     |join on=ArticleCloudRN.ServiceId HOLDS MintyDocsManual.ServiceId,MintyDocsManual.ServiceId=Service.Id
+     |fields=CONCAT('[[',Service.Name,'PEGUIDE|',Service.Name,' Private Edition Deployment]]')
+     |where=ArticleCloudRN.ServiceId HOLDS "{{{ServiceId|}}}" AND MintyDocsManual.ServiceId IS NOT NULL
+     |format=template
+     |template=ListItems
+     |default
+ }}|
+ <div style="margin-top:20px;"><span style="font-weight:600;">Related documentation:</span><ul class="related-links pages">
+ 	{{#cargo_query:
+     tables=ArticleCloudRN,MintyDocsManual,Article,Service
+     |join on=ArticleCloudRN.ServiceId HOLDS MintyDocsManual.ServiceId,MintyDocsManual.Manual=Article.Manual,MintyDocsManual.ServiceId=Service.Id
+     |fields=CONCAT('[[',ArticleCloudRN._pageName,'|',Service.Name,' Release Notes]]')
+     |where=Article._pageName="{{FULLPAGENAME}}" AND MintyDocsManual.ServiceId IS NOT NULL AND ArticleCloudRN._pageNamespace="{{NAMESPACENUMBER}}"
+     |format=template
+     |template=ListItems
+     |default=
+ }}{{#arraymap:{{{ServiceId|}}}|,|x|{{#cargo_query:
+     tables=ArticleCloudRN,MintyDocsManual,Service
+     |join on=ArticleCloudRN.ServiceId HOLDS MintyDocsManual.ServiceId,MintyDocsManual.ServiceId=Service.Id
+     |fields=CONCAT('[[',MintyDocsManual._pageName,'|',Service.Name,' Private Edition Deployment]]')
+     |where=ArticleCloudRN.ServiceId HOLDS "x" AND MintyDocsManual.ServiceId IS NOT NULL AND ArticleCloudRN._pageNamespace="{{NAMESPACENUMBER}}"
+     |format=template
+     |template=ListItems
+     |default=wut?}}|
+ }}</ul></div>|}}
+<div>
+{{#if:{{{UseCase|}}}|
+{{#switch:{{{Platform|}}}
+|GenesysEngage-onpremises=<span style="font-weight:600; ">Related use cases:</span><ul class="related-links">{{#arraymaptemplate:{{{UseCase|}}}|UseCasesMapPE|,|}}</ul>
+|GenesysCloud=<span style="font-weight:600; ">Related use cases:</span><ul class="related-links">{{#arraymaptemplate:{{{UseCase|}}}|UseCasesMapPC|,|}}</ul>
+|PureConnect=<span style="font-weight:600; ">Related use cases:</span><ul class="related-links">{{#arraymaptemplate:{{{UseCase|}}}|UseCasesMapPCON|,|}}</ul>
+}}|}}
+</div>
+</div>
+<!-- Notices-->{{#cargo_query:tables=Article,MintyDocsManual|join on=Article.Manual=MintyDocsManual.Manual|fields=MintyDocsManual.Notice|where=Article.Manual="{{#explode:{{FULLPAGENAME}}|/|2}}"|named args=yes|format=template|template=Notices|group by=Notice}}
+
+</onlyinclude>
+<noinclude>[[Category:MintyDocs_Cargo]][[Category:EPPO_Cargo]][[Category:Cargo_CloudRN]][[Category:UCSales_Cargo]]
+</noinclude>

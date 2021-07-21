@@ -227,6 +227,40 @@
 			"requiredPackages": [
 				"com.all.docs.genesys.Category:RNAutomation"
 			]
+		},
+
+		"MintyDocs": {
+			"globalID": "com.all.docs.genesys.Category:MintyDocs",
+			"description": "Temporary starting point for MintyDocs data structure, adding piece by piece by project in RN automation repo for now",
+			"version": "0.1",
+			"pages": [
+
+				{
+					"name": "EditMintyDocsManual",
+					"namespace": "NS_FORM",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Template%3AEditMintyDocsManual.mediawiki"
+				},
+				{
+					"name": "Article",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Template%3AArticle.mediawiki"
+				},
+				{
+					"name": "EPPOHead",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Template%3AEPPOHead.mediawiki"
+				},
+				{
+					"name": "MintyDocsManual",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Template%3AMintyDocsManual.mediawiki"
+				},
+				{
+					"name": "TaskSummary",
+					"namespace": "NS_Template",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Form%3ATaskSummary.mediawiki"
+				}
+			]
 		}
 	}
 }

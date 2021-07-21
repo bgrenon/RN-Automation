@@ -1,0 +1,107 @@
+<noinclude>
+This is the "EditMintyDocsManual" form.
+To create a page with this form, enter the page name below;
+if a page with that name already exists, you will be sent to a form to edit that page.
+
+
+{{#forminput:form=EditMintyDocsManual}}
+
+</noinclude><includeonly>
+<div id="wikiPreview" style="display: none; padding-bottom: 25px; margin-bottom: 25px; border-bottom: 1px solid #AAAAAA;"></div>
+
+{{{for template|MintyDocsManual}}}
+<div style="display:none">
+{{{field|product|input type=combobox|cargo table=MintyDocsManual|cargo field=product}}}
+</div>
+
+{{{field|version|hidden}}}
+
+{{{field|manual|hidden}}}
+==Set default forms==
+Choose which forms will be used by default when you add topics to this manual.
+
+<div class="col-md-2 form-label">Default form:{{FormTip|
+===Choose the main page type for this manual===
+This field defines the main page type that you'll be creating as you add new topics to your manual.}} </div>
+<div class="col-md-10">{{{field|defaultform|input type=dropdown|values from category=ActiveForms|mapping template=ActiveForms|existing values only}}}</div>
+
+<div class="col-md-2 form-label">Alternate forms:{{FormTip|You can also select from a number of alternate forms. When you add a new topic to your manual, you will have the option to select one of these alternate page types. 
+
+Right now, there are only a few possible form/page types available. But that number will grow.
+
+In typical usage, you probably only need the '''Article''' form for most scenarios. But let's say you suddenly decide you need an FAQ page, and we have an FAQ page type (form) in the system (we don't yet, this is a hypothetical). Usage will be: come to this form, select FAQ as one of your alternate forms, and it'll then be available as an option the next time you add a topic to your manual.
+
+'''Caveat!''' In most cases, once you create a topic using a particular form, you can't simply switch to a different page type. This may be possible for some limited, closely aligned forms, but if the underlying data structure is much different, it won't be possible. Switching page types will be a manual rebuild-your-content affair. Good luck!}}</div>
+
+<div class="col-md-10">{{{field|alternateforms|input type=tokens|values from category=ActiveForms|mapping template=ActiveForms}}}</div>
+==Define your manual==
+<div class="clearfix">
+<div class="col-md-2 form-label">Display name:{{FormTip|
+===Setting the display Name===
+Set the '''display name''' for this manual.  This is the name that appears at the top of your left-pane TOC/navigation tree:
+
+[[File:MintyDocsManualDisplayName.png|center]]
+
+===Magic Word===
+It also defines the <b>magic word</b> <nowiki>{{MINTYDOCSMANUAL}}</nowiki> that you can use as a variable for this document name in your content. These variables are highly encouraged!
+
+In this case <nowiki>{{MINTYDOCSMANUAL}} =</nowiki> <b>Genesys Altocloud Administrator's Guide</b>.
+
+Use this in your content, and the display name that you set here will appear. Change the display name here, and the manual name will alter automatically in all content (including links into your product).
+}}</div>
+<div class="col-md-10">{{{field|displayname|size=80|mandatory}}}</div>
+
+
+<div class="col-md-2 form-label">Inherit</div>
+<div class="col-md-10">{{{field|inherit|input type=radiobutton|values=yes,no|mandatory|default=no}}}</div>
+
+<div class="col-md-2 form-label">Pagination {{FormTip|Enable pagination view for this manual.}}:</div>
+<div class="col-md-10">{{{field|pagination|input type=radiobutton|values=yes,no|mandatory|default=no}}}</div>
+</div>
+<div>
+
+
+<div class="col-md-2 form-label">PE service {{FormTip|If this manual is for Private Edition, select the service that all topics in this manual will belong to.}}:</div>
+<div class="col-md-10">{{{field|ServiceId|input type=dropdown|cargo table=Service|cargo field=Id|mapping template=ServiceMap}}}</div>
+
+
+<div class="col-md-2 form-label">Set up a Notice for this manual {{FormTip|Currently, you can enable the following notices to appear on every page of the manual, if required:
+* EAP = Early Adopter Program}}:</div>
+<div class="col-md-10">{{{field|Notice|input type=dropdown|values=EAP}}}</div>
+
+{{{end template}}}
+<div style="clear:both"></div>
+
+==What did you change?==
+{{{standard input|summary}}}
+{{#css:
+.form-label {clear:both}
+.col-md-2, .col-md-4, .col-md-10, .col-md-12 { padding-left:0; margin-bottom: 15px;}
+.col-md-4 p { margin-bottom: 0; }
+.select2-container-multi .select2-choices { border-color: #BBB; background-image: none; }
+.select2-container-multi .select2-choices .select2-search-field input { font-family: roboto; }
+.select2-container-multi .select2-choices .select2-search-field { height: 30px; }
+input { font-size: 16px; }
+.form-label { font-weight: 500; text-align:left; }
+.bottom { font-size: 80%; margin-top: -10px; font-weight: 300; }
+.radioButtonItem, .checkboxLabel { padding-top: 0; margin-bottom: 0; font-weight: 300}
+.ve-height .ve-area-wrapper .ve-ce-documentNode { min-height: 100px; }
+.ve-area-wrapper .ve-ce-documentNode { padding: 0.6em 0.8em; min-height: 325px; max-height: 500px; overflow-y: scroll; }
+#mw-content-text .select2-container .select2-choice { height: 34px; line-height: normal; }
+div.pfComboBox { margin-bottom: 0; }
+#pf-expand-all { margin: 20px 0 30px 0; }
+#pf-expand-all a { background-color: #5d3e5d; border: 2px solid #5d3e5d; padding: 0.45em 2.50em; color: white; margin-top: 20px; border-radius: 3px; }
+.panel-title { padding: 10px; }
+.panel>.panel-heading { padding: 0 }
+.toggle-wrap { margin: 20px 0 25px; }
+.toggle-wrap>a{ display: block; padding: 10px; color: #333; background-color: #f5f5f5; border: 1px solid #ddd; border-top-left-radius: 3px; border-top-right-radius: 3px; }
+.toggle-wrap>a:before { content: '\f0d7'; float: left; font-family: FontAwesome; margin-right: 10px; text-decoration: none; }
+.toggle-content { padding: 10px 20px; border: 1px solid #ddd; border-top: none; border-bottom-left-radius: 3px; border-bottom-right-radius: 3px; }
+.multipleTemplateInstanceTable table > tbody > tr > td, .multipleTemplateInstanceTable table > tbody > tr > th {
+    padding: 5px;
+    background-color: white !important;
+    border: 1px solid lightgrey;
+}}
+
+{{{standard input|save}}} {{{standard input|cancel}}}
+</includeonly><noinclude>[[Category:Article_Cargo]][[Category:MintyDocsAdminTools]]</noinclude>
