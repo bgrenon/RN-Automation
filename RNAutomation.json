@@ -137,7 +137,7 @@
 				},
 				{
 					"name": "ArticleHelmRN",
-					"namespace": "NS_Form",
+					"namespace": "PF_NS_Form",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Form%3AArticleHelmRN.mediawiki"
 				},
 				{
