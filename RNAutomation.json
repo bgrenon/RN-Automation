@@ -257,7 +257,7 @@
 				},
 				{
 					"name": "TaskSummary",
-					"namespace": "NS_TEMPLATE",
+					"namespace": "PF_NS_FORM",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Form%3ATaskSummary.mediawiki"
 				}
 			]
