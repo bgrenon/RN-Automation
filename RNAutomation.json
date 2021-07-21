@@ -12,141 +12,25 @@
 			"publisherURL": "https://all.docs.genesys.com",
 			"description": "A data structure for handling incoming release note content from both cloud and premise Jira instances in Genesys, using the Cargo and Page Forms extensions.",
 			"version": "0.1",
-			"pages": [
-				{
-					"name": "Component",
-					"namespace": "PF_NS_FORM",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Form%3AComponent.mediawiki"
-				},
-				{
-					"name": "Component",
-					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Template%3AComponent.mediawiki"
-				},
-				{
-					"name": "ComponentRN",
-					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Template%3AComponentRN.mediawiki"
-				},
-				{
-					"name": "ComponentMap",
-					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Template%3AComponentMap.mediawiki"
-				},
-	
-				{
-					"name": "DeploymentType",
-					"namespace": "PF_NS_FORM",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Form%3ADeploymentType.mediawiki"
-				},
-				{
-					"name": "EditRN",
-					"namespace": "PF_NS_FORM",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Form%3AEditRN.mediawiki"
-				},
-				{
-					"name": "DeploymentType",
-					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Template%3ADeploymentType.mediawiki"
-				},
-				{
-					"name": "DeploymentTypeMap",
-					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Template%3ADeploymentTypeMap.mediawiki"
-				},
-				{
-					"name": "Issue",
-					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Template%3AIssue.mediawiki"
-				},
-				{
-					"name": "RNPrint",
-					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Template%3ARNPrint.mediawiki"
-				},
-				{
-					"name": "ArticleCloudRN",
-					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Template%3AArticleCloudRN.mediawiki"
-				},
-				{
-					"name": "ArticleCloudRN",
-					"namespace": "PF_NS_FORM",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Form%3AArticleCloudRN.mediawiki"
-				},
-				{
-					"name": "IssueCategory",
-					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Template%3AIssueCategory.mediawiki"
-				},
-				{
-					"name": "IssueCategoryMap",
-					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Template%3AIssueCategoryMap.mediawiki"
-				},
-				{
-					"name": "IssueCategory",
-					"namespace": "PF_NS_FORM",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Form%3AIssueCategory.mediawiki"
-				},
-				{
-					"name": "ArticleCloudRN",
+			"directoryStructure": {
+				"namespaceSettings": [
+				   {
 					"namespace": "NS_CATEGORY",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Category%3AArticleCloudRN.mediawiki"
-				}
-				,
-				{
-					"name": "EditRN",
-					"namespace": "NS_CATEGORY",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Category%3AEditRN.mediawiki"
-				},
-				{
-					"name": "ReleaseType",
+					"fileNamePrefix": "Category/",
+					"fileNameSuffix": ".mediawiki"
+				    },
+				    {
+					"namespace": "NS_TEMPLATE",
+					"fileNamePrefix": "Template/",
+					"fileNameSuffix": ".mediawiki"
+				    },
+				    {
 					"namespace": "PF_NS_FORM",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Form%3AReleaseType.mediawiki"
-				},
-				{
-					"name": "ReleaseType",
-					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Template%3AReleaseType.mediawiki"
-				},
-				{
-					"name": "ReleaseTypeMap",
-					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Template%3AReleaseTypeMap.mediawiki"
-				},
-				{
-					"name": "PrintTopRN",
-					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Template%3APrintTopRN.mediawiki"
-				},
-				{
-					"name": "PrintTopPrivateEditionRN",
-					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Template%3APrintTopPrivateEditionRN.mediawiki"
-				},
-				{
-					"name": "AzureBoilerplate",
-					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Template%3AAzureBoilerplate.mediawiki"
-				},
-				{
-					"name": "ArticleHelmRN",
-					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Template%3AArticleHelmRN.mediawiki"
-				},
-				{
-					"name": "ArticleHelmRN",
-					"namespace": "PF_NS_FORM",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Form%3AArticleHelmRN.mediawiki"
-				},
-				{
-					"name": "ArticleHelmRN",
-					"namespace": "NS_CATEGORY",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Category%3AArticleHelmRN.mediawiki"
-				}
-				
-			],
+					"fileNamePrefix": "Form/",
+					"fileNameSuffix": ".mediawiki"
+				    }
+				] 
+			},
 			"requiredExtensions": [
 				"Page Forms",
 				"Cargo"
