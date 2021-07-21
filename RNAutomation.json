@@ -257,8 +257,8 @@
 				},
 				{
 					"name": "TaskSummary",
-					"namespace": "PF_NS_FORM",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/MintyDocs/Form%3ATaskSummary.mediawiki"
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/MintyDocs/Template%3ATaskSummary.mediawiki"
 				}
 			]
 		}
