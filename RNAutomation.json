@@ -237,7 +237,7 @@
 
 				{
 					"name": "EditMintyDocsManual",
-					"namespace": "NS_FORM",
+					"namespace": "PF_NS_FORM",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Template%3AEditMintyDocsManual.mediawiki"
 				},
 				{
