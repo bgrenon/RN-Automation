@@ -54,8 +54,23 @@ tables=HIW
     |format=template
     |template=ListItems
     |default=
- }}|<div style="margin-top:20px;"><span style="font-weight:600;">Related pages:</span><ul class="related-links pages">
-{{#cargo_query:
+ }}{{#cargo_query:
+     tables=Article,MintyDocsManual|join on=Article.Manual=MintyDocsManual.Manual
+     |fields=CONCAT('Link to Service RN',ServiceId)
+     |where=Article._pageName="{{FULLPAGENAME}}" AND ServiceID IS NOT NULL
+     |format=template
+     |template=ListItems
+     |default=
+ }}{{#arraymap:{{{ServiceId|}}}|,|x|{{#cargo_query:
+     tables=ArticleCloudRN,MintyDocsManual,Service
+     |join on=ArticleCloudRN.ServiceId HOLDS MintyDocsManual.ServiceId,MintyDocsManual.ServiceId=Service.Id
+     |fields=CONCAT('[[',MintyDocsManual._pageName,'| Deploying ',Service.Name,']]')
+     |where=ArticleCloudRN.ServiceId HOLDS "x" AND MintyDocsManual.ServiceId IS NOT NULL AND ArticleCloudRN._pageNamespace="{{NAMESPACENUMBER}}"
+     |format=template
+     |delimiter=
+     |template=ListItems
+     |default=}}
+}}|<div style="margin-top:20px;"><span style="font-weight:600;">Related documentation:</span><ul class="related-links pages">{{#cargo_query:
 tables=HIW
 |fields=CONCAT('[[PEC-Admin/HIW|Getting started with Genesys Engage cloud]]')
 |where=HIW._pageName="{{FULLPAGENAME}}"
@@ -83,25 +98,7 @@ tables=HIW
     |format=template
     |template=ListItems
     |default=
- }}|}}
- {{#if:{{#cargo_query:
-     tables=Article,MintyDocsManual|join on=Article.Manual=MintyDocsManual.Manual
-     |fields=CONCAT('Link to Service RN',ServiceId)
-     |where=Article._pageName="{{FULLPAGENAME}}" AND ServiceID IS NOT NULL
-     |format=template
-     |template=ListItems
-     |default=
  }}{{#cargo_query:
-	 tables=ArticleCloudRN,MintyDocsManual,Service
-     |join on=ArticleCloudRN.ServiceId HOLDS MintyDocsManual.ServiceId,MintyDocsManual.ServiceId=Service.Id
-     |fields=CONCAT('[[',Service.Name,'PEGUIDE|',Service.Name,' Private Edition Deployment]]')
-     |where=ArticleCloudRN.ServiceId HOLDS "{{{ServiceId|}}}" AND MintyDocsManual.ServiceId IS NOT NULL
-     |format=template
-     |template=ListItems
-     |default
- }}|
- <div style="margin-top:20px;"><span style="font-weight:600;">Related documentation:</span><ul class="related-links pages">
- 	{{#cargo_query:
      tables=ArticleCloudRN,MintyDocsManual,Article,Service
      |join on=ArticleCloudRN.ServiceId HOLDS MintyDocsManual.ServiceId,MintyDocsManual.Manual=Article.Manual,MintyDocsManual.ServiceId=Service.Id
      |fields=CONCAT('[[',ArticleCloudRN._pageName,'|',Service.Name,' Release Notes]]')
@@ -112,12 +109,16 @@ tables=HIW
  }}{{#arraymap:{{{ServiceId|}}}|,|x|{{#cargo_query:
      tables=ArticleCloudRN,MintyDocsManual,Service
      |join on=ArticleCloudRN.ServiceId HOLDS MintyDocsManual.ServiceId,MintyDocsManual.ServiceId=Service.Id
-     |fields=CONCAT('[[',MintyDocsManual._pageName,'|',Service.Name,' Private Edition Deployment]]')
+     |fields=CONCAT('[[',MintyDocsManual._pageName,'| Deploying ',Service.Name,']]')
      |where=ArticleCloudRN.ServiceId HOLDS "x" AND MintyDocsManual.ServiceId IS NOT NULL AND ArticleCloudRN._pageNamespace="{{NAMESPACENUMBER}}"
      |format=template
+     |delimiter=
      |template=ListItems
-     |default=wut?}}|
- }}</ul></div>|}}
+     |default=
+}}|\s}}|</ul>
+|}}
+</div>
+</div>
 <div>
 {{#if:{{{UseCase|}}}|
 {{#switch:{{{Platform|}}}
