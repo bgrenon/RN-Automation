@@ -15,7 +15,7 @@ It should be called in the following format:
 Edit the page to see the template text.
 
 {{#cargo_declare:_table=ArticleCloudRN
-|ServiceId=String
+|ServiceId=List (,) of String
 |ComponentId=List (,) of String
 |DeploymentTypeId=List (,) of String
 |ReleaseTypeId=List (,) of String
@@ -65,6 +65,8 @@ tables=Issue,ComponentRN,ComponentRN__ComponentId,ComponentRN__DeploymentTypeId,
 |group by=ComponentRN._pageName
 |order by=ComponentRN.ReleaseDate DESC
 }}
+
+
 
 {{#if:{{{Footer|}}}|
 ==Prior Releases==
