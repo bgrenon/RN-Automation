@@ -55,12 +55,14 @@ tables=HIW
     |template=ListItems
     |default=
  }}{{#cargo_query:
-     tables=Article,MintyDocsManual|join on=Article.Manual=MintyDocsManual.Manual
-     |fields=CONCAT('Link to Service RN',ServiceId)
-     |where=Article._pageName="{{FULLPAGENAME}}" AND ServiceID IS NOT NULL
+     tables=ArticleCloudRN,MintyDocsManual,Article,Service
+     |join on=ArticleCloudRN.ServiceId HOLDS MintyDocsManual.ServiceId,MintyDocsManual.Manual=Article.Manual,MintyDocsManual.ServiceId=Service.Id
+     |fields=CONCAT('[[',ArticleCloudRN._pageName,'|',Service.Name,' Release Notes]]')
+     |where=Article._pageName="{{FULLPAGENAME}}" AND MintyDocsManual.ServiceId IS NOT NULL AND ArticleCloudRN._pageNamespace="{{NAMESPACENUMBER}}"
      |format=template
      |template=ListItems
      |default=
+     |group by=Service.Id
  }}{{#arraymap:{{{ServiceId|}}}|,|x|{{#cargo_query:
      tables=ArticleCloudRN,MintyDocsManual,Service
      |join on=ArticleCloudRN.ServiceId HOLDS MintyDocsManual.ServiceId,MintyDocsManual.ServiceId=Service.Id
@@ -130,7 +132,7 @@ tables=HIW
 }}|}}
 </div>
 </div>
-<!-- Notices-->{{#cargo_query:tables=Article,MintyDocsManual|join on=Article.Manual=MintyDocsManual.Manual|fields=MintyDocsManual.Notice|where=Article.Manual="{{#explode:{{FULLPAGENAME}}|/|2}}"|named args=yes|format=template|template=Notices|group by=Notice}}
+<!-- Notices-->{{#cargo_query:tables=Article,MintyDocsManual|join on=Article.Manual=MintyDocsManual.Manual|fields=MintyDocsManual.Notice|where=Article.Manual="{{#explode:{{FULLPAGENAME}}|/|2}}"|named args=yes|format=template|template=Notices|group by=Notice|default=}}
 
 </onlyinclude>
 <noinclude>[[Category:MintyDocs_Cargo]][[Category:EPPO_Cargo]][[Category:Cargo_CloudRN]][[Category:UCSales_Cargo]]
