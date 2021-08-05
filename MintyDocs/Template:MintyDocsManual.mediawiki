@@ -60,7 +60,7 @@ __NOEDITSECTION__{{#cargo_store:_table=MintyDocsManual
 |defaultform={{{defaultform|}}}
 |alternateforms={{{alternateforms|}}}
 |version={{#explode:{{FULLPAGENAME}}|/|1}}
-|product={{#explode:{{FULLPAGENAME}}|/|0}}
+|product={{#switch:{{NAMESPACENUMBER}}|620={{#explode:{{#explode:{{FULLPAGENAME}}|:|1}}|/|0}}|#default={{#explode:{{FULLPAGENAME}}|/|0}}}}
 |Description={{{Description|}}}
 |ServiceId={{{ServiceId|}}}
 }}{{#css:
