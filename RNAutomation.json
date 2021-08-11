@@ -40,6 +40,11 @@
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Form%3ADeploymentType.mediawiki"
 				},
 				{
+					"name": "CreateRN",
+					"namespace": "PF_NS_FORM",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Form%3ACreateRN.mediawiki"
+				},
+				{
 					"name": "EditRN",
 					"namespace": "PF_NS_FORM",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Form%3AEditRN.mediawiki"
