@@ -16,7 +16,7 @@ if a page with that name already exists, you will be sent to a form to edit that
 <div class="col-md-2 form-label">Component:</div> 
 <div class="col-md-10">{{{field|ComponentId|input type=dropdown|cargo table=Component|cargo field=Id|mapping template=ComponentMap}}}</div>
 <div class="col-md-2 form-label">Container number:{{FormTip|Enter the Container-based release number exactly as defined here.}}</div> 
-<div class="col-md-10">{{{field|ReleaseNumber|input type=regexp|regexp=/^\d{3}\.\d(?:\.\d{3}(?:\.\d{2}(?:\.RE)?)?)?$/|message=Use format: n.n.nnn.nn|placeholder=Enter release number in 100.0.000.01 format}}}</div>
+<div class="col-md-10">{{{field|ReleaseNumber|input type=regexp|regexp=/^\d{3}\.\d(?:\.\d{3}(?:\.\d{4}(?:\.RE)?)?)?$/|message=Use format: n.n.nnn.nn|placeholder=Enter release number in 100.0.000.0001 format}}}</div>
 <div style="clear:both"></div>
 
 {{{end template}}}
