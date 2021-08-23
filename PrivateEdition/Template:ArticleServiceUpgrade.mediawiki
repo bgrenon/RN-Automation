@@ -1,0 +1,54 @@
+<noinclude>
+This is the "ArticleServiceUpgrade" template.
+
+It should be called in the following format:
+<pre>
+{{ArticleServiceUpgrade
+|productshort=
+|ComingSoon=
+|DisplayName=
+|TocName=
+|Dimension=
+|Context=
+|Product=
+|Manual=
+|Application=
+|UseCase=
+|Prereq=
+}}
+
+</pre>
+Edit the page to see the template text.
+
+{{#cargo_declare:_table=ArticleServiceUpgrade
+|productshort=String
+|ComingSoon=String
+|DisplayName=String
+|TocName=String
+|Dimension=String
+|Context=Wikitext (size=10000)
+|Product=String
+|Manual=String
+|Prereq=Wikitext (size=10000)
+}}
+
+</noinclude>
+<includeonly>{{#css: .MintyDocsTopicDesc {display:none} }}{{#switch:{{{PageType|}}}|Manual=[[Category:MintyDocsManual]]|SelfHelpManual=[[Category:SelfHelpManual]]|#default=[[Category:ArticleServiceUpgrade]]}}__TOC__
+__NOEDITSECTION__{{#cargo_store:_table=ArticleServiceUpgrade
+|productshort={{#explode:{{FULLPAGENAME}}|/|0}}
+|ComingSoon={{{ComingSoon|}}}
+|DisplayName={{{DisplayName|}}}
+|TocName={{{TocName|}}}
+|Dimension={{{Dimension|}}}
+|Context={{{Context|}}}
+|Product={{MINTYDOCSPRODUCT}}
+|Manual={{#explode:{{FULLPAGENAME}}|/|2}}
+|Prereq={{{Prereq|}}}
+}}<!-- Set MintyDocs topic, including a switch for different treatment for Manual pages -->{{#switch:{{{PageType|}}}|Manual=|SelfHelpManual=|#default={{#mintydocs_topic:
+|display name={{{DisplayName|}}}
+|toc name={{{TocName|}}}
+}}}}<!-- Defining the EPPO Header; all parameters need to be passed to it -->{{EPPOHead|Role={{{Role|}}}|ComingSoon={{{ComingSoon|}}}|Dimension={{{Dimension|}}}|Context={{{Context|}}}|UseCase={{{UseCase|}}}|Application={{{Application|}}}|Platform={{{Platform|}}}|PageType=ArticleServiceUpgrade}}<!--Defining the Prerequisite Head
+ -->{{PrerequisitesHead|Prereq={{{Prereq|}}}}}{{{Section|}}}<!-- Removing the version dropdown for Standalone (version-less) pages -->{{#switch:{{{Standalone}}}|Yes={{#css: 
+button#version-dropdown { display: none; }
+}}|#default=}}<!--Notices --><!--Transclusion Test-->
+{{#if:{{{TransclusionSource|}}}|{{#cargo_query:tables=Section|fields=Type,alignment,anchor,sectionHeading,structuredtext,structuredtextwide,image|format=template|template=Section|named args=yes|where=_pageName="{{#switch:{{NAMESPACENUMBER}}|620=Draft:|#default=}}{{{TransclusionSource}}}"}}|}}</includeonly><noinclude>[[Category:MintyDocs_Cargo]]</noinclude>

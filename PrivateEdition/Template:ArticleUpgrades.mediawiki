@@ -1,0 +1,74 @@
+<noinclude>
+This is the "ArticleUpgrades" template.
+
+It should be called in the following format:
+<pre>
+{{ArticleUpgrades
+|DisplayName=
+|TocName=
+|Dimension=
+|Context=
+|Product=
+|ProductShort=
+|ComingSoon=
+|Manual=
+}}
+
+</pre>
+Edit the page to see the template text.
+
+{{#cargo_declare:_table=ArticleUpgrades
+|DisplayName=String
+|TocName=String
+|Dimension=String
+|Context=Wikitext (size=10000)
+|Product=String
+|ProductShort=String
+|ComingSoon=String
+|Manual=String
+}}
+{{#cargo_attach:_table=Article}}
+
+</noinclude>
+<includeonly>{{#css: .MintyDocsTopicDesc {display:none} }}[[Category:ArticleUpgrades]]__TOC__
+__NOEDITSECTION__
+{{#cargo_store:_table=Article
+|DisplayName={{{DisplayName|}}}
+|TocName={{{TocName|}}}
+|Dimension={{{Dimension|}}}
+|Context={{{Context|}}}
+|Product={{MINTYDOCSPRODUCT}}
+|productshort={{#explode:{{FULLPAGENAME}}|/|0}}
+|ComingSoon={{{ComingSoon|}}}
+|Role={{{Role|}}}
+|Manual={{#explode:{{FULLPAGENAME}}|/|2}}
+|Application={{{Application|}}}
+|UseCase={{{UseCase|}}}
+|Prereq={{{Prereq|}}}
+|PEPageType={{{PEPageType|}}}
+}}
+{{#cargo_store:_table=ArticleUpgrades
+|Platform={{{Platform|}}}
+|DisplayName={{{DisplayName|}}}
+|TocName={{{TocName|}}}
+|Dimension={{{Dimension|}}}
+|Context={{{Context|}}}
+|Product={{MINTYDOCSPRODUCT}}
+|ProductShort={{#explode:{{FULLPAGENAME}}|/|0}}
+|ComingSoon={{{ComingSoon|}}}
+|Role={{{Role|}}}
+|Manual={{#explode:{{FULLPAGENAME}}|/|2}}
+|Application={{{Application|}}}
+|UseCase={{{UseCase|}}}
+}}<!-- Defining the EPPO Header; all parameters need to be passed to it -->{{EPPOHead|Role={{{Role|}}}|ComingSoon={{{ComingSoon|}}}|Dimension={{{Dimension|}}}|Context={{{Context|}}}|UseCase={{{UseCase|}}}|Application={{{Application|}}}|Platform={{{Platform|}}}|PageType=Article}}{{#mintydocs_topic:
+|display name=Upgrade strategies
+}}{{{Intro|}}}
+
+{{{UpgradeMode|}}}
+
+
+{{#if:{{{NextSteps|}}}|
+==Next Steps==
+{{{NextSteps|}}}
+}}
+<nowiki /></includeonly><noinclude>[[Category:MintyDocs_Cargo]]</noinclude>

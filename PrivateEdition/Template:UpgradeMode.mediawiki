@@ -1,0 +1,23 @@
+<noinclude>
+This is the "UpgradeMode" template.
+It should be called in the following format:
+<pre>
+{{UpgradeMode
+|Id=
+|Name=
+|ShortDescription=
+|LongDescription=
+|Image=
+}}
+</pre>
+Edit the page to see the template text.
+{{#cargo_declare:_table=UpgradeMode|Id=String|Name=String|ShortDescription=Wikitext|LongDescription=Wikitext|Image=File}}
+</noinclude><includeonly>{{#cargo_store:_table=UpgradeMode|Id={{{Id|}}}|Name={{{Name|}}}|ShortDescription={{{ShortDescription|}}}|LongDescription={{{LongDescription|}}}
+|Image={{{Image|}}} }}
+=={{{Name|}}}==
+{{{ShortDescription|}}}
+
+{{#if:{{{Image|}}}|[[File:{{{Image|}}}]]}}
+
+{{{LongDescription|}}}
+</includeonly><noinclude>[[Category:PrivateEdition]]</noinclude>

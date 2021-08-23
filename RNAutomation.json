@@ -234,6 +234,25 @@
 			]
 		},
 
+		"MulticloudMetadata": {
+			"globalID": "com.all.docs.genesys.Category:MulticloudMetadata",
+			"description": "Temporary starting point for all Engage metadata lookup tables",
+			"version": "0.1",
+			"pages": [
+
+				{
+					"name": "UpgradeMode",
+					"namespace": "PF_NS_FORM",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/MintyDocs/Form%3AUpgradeMode.mediawiki"
+				},
+				{
+					"name": "UpgradeMode",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/MintyDocs/Template%3AUpgradeMode.mediawiki"
+				}
+			]
+		},
+
 		"MintyDocs": {
 			"globalID": "com.all.docs.genesys.Category:MintyDocs",
 			"description": "Temporary starting point for MintyDocs data structure, adding piece by piece by project in RN automation repo for now",
@@ -244,6 +263,11 @@
 					"name": "EditMintyDocsManual",
 					"namespace": "PF_NS_FORM",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/MintyDocs/Form%3AEditMintyDocsManual.mediawiki"
+				},
+				{
+					"name": "EditTOC",
+					"namespace": "PF_NS_FORM",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/MintyDocs/Form%3AEditTOC.mediawiki"
 				},
 				{
 					"name": "Article",
@@ -264,6 +288,53 @@
 					"name": "TaskSummary",
 					"namespace": "NS_TEMPLATE",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/MintyDocs/Template%3ATaskSummary.mediawiki"
+				}
+			]
+		},
+		"PrivateEdition": {
+			"globalID": "com.all.docs.genesys.Category:PrivateEdition",
+			"description": "Private edition data structure for content",
+			"version": "0.1",
+			"pages": [
+
+				{ 	"name": "ServiceHA",
+					"namespace": "NS_CATEGORY",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/MintyDocs/Category%3AServiceHA.mediawiki"}
+
+				{
+					"name": "ArticleUpgrades",
+					"namespace": "PF_NS_FORM",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/MintyDocs/Form%3AArticleUpgrades.mediawiki"
+				},
+				{
+					"name": "ArticleServiceHA",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/MintyDocs/Template%3AArticleServiceHA.mediawiki"
+				},
+				{
+					"name": "ArticleServiceUpgrade",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/MintyDocs/Template%3AArticleServiceUpgrade.mediawiki"
+				},
+				{
+					"name": "ArticleUpgrades",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/MintyDocs/Template%3AArticleUpgrades.mediawiki"
+				},
+				{
+					"name": "IncludedServiceHA",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/MintyDocs/Template%3AIncludedServiceHA.mediawiki"
+				},
+				{
+					"name": "ServiceHA",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/MintyDocs/Template%3AServiceHA.mediawiki"
+				},
+				{
+					"name": "UpgradeMode",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/MintyDocs/Template%3AUpgradeMode.mediawiki"
 				}
 			]
 		}

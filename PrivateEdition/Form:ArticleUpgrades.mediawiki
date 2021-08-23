@@ -1,0 +1,54 @@
+<noinclude>
+This is the "ArticleUpgrades" form.
+To create a page with this form, enter the page name below;
+if a page with that name already exists, you will be sent to a form to edit that page.
+
+
+{{#forminput:form=ArticleUpgrades|autocomplete on category=UpgradeMode}}
+
+</noinclude><includeonly>
+<div id="wikiPreview" style="display: none; padding-bottom: 25px; margin-bottom: 25px; border-bottom: 1px solid #AAAAAA;"></div>
+{{{for template|ArticleUpgrades}}}
+
+
+<div class="col-md-2 form-label">Context statement</div> 
+<div class="col-md-10">{{{field|Context|input type=textarea|editor=visualeditor}}}</div>
+
+<div class="col-md-2 form-label">Introductory paragraph</div> 
+<div class="col-md-10">{{{field|Intro|input type=textarea|editor=visualeditor}}}</div>
+
+<div class="col-md-2 form-label">Upgrade Modes</div> 
+<div class="col-md-10">{{{field|UpgradeMode|holds template}}}</div>
+
+<div class="col-md-2 form-label">Next steps</div>
+<div class="col-md-10">{{{field|NextSteps|input type=textarea|editor=visualeditor}}}</div>
+
+{{{end template}}}
+
+{{{for template|UpgradeMode|multiple|displayed fields when minimized=Name|embed in field=ArticleUpgrades[UpgradeMode]}}}
+{{{field|Id|default=uuid|hidden}}}
+
+<div class="col-md-2 form-label">Name</div> 
+<div class="col-md-10">{{{field|Name}}}</div>  
+
+<div class="col-md-2 form-label">Short description</div> 
+<div class="col-md-10">{{{field|ShortDescription|input type=textarea|editor=visualeditor}}}</div>  
+
+<div class="col-md-2 form-label">Image</div> 
+<div class="col-md-10">{{{field|Image|uploadable|image preview}}}</div> 
+
+<div class="col-md-2 form-label">Long description</div> 
+<div class="col-md-10">{{{field|LongDescription|input type=textarea|editor=visualeditor}}}</div>   
+
+      
+{{{end template}}}
+
+{{{standard input|summary}}}
+
+{{{standard input|minor edit}}} {{{standard input|watch}}}
+
+{{{standard input|save}}} {{{standard input|preview}}} {{{standard input|changes}}} {{{standard input|cancel}}}
+</includeonly>
+{{FormCSS}}
+
+<noinclude>[[Category:RNAutomation]]</noinclude>
