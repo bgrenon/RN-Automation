@@ -25,7 +25,6 @@ Global=
 ===Global settings for this service===
 If you are able to apply your HA and DR settings globally for this service, do so here. 
 
-add field for intro
 <div class="col-md-2 form-label">High Availability</div> 
 <div class="col-md-10">{{{field|HA|input type=tokens|values=N+1,active-active,singleton}}}</div>
 
@@ -40,8 +39,6 @@ If you need to specify HA/DR for each several "included services", enable this s
 
 
 <div id="IncludedService">
-
-Add field for intro...
 
 {{{field|IncludedServiceHA|holds template}}}
 </div>
