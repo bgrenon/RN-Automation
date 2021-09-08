@@ -319,6 +319,11 @@
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3AIncludedServiceHA.mediawiki"
 				},
 				{
+					"name": "IncludedServiceMap",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3AIncludedServiceMap.mediawiki"
+				},
+				{
 					"name": "ServiceHA",
 					"namespace": "NS_TEMPLATE",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3AServiceHA.mediawiki"
