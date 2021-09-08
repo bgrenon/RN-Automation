@@ -8,34 +8,15 @@ It should be called in the following format:
 |DR=
 |NoHA=
 |Notes=
-|AddIncluded=
 }}
 </pre>
 Edit the page to see the template text.
-{{#cargo_declare:_table=ServiceHA|ServiceId=String|HA=String|DR=String|NoHA=String|Notes=Wikitext|AddIncluded=
-String}}
-
-{{#cargo_attach:_table=Article}}
-
-</noinclude><includeonly>[[Category:ServiceHA]]{{#cargo_store:_table=ServiceHA|ServiceId={{{ServiceId|}}}|HA={{{HA|}}}|DR={{{DR|}}}|NoHA={{{NoHA|}}}|Notes={{{Notes|}}}|AddIncluded={{{AddIncluded|}}} }}
-{{#cargo_store:_table=Article
-|DisplayName=High availability and disaster recovery
-|Dimension={{{Dimension|}}}
-|Context=Find out how this service provides disaster recovery in the event the service goes down.
-|Product={{MINTYDOCSPRODUCT}}
-|productshort={{#explode:{{FULLPAGENAME}}|/|0}}
-|ComingSoon={{{ComingSoon|}}}
-|Manual={{#explode:{{FULLPAGENAME}}|/|2}}
-}}{{EPPOHead|Role={{{Role|}}}|ComingSoon={{{ComingSoon|}}}|Dimension={{{Dimension|}}}|Context=Find out how this service provides disaster recovery in the event the service goes down.|UseCase={{{UseCase|}}}|Application={{{Application|}}}|Platform={{{Platform|}}}|PageType=Article}}{{#mintydocs_topic:
-|display name=High availability and disaster recovery
-}}
-
+{{#cargo_declare:_table=ServiceHA|ServiceId=String|HA=String|DR=String|NoHA=String|Notes=Wikitext}}
+</noinclude><includeonly>{{#cargo_store:_table=ServiceHA|ServiceId={{{ServiceId|}}}|HA={{{HA|}}}|DR={{{DR|}}}|NoHA={{{NoHA|}}}|Notes={{{Notes|}}} }}
 {{EmbedForm|Form=ServiceHA|ButtonText=HA Details}}
 
 {{#switch:{{{NoHA|}}}
 |Yes={{{Notes|}}}
-|No=
-{{#switch:{{{AddIncluded|}}}
 |No=
 {{{!}}
 !Service
@@ -46,12 +27,8 @@ String}}
 {{!}} {{{HA|}}}
 {{!}} {{{DR|}}}
 {{!}}}
-|Yes
-|#default=
-{{#cargo_query:tables=IncludedServiceHA,IncludedService|join on=IncludedServiceHA.IncludedServiceId=IncludedService.Id|fields=IncludedService.Name,IncludedServiceHA=High availability,IncludedServiceDR=Disaster recovery|default=wut?|where=IncludedServiceHA._pageName="{{FULLPAGENAME}}" }}
-}}
 }}
 
 See High Availability information for all services: {{SuiteLevelLink|hadr}}
-{{{IncludedServiceHA|}}}
+
 </includeonly>

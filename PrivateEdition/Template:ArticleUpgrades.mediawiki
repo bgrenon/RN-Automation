@@ -27,12 +27,14 @@ Edit the page to see the template text.
 |ComingSoon=String
 |Manual=String
 }}
-{{#cargo_attach:_table=Article}}
+<!--{{#cargo_attach:_table=Article}}-->
 
 </noinclude>
 <includeonly>{{#css: .MintyDocsTopicDesc {display:none} }}[[Category:ArticleUpgrades]]__TOC__
 __NOEDITSECTION__
-{{#cargo_store:_table=Article
+<!--{{#cargo_store:_table=Article
+|Standalone={{{Standalone|}}}
+|Platform={{{Platform|}}}
 |DisplayName={{{DisplayName|}}}
 |TocName={{{TocName|}}}
 |Dimension={{{Dimension|}}}
@@ -46,7 +48,7 @@ __NOEDITSECTION__
 |UseCase={{{UseCase|}}}
 |Prereq={{{Prereq|}}}
 |PEPageType={{{PEPageType|}}}
-}}
+}}-->
 {{#cargo_store:_table=ArticleUpgrades
 |Platform={{{Platform|}}}
 |DisplayName={{{DisplayName|}}}

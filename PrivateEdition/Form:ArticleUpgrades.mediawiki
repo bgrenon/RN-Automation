@@ -10,7 +10,6 @@ if a page with that name already exists, you will be sent to a form to edit that
 <div id="wikiPreview" style="display: none; padding-bottom: 25px; margin-bottom: 25px; border-bottom: 1px solid #AAAAAA;"></div>
 {{{for template|ArticleUpgrades}}}
 
-
 <div class="col-md-2 form-label">Context statement</div> 
 <div class="col-md-10">{{{field|Context|input type=textarea|editor=visualeditor}}}</div>
 

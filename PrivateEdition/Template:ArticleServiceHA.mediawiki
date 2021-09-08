@@ -33,16 +33,6 @@ String}}
 |No=
 {{#if:{{{AddIncluded|}}}
 |
-{{{!}}
-!Service
-! High Availability
-! Disaster Recovery
-{{!}}-
-{{!}} {{#cargo_query:tables=ServiceHA,Service|join on=ServiceHA.ServiceId=Service.Id|fields=Service.Name|default=|where=ServiceHA._pageNamespace="{{NAMESPACENUMBER}}" AND ServiceId="{{{ServiceId}}}" }}
-{{!}} {{{HA|}}}
-{{!}} {{{DR|}}}
-{{!}}}
-|
 {{#switch:{{{AddIncluded|}}}
 |No=
 |#default=
@@ -58,6 +48,17 @@ String}}
 |Yes
 |#default=
 {{#cargo_query:tables=IncludedServiceHA,IncludedService|join on=IncludedServiceHA.IncludedServiceId=IncludedService.Id|fields=IncludedService.Name,IncludedServiceHA=High availability,IncludedServiceDR=Disaster recovery|default=|where=IncludedServiceHA._pageName="{{FULLPAGENAME}}" }}
+}}
+|
+{{{!}}
+!Service
+! High Availability
+! Disaster Recovery
+{{!}}-
+{{!}} {{#cargo_query:tables=ServiceHA,Service|join on=ServiceHA.ServiceId=Service.Id|fields=Service.Name|default=|where=ServiceHA._pageNamespace="{{NAMESPACENUMBER}}" AND ServiceId="{{{ServiceId}}}" }}
+{{!}} {{{HA|}}}
+{{!}} {{{DR|}}}
+{{!}}}
 }}
 }}
 
