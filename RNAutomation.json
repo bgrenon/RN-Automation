@@ -306,10 +306,15 @@
 					"namespace": "PF_NS_FORM",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/MintyDocs/Form%3AArticleUpgrades.mediawiki"
 				},
-								{
+				{
 					"name": "ArticleServiceHA",
 					"namespace": "PF_NS_FORM",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/MintyDocs/Form%3AArticleServiceHA.mediawiki"
+				},
+				{
+					"name": "UpgradeMode",
+					"namespace": "PF_NS_FORM",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/MintyDocs/Form%3AUpgradeMode.mediawiki"
 				},
 
 				{
