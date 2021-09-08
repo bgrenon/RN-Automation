@@ -8,11 +8,12 @@ It should be called in the following format:
 |DR=
 |NoHA=
 |Notes=
+|AddIncluded=
 }}
 </pre>
 Edit the page to see the template text.
-{{#cargo_declare:_table=ServiceHA|ServiceId=String|HA=String|DR=String|NoHA=String|Notes=Wikitext}}
-</noinclude><includeonly>{{#cargo_store:_table=ServiceHA|ServiceId={{{ServiceId|}}}|HA={{{HA|}}}|DR={{{DR|}}}|NoHA={{{NoHA|}}}|Notes={{{Notes|}}} }}
+{{#cargo_declare:_table=ServiceHA|ServiceId=String|HA=String|DR=String|NoHA=String|Notes=Wikitext|AddIncluded=String}}
+</noinclude><includeonly>{{#cargo_store:_table=ServiceHA|ServiceId={{{ServiceId|}}}|HA={{{HA|}}}|DR={{{DR|}}}|NoHA={{{NoHA|}}}|Notes={{{Notes|}}}|AddIncluded={{{AddIncluded|}}} }}
 {{EmbedForm|Form=ServiceHA|ButtonText=HA Details}}
 
 {{#switch:{{{NoHA|}}}

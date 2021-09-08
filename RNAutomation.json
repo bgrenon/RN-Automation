@@ -329,6 +329,16 @@
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3AServiceHA.mediawiki"
 				},
 				{
+					"name": "PrintServiceHA",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3APrintServiceHA.mediawiki"
+				},
+				{
+					"name": "PrintServicesHAFormat",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3APrintServicesHAFormat.mediawiki"
+				},
+				{
 					"name": "UpgradeMode",
 					"namespace": "NS_TEMPLATE",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3AUpgradeMode.mediawiki"

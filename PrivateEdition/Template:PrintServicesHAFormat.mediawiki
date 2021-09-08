@@ -1,0 +1,42 @@
+<tr>
+
+{{#switch:{{{AddIncluded|}}}
+|No
+|#default=
+<td>
+{{{Service|}}}
+</td>
+|Yes=
+<td colspan="3">
+{{{Service|}}}
+</td>
+</tr>
+}}
+{{#switch:{{{NoHA|}}}
+|Yes=
+<td colspan="2">
+&#42; {{{Notes|}}}
+</td>
+|No=
+{{#switch:{{{AddIncluded|}}}
+|No
+|#default=
+<td>
+{{{High Availability|}}}
+</td>
+|Yes=
+{{#cargo_query:
+tables=Service,IncludedService,IncludedServiceHA
+|join on=Service.Id=IncludedService.ServiceId,IncludedService.Id=IncludedServiceHA.IncludedServiceId
+|fields=CONCAT ('<tr><td style="white-space: nowrap;">&nbsp;&nbsp;&mdash; ',IncludedService.Name,'</td><td>',IncludedServiceHA.IncludedServiceHA,'</td><td>',IncludedServiceHA.IncludedServiceDR,'</td></tr>')|default=wut?|delimiter=|where=IncludedService.ServiceId="{{{ServiceId|}}}"}}
+}}
+{{#switch:{{{AddIncluded|}}}
+|No
+|#default=
+<td>
+{{{Disaster Recovery|}}}
+</td>
+|Yes=
+}}
+}}
+</tr><noinclude>[[Category:PrivateEdition]]</noinclude>
