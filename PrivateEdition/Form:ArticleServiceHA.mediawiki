@@ -1,0 +1,84 @@
+<noinclude>
+This is the "ArticleServiceHA" form.
+To create a page with this form, enter the page name below;
+if a page with that name already exists, you will be sent to a form to edit that page.
+
+
+{{#forminput:form=ArticleServiceHA|autocomplete on category=UpgradeMode}}
+
+</noinclude><includeonly>
+<div id="wikiPreview" style="display: none; padding-bottom: 25px; margin-bottom: 25px; border-bottom: 1px solid #AAAAAA;"></div>
+{{{for template|ArticleServiceHA}}}
+
+==Setup this page==
+===Select this service===
+Select the main service that you need to capture HA related information for.
+<div class="col-md-2 form-label">ServiceId</div>
+<div class="col-md-10">{{{field|ServiceId|input type=tokens|cargo table=Service|cargo field=Id|mapping template=ServiceMap}}}</div>
+
+===Choose the level for capturing this information===
+
+
+<tabber>
+Global=
+<div style="height:265px">
+===Global settings for this service===
+If you are able to apply your HA and DR settings globally for this service, do so here. 
+
+add field for intro
+<div class="col-md-2 form-label">High Availability</div> 
+<div class="col-md-10">{{{field|HA|input type=tokens|values=N+1,active-active,singleton}}}</div>
+
+<div class="col-md-2 form-label">Disaster Recovery</div>
+<div class="col-md-10">{{{field|DR|input type=tokens|values=active-active,active-backup,pilot-light,active spare}}}</div>
+</div>
+|-|
+Per included service=
+
+===Individual settings per included service===
+If you need to specify HA/DR for each several "included services", enable this setting here:{{{field|AddIncluded|input type=checkbox|show on select=IncludedService}}}
+
+
+<div id="IncludedService">
+
+Add field for intro...
+
+{{{field|IncludedServiceHA|holds template}}}
+</div>
+|-|
+Exceptions for no HA/DR=
+===Exceptions for services with no HA/DR at all===
+<span style="color:red">*</span> HA/DR does not apply for this service
+{{{field|NoHA|input type=checkbox|show on select=NoHA}}}
+<div id="NoHA">
+''Explain why HA/DR does not apply for this service:
+''
+{{{field|Notes|input type=textarea|editor=visualeditor}}}
+</div>
+</tabber>
+
+
+{{{end template}}}
+
+{{{for template|IncludedServiceHA|multiple|embed in field=ArticleServiceHA[IncludedServiceHA]|displayed fields when minimized=IncludedServiceHA}}}
+<div class="col-md-2 form-label">Select included service</div>
+<div class="col-md-10">{{{field|IncludedServiceId|input type=tokens|values dependent on=IncludedService[ServiceId]|cargo table=IncludedService|cargo field=Id|mapping template=IncludedServiceMap}}}</div>
+<div class="col-md-2 form-label">HA</div>
+<div class="col-md-10">{{{field|IncludedServiceHA|input type=tokens|values=N+1,active-active,singleton}}}</div>
+<div class="col-md-2 form-label">DR</div>
+<div class="col-md-10">{{{field|IncludedServiceDR|input type=tokens|values=active-active,active-backup,pilot-light,active spare}}}</div>
+
+{{{end template}}}
+
+==Enter your content==
+{{{standard input|free text|editor=visualeditor}}}
+
+{{{standard input|summary}}}
+
+{{{standard input|minor edit}}} {{{standard input|watch}}}
+
+{{{standard input|save}}} {{{standard input|preview}}} {{{standard input|changes}}} {{{standard input|cancel}}}
+</includeonly>
+{{FormCSS}}
+
+<noinclude>[[Category:RNAutomation]]</noinclude>

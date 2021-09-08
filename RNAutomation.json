@@ -299,13 +299,19 @@
 
 				{ 	"name": "ServiceHA",
 					"namespace": "NS_CATEGORY",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/MintyDocs/Category%3AServiceHA.mediawiki"}
-
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/MintyDocs/Category%3AServiceHA.mediawiki"
+				},
 				{
 					"name": "ArticleUpgrades",
 					"namespace": "PF_NS_FORM",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/MintyDocs/Form%3AArticleUpgrades.mediawiki"
 				},
+								{
+					"name": "ArticleServiceHA",
+					"namespace": "PF_NS_FORM",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/MintyDocs/Form%3AArticleServiceHA.mediawiki"
+				},
+
 				{
 					"name": "ArticleServiceHA",
 					"namespace": "NS_TEMPLATE",
