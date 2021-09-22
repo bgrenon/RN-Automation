@@ -7,34 +7,37 @@
 {{{Service|}}}
 </td>
 |Yes=
-<td colspan="3">
+<td colspan="4">
 {{{Service|}}}
 </td>
 </tr>
 }}
 {{#switch:{{{NoHA|}}}
 |Yes=
-<td colspan="2">
-&#42; {{{Notes|}}}
+<td colspan="3">
+{{{Notes|}}}
 </td>
 |No=
 {{#switch:{{{AddIncluded|}}}
 |No
 |#default=
 <td>
-{{{High Availability|}}}
+{{#cargo_query:tables=HAType|fields=CONCAT ('<span style="white-space: nowrap;">',Name,'{{SuperscriptCheck}}</span>')|where=Id="{{{HA|}}}"|default=<span style="white-space: nowrap;">{{{HA|}}}{{SuperscriptFlag}}}}</span> 
 </td>
 |Yes=
 {{#cargo_query:
 tables=Service,IncludedService,IncludedServiceHA
 |join on=Service.Id=IncludedService.ServiceId,IncludedService.Id=IncludedServiceHA.IncludedServiceId
-|fields=CONCAT ('<tr><td style="white-space: nowrap;">&nbsp;&nbsp;&mdash; ',IncludedService.Name,'</td><td>',IncludedServiceHA.IncludedServiceHA,'</td><td>',IncludedServiceHA.IncludedServiceDR,'</td></tr>')|default=wut?|delimiter=|where=IncludedService.ServiceId="{{{ServiceId|}}}" AND IncludedServiceHA._pageNamespace="{{NAMESPACENUMBER}}"}}
+|fields=IncludedService.Name,IncludedServiceHA.IncludedServiceHA=HA,IncludedServiceHA.IncludedServiceDR=DR,IncludedServiceHA.IncludedServicePrimaryUnit=PrimaryUnit|default=|format=template|template=IncludedServiesPrintAll|named args=yes|delimiter=|where=IncludedService.ServiceId="{{{ServiceId|}}}" AND IncludedServiceHA._pageNamespace="{{NAMESPACENUMBER}}"}}
 }}
 {{#switch:{{{AddIncluded|}}}
 |No
 |#default=
 <td>
-{{{Disaster Recovery|}}}
+{{#cargo_query:tables=DRType|fields=CONCAT ('<span style="white-space: nowrap;">',Name,'{{SuperscriptCheck}}</span> ')|where=Id="{{{DR|}}}"|default=<span style="white-space: nowrap;">{{{DR|}}}{{SuperscriptFlag}}}}</span> 
+</td>
+<td>
+{{#cargo_query:tables=PrimaryUnitValues|fields=CONCAT ('<span style="white-space: nowrap;">',Name,'{{SuperscriptCheck}}</span> ')|where=Id="{{{PrimaryUnit|}}}"|default=<span style="white-space: nowrap;">{{{PrimaryUnit|}}}{{SuperscriptFlag}}</span>  }}
 </td>
 |Yes=
 }}

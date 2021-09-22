@@ -32,9 +32,12 @@ __NOEDITSECTION__{{#cargo_store:_table=Article|Standalone={{{Standalone}}}|Dimen
 <includeonly>{{#cargo_query:
 tables=Issue,ComponentRN,ComponentRN__ComponentId,ComponentRN__DeploymentTypeId,Component
 |join on=Issue._pageName=ComponentRN._pageName,ComponentRN._ID=ComponentRN__ComponentId._rowID,ComponentRN._ID=ComponentRN__DeploymentTypeId._rowID,ComponentRN.ComponentId HOLDS Component.Id
-|fields=Component.Name=Service,ComponentRN.ReleaseNumber=Release Number,PrivateEditionReleaseDate=Release Date,Containers=Updated Helm Charts & Containers
-<!--|format=template
-|template=HelmPrint-->
+|fields=Component.Name=Service,ComponentRN.ReleaseNumber,PrivateEditionReleaseDate=ReleaseDate,Containers=Updated Helm Charts & Containers,ComponentId
+|intro=<table><tr><th>Service</th><th>Release Number</th><th>Release Date</th><th>Updated Helm Charts</th><th>Updated Containers</tr>
+|outro=</table>
+|named args=yes
+|format=template
+|template=HelmPrint
 |where=(ComponentRN__ComponentId._value IN ({{#arraymap:{{{ComponentId|}}}|,|x|'x'}})) AND (ComponentRN__DeploymentTypeId._value IN ({{#arraymap:{{{DeploymentTypeId|}}}|,|x|'x'}})) AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}" AND PrivateEditionReleaseDate IS NOT NULL
 |named args=yes
 |group by=ComponentRN._pageName

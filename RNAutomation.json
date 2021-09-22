@@ -141,6 +141,11 @@
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Template%3AArticleHelmRN.mediawiki"
 				},
 				{
+					"name": "HelpPrint",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Template%3AHelmPrint.mediawiki"
+				},
+				{
 					"name": "ArticleHelmRN",
 					"namespace": "PF_NS_FORM",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Form%3AArticleHelmRN.mediawiki"
@@ -297,7 +302,71 @@
 					"namespace": "PF_NS_FORM",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Form%3AUpgradeMode.mediawiki"
 				},
-
+				{
+					"name": "DRType",
+					"namespace": "PF_NS_FORM",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Form%3DRType.mediawiki"
+				},
+				{
+					"name": "HAType",
+					"namespace": "PF_NS_FORM",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Form%3AHAType.mediawiki"
+				},
+				{
+					"name": "PrimaryUnitValues",
+					"namespace": "PF_NS_FORM",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Form%3APrimaryUnitValues.mediawiki"
+				},
+				{
+					"name": "Service",
+					"namespace": "PF_NS_FORM",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Form%3AServicemediawiki"
+				},
+				{
+					"name": "DRType",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Form%3ADRType.mediawiki"
+				},
+				{
+					"name": "HAType",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Form%3AHAType.mediawiki"
+				},
+				{
+					"name": "HATypeMap",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Form%3AHATypeMap.mediawiki"
+				},
+				{
+					"name": "IncludedServicePrint",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Form%3AIncludedServicePrint.mediawiki"
+				},
+				{
+					"name": "IncludedServicePrintAll",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Form%3AIncludedServicePrintAll.mediawiki"
+				},
+				{
+					"name": "PrimaryUnitValues",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Form%3APrimaryUnitValues.mediawiki"
+				},
+				{
+					"name": "PrimaryUnitValuesMap",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Form%3APrimaryUnitValuesMap.mediawiki"
+				},
+				{
+					"name": "SuperscriptCheck",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Form%3ASuperscriptCheck.mediawiki"
+				},
+				{
+					"name": "SuperscriptFlag",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Form%3ASuperscriptFlag.mediawiki"
+				},
 				{
 					"name": "ArticleServiceHA",
 					"namespace": "NS_TEMPLATE",

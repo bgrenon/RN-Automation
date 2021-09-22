@@ -1,0 +1,1 @@
+{{#cargo_query:tables=DRType|fields=Name|where=Id="{{{1|}}}"|no html}}<noinclude>[[Category:PrivateEdition]]</noinclude>

@@ -1,8 +1,10 @@
+''This information is under development: Flagged {{SuperscriptFlag}} items aren't yet confirmed or have info coming soon; Checked {{SuperscriptCheck}} items are valid.''
+
 {{#cargo_query:
 tables=ServiceHA,Service
 |join on=ServiceHA.ServiceID=Service.Id
-|fields=CONCAT('[[',ServiceHA._pageName,'|',Service.Name,IF (NoHA = "Yes",'*',' '),']]')=Service,HA=High Availability,DR=Disaster Recovery,NoHA,Notes,Service.Id=ServiceId,AddIncluded
-|intro=<table class="sortable"><tr><th>Service & Included Services</th><th>High Availability</th><th>Disaster Recovery</th></tr>
+|fields=CONCAT('[[',ServiceHA._pageName,'|',Service.Name,']]')=Service,HA,DR,NoHA,Notes,Service.Id=ServiceId,AddIncluded
+|intro=<table class="sortable"><tr><th>Service & Included Services</th><th>High Availability</th><th>Disaster Recovery</th><th>Where can you host this service?</th></tr>
 |outro=</table>
 |format=template
 |where=ServiceHA._pageNamespace="{{NAMESPACENUMBER}}" AND ServiceHA.ServiceId IS NOT NULL

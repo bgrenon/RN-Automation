@@ -1,0 +1,17 @@
+<noinclude>
+This is the "HAType" template.
+It should be called in the following format:
+<pre>
+{{HAType
+|Id=
+|Name=
+|Image=
+}}
+</pre>
+Edit the page to see the template text.
+{{#cargo_declare:_table=HAType|Id=String|Name=String|Image=File}}
+</noinclude><includeonly>{{#cargo_store:_table=HAType|Id={{{Id|}}}|Name={{{Name|}}}|Image={{{Image|}}} }}
+</includeonly>
+
+
+<noinclude>[[Category:PrivateEdition]</noinclude>

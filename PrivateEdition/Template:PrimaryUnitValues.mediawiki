@@ -1,0 +1,17 @@
+<noinclude>
+This is the "PrimaryUnitValues" template.
+It should be called in the following format:
+<pre>
+{{PrimaryUnitValues
+|Id=
+|Name=
+|Image=
+}}
+</pre>
+Edit the page to see the template text.
+{{#cargo_declare:_table=PrimaryUnitValues|Id=String|Name=String|Image=File}}
+</noinclude><includeonly>{{#cargo_store:_table=PrimaryUnitValues|Id={{{Id|}}}|Name={{{Name|}}}|Image={{{Image|}}} }}
+</includeonly>
+
+
+<noinclude>[[Category:PrivateEdition]]</noinclude>

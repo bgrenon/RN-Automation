@@ -1,0 +1,22 @@
+<includeonly>
+<tr>
+<td>
+{{{Service|}}}
+</td>
+<td>
+{{{ReleaseNumber|}}}
+</td>
+<td>
+{{{ReleaseDate|}}}
+</td>
+<td>
+{{#cargo_query:tables=RNElements,Component|join on=RNElements.IpName=Component.IpName|fields=RNElements.Filename|format=ul|where=Component.Id="{{{ComponentId|}}}" AND RNElements.Version="{{{ReleaseNumber|}}}" AND Type="helm" }}
+{{#ifingroup:employees|<i>Full path: {{FormTip|Displayed for Genesys employees only}}
+{{#cargo_query:tables=RNElements,Component|join on=RNElements.IpName=Component.IpName|fields=RNElements.Container|format=ul|where=Component.Id="{{{ComponentId|}}}" AND RNElements.Version="{{{ReleaseNumber|}}}" AND Type="helm" }}</i>|}}
+</td>
+<td>
+{{#cargo_query:tables=RNElements,Component|join on=RNElements.IpName=Component.IpName|fields=RNElements.Filename|format=ul|where=Component.Id="{{{ComponentId|}}}" AND RNElements.Version="{{{ReleaseNumber|}}}"  AND Type="docker" }}
+{{#ifingroup:employees|<i>Full path: {{FormTip|Displayed for Genesys employees only}}
+{{#cargo_query:tables=RNElements,Component|join on=RNElements.IpName=Component.IpName|fields=RNElements.Container|format=ul|where=Component.Id="{{{ComponentId|}}}" AND RNElements.Version="{{{ReleaseNumber|}}}" AND Type="docker" }}</i>|}}</td>
+</includeonly><noinclude>[[Category:RNAutomation]]</noinclude>
+

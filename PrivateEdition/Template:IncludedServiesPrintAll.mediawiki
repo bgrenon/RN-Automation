@@ -1,0 +1,13 @@
+<tr>
+<td style="white-space: nowrap;">&nbsp;&nbsp;&mdash; {{{Name|}}}
+</td>
+<td>
+{{#cargo_query:tables=HAType|fields=CONCAT ('<span style="white-space: nowrap;">',Name,'{{SuperscriptCheck}}</span>')|where=Id="{{{HA|}}}"|default=<span style="white-space: nowrap;">{{{HA|}}}{{SuperscriptFlag}}}}</span> 
+</td>
+<td>
+{{#cargo_query:tables=DRType|fields=CONCAT ('<span style="white-space: nowrap;">',Name,'{{SuperscriptCheck}}</span> ')|where=Id="{{{DR|}}}"|default=<span style="white-space: nowrap;">{{{DR|}}}{{SuperscriptFlag}}}}</span> 
+</td>
+<td>
+{{#cargo_query:tables=PrimaryUnitValues|fields=CONCAT ('<span style="white-space: nowrap;">',Name,'{{SuperscriptCheck}}')|where=Id="{{{PrimaryUnit|}}}"|default=<span style="white-space: nowrap;">{{{PrimaryUnit|}}}{{SuperscriptFlag}}</span> }}
+</td>
+</td>
