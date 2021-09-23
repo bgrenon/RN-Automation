@@ -28,7 +28,7 @@
 {{#cargo_query:
 tables=Service,IncludedService,IncludedServiceHA
 |join on=Service.Id=IncludedService.ServiceId,IncludedService.Id=IncludedServiceHA.IncludedServiceId
-|fields=IncludedService.Name,IncludedServiceHA.IncludedServiceHA=HA,IncludedServiceHA.IncludedServiceDR=DR,IncludedServiceHA.IncludedServicePrimaryUnit=PrimaryUnit|default=|format=template|template=IncludedServiesPrintAll|named args=yes|delimiter=|where=IncludedService.ServiceId="{{{ServiceId|}}}" AND IncludedServiceHA._pageNamespace="{{NAMESPACENUMBER}}"}}
+|fields=IncludedService.Name,IncludedServiceHA.IncludedServiceHA=HA,IncludedServiceHA.IncludedServiceDR=DR,IncludedServiceHA.IncludedServicePrimaryUnit=PrimaryUnit|default=|format=template|template=IncludedServicePrintAll|named args=yes|delimiter=|where=IncludedService.ServiceId="{{{ServiceId|}}}" AND IncludedServiceHA._pageNamespace="{{NAMESPACENUMBER}}"}}
 }}
 {{#switch:{{{AddIncluded|}}}
 |No

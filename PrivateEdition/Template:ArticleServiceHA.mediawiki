@@ -38,7 +38,7 @@ Edit the page to see the template text.
 <!--{{#cargo_query:tables=HAType,IncludedServiceHA,IncludedService|join on=HAType.Id=IncludedServiceHA.IncludedServiceHA,IncludedServiceHA.IncludedServiceId=IncludedService.Id|fields=IncludedService.Name,IncludedServiceHA=High availability,IncludedServiceDR=Disaster recovery,IncludedServicePrimaryUnit=Where can you host this service?|default=|where=IncludedServiceHA._pageName="{{FULLPAGENAME}}" 
 |default=
 -->
-{{#cargo_query:tables=IncludedServiceHA,IncludedService|join on=IncludedServiceHA.IncludedServiceId=IncludedService.Id|fields=IncludedService.Name=Name,IncludedServiceHA=HA,IncludedServiceDR=DR,IncludedServicePrimaryUnit=PrimaryUnit|default=|where=IncludedServiceHA._pageName="{{FULLPAGENAME}}"|named args=yes|format=template|template=IncludedServiesPrint|intro=<table><tr><th>Name</th><th>High Availability</th><th>Disaster Recovery</th><th>Where can you host this service?</th></tr>|outro=</table>}}
+{{#cargo_query:tables=IncludedServiceHA,IncludedService|join on=IncludedServiceHA.IncludedServiceId=IncludedService.Id|fields=IncludedService.Name=Name,IncludedServiceHA=HA,IncludedServiceDR=DR,IncludedServicePrimaryUnit=PrimaryUnit|default=|where=IncludedServiceHA._pageName="{{FULLPAGENAME}}"|named args=yes|format=template|template=IncludedServicePrint|intro=<table><tr><th>Name</th><th>High Availability</th><th>Disaster Recovery</th><th>Where can you host this service?</th></tr>|outro=</table>}}
 <!-- }} -->
 |No
 |#default=
