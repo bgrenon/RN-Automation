@@ -141,7 +141,7 @@
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Template%3AArticleHelmRN.mediawiki"
 				},
 				{
-					"name": "HelpPrint",
+					"name": "HelmPrint",
 					"namespace": "NS_TEMPLATE",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Template%3AHelmPrint.mediawiki"
 				},
