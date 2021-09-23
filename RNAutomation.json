@@ -325,47 +325,47 @@
 				{
 					"name": "DRType",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Form%3ADRType.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3ADRType.mediawiki"
 				},
 				{
 					"name": "HAType",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Form%3AHAType.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3AHAType.mediawiki"
 				},
 				{
 					"name": "HATypeMap",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Form%3AHATypeMap.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3AHATypeMap.mediawiki"
 				},
 				{
 					"name": "IncludedServicePrint",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Form%3AIncludedServicePrint.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3AIncludedServicePrint.mediawiki"
 				},
 				{
 					"name": "IncludedServicePrintAll",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Form%3AIncludedServicePrintAll.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3AIncludedServicePrintAll.mediawiki"
 				},
 				{
 					"name": "PrimaryUnitValues",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Form%3APrimaryUnitValues.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3APrimaryUnitValues.mediawiki"
 				},
 				{
 					"name": "PrimaryUnitValuesMap",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Form%3APrimaryUnitValuesMap.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3APrimaryUnitValuesMap.mediawiki"
 				},
 				{
 					"name": "SuperscriptCheck",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Form%3ASuperscriptCheck.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3ASuperscriptCheck.mediawiki"
 				},
 				{
 					"name": "SuperscriptFlag",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Form%3ASuperscriptFlag.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3ASuperscriptFlag.mediawiki"
 				},
 				{
 					"name": "ArticleServiceHA",
