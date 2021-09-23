@@ -14,4 +14,4 @@ Edit the page to see the template text.
 </includeonly>
 
 
-<noinclude>[[Category:PrivateEdition]</noinclude>
+<noinclude>[[Category:PrivateEdition]]</noinclude>

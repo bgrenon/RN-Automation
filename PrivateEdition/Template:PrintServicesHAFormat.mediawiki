@@ -22,7 +22,7 @@
 |No
 |#default=
 <td>
-{{#cargo_query:tables=HAType|fields=CONCAT ('<span style="white-space: nowrap;">',Name,'{{SuperscriptCheck}}</span>')|where=Id="{{{HA|}}}"|default=<span style="white-space: nowrap;">{{{HA|}}}{{SuperscriptFlag}}}}</span> 
+{{#arraymap:{{{HA|}}}|,|x|{{#cargo_query:tables=HAType|fields=CONCAT ('<span style="white-space: nowrap;">',Name,'{{SuperscriptCheck}}</span>')|where=Id="x"|default=<span style="white-space: nowrap;">{{{HA|}}}{{SuperscriptFlag}}</span> }}|<br/><i>Or</i><br/> }}
 </td>
 |Yes=
 {{#cargo_query:
@@ -34,7 +34,7 @@ tables=Service,IncludedService,IncludedServiceHA
 |No
 |#default=
 <td>
-{{#cargo_query:tables=DRType|fields=CONCAT ('<span style="white-space: nowrap;">',Name,'{{SuperscriptCheck}}</span> ')|where=Id="{{{DR|}}}"|default=<span style="white-space: nowrap;">{{{DR|}}}{{SuperscriptFlag}}}}</span> 
+{{#arraymap:{{{DR|}}}|,|x|{{#cargo_query:tables=DRType|fields=CONCAT ('<span style="white-space: nowrap;">',Name,'{{SuperscriptCheck}}</span> ')|where=Id="x"|default=<span style="white-space: nowrap;">{{{DR|}}}{{SuperscriptFlag}}</span>}}|<br/><i>Or</i><br/> }} 
 </td>
 <td>
 {{#cargo_query:tables=PrimaryUnitValues|fields=CONCAT ('<span style="white-space: nowrap;">',Name,'{{SuperscriptCheck}}</span> ')|where=Id="{{{PrimaryUnit|}}}"|default=<span style="white-space: nowrap;">{{{PrimaryUnit|}}}{{SuperscriptFlag}}</span>  }}

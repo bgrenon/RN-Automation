@@ -49,8 +49,8 @@ Edit the page to see the template text.
 ! Where can you host this service?
 {{!}}-
 {{!}} {{#cargo_query:tables=ServiceHA,Service|join on=ServiceHA.ServiceId=Service.Id|fields=Service.Name|default=|where=ServiceHA._pageNamespace="{{NAMESPACENUMBER}}" AND ServiceId="{{{ServiceId}}}" }}
-{{!}} {{#cargo_query:tables=HAType|fields=CONCAT (Name,'{{SuperscriptCheck}}')|where=Id="{{{HA|}}}"|default={{{HA|}}}{{SuperscriptFlag}}}}
-{{!}} {{#cargo_query:tables=DRType|fields=CONCAT (Name,'{{SuperscriptCheck}}')|where=Id="{{{DR|}}}"|default={{{DR|}}}{{SuperscriptFlag}}}}
+{{!}} {{#arraymap:{{{HA|}}}|,|x|{{#cargo_query:tables=HAType|fields=CONCAT (Name,'{{SuperscriptCheck}}')|where=Id="x"|default={{{HA|}}}{{SuperscriptFlag}}}}|<br/><i>Or</i><br/> }}
+{{!}} {{#arraymap:{{{DR|}}}|,|x|{{#cargo_query:tables=DRType|fields=CONCAT (Name,'{{SuperscriptCheck}}')|where=Id="x"|default={{{DR|}}}{{SuperscriptFlag}}}}|<br/><i>Or</i><br/> }}
 {{!}} {{#cargo_query:tables=PrimaryUnitValues|fields=CONCAT (Name,'{{SuperscriptCheck}}')|where=Id="{{{PrimaryUnit|}}}"|default={{{PrimaryUnit|}}} }}
 {{!}}}
 }}
@@ -62,13 +62,14 @@ Edit the page to see the template text.
 ! Where can you host this service?
 {{!}}-
 {{!}} {{#cargo_query:tables=ServiceHA,Service|join on=ServiceHA.ServiceId=Service.Id|fields=Service.Name|default=|where=ServiceHA._pageNamespace="{{NAMESPACENUMBER}}" AND ServiceId="{{{ServiceId}}}" }}
-{{!}} {{#cargo_query:tables=HAType|fields=CONCAT (Name,'{{SuperscriptCheck}}')|where=Id="{{{HA|}}}"|default={{{HA|}}}{{SuperscriptFlag}}}}
-{{!}} {{#cargo_query:tables=DRType|fields=CONCAT (Name,'{{SuperscriptCheck}}')|where=Id="{{{DR|}}}"|default={{{DR|}}}{{SuperscriptFlag}}}}
+{{!}} {{#arraymap:{{{HA|}}}|,|x|{{#cargo_query:tables=HAType|fields=CONCAT (Name,'{{SuperscriptCheck}}')|where=Id="x"|default={{{HA|}}}{{SuperscriptFlag}}}}|<br/><i>Or</i><br/> }}
+{{!}} {{#arraymap:{{{DR|}}}|,|x|{{#cargo_query:tables=DRType|fields=CONCAT (Name,'{{SuperscriptCheck}}')|where=Id="x"|default={{{DR|}}}{{SuperscriptFlag}}}}|<br/><i>Or</i><br/> }}
 {{!}} {{#cargo_query:tables=PrimaryUnitValues|fields=CONCAT (Name,'{{SuperscriptCheck}}')|where=Id="{{{PrimaryUnit|}}}"|default={{{PrimaryUnit|}}} }}
 {{!}}}
 }}
-}}
 ''This information is under development: Flagged {{SuperscriptFlag}} items aren't yet confirmed or have info coming soon; Checked {{SuperscriptCheck}} items are valid.''
+}}
+
 
 See High Availability information for all services: {{SuiteLevelLink|hadr}}
 {{{IncludedServiceHA|}}}
