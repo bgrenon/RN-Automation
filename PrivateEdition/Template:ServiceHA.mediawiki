@@ -12,7 +12,7 @@ It should be called in the following format:
 }}
 </pre>
 Edit the page to see the template text.
-{{#cargo_declare:_table=ServiceHA|ServiceId=String|HA=String|DR=String|NoHA=String|Notes=Wikitext|AddIncluded=String}}
+{{#cargo_declare:_table=ServiceHA|ServiceId=String|HA=List (,) of String|DR=List (,) of String|NoHA=String|Notes=Wikitext|AddIncluded=String}}
 </noinclude><includeonly>{{#cargo_store:_table=ServiceHA|ServiceId={{{ServiceId|}}}|HA={{{HA|}}}|DR={{{DR|}}}|NoHA={{{NoHA|}}}|Notes={{{Notes|}}}|AddIncluded={{{AddIncluded|}}} }}
 {{EmbedForm|Form=ServiceHA|ButtonText=HA Details}}
 
