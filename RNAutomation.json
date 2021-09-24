@@ -328,6 +328,11 @@
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3ADRType.mediawiki"
 				},
 				{
+					"name": "DRTypeMap",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3ADRTypeMap.mediawiki"
+				},
+				{
 					"name": "HAType",
 					"namespace": "NS_TEMPLATE",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3AHAType.mediawiki"
