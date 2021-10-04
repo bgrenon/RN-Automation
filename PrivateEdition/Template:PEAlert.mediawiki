@@ -1,0 +1,23 @@
+<noinclude>
+This is the "PEAlert" template.
+It should be called in the following format:
+<pre>
+{{PEAlert
+|Alert=
+|Severity=
+|AlertDescription=
+|BasedOn=
+|Threshold=
+}}
+</pre>
+Edit the page to see the template text.
+{{#cargo_declare:_table=PEAlert|Alert=Wikitext|Severity=String|AlertDescription=String|BasedOn=Wikitext|Threshold=String}}
+</noinclude><includeonly>{{#cargo_store:_table=PEAlert||Alert={{{Alert|}}}|Severity={{{Severity|}}}|AlertDescription={{{AlertDescription|}}}|BasedOn={{{BasedOn|}}}|Threshold={{{Threshold|}}} }}
+|-
+| {{{Alert|}}}
+| {{{Severity|}}}
+| {{{AlertDescription|}}}
+| {{{BasedOn|}}}
+| {{{Threshold|}}}
+</includeonly>
+<noinclude>[[Category:PrivateEdition]]</noinclude>

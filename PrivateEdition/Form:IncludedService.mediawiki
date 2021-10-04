@@ -1,24 +1,23 @@
 <noinclude>
-This is the "Service" form.
+This is the "IncludedService" form.
 To create a page with this form, enter the page name below;
 if a page with that name already exists, you will be sent to a form to edit that page.
 
 
-{{#forminput:form=Service}}
+{{#forminput:form=IncludedService}}
 
 </noinclude><includeonly>
-{{{for template|Service|multiple}}}
-Service Group: {{{field|ServiceGroupId|input type=dropdown|cargo table=ServiceGroup|cargo field=Id|mapping template=ServiceGroupMap}}}
+{{{for template|IncludedService|multiple}}}
+Parent Service: {{{field|ServiceId|input type=dropdown|cargo table=Service|cargo field=Id|mapping template=ServiceMap}}}
 
 {{{field|Id|unique|default=uuid|hidden}}}
 
-Service: {{{field|Name}}}
+{{Field|Included Service|{{{field|Name}}} }}
+{{Field|Short name|{{{field|ShortName}}} }}
 
-Workspace: {{{field|workspace_id|input type=dropdown|cargo table=MintyDocsProduct|cargo field=workspace_id}}}
-
-Short name for URL: {{{field|ShortName}}}
 
 {{{end template}}}
+
 {{{standard input|minor edit}}} {{{standard input|watch}}}
 
 {{{standard input|save}}} {{{standard input|cancel}}}

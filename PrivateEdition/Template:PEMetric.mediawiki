@@ -1,0 +1,35 @@
+<noinclude>
+This is the "PEMetric" template.
+It should be called in the following format:
+<pre>
+{{PEMetric
+|IncludedServiceId=
+|Metric=
+|Type=
+|Unit=
+|Label=
+|MetricDescription=
+|SampleValue=
+|UsedFor=
+}}
+</pre>
+Edit the page to see the template text.
+{{#cargo_declare:_table=PEMetric|IncludedServiceId=String|Metric=Wikitext|Type=String|Unit=String|Label=Wikitext|MetricDescription=Wikitext|SampleValue=String|UsedFor=String}}
+</noinclude><includeonly>{{#cargo_store:_table=PEMetric|IncludedServiceId={{{IncludedServiceId|}}}|Metric={{{Metric|}}}|Type={{{Type|}}}|Unit={{{Unit|}}}|Label={{{Label|}}}|MetricDescription={{{MetricDescription|}}}|SampleValue={{{SampleValue|}}}|UsedFor={{{UsedFor}}} }}
+<div class="toggle-wrap">
+<toggledisplay showtext="{{{Metric}}}" hidetext="{{{Metric}}}">
+<div class="toggle-content">
+'''{{{Metric}}}'''<br/>
+'''Type:''' {{{Type}}}<br/>
+'''Unit:''' {{{Unit}}}<br/>
+'''Label:''' {{{Label}}}<br/>
+'''MetricDescription:''' {{{MetricDescription}}}<br/>
+'''SampleValue:''' {{{SampleValue}}}<br/>
+'''Indicator of:''' {{{UsedFor}}}
+</div>
+</toggledisplay></div>{{#css:
+.toggle-wrap { margin: 20px 0 25px; }
+.toggle-wrap>a{ display: block; padding: 10px; color: #333; background-color: #f5f5f5; border: 1px solid #ddd; border-top-left-radius: 3px; border-top-right-radius: 3px; }
+.toggle-wrap>a:before { content: '\f0d7'; float: left; font-family: FontAwesome; margin-right: 10px; text-decoration: none; }
+.toggle-content { padding: 10px 20px; border: 1px solid #ddd; border-top: none; border-bottom-left-radius: 3px; border-bottom-right-radius: 3px; }
+}}</includeonly>

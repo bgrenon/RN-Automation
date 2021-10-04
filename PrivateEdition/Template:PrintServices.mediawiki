@@ -1,0 +1,28 @@
+<includeonly><tr>
+<td>
+{{{ServiceGroup|}}}
+</td>
+<td>
+{{{Service|}}}
+</td>
+<td style="width:30%">
+{{#cargo_query:tables=Service,IncludedService
+|join on=Service.Id=IncludedService.ServiceId
+|fields=CONCAT(IncludedService.Name,IF (IncludedService.ShortName IS NOT NULL, CONCAT(' (Short:', IncludedService.ShortName,')'), ' '))=Included Service
+|where=Service._pageNamespace="{{NAMESPACENUMBER}}" AND Service.Id="{{{ServiceId|}}}" AND IncludedService.Id IS NOT NULL
+|format=ul
+|default=
+}}
+</td>
+<td>
+{{{Workspace|}}}
+</td>
+<td>
+{{{ShortName|}}}
+</td>
+<td>
+{{{PEDep Guide|}}}
+</td>
+<td>
+{{{DeploymentGuide|}}}
+</tr><nowiki /></includeonly><noinclude>[[Category:PrivateEdition]]</noinclude>

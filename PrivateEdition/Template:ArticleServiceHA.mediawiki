@@ -2,7 +2,7 @@
 This is the "ArticleServiceHA" template.
 It should be called in the following format:
 <pre>
-{{ArticleServiceHAServiceHA
+{{ArticleServiceHA
 |ServiceId=
 |HA=
 |DR=

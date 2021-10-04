@@ -1,0 +1,17 @@
+<noinclude>
+[{{server}}/{{FULLPAGENAME}}?action=recreatedata Recreate Data]
+
+This is the "Service" template.
+It should be called in the following format:
+<pre>
+{{Service
+|Id=
+|Name=
+|ServiceGroupId=
+|workspace_id=
+|ShortName=
+}}
+</pre>
+Edit the page to see the template text.
+{{#cargo_declare:_table=Service|Id=String|Name=String|ServiceGroupId=String|workspace_id=String|ShortName=String}}
+</noinclude><includeonly>{{#cargo_store:_table=Service|Id={{{Id|}}}|ServiceGroupId={{{ServiceGroupId|}}}|Name={{{Name|}}}|workspace_id={{{workspace_id|}}}|ShortName={{{ShortName|}}} }}</includeonly>

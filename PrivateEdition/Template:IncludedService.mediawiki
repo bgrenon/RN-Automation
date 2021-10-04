@@ -1,0 +1,14 @@
+<noinclude>
+This is the "IncludedService" template.
+It should be called in the following format:
+<pre>
+{{IncludedService
+|Id=
+|Name=
+|ShortName=
+|ServiceId=
+}}
+</pre>
+Edit the page to see the template text.
+{{#cargo_declare:_table=IncludedService|Id=String|Name=String|ShortName=String|ServiceId=String}}
+</noinclude><includeonly>{{#cargo_store:_table=IncludedService|Id={{{Id|}}}|ServiceId={{{ServiceId|}}}|Name={{{Name|}}}|ShortName={{{ShortName|}}} }}</includeonly>
