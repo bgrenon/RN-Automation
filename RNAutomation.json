@@ -282,7 +282,65 @@
 			"description": "Private edition data structure for content",
 			"version": "0.1",
 			"pages": [
-
+				{ 	"name": "ArticlePEServiceMetrics",
+					"namespace": "NS_CATEGORY",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Category%3AArticlePEServiceMetrics.mediawiki"
+				},
+				{
+					"name": "ArticlePEServiceMetrics",
+					"namespace": "PF_NS_FORM",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Form%3AArticlePEServiceMetrics.mediawiki"
+				},
+				{
+					"name": "ArticlePEServiceObservability",
+					"namespace": "PF_NS_FORM",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Form%3AArticlePEServiceObservability.mediawiki"
+				},
+				{
+					"name": "IncludedService",
+					"namespace": "PF_NS_FORM",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Form%3AIncludedService.mediawiki"
+				},
+				{
+					"name": "ArticlePEServiceMetrics",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3AArticlePEServiceMetrics.mediawiki"
+				},
+				{
+					"name": "ArticlePEServiceObservability",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3AArticlePEServiceObservability.mediawiki"
+				},
+				{
+					"name": "IncludedService",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3AIncludedService.mediawiki"
+				},
+				{
+					"name": "PEAlert",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3APEAlert.mediawiki"
+				},
+				{
+					"name": "PEMetric",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3APEMetric.mediawiki"
+				},
+				{
+					"name": "PEMonitoring",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3APEMonitoring.mediawiki"
+				},
+				{
+					"name": "PrintServices",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3APrintServices.mediawiki"
+				},
+				{
+					"name": "Service",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3AService.mediawiki"
+				},
 				{ 	"name": "ServiceHA",
 					"namespace": "NS_CATEGORY",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Category%3AServiceHA.mediawiki"
