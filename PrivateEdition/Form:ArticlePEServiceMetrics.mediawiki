@@ -13,6 +13,9 @@ if a page with that name already exists, you will be sent to a form to edit that
 <div class="col-md-2 form-label">Included Service {{FormTip|Choose the service that contains the applicable Helm chart.}}</div>
 <div class="col-md-10 ve-height">{{{field|IncludedServiceId|input type=dropdown|cargo table=IncludedService|cargo field=Id|mapping template=IncludedServiceMap}}} </div>
 
+<div class="col-md-2 form-label">(Optional) Service name for the H1 {{FormTip|By default, the service's shortname will be used in the H1 ("<Service shortname> metrics and alerts"), the "Service" column in the Monitoring summary, and link display text. If you want to use a different service name, specify it here. Note that the shortname will still be used in the TOC entry.}}</div>
+<div class="col-md-10 ve-height">{{{field|AltServiceDisplayName}}} </div>
+
 <div class="col-md-2 form-label">CRD {{FormTip|Specify the CRD if the service uses one &mdash;e.g., PodMonitor or ServiceMonitor. Populate either this CRDs field or the "Annotations" one.}}</div>
 <div class="col-md-10 ve-height">{{{field|CRD}}} </div>
 
@@ -20,7 +23,7 @@ if a page with that name already exists, you will be sent to a form to edit that
 <div class="col-md-10 ve-height">{{{field|Annotations}}} </div>
 
 <div class="col-md-2 form-label">Port </div>
-<div class="col-md-10 ve-height">{{{field|Port}}} </div>
+<div class="col-md-10 ve-height">{{{field|Port|input type=textarea|editor=visualeditor|max height=50}}} </div>
 
 <div class="col-md-2 form-label">Endpoint/Selector {{FormTip|Specify the monitoring endpoint/URI Prometheus will scrape. If it's not possible to specify this straightforwardly (for example, if a service with no sticky network identity uses a PodMonitor), show the selector details. You can use wiki markup in this field.}}</div>
 <div class="col-md-10 ve-height">{{{field|Endpoint|input type=textarea|editor=visualeditor|max height=200}}} </div>
@@ -37,6 +40,10 @@ Add any service-specific information about the metrics. There is no boilerplate 
 <div class="col-md-12 ve-height">{{{field|PEMetric|holds template}}}</div>
 
 ==Alerts==
+Are alerts defined for this service? {{FormTip|''If you select "No" the following boilerplate sentence is the only content that will display under this heading:''
+
+No alerts are defined for <service>.}}{{{field|AlertsDefined|input type=radiobutton|values=Yes,No|default=Yes|mandatory}}}
+
 Add any service-specific information about the alerts. Following whatever you specify here, the template adds a boilerplate introductory paragraph, which is reproduced in the tooltip for convenience. {{FormTip|''The following introductory sentence displays by default:''
 
 The following alerts are defined for {{#sub:{{MINTYDOCSDISPLAYNAME}}|0|-19}}.}}

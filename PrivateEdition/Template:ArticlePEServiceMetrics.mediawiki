@@ -40,9 +40,9 @@ Edit the page to see the template text.
 |MetricsIntro={{{MetricsIntro|}}}
 |AlertsIntro={{{AlertsIntro|}}}
 |MetricsUpdateInterval={{{MetricsUpdateInterval|}}} }}<!-- Set MintyDocs topic, including a switch for different treatment for Manual pages -->{{#mintydocs_topic:
-|display name={{#cargo_query:tables=IncludedService,ArticlePEServiceMetrics|join on=IncludedService.Id=ArticlePEServiceMetrics.IncludedServiceId|fields=IF(IncludedService.ShortName,IncludedService.ShortName,IncludedService.Name)|no html|where=ArticlePEServiceMetrics._pageName="{{FULLPAGENAME}}"|group by=IF(IncludedService.ShortName,IncludedService.ShortName,IncludedService.Name)}} metrics and alerts
-|toc name=
-}}<!-- Defining the EPPO Header; all parameters need to be passed to it -->{{EPPOHead|Context=Find the metrics {{#cargo_query:tables=IncludedService,ArticlePEServiceMetrics|join on=IncludedService.Id=ArticlePEServiceMetrics.IncludedServiceId|fields=IF(IncludedService.ShortName,IncludedService.ShortName,IncludedService.Name)|where=ArticlePEServiceMetrics._pageName="{{FULLPAGENAME}}"|group by=IF(IncludedService.ShortName,IncludedService.ShortName,IncludedService.Name)}} exposes and the alerts defined for {{#cargo_query:tables=IncludedService,ArticlePEServiceMetrics|join on=IncludedService.Id=ArticlePEServiceMetrics.IncludedServiceId|fields=IF(IncludedService.ShortName,IncludedService.ShortName,IncludedService.Name)|where=ArticlePEServiceMetrics._pageName="{{FULLPAGENAME}}"|group by=IF(IncludedService.ShortName,IncludedService.ShortName,IncludedService.Name)}}.|PageType=Article}}__TOC__
+|display name={{#if:{{{AltServiceDisplayName|}}}|{{{AltServiceDisplayName}}}|{{#cargo_query:tables=IncludedService,ArticlePEServiceMetrics|join on=IncludedService.Id=ArticlePEServiceMetrics.IncludedServiceId|fields=IF(IncludedService.ShortName IS NOT NULL,IncludedService.ShortName,IncludedService.Name)|no html|where=ArticlePEServiceMetrics._pageName="{{FULLPAGENAME}}"|group by=IF(IncludedService.ShortName IS NOT NULL,IncludedService.ShortName,IncludedService.Name)}}}} metrics and alerts
+|toc name={{#if:{{{AltServiceDisplayName|}}}|{{#cargo_query:tables=IncludedService,ArticlePEServiceMetrics|join on=IncludedService.Id=ArticlePEServiceMetrics.IncludedServiceId|fields=IF(IncludedService.ShortName IS NOT NULL,IncludedService.ShortName,IncludedService.Name)|no html|where=ArticlePEServiceMetrics._pageName="{{FULLPAGENAME}}"|group by=IF(IncludedService.ShortName IS NOT NULL,IncludedService.ShortName,IncludedService.Name)}} metrics and alerts|}}
+}}<!-- Defining the EPPO Header; all parameters need to be passed to it -->{{EPPOHead|Context=Find the metrics {{#cargo_query:tables=IncludedService,ArticlePEServiceMetrics|join on=IncludedService.Id=ArticlePEServiceMetrics.IncludedServiceId|fields=IF(IncludedService.ShortName IS NOT NULL,IncludedService.ShortName,IncludedService.Name)|where=ArticlePEServiceMetrics._pageName="{{FULLPAGENAME}}"|group by=IF(IncludedService.ShortName IS NOT NULL,IncludedService.ShortName,IncludedService.Name)}} exposes and the alerts defined for {{#cargo_query:tables=IncludedService,ArticlePEServiceMetrics|join on=IncludedService.Id=ArticlePEServiceMetrics.IncludedServiceId|fields=IF(IncludedService.ShortName IS NOT NULL,IncludedService.ShortName,IncludedService.Name)|where=ArticlePEServiceMetrics._pageName="{{FULLPAGENAME}}"|group by=IF(IncludedService.ShortName IS NOT NULL,IncludedService.ShortName,IncludedService.Name)}}.|PageType=Article}}__TOC__
 {{{!}}
 ! '''Service'''
 !'''CRD or annotations?'''
@@ -50,25 +50,32 @@ Edit the page to see the template text.
 !style="width: 30%" {{!}} '''Endpoint/Selector'''
 !'''Metrics update interval'''
 {{!}}-
-{{!}}{{#cargo_query:tables=IncludedService|fields=Name|where=Id="{{{IncludedServiceId}}}"}}
+{{!}} {{#if:{{{AltServiceDisplayName|}}}|{{{AltServiceDisplayName}}}|{{#cargo_query:tables=IncludedService|fields=IF(ShortName IS NOT NULL,ShortName,Name)|where=Id="{{{IncludedServiceId}}}"}}}}
 {{!}}{{{CRD|}}}{{{Annotations|}}}
 {{!}}{{{Port|}}}
 {{!}}{{{Endpoint|}}}
 {{!}}{{{MetricsUpdateInterval|}}}
 {{!}}}
+{{#switch:{{{AlertsDefined}}}|No=|Yes|#default=
 See details about:
 * [[{{FULLPAGENAME}}#Metrics|{{#sub:{{MINTYDOCSDISPLAYNAME}}|0|-19}} metrics]]
-* [[{{FULLPAGENAME}}#Alerts|{{#sub:{{MINTYDOCSDISPLAYNAME}}|0|-19}} alerts]]
+* [[{{FULLPAGENAME}}#Alerts|{{#sub:{{MINTYDOCSDISPLAYNAME}}|0|-19}} alerts]]}}
 {{AnchorDiv|Metrics}}
 ==Metrics==
 {{{MetricsIntro|}}}
-
+{{{!}} class="sortable"
+! '''Metric and description'''
+! Metric details
+! Indicator of
+{{!}}-
 {{{PEMetric|}}}
+{{!}}}
+
 {{AnchorDiv|Alerts}}
 ==Alerts==
-{{#if:{{{AlertsIntro|}}}|{{{AlertsIntro}}}|}}
+{{#switch:{{{AlertsDefined}}}|No=No alerts are defined for {{#sub:{{MINTYDOCSMANUAL}}|0|-22}}.|Yes|#default={{#if:{{{AlertsIntro|}}}|{{{AlertsIntro}}}|}}
 
-The following alerts are defined for {{#sub:{{MINTYDOCSDISPLAYNAME}}|0|-19}}.
+{{#if:{{{PEAlert|}}}|The following alerts are defined for {{#sub:{{MINTYDOCSDISPLAYNAME}}|0|-19}}.
 {{{!}}
 ! '''Alert'''
 ! '''Severity'''
@@ -77,5 +84,6 @@ The following alerts are defined for {{#sub:{{MINTYDOCSDISPLAYNAME}}|0|-19}}.
 ! '''Threshold'''
 {{{PEAlert|}}}
 {{!}}}
+|No alerts are defined for {{#sub:{{MINTYDOCSDISPLAYNAME}}|0|-19}}.}}}}
 
 </includeonly><noinclude>[[Category:PrivateEdition]]</noinclude>

@@ -6,10 +6,10 @@ It should be called in the following format:
 |Id=
 |Name=
 |DeploymentTypeId=
-|IPName=
+|IpName=
 }}
 </pre>
 Edit the page to see the template text.
-{{#cargo_declare:_table=Component|Id=String|Name=String|DeploymentTypeId=String|IPName=String}}
-</noinclude><includeonly>{{#cargo_store:_table=Component|Id={{{Id|}}}|Name={{{Name|}}}|DeploymentTypeId={{{DeploymentTypeId|}}}|IPName={{{IPName|}}} }}
+{{#cargo_declare:_table=Component|Id=String|Name=String|DeploymentTypeId=String|IpName=String}}
+</noinclude><includeonly>{{#cargo_store:_table=Component|Id={{{Id|}}}|Name={{{Name|}}}|DeploymentTypeId={{{DeploymentTypeId|}}}|IpName={{{IpName|}}} }}
 </includeonly><noinclude>[[Category:RNAutomation]]</noinclude>

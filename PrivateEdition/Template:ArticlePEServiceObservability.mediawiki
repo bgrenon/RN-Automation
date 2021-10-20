@@ -17,6 +17,7 @@ It should be called in the following format:
 |AboutMonitoring=
 |Alerting=
 |ConfigureAlerts=
+|ExtConfigAlertsBoilerplate=
 |Logging=
 }}
 
@@ -37,6 +38,7 @@ Edit the page to see the template text.
 |AboutMonitoring=Wikitext (size=10000)
 |Alerting=Wikitext (size=10000)
 |ConfigureAlerts=Wikitext (size=10000)
+|ExtConfigAlertsBoilerplate=String
 |Logging=Wikitext (size=10000)
 }}
 {{#cargo_attach:_table=Article}}
@@ -63,72 +65,75 @@ __NOEDITSECTION__{{#cargo_store:_table=Article
 |Manual={{#explode:{{FULLPAGENAME}}|/|2}}
 |PEPageType={{{PEPageType|}}}
 }}<!-- Set MintyDocs topic, including a switch for different treatment for Manual pages -->{{#mintydocs_topic:
-|display name=Observability in Genesys Info Mart
+|display name=Observability in {{#sub:{{MINTYDOCSMANUAL}}|0|-22}}
 |toc name=Observability
-}}<!-- Defining the EPPO Header; all parameters need to be passed to it -->{{EPPOHead|Context=Learn about the logs, metrics, and alerts you should monitor for Genesys Info Mart.|PageType=Article}}
+}}<!-- Defining the EPPO Header; all parameters need to be passed to it -->{{EPPOHead|Context=Learn about the logs, metrics, and alerts you should monitor for {{#sub:{{MINTYDOCSMANUAL}}|0|-22}}.|PageType=Article}}
 ==Monitoring==
 Private edition services expose metrics that can be scraped by Prometheus, to support monitoring operations and alerting. 
 *As described on {{Link-AnywhereElse|product=PrivateEdition|version=Current|manual=Operations|topic=Monitoring_Approach}}, you can use a tool like Grafana to create dashboards that query the Prometheus metrics to visualize operational status.
 *As described on {{Link-AnywhereElse|product=PrivateEdition|version=Current|manual=Operations|topic=Alerting|anchor=Alertmanager|display text=Customizing Alertmanager configuration}}, you can configure Alertmanager to send notifications to notification providers such as PagerDuty, to notify you when an alert is triggered because a metric has exceeded a defined threshold.
 
-The services expose a number of Genesys-defined and third-party metrics. The metrics that are defined in third-party software used by private edition services are available for you to use as long as the third-party provider still supports them. For descriptions of available metrics, see:
+The services expose a number of Genesys-defined and third-party metrics. The metrics that are defined in third-party software used by private edition services are available for you to use as long as the third-party provider still supports them. For descriptions of available {{#sub:{{MINTYDOCSMANUAL}}|0|-22}} metrics, see:
 {{AnchorDiv|MetricsLinks}}{{#cargo_query:
 tables=PEMonitoring,IncludedService
 |join on=PEMonitoring.IncludedServiceId=IncludedService.Id
-|fields=CONCAT('[[',PEMonitoring._pageName,'#Metrics|',IncludedService.ShortName,' metrics]]')
+|fields=CONCAT('[[',PEMonitoring._pageName,'#Metrics|',IF(IncludedService.ShortName,IncludedService.ShortName,IncludedService.Name),' metrics]]')
 |where=PEMonitoring._pageName LIKE "%{{#explode:{{FULLPAGENAME}}|/|2}}%" AND {{#switch:{{NAMESPACENUMBER}}|620=PEMonitoring._pageName LIKE "Draft:%%"|#default=PEMonitoring._pageName NOT LIKE "Draft:%%"}}
+|default=<font color="#940cf0">'''Writer!''' Populate info on the Metrics page(s).</font>
 |format=ul
-}}{{#if: {{{Monitoring|}}}|
+}}
+{{#if:{{{Monitoring|}}}|<nowiki />
+
 {{{Monitoring|}}}|}}
 {{AnchorDiv|EnableMonitoring}}
 ===Enable monitoring===
 {{#if: {{{EnableMonitoring|}}}
 |{{{EnableMonitoring|}}}
 |}}
+
 {{#cargo_query:
 tables=PEMonitoring,IncludedService
 |join on=PEMonitoring.IncludedServiceId=IncludedService.Id
-|fields=CONCAT('[[',PEMonitoring._pageName,'|',IncludedService.ShortName,']]')=Service,IF(PEMonitoring.CRD IS NOT NULL,PEMonitoring.CRD,PEMonitoring.Annotations)=CRD or annotations?,PEMonitoring.Port=Port,IF(PEMonitoring.Endpoint LIKE "%source%",CONCAT('See selector details on the [[',PEMonitoring._pageName,'|',IncludedService.Name,' metrics and alerts]] page'),PEMonitoring.Endpoint)=Endpoint/Selector,PEMonitoring.MetricsUpdateInterval=Metrics update interval
+|fields=CONCAT('[[',PEMonitoring._pageName,'|',IF(IncludedService.ShortName,IncludedService.ShortName,IncludedService.Name),']]')=Service,IF(PEMonitoring.CRD IS NOT NULL,PEMonitoring.CRD,PEMonitoring.Annotations)=CRD or annotations?,PEMonitoring.Port=Port,IF(PEMonitoring.Endpoint LIKE "%source%",CONCAT('See selector details on the [[',PEMonitoring._pageName,'|',IncludedService.Name,' metrics and alerts]] page'),PEMonitoring.Endpoint)=Endpoint/Selector,PEMonitoring.MetricsUpdateInterval=Metrics update interval
 |where=PEMonitoring._pageName LIKE "%{{#explode:{{FULLPAGENAME}}|/|2}}%" AND {{#switch:{{NAMESPACENUMBER}}|620=PEMonitoring._pageName LIKE "Draft:%%"|#default=PEMonitoring._pageName NOT LIKE "Draft:%%"}}
+|default=<font color="#940cf0">'''Writer!''' Populate monitoring info on the Metrics page(s).</font>
 |format=table
 }}
 
 {{AnchorDiv|ConfigureMetrics}}
 ===Configure metrics===
-{{{ConfigureMetrics|Info needed}}}
-
+{{{ConfigureMetrics|<font color="#940cf0">'''Writer!''' Info needed</font>}}}
 {{#if: {{{AboutMonitoring|}}}|
 ===What do {{#sub:{{MINTYDOCSMANUAL}}|0|-22}} metrics monitor?===
 {{{AboutMonitoring|}}}|}}
-
 ==Alerting==
+{{#switch:{{{AlertsDefined}}}|No=No alerts are defined for {{#sub:{{MINTYDOCSMANUAL}}|0|-22}}.|Yes|#default=Private edition services define a number of alerts based on Prometheus metrics thresholds. 
 
-<boilerplate>
+{{NoteFormat|While you can use general third-party functionality to create rules to trigger alerts based on metrics values you specify, private edition does not enable you to create custom alerts, and Genesys does not provide support for custom alerting.}}
 
+For descriptions of available {{#sub:{{MINTYDOCSMANUAL}}|0|-22}} alerts, see:
 {{AnchorDiv|AlertsLinks}}
 {{#cargo_query:
 tables=PEMonitoring,IncludedService
 |join on=PEMonitoring.IncludedServiceId=IncludedService.Id
-|fields=CONCAT('[[',PEMonitoring._pageName,'#Alerts|',IncludedService.ShortName,' alerts]]')
+|fields=CONCAT('[[',PEMonitoring._pageName,'#Alerts|',IF(IncludedService.ShortName,IncludedService.ShortName,IncludedService.Name),' alerts]]')
 |where=PEMonitoring._pageName LIKE "%{{#explode:{{FULLPAGENAME}}|/|2}}%" AND {{#switch:{{NAMESPACENUMBER}}|620=PEMonitoring._pageName LIKE "Draft:%%"|#default=PEMonitoring._pageName NOT LIKE "Draft:%%"}}
+|default=<font color="#940cf0">'''Writer!''' Populate info on the Metrics page(s).</font>
 |format=ul
 }}
 
-{{#if: {{{Alerting|}}}
-|{{{Alerting|}}}
-|}}
-
+{{#if: {{{Alerting|}}}|{{{Alerting|}}}|}}
 {{AnchorDiv|ConfigureAlerts}}
 ===Configure alerts===
+Private edition services define a number of alerts by default (for {{#sub:{{MINTYDOCSMANUAL}}|0|-22}}, see the pages linked to [[{{FULLPAGENAME}}#AlertsLinks|above]]). No further configuration is required. 
+{{#switch:{{{ExtConfigAlertsBoilerplate|}}}|No=|Yes|#default=<nowiki />
 
-<boilerplate>
+The alerts are defined as '''PrometheusRule''' objects in a '''prometheus-rule.yaml''' file in the Helm charts. As described above, {{#sub:{{MINTYDOCSMANUAL}}|0|-22}} does not support customizing the alerts or defining additional '''PrometheusRule''' objects to create alerts based on the service-provided metrics.}}
+{{#if: {{{ConfigureAlerts|}}}|<nowiki />
 
-{{#if: {{{ConfigureAlerts|}}}
-|{{{ConfigureAlerts|}}}
-|}}
-
+{{{ConfigureAlerts|}}}|}}}}
 ==Logging==
-{{Notices|Notice=PEComingSoon}}Z	
+{{Notices|Notice=PEComingSoon}}
 <noinclude>[[Category:PrivateEdition]]</noinclude>
 [[Category:Linkable]]
 </includeonly>

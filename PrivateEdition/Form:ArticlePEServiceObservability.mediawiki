@@ -45,6 +45,10 @@ Add any general information you have about the kinds of metrics that are availab
 <div class="col-md-12 ve-height">{{{field|AboutMonitoring|input type=textarea|editor=visualeditor}}}</div>
 
 ==Alerting==
+Are alerts defined for this service? {{FormTip|''If you select "No" the following boilerplate sentence is the only content that will display under this heading:''
+
+No alerts are defined for <service>.}}{{{field|AlertsDefined|input type=radiobutton|values=Yes,No|default=Yes|mandatory}}}
+
 Add information to supplement the boilerplate introductory content provided by the template. For convenience, the boilerplate content is reproduced in the tooltip. 
 {{FormTip|''The following boilerplate automatically displays on the page:''
 
