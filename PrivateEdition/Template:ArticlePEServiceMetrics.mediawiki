@@ -17,7 +17,7 @@ Edit the page to see the template text.
 |IncludedServiceId=String
 |CRD=String
 |Annotations=Wikitext
-|Port=String
+|Port=Wikitext
 |Endpoint=Wikitext
 |MetricsUpdateInterval=String
 |MetricsIntro=Wikitext

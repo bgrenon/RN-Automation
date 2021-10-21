@@ -15,8 +15,8 @@ Edit the page to see the template text.
 {{#cargo_declare:_table=PEMonitoring
 |IncludedServiceId=String
 |CRD=String
-|Annotations=String
-|Port=String
+|Annotations=Wikitext
+|Port=Wikitext
 |Endpoint=Wikitext
 |MetricsUpdateInterval=String
 }}</noinclude><includeonly>{{#cargo_store:_table=PEMonitoring|IncludedServiceId={{{IncludedServiceId|}}}
@@ -32,8 +32,8 @@ Edit the page to see the template text.
 !style="width: 30%" {{!}} '''Endpoint/Selector'''
 !'''Metrics update interval'''
 |-
-|{{#cargo_query:tables=IncludedService|fields=Name|where=Id="{{{IncludedServiceId}}}"}}
-|{{#if:{{{CRD|}}}|{{{CRD}}}|{{{Annotations|}}}}}
+|{{#cargo_query:tables=IncludedService|fields=IF(ShortName IS NOT NULL,ShortName,Name)|where=Id="{{{IncludedServiceId}}}"}}
+|{{{CRD|}}}{{{Annotations|}}}
 |{{{Port|}}}
 |{{{Endpoint|}}}
 |{{{MetricsUpdateInterval|}}}

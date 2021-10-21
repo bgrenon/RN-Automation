@@ -1,0 +1,39 @@
+<noinclude>
+This is the "ArticleServicePEPorts" template.
+
+It should be called in the following format:
+<pre>
+{{ArticleServicePEPorts
+|ServiceId=
+|PEPorts=
+}}
+
+</pre>
+Edit the page to see the template text.
+
+{{#cargo_declare:_table=ArticleServicePEPorts
+|ServiceId=String
+}}{{#cargo_attach:_table=Article}}
+
+</noinclude>
+<includeonly>{{#css: .MintyDocsTopicDesc {display:none} }}[[Category:ArticleServicePEPorts]]__TOC__
+__NOEDITSECTION__{{#cargo_store:_table=Article
+|productshort={{#explode:{{FULLPAGENAME}}|/|0}}
+|Role={{{Role|}}}
+|DisplayName=Ports
+|TocName={{{TocName|}}}
+|Dimension={{{Dimension|}}}
+|Context=Lean about ports used for this service.
+|Product={{MINTYDOCSPRODUCT}}
+|Manual={{#explode:{{FULLPAGENAME}}|/|2}}
+|PEPageType={{{PEPageType|}}}
+}}
+{{#cargo_store:_table=ArticleServicePEPorts
+|ServiceId={{{ServiceId}}}
+}}<!-- Set MintyDocs topic, including a switch for different treatment for Manual pages -->{{#mintydocs_topic:
+|display name=Ports
+}}}}<!-- Defining the EPPO Header; all parameters need to be passed to it -->{{EPPOHead|Context={{{Context|}}}|PageType=Article}}
+
+
+{{{PEPorts|}}}
+[[Category:Linkable]]</includeonly><noinclude>[[Category:MintyDocs_Cargo]]</noinclude>

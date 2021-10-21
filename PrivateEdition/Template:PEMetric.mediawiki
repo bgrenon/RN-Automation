@@ -19,7 +19,7 @@ Edit the page to see the template text.
 {{!}}-
 {{!}} '''{{#replace:{{{Metric}}}|_|_<wbr/>}}'''
 
-{{#if:{{{MetricDescription|}}}|{{{MetricDescription}}}|Placeholder description to better simulate a fully populated table.}}
+{{#if:{{{MetricDescription|}}}|{{{MetricDescription}}}|{{Editgrn_open}}Need info{{Editgrn_close}}}}
 {{!}} '''Unit:''' {{{Unit|}}}<br/>
 '''Type:''' {{#if:{{{Type|}}}|{{{Type}}}|{{Editgrn_open}}Need info{{Editgrn_close}}}}<br/>
 '''Label:''' {{{Label|}}}<br/>
