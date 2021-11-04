@@ -1,0 +1,8 @@
+<onlyinclude>
+{{#cargo_query:
+tables=PEMonitoring,IncludedService
+|join on=PEMonitoring.IncludedServiceId=IncludedService.Id
+|fields=CONCAT('[[',PEMonitoring._pageName,'|',IncludedService.Name,']]')=Service,IF(PEMonitoring.CRD IS NOT NULL,PEMonitoring.CRD,PEMonitoring.Annotations)=CRD or annotations?,PEMonitoring.Port=Port,IF(PEMonitoring.Endpoint LIKE "%source%",CONCAT('See selector details on the [[',PEMonitoring._pageName,'|',IF(IncludedService.ShortName IS NOT NULL,IncludedService.ShortName,IncludedService.Name),' metrics and alerts]] page'),PEMonitoring.Endpoint)=Endpoint/Selector,PEMonitoring.MetricsUpdateInterval=Metrics update interval
+|where=PEMonitoring._pageName LIKE "%PEGuide%" AND {{#switch:{{NAMESPACENUMBER}}|620=PEMonitoring._pageName LIKE "Draft:%%"|#default=PEMonitoring._pageName NOT LIKE "Draft:%%"}}
+|group by=IncludedService.Id
+}}</onlyinclude>

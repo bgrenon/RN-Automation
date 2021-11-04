@@ -1,21 +1,21 @@
 <noinclude>
-This is the "PEArchitecture" template.
+This is the "ArticlePEServiceArchitecture" template.
 
 It should be called in the following format:
 <pre>
-{{PEArchitecture
+{{ArticlePEServiceArchitecture
 |ServiceId=
 }}
 
 </pre>
 Edit the page to see the template text.
 
-{{#cargo_declare:_table=PEArchitecture
+{{#cargo_declare:_table=ArticlePEServiceArchitecture
 |ServiceId=String
 }}{{#cargo_attach:_table=Article}}
 
 </noinclude>
-<includeonly>{{#css: .MintyDocsTopicDesc {display:none} }}[[Category:PEArchitecture]]__TOC__
+<includeonly>{{#css: .MintyDocsTopicDesc {display:none} }}[[Category:ArticlePEServiceArchitecture]]__TOC__
 __NOEDITSECTION__{{#cargo_store:_table=Article
 |productshort={{#explode:{{FULLPAGENAME}}|/|0}}
 |Role={{{Role|}}}
@@ -27,11 +27,11 @@ __NOEDITSECTION__{{#cargo_store:_table=Article
 |Manual={{#explode:{{FULLPAGENAME}}|/|2}}
 |PEPageType={{{PEPageType|}}}
 }}
-{{#cargo_store:_table=PEArchitecture
-|ServiceId={{{ServiceId}}}
+{{#cargo_store:_table=ArticlePEServiceArchitecture
+|ServiceId={{{ServiceId|}}}
 }}<!-- Set MintyDocs topic, including a switch for different treatment for Manual pages -->{{#mintydocs_topic:
 |display name=Architecture
-}}}}<!-- Defining the EPPO Header; all parameters need to be passed to it -->{{EPPOHead|Context={{{Context|}}}|PageType=Article}}
+}}<!-- Defining the EPPO Header; all parameters need to be passed to it -->{{EPPOHead|Context={{{Context|}}}|PageType=Article}}
 
 
 {{{PEArchitectureSection|}}}{{{Section|}}}

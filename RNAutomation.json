@@ -287,6 +287,11 @@
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Category%3AArticlePEServiceMetrics.mediawiki"
 				},
 				{
+					"name": "ArticlePEServiceArchitecture",
+					"namespace": "NS_CATEGORY",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Category%3AArticlePEServiceArchitecture.mediawiki"
+				},
+				{
 					"name": "ArticlePEServiceMetrics",
 					"namespace": "PF_NS_FORM",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Form%3AArticlePEServiceMetrics.mediawiki"
@@ -332,9 +337,19 @@
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3APEMonitoring.mediawiki"
 				},
 				{
+					"name": "PEMonitoringSummary",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3APEMonitoringSummary.mediawiki"
+				},
+				{
 					"name": "PrintServices",
 					"namespace": "NS_TEMPLATE",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3APrintServices.mediawiki"
+				},
+				{
+					"name": "PrintServices2",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3APrintServices2.mediawiki"
 				},
 				{
 					"name": "Service",
@@ -474,7 +489,43 @@
 					"name": "UpgradeMode",
 					"namespace": "NS_TEMPLATE",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3AUpgradeMode.mediawiki"
+				},
+				{
+					"name": "ArticlePEServicePorts",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3AArticlePEServicePorts.mediawiki"
+				},
+				{
+					"name": "PESystemMetric",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3APESystemMetric.mediawiki"
+				},
+				{
+					"name": "UpgradeMode",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3AUpgradeMode.mediawiki"
+				},
+				{
+					"name": "Protocols",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3AProtocols.mediawiki"
+				},
+				{
+					"name": "EmbedPrintServices",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3AEmbedPrintServices.mediawiki"
+				},
+				{
+					"name": "ArticlePEServiceArchitecture",
+					"namespace": "PF_NS_FORM",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Form%3AArticlePEServiceArchitecture.mediawiki"
+				},
+				{
+					"name": "ArticlePEServiceArchitecture",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3AArticlePEServiceArchitecture.mediawiki"
 				}
+
 			]
 		}
 	}

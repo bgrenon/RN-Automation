@@ -1,0 +1,113 @@
+<noinclude>
+This is the "PEArchitecture" form.
+To create a page with this form, enter the page name below;
+if a page with that name already exists, you will be sent to a form to edit that page.
+
+
+{{#forminput:form=PEArchitecture}}
+
+</noinclude><includeonly>
+<div id="wikiPreview" style="display: none; padding-bottom: 25px; margin-bottom: 25px; border-bottom: 1px solid #AAAAAA;"></div>
+{{{info|edit title=Editing {{#explode:{{FULLPAGENAME}}|/|3}} }}}
+{{{for template|PEArchitecture}}}
+{{{field|PageType|hidden}}}
+<div class="toggle-wrap">
+<toggledisplay linkstyle font-size:larger showtext="Set up your page" hidetext="Set up your page">
+<div class="toggle-content">
+<div class="col-md-2 form-label">Display title {{FormTip|
+Set up the H1 for your page. It should have some meat to establish context. The display name is also used in search results and links.}}</div>
+<div class="col-md-10">{{{field|DisplayName|size=100%}}}</div>
+
+<div class="col-md-2 form-label">TOC title {{FormTip|(Optional) Choose a shorter name for the left-hand navigation tree/TOC. Be careful to keep your Display and TOC page names logically consistent.}}</div>
+<div class="col-md-10">{{{field|TocName|size=100%}}}</div>
+
+<div class="col-md-2 form-label">Contextual statement {{FormTip|Add an introductory "contextual" sentence to set up the context for this page - a snapshot of what the reader can expect to learn or accomplish from reading this page. 
+
+The goal is this: 
+*A user reaches this page through search, or a link. 
+*They need to understand as quickly as possible whether this page is worth reading for their purposes.
+*The two best places to establish context are the title of the page, and this intro sentence.
+*If the reader determines that no, this is the wrong page, header or sidebar links should direct them to higher level pages to guide them further.
+
+Here are a two examples of successful contextual statements:
+
+[[File:ContextExample_hist.png]]
+
+[[File:ContextExample_intraday.png]]
+
+
+{{NoteFormat|These context statements are saved in Cargo and can be re-used on portal pages and other global lists. Consider this secondary purpose as well: how this statement can give context to a link or list, letting a reader know what to expect before they click to come to this page.}}
+}}</div>
+
+<div class="col-md-10 ve-height">{{{field|Context|input type=textarea|editor=visualeditor|mandatory|maxlength=500}}}</div>
+
+<div class="col-md-2 form-label">EPPO head links</div>
+<div class="col-md-10">
+<div class="col-md-4">
+{{{field|Dimension|input type=tokens|size=30|values=Journey}}}<br/>
+<span class="form-label bottom">Related topics tags {{FormTip|Set up a "dimension" tag to enable a "related topics" widget between a tightly-coupled set of pages. For example "email" could be a dimension that applies to a set of pages within your doc or doc set pertaining to email.}}</span>
+</div>
+<div class="col-md-4">
+{{{field|UseCase|input type=tokens|size=10|cargo table=PublicUseCase|cargo field=DisplayName|mapping template=UCList}}}<br/>
+<span class="form-label bottom">Use cases{{FormTip|Select the use case(s) related to this topic.}}</span>
+</div>
+</div>
+
+<div class="col-md-2 form-label">Genesys Engage cloud settings</div>
+<div class="col-md-10">
+<div class="col-md-4">{{{field|Role|input type=tokens|size=100%|cargo table=PEC_User_Role_MasterList|cargo field=Role}}}<br/>
+<span class="form-label bottom">User roles{{FormTip|Select the user role(s) for this page. For example, if this is an article in Agent Setup, the user role would be Administrator.}}</span></div>
+</div>
+<div style="clear:both;"></div>
+</div>
+</toggledisplay>
+</div>
+
+<h2>Introduction</h2>
+Explain the architecture of all services in the container and introduce the architecture diagram. Link to the suite-level architecture page: {{SuiteLevelLink|architecture}}
+{{{field|IntroductionText|input type=textarea|editor=visualeditor}}}
+
+<h2>Architecture diagram</h2>
+Add your logical architecture diagram. You'll need to work with the diagram team so that all Private Edition architecture diagrams are consistent.
+
+Image filename: {{{field|Image|size=27}}}
+
+Alt-text: {{{field|AltText|size=100}}}
+
+
+{{{field|PEArchitectureSection|holds template}}}
+
+{{{end template}}}
+{{{for template|PEArchitectureSection|multiple|embed in field=PEArchitecture[PEArchitectureSection]|displayed fields when minimized=sectionHeading|add button text=Add additional architecture diagram }}}
+
+<div class="col-md-2 form-label">Introdution </div>
+<div class="col-md-10">{{{field|IntroductionText|input type=textarea|editor=visual editor}}}</div>
+
+<div id="Horizontal">
+<div class="col-md-2 form-label">Select image</div>
+<div class="col-md-10">
+<div class="col-md-4">{{{field|image|size=27}}}<br/>
+<span class="form-label bottom">Filename or Vimeo ID</span></div>
+<div class="col-md-10">{{{field|AltText|size=100}}}
+<span class="form-label bottom">Alt-Text</span></div>
+
+</div>
+</div>
+
+<div class="form-label">Section text</div>
+<div class="col-md-12">{{{field|structuredtext|input type=textarea|editor=visualeditor}}}</div>
+
+<div id="Horizontal">
+<div class="form-label">Wide section text{{FormTip|Add extra full-width text beneath the horizontal text-image pair (optional)}}</div>
+<div class="col-md-12 ve-height">{{{field|structuredtextwide|input type=textarea|editor=visualeditor}}}</div>
+</div>
+
+{{{end template}}}
+{{{standard input|summary}}}
+{{FormCSS}}
+
+
+{{{standard input|minor edit}}} {{{standard input|watch}}}
+
+{{{standard input|save and continue}}}{{{standard input|save}}} {{{standard input|preview}}} {{{standard input|changes}}} {{{standard input|cancel}}}
+</includeonly><noinclude>[[Category:Article_Cargo]][[Category:ActiveForms]][[Category:MintyDocs_Cargo]]</noinclude>

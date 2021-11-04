@@ -50,11 +50,13 @@ Edit the page to see the template text.
 !style="width: 30%" {{!}} '''Endpoint/Selector'''
 !'''Metrics update interval'''
 {{!}}-
-{{!}} {{#if:{{{AltServiceDisplayName|}}}|{{{AltServiceDisplayName}}}|{{#cargo_query:tables=IncludedService|fields=IF(ShortName IS NOT NULL,ShortName,Name)|where=Id="{{{IncludedServiceId}}}"}}}}
+{{!}} {{#if:{{{NoCRDsOrAnnotations|}}}|rowspan="2"{{!}}|}}{{#if:{{{AltServiceDisplayName|}}}|{{{AltServiceDisplayName}}}|{{#cargo_query:tables=IncludedService|fields=IF(ShortName IS NOT NULL,ShortName,Name)|where=Id="{{{IncludedServiceId}}}"}}}}
 {{!}}{{{CRD|}}}{{{Annotations|}}}
 {{!}}{{{Port|}}}
 {{!}}{{{Endpoint|}}}
-{{!}}{{{MetricsUpdateInterval|}}}
+{{!}}{{{MetricsUpdateInterval|}}}{{#if:{{{NoCRDsOrAnnotations|}}}|<br/>
+{{!}}-
+{{!}} colspan="4"{{!}}{{{NoCRDsOrAnnotations}}}|}}
 {{!}}}
 {{#switch:{{{AlertsDefined}}}|No=|Yes|#default=
 See details about:
@@ -84,6 +86,4 @@ See details about:
 ! '''Threshold'''
 {{{PEAlert|}}}
 {{!}}}
-|No alerts are defined for {{#sub:{{MINTYDOCSDISPLAYNAME}}|0|-19}}.}}}}
-
-</includeonly><noinclude>[[Category:PrivateEdition]]</noinclude>
+|No alerts are defined for {{#sub:{{MINTYDOCSDISPLAYNAME}}|0|-19}}.}}}}[[Category:Linkable]]</includeonly><noinclude>[[Category:PrivateEdition]]</noinclude>

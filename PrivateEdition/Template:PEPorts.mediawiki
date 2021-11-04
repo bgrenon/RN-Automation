@@ -3,24 +3,24 @@ This is the "PEPorts" template.
 It should be called in the following format:
 <pre>
 {{PEPorts
-|ServiceId=
+|IncludedServiceId=
 |Port=
 |Protocol=
-|Purpose=
+|DataType=
 |Comment=
 }}
 </pre>
 Edit the page to see the template text.
 {{#cargo_declare:_table=PEPorts
-|ServiceId=String
+|IncludedServiceId=String
 |Port=String
 |Protocol=String
-|Purpose=String
+|DataType=String
 |Comment=Wikitext}}
 </noinclude><includeonly>{{#cargo_store:_table=PEPorts
-|ServiceId={{{ServiceId|}}}
+|IncludedServiceId={{{IncludedServiceId|}}}
 |Port={{{Port|}}}
 |Protocol={{{Protocol|}}}
-|Purpose={{{Purpose|}}}
+|DataType={{{Purpose|}}}
 |Comment={{{Comment|}}} }}
 </includeonly>
