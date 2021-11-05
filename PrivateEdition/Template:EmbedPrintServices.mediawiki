@@ -1,7 +1,7 @@
-{{#cargo_query:tables=Service,ServiceGroup,MintyDocsManual
-|join on=Service.ServiceGroupId=ServiceGroup.Id,MintyDocsManual.ServiceId=Service.Id
-|fields=Service.Id=ServiceId,ServiceGroup.Name=ServiceGroup,CONCAT ('[[',MintyDocsManual._pageName,'|',Service.Name,']]')=Service
-|intro=<table class="sortable"><tr><th>Service</th><th>Service group</th><th>Included Services</th></tr>
+{{#cargo_query:tables=Service,MintyDocsManual
+|join on=MintyDocsManual.ServiceId=Service.Id
+|fields=Service.Id=ServiceId,CONCAT ('[[',MintyDocsManual._pageName,'|',Service.Name,']]')=Service
+|intro=<table class="sortable"><tr><th>Service</th><th>Included Services</th></tr>
 |outro=</table>
 |where=MintyDocsManual.ServiceId IS NOT NULL AND MintyDocsManual._pageNamespace="{{NAMESPACENUMBER}}"
 |format=template

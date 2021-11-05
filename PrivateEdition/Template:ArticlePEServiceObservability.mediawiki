@@ -80,6 +80,7 @@ tables=PEMonitoring,IncludedService
 |fields=CONCAT('[[',PEMonitoring._pageName,'#Metrics|',IF(IncludedService.ShortName,IncludedService.ShortName,IncludedService.Name),' metrics]]')
 |where=PEMonitoring._pageName LIKE "%{{#explode:{{FULLPAGENAME}}|/|2}}%" AND {{#switch:{{NAMESPACENUMBER}}|620=PEMonitoring._pageName LIKE "Draft:%%"|#default=PEMonitoring._pageName NOT LIKE "Draft:%%"}}
 |default=<font color="#940cf0">'''Writer!''' Populate info on the Metrics page(s).</font>
+|group by=PEMonitoring._pageName
 |format=ul
 }}
 {{#if:{{{Monitoring|}}}|<nowiki />
@@ -97,6 +98,7 @@ tables=PEMonitoring,IncludedService
 |fields=CONCAT('[[',PEMonitoring._pageName,'|',IF(IncludedService.ShortName,IncludedService.ShortName,IncludedService.Name),']]')=Service,IF(PEMonitoring.CRD IS NOT NULL,PEMonitoring.CRD,PEMonitoring.Annotations)=CRD or annotations?,PEMonitoring.Port=Port,IF(PEMonitoring.Endpoint LIKE "%source%",CONCAT('See selector details on the [[',PEMonitoring._pageName,'|',IncludedService.Name,' metrics and alerts]] page'),PEMonitoring.Endpoint)=Endpoint/Selector,PEMonitoring.MetricsUpdateInterval=Metrics update interval
 |where=PEMonitoring._pageName LIKE "%{{#explode:{{FULLPAGENAME}}|/|2}}%" AND {{#switch:{{NAMESPACENUMBER}}|620=PEMonitoring._pageName LIKE "Draft:%%"|#default=PEMonitoring._pageName NOT LIKE "Draft:%%"}}
 |default=<font color="#940cf0">'''Writer!''' Populate monitoring info on the Metrics page(s).</font>
+|group by=PEMonitoring._pageName
 |format=table
 }}
 
@@ -133,7 +135,7 @@ The alerts are defined as '''PrometheusRule''' objects in a '''prometheus-rule.y
 
 {{{ConfigureAlerts|}}}|}}}}
 ==Logging==
-{{Notices|Notice=PEComingSoon}}
+{{#if:{{{Logging|}}}|{{{Logging}}}|{{Notices|Notice=PEComingSoon}}}}
 <noinclude>[[Category:PrivateEdition]]</noinclude>
 [[Category:Linkable]]
 </includeonly>

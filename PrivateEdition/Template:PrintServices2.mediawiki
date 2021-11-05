@@ -3,9 +3,6 @@
 {{{Service|}}}
 </td>
 <td>
-{{{ServiceGroup|}}}
-</td>
-<td>
 {{#cargo_query:tables=Service,IncludedService
 |join on=Service.Id=IncludedService.ServiceId
 |fields=IncludedService.Name=Included Service
