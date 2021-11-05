@@ -16,144 +16,144 @@
 				{
 					"name": "Component",
 					"namespace": "PF_NS_FORM",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Form%3AComponent.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Form%3AComponent.mediawiki"
 				},
 				{
 					"name": "Component",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Template%3AComponent.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Template%3AComponent.mediawiki"
 				},
 				{
 					"name": "ComponentRN",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Template%3AComponentRN.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Template%3AComponentRN.mediawiki"
 				},
 				{
 					"name": "ComponentMap",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Template%3AComponentMap.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Template%3AComponentMap.mediawiki"
 				},
 	
 				{
 					"name": "DeploymentType",
 					"namespace": "PF_NS_FORM",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Form%3ADeploymentType.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Form%3ADeploymentType.mediawiki"
 				},
 				{
 					"name": "CreateRN",
 					"namespace": "PF_NS_FORM",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Form%3ACreateRN.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Form%3ACreateRN.mediawiki"
 				},
 				{
 					"name": "EditRN",
 					"namespace": "PF_NS_FORM",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Form%3AEditRN.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Form%3AEditRN.mediawiki"
 				},
 				{
 					"name": "DeploymentType",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Template%3ADeploymentType.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Template%3ADeploymentType.mediawiki"
 				},
 				{
 					"name": "DeploymentTypeMap",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Template%3ADeploymentTypeMap.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Template%3ADeploymentTypeMap.mediawiki"
 				},
 				{
 					"name": "Issue",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Template%3AIssue.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Template%3AIssue.mediawiki"
 				},
 				{
 					"name": "RNPrint",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Template%3ARNPrint.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Template%3ARNPrint.mediawiki"
 				},
 				{
 					"name": "ArticleCloudRN",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Template%3AArticleCloudRN.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Template%3AArticleCloudRN.mediawiki"
 				},
 				{
 					"name": "ArticleCloudRN",
 					"namespace": "PF_NS_FORM",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Form%3AArticleCloudRN.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Form%3AArticleCloudRN.mediawiki"
 				},
 				{
 					"name": "IssueCategory",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Template%3AIssueCategory.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Template%3AIssueCategory.mediawiki"
 				},
 				{
 					"name": "IssueCategoryMap",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Template%3AIssueCategoryMap.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Template%3AIssueCategoryMap.mediawiki"
 				},
 				{
 					"name": "IssueCategory",
 					"namespace": "PF_NS_FORM",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Form%3AIssueCategory.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Form%3AIssueCategory.mediawiki"
 				},
 				{
 					"name": "ArticleCloudRN",
 					"namespace": "NS_CATEGORY",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Category%3AArticleCloudRN.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Category%3AArticleCloudRN.mediawiki"
 				}
 				,
 				{
 					"name": "EditRN",
 					"namespace": "NS_CATEGORY",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Category%3AEditRN.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Category%3AEditRN.mediawiki"
 				},
 				{
 					"name": "ReleaseType",
 					"namespace": "PF_NS_FORM",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Form%3AReleaseType.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Form%3AReleaseType.mediawiki"
 				},
 				{
 					"name": "ReleaseType",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Template%3AReleaseType.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Template%3AReleaseType.mediawiki"
 				},
 				{
 					"name": "ReleaseTypeMap",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Template%3AReleaseTypeMap.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Template%3AReleaseTypeMap.mediawiki"
 				},
 				{
 					"name": "PrintTopRN",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Template%3APrintTopRN.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Template%3APrintTopRN.mediawiki"
 				},
 				{
 					"name": "PrintTopPrivateEditionRN",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Template%3APrintTopPrivateEditionRN.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Template%3APrintTopPrivateEditionRN.mediawiki"
 				},
 				{
 					"name": "AzureBoilerplate",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Template%3AAzureBoilerplate.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Template%3AAzureBoilerplate.mediawiki"
 				},
 				{
 					"name": "ArticleHelmRN",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Template%3AArticleHelmRN.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Template%3AArticleHelmRN.mediawiki"
 				},
 				{
 					"name": "HelmPrint",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Template%3AHelmPrint.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Template%3AHelmPrint.mediawiki"
 				},
 				{
 					"name": "ArticleHelmRN",
 					"namespace": "PF_NS_FORM",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Form%3AArticleHelmRN.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Form%3AArticleHelmRN.mediawiki"
 				},
 				{
 					"name": "ArticleHelmRN",
 					"namespace": "NS_CATEGORY",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Category%3AArticleHelmRN.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Package/Category%3AArticleHelmRN.mediawiki"
 				}
 				
 			],
@@ -169,27 +169,27 @@
 			"pages": [
 				{
 					"name": "Draft:ContentAdmin/Internal/ReleaseNote",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Demo/ReleaseNote.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Demo/ReleaseNote.mediawiki"
 				},
 				{
 					"name": "Draft:ReleaseNotes/Current/GenesysEngage-cloud/PrivateEdition",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Demo/PrivateEdition.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Demo/PrivateEdition.mediawiki"
 				},
 				{
 					"name": "Draft:ReleaseNotes/Current/GenesysEngage-cloud/Hosted",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Demo/Hosted.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Demo/Hosted.mediawiki"
 				},
 				{
 					"name": "Draft:ContentAdmin/Internal/ReleaseNote/Genesys_Info_Mart",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Demo/Genesys_Info_Mart.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Demo/Genesys_Info_Mart.mediawiki"
 				},
 				{
 					"name": "Draft:ContentAdmin/Internal/ReleaseNote/Designer",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Demo/Designer.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Demo/Designer.mediawiki"
 				},
 				{
 					"name": "Draft:ContentAdmin/Internal/ReleaseNote/Agent_Desktop",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Demo/Agent_Desktop.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Demo/Agent_Desktop.mediawiki"
 				}
 				
 			],
@@ -210,23 +210,23 @@
 				
 				{
 					"name": "Draft:ContentAdmin/Internal/SiteDashboard/Components",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Data/Components.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Data/Components.mediawiki"
 				},
 				{
 					"name": "Draft:ContentAdmin/Internal/SiteDashboard/DeploymentType",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Data/DeploymentType.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Data/DeploymentType.mediawiki"
 				},
 				{
 					"name": "Draft:ContentAdmin/Internal/SiteDashboard/IssueType",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Data/IssueType.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Data/IssueType.mediawiki"
 				},
 				{
 					"name": "Draft:ContentAdmin/Internal/SiteDashboard/ReleaseType",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Data/ReleaseType.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Data/ReleaseType.mediawiki"
 				},
 				{
 					"name": "Draft:ContentAdmin/Internal/SiteDashboard/IssueCategory",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Data/IssueCategory.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/Data/IssueCategory.mediawiki"
 				}
 				
 			],
@@ -248,32 +248,32 @@
 				{
 					"name": "EditMintyDocsManual",
 					"namespace": "PF_NS_FORM",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/MintyDocs/Form%3AEditMintyDocsManual.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/MintyDocs/Form%3AEditMintyDocsManual.mediawiki"
 				},
 				{
 					"name": "EditTOC",
 					"namespace": "PF_NS_FORM",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/MintyDocs/Form%3AEditTOC.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/MintyDocs/Form%3AEditTOC.mediawiki"
 				},
 				{
 					"name": "Article",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/MintyDocs/Template%3AArticle.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/MintyDocs/Template%3AArticle.mediawiki"
 				},
 				{
 					"name": "EPPOHead",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/MintyDocs/Template%3AEPPOHead.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/MintyDocs/Template%3AEPPOHead.mediawiki"
 				},
 				{
 					"name": "MintyDocsManual",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/MintyDocs/Template%3AMintyDocsManual.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/MintyDocs/Template%3AMintyDocsManual.mediawiki"
 				},
 				{
 					"name": "TaskSummary",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/MintyDocs/Template%3ATaskSummary.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/MintyDocs/Template%3ATaskSummary.mediawiki"
 				}
 			]
 		},
@@ -284,256 +284,256 @@
 			"pages": [
 				{ 	"name": "ArticlePEServiceMetrics",
 					"namespace": "NS_CATEGORY",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Category%3AArticlePEServiceMetrics.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/PrivateEdition/Category%3AArticlePEServiceMetrics.mediawiki"
 				},
 				{
 					"name": "ArticlePEServiceArchitecture",
 					"namespace": "NS_CATEGORY",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Category%3AArticlePEServiceArchitecture.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/PrivateEdition/Category%3AArticlePEServiceArchitecture.mediawiki"
 				},
 				{
 					"name": "ArticlePEServiceMetrics",
 					"namespace": "PF_NS_FORM",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Form%3AArticlePEServiceMetrics.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/PrivateEdition/Form%3AArticlePEServiceMetrics.mediawiki"
 				},
 				{
 					"name": "ArticlePEServiceObservability",
 					"namespace": "PF_NS_FORM",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Form%3AArticlePEServiceObservability.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/PrivateEdition/Form%3AArticlePEServiceObservability.mediawiki"
 				},
 				{
 					"name": "IncludedService",
 					"namespace": "PF_NS_FORM",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Form%3AIncludedService.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/PrivateEdition/Form%3AIncludedService.mediawiki"
 				},
 				{
 					"name": "ArticlePEServiceMetrics",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3AArticlePEServiceMetrics.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/PrivateEdition/Template%3AArticlePEServiceMetrics.mediawiki"
 				},
 				{
 					"name": "ArticlePEServiceObservability",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3AArticlePEServiceObservability.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/PrivateEdition/Template%3AArticlePEServiceObservability.mediawiki"
 				},
 				{
 					"name": "IncludedService",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3AIncludedService.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/PrivateEdition/Template%3AIncludedService.mediawiki"
 				},
 				{
 					"name": "PEAlert",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3APEAlert.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/PrivateEdition/Template%3APEAlert.mediawiki"
 				},
 				{
 					"name": "PEMetric",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3APEMetric.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/PrivateEdition/Template%3APEMetric.mediawiki"
 				},
 				{
 					"name": "PEMonitoring",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3APEMonitoring.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/PrivateEdition/Template%3APEMonitoring.mediawiki"
 				},
 				{
 					"name": "PEMonitoringSummary",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3APEMonitoringSummary.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/PrivateEdition/Template%3APEMonitoringSummary.mediawiki"
 				},
 				{
 					"name": "PrintServices",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3APrintServices.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/PrivateEdition/Template%3APrintServices.mediawiki"
 				},
 				{
 					"name": "PrintServices2",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3APrintServices2.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/PrivateEdition/Template%3APrintServices2.mediawiki"
 				},
 				{
 					"name": "Service",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3AService.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/PrivateEdition/Template%3AService.mediawiki"
 				},
 				{ 	"name": "ServiceHA",
 					"namespace": "NS_CATEGORY",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Category%3AServiceHA.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/PrivateEdition/Category%3AServiceHA.mediawiki"
 				},
 				{
 					"name": "ArticleUpgrades",
 					"namespace": "PF_NS_FORM",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Form%3AArticleUpgrades.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/PrivateEdition/Form%3AArticleUpgrades.mediawiki"
 				},
 				{
 					"name": "ArticleServiceHA",
 					"namespace": "PF_NS_FORM",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Form%3AArticleServiceHA.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/PrivateEdition/Form%3AArticleServiceHA.mediawiki"
 				},
 				{
 					"name": "UpgradeMode",
 					"namespace": "PF_NS_FORM",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Form%3AUpgradeMode.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/PrivateEdition/Form%3AUpgradeMode.mediawiki"
 				},
 				{
 					"name": "DRType",
 					"namespace": "PF_NS_FORM",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Form%3ADRType.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/PrivateEdition/Form%3ADRType.mediawiki"
 				},
 				{
 					"name": "HAType",
 					"namespace": "PF_NS_FORM",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Form%3AHAType.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/PrivateEdition/Form%3AHAType.mediawiki"
 				},
 				{
 					"name": "PrimaryUnitValues",
 					"namespace": "PF_NS_FORM",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Form%3APrimaryUnitValues.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/PrivateEdition/Form%3APrimaryUnitValues.mediawiki"
 				},
 				{
 					"name": "Service",
 					"namespace": "PF_NS_FORM",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Form%3AService.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/PrivateEdition/Form%3AService.mediawiki"
 				},
 				{
 					"name": "DRType",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3ADRType.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/PrivateEdition/Template%3ADRType.mediawiki"
 				},
 				{
 					"name": "DRTypeMap",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3ADRTypeMap.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/PrivateEdition/Template%3ADRTypeMap.mediawiki"
 				},
 				{
 					"name": "HAType",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3AHAType.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/PrivateEdition/Template%3AHAType.mediawiki"
 				},
 				{
 					"name": "HATypeMap",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3AHATypeMap.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/PrivateEdition/Template%3AHATypeMap.mediawiki"
 				},
 				{
 					"name": "IncludedServicePrint",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3AIncludedServicePrint.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/PrivateEdition/Template%3AIncludedServicePrint.mediawiki"
 				},
 				{
 					"name": "IncludedServicePrintAll",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3AIncludedServicePrintAll.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/PrivateEdition/Template%3AIncludedServicePrintAll.mediawiki"
 				},
 				{
 					"name": "PrimaryUnitValues",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3APrimaryUnitValues.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/PrivateEdition/Template%3APrimaryUnitValues.mediawiki"
 				},
 				{
 					"name": "PrimaryUnitValuesMap",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3APrimaryUnitValuesMap.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/PrivateEdition/Template%3APrimaryUnitValuesMap.mediawiki"
 				},
 				{
 					"name": "SuperscriptCheck",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3ASuperscriptCheck.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/PrivateEdition/Template%3ASuperscriptCheck.mediawiki"
 				},
 				{
 					"name": "SuperscriptFlag",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3ASuperscriptFlag.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/PrivateEdition/Template%3ASuperscriptFlag.mediawiki"
 				},
 				{
 					"name": "ArticleServiceHA",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3AArticleServiceHA.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/PrivateEdition/Template%3AArticleServiceHA.mediawiki"
 				},
 				{
 					"name": "ArticleServiceUpgrade",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3AArticleServiceUpgrade.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/PrivateEdition/Template%3AArticleServiceUpgrade.mediawiki"
 				},
 				{
 					"name": "ArticleUpgrades",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3AArticleUpgrades.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/PrivateEdition/Template%3AArticleUpgrades.mediawiki"
 				},
 				{
 					"name": "IncludedServiceHA",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3AIncludedServiceHA.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/PrivateEdition/Template%3AIncludedServiceHA.mediawiki"
 				},
 				{
 					"name": "IncludedServiceMap",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3AIncludedServiceMap.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/PrivateEdition/Template%3AIncludedServiceMap.mediawiki"
 				},
 				{
 					"name": "ServiceHA",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3AServiceHA.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/PrivateEdition/Template%3AServiceHA.mediawiki"
 				},
 				{
 					"name": "PrintServiceHA",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3APrintServiceHA.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/PrivateEdition/Template%3APrintServiceHA.mediawiki"
 				},
 				{
 					"name": "PrintServicesHAFormat",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3APrintServicesHAFormat.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/PrivateEdition/Template%3APrintServicesHAFormat.mediawiki"
 				},
 				{
 					"name": "UpgradeMode",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3AUpgradeMode.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/PrivateEdition/Template%3AUpgradeMode.mediawiki"
 				},
 				{
 					"name": "ArticlePEServicePorts",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3AArticlePEServicePorts.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/PrivateEdition/Template%3AArticlePEServicePorts.mediawiki"
 				},
 				{
 					"name": "PESystemMetric",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3APESystemMetric.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/PrivateEdition/Template%3APESystemMetric.mediawiki"
 				},
 				{
 					"name": "UpgradeMode",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3AUpgradeMode.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/PrivateEdition/Template%3AUpgradeMode.mediawiki"
 				},
 				{
 					"name": "Protocols",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3AProtocols.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/PrivateEdition/Template%3AProtocols.mediawiki"
 				},
 				{
 					"name": "EmbedPrintServices",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3AEmbedPrintServices.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/PrivateEdition/Template%3AEmbedPrintServices.mediawiki"
 				},
 				{
 					"name": "ArticlePEServiceArchitecture",
 					"namespace": "PF_NS_FORM",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Form%3AArticlePEServiceArchitecture.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/PrivateEdition/Form%3AArticlePEServiceArchitecture.mediawiki"
 				},
 				{
 					"name": "ArticlePEServiceArchitecture",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3AArticlePEServiceArchitecture.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/PrivateEdition/Template%3AArticlePEServiceArchitecture.mediawiki"
 				},
 				{
 					"name": "PEArchitectureSection",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3APEArchitectureSection.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/PrivateEdition/Template%3APEArchitectureSection.mediawiki"
 				},
 				{
 					"name": "PEPorts",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3APEPorts.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/main/PrivateEdition/Template%3APEPorts.mediawiki"
 				}
 
 			]
