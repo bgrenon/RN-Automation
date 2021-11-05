@@ -526,7 +526,7 @@
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3AArticlePEServiceArchitecture.mediawiki"
 				},
 				{
-					"name": "PEServiceArchitectureSection",
+					"name": "PEArchitectureSection",
 					"namespace": "NS_TEMPLATE",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3APEArchitectureSection.mediawiki"
 				}
