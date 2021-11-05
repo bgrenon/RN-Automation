@@ -27,10 +27,10 @@ Global=
 If you are able to apply your HA and DR settings globally for this service, do so here. 
 
 <div class="col-md-2 form-label">High Availability</div> 
-<div class="col-md-10">{{{field|HA|input type=tokens|cargo table=HAType|cargo field=Id|mapping template=HATypeMap}}}</div>
+<div class="col-md-10">{{{field|HA|input type=tokens|cargo table=HAType|cargo field=Id|mapping template=HATypeMap|existing values only}}}</div>
 
 <div class="col-md-2 form-label">Disaster Recovery</div>
-<div class="col-md-10">{{{field|DR|input type=tokens|cargo table=DRType|cargo field=Id|mapping template=DRTypeMap}}}</div>
+<div class="col-md-10">{{{field|DR|input type=tokens|cargo table=DRType|cargo field=Id|mapping template=DRTypeMap|existing values only}}}</div>
 
 <div class="col-md-2 form-label">Unit support {{FormTip|Select which unit type this service supports: 
 * Primary unit only
