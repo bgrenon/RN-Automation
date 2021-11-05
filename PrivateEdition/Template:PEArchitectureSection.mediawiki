@@ -1,0 +1,26 @@
+<noinclude>
+This is the "PEArchitectureSection" template.
+It should be called in the following format:
+<pre>
+{{PEArchitectureSection
+|IntroductionText=
+|Image=
+|AltText=
+}}
+</pre>
+Edit the page to see the template text.
+{{#cargo_declare:_table=PEArchitectureSection||IntroductionText=Wikitext
+|Image=File
+|AltText=Wikitext}}
+</noinclude><includeonly>{{#cargo_store:_table=PEArchitectureSection|IntroductionText={{{IntroductionText|}}}
+|Image={{{Image|}}}
+|AltText={{{AltText|}}}}}
+{{#if:{{{sectionHeading|}}}|<h2>{{{sectionHeading|}}}</h2>|}}
+{{#if:{{{anchor|}}}|<div id="{{{anchor|}}}"></div>|}}
+{{#if:{{{IntroductionText|}}}|{{{IntroductionText}}}|}}
+
+{{#if:{{{Image|}}}|[[File:{{{Image}}}|1|alt={{{AltText|}}}|link=]]|}}
+</includeonly>
+
+
+<noinclude>[[Category:PrivateEdition]]</noinclude>

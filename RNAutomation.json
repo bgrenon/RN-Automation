@@ -524,6 +524,11 @@
 					"name": "ArticlePEServiceArchitecture",
 					"namespace": "NS_TEMPLATE",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3AArticlePEServiceArchitecture.mediawiki"
+				},
+				{
+					"name": "PEServiceArchitectureSection",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3APEArticleSection.mediawiki"
 				}
 
 			]
