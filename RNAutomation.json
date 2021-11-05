@@ -529,6 +529,11 @@
 					"name": "PEArchitectureSection",
 					"namespace": "NS_TEMPLATE",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3APEArchitectureSection.mediawiki"
+				},
+				{
+					"name": "PEPorts",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3APEPorts.mediawiki"
 				}
 
 			]
