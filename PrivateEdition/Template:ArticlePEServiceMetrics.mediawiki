@@ -1,0 +1,89 @@
+<noinclude>
+This is the "ArticlePEServiceMetrics" template.
+It should be called in the following format:
+<pre>
+{{ArticlePEServiceMetrics
+|IncludedServiceId=
+|CRD=
+|Annotations=
+|Port=
+|Endpoint=
+|MetricsIntro=
+|MetricsUpdateInterval=
+}}
+</pre>
+Edit the page to see the template text.
+{{#cargo_declare:_table=ArticlePEServiceMetrics
+|IncludedServiceId=String
+|CRD=String
+|Annotations=Wikitext
+|Port=Wikitext
+|Endpoint=Wikitext
+|MetricsUpdateInterval=String
+|MetricsIntro=Wikitext
+|AlertsIntro=Wikitext
+}}
+{{#cargo_attach:_table=PEMonitoring}}
+</noinclude><includeonly>[[Category:ArticlePEServiceMetrics]]
+{{#cargo_store:_table=PEMonitoring
+|IncludedServiceId={{{IncludedServiceId|}}}
+|CRD={{{CRD|}}}
+|Annotations={{{Annotations|}}}
+|Port={{{Port|}}}
+|Endpoint={{{Endpoint|}}}
+|MetricsUpdateInterval={{{MetricsUpdateInterval|}}} }}
+{{#cargo_store:_table=ArticlePEServiceMetrics|IncludedServiceId={{{IncludedServiceId|}}}
+|CRD={{{CRD|}}}
+|Annotations={{{Annotations|}}}
+|Port={{{Port|}}}
+|Endpoint={{{Endpoint|}}}
+|MetricsIntro={{{MetricsIntro|}}}
+|AlertsIntro={{{AlertsIntro|}}}
+|MetricsUpdateInterval={{{MetricsUpdateInterval|}}} }}<!-- Set MintyDocs topic, including a switch for different treatment for Manual pages -->{{#mintydocs_topic:
+|display name={{#if:{{{AltServiceDisplayName|}}}|{{{AltServiceDisplayName}}}|{{#cargo_query:tables=IncludedService,ArticlePEServiceMetrics|join on=IncludedService.Id=ArticlePEServiceMetrics.IncludedServiceId|fields=IF(IncludedService.ShortName IS NOT NULL,IncludedService.ShortName,IncludedService.Name)|no html|where=ArticlePEServiceMetrics._pageName="{{FULLPAGENAME}}"|group by=IF(IncludedService.ShortName IS NOT NULL,IncludedService.ShortName,IncludedService.Name)}}}} metrics and alerts
+|toc name={{#if:{{{AltServiceDisplayName|}}}|{{#cargo_query:tables=IncludedService,ArticlePEServiceMetrics|join on=IncludedService.Id=ArticlePEServiceMetrics.IncludedServiceId|fields=IF(IncludedService.ShortName IS NOT NULL,IncludedService.ShortName,IncludedService.Name)|no html|where=ArticlePEServiceMetrics._pageName="{{FULLPAGENAME}}"|group by=IF(IncludedService.ShortName IS NOT NULL,IncludedService.ShortName,IncludedService.Name)}} metrics and alerts|}}
+}}<!-- Defining the EPPO Header; all parameters need to be passed to it -->{{EPPOHead|Context=Find the metrics {{#cargo_query:tables=IncludedService,ArticlePEServiceMetrics|join on=IncludedService.Id=ArticlePEServiceMetrics.IncludedServiceId|fields=IF(IncludedService.ShortName IS NOT NULL,IncludedService.ShortName,IncludedService.Name)|where=ArticlePEServiceMetrics._pageName="{{FULLPAGENAME}}"|group by=IF(IncludedService.ShortName IS NOT NULL,IncludedService.ShortName,IncludedService.Name)}} exposes and the alerts defined for {{#cargo_query:tables=IncludedService,ArticlePEServiceMetrics|join on=IncludedService.Id=ArticlePEServiceMetrics.IncludedServiceId|fields=IF(IncludedService.ShortName IS NOT NULL,IncludedService.ShortName,IncludedService.Name)|where=ArticlePEServiceMetrics._pageName="{{FULLPAGENAME}}"|group by=IF(IncludedService.ShortName IS NOT NULL,IncludedService.ShortName,IncludedService.Name)}}.|PageType=Article}}__TOC__
+{{{!}}
+! '''Service'''
+!'''CRD or annotations?'''
+!'''Port'''
+!style="width: 30%" {{!}} '''Endpoint/Selector'''
+!'''Metrics update interval'''
+{{!}}-
+{{!}} {{#if:{{{NoCRDsOrAnnotations|}}}|rowspan="2"{{!}}|}}{{#if:{{{AltServiceDisplayName|}}}|{{{AltServiceDisplayName}}}|{{#cargo_query:tables=IncludedService|fields=IF(ShortName IS NOT NULL,ShortName,Name)|where=Id="{{{IncludedServiceId}}}"}}}}
+{{!}}{{{CRD|}}}{{{Annotations|}}}
+{{!}}{{{Port|}}}
+{{!}}{{{Endpoint|}}}
+{{!}}{{{MetricsUpdateInterval|}}}{{#if:{{{NoCRDsOrAnnotations|}}}|<br/>
+{{!}}-
+{{!}} colspan="4"{{!}}{{{NoCRDsOrAnnotations}}}|}}
+{{!}}}
+{{#switch:{{{AlertsDefined}}}|No=|Yes|#default=
+See details about:
+* [[{{FULLPAGENAME}}#Metrics|{{#sub:{{MINTYDOCSDISPLAYNAME}}|0|-19}} metrics]]
+* [[{{FULLPAGENAME}}#Alerts|{{#sub:{{MINTYDOCSDISPLAYNAME}}|0|-19}} alerts]]}}
+{{AnchorDiv|Metrics}}
+==Metrics==
+{{{MetricsIntro|}}}
+{{{!}} class="sortable"
+! '''Metric and description'''
+! Metric details
+! Indicator of
+{{!}}-
+{{{PEMetric|}}}
+{{!}}}
+
+{{AnchorDiv|Alerts}}
+==Alerts==
+{{#switch:{{{AlertsDefined}}}|No=No alerts are defined for {{#sub:{{MINTYDOCSMANUAL}}|0|-22}}.|Yes|#default={{#if:{{{AlertsIntro|}}}|{{{AlertsIntro}}}|}}
+
+{{#if:{{{PEAlert|}}}|The following alerts are defined for {{#sub:{{MINTYDOCSDISPLAYNAME}}|0|-19}}.
+{{{!}}
+! '''Alert'''
+! '''Severity'''
+! '''Description'''
+! '''Based on'''
+! '''Threshold'''
+{{{PEAlert|}}}
+{{!}}}
+|No alerts are defined for {{#sub:{{MINTYDOCSDISPLAYNAME}}|0|-19}}.}}}}[[Category:Linkable]]</includeonly><noinclude>[[Category:PrivateEdition]]</noinclude>

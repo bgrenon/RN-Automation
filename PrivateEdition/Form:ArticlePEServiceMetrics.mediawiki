@@ -1,0 +1,88 @@
+<noinclude>
+This is the "ArticlePEServiceMetrics" form.
+To create a page with this form, enter the page name below;
+if a page with that name already exists, you will be sent to a form to edit that page.
+
+
+{{#forminput:form=ArticlePEServiceMetrics}}
+
+</noinclude><includeonly>
+<div id="wikiPreview" style="display: none; padding-bottom: 25px; margin-bottom: 25px; border-bottom: 1px solid #AAAAAA;"> </div>
+{{{for template|ArticlePEServiceMetrics}}}
+
+<div class="col-md-2 form-label">Included Service {{FormTip|Choose the service that contains the applicable Helm chart.}}</div>
+<div class="col-md-10 ve-height">{{{field|IncludedServiceId|input type=dropdown|cargo table=IncludedService|cargo field=Id|mapping template=IncludedServiceMap}}} </div>
+
+<div class="col-md-2 form-label">(Optional) Service name for the H1 {{FormTip|By default, the service's shortname will be used in the H1 ("<Service shortname> metrics and alerts"), the "Service" column in the Monitoring summary, and link display text. If you want to use a different service name, specify it here. Note that the shortname will still be used in the TOC entry.}}</div>
+<div class="col-md-10 ve-height">{{{field|AltServiceDisplayName}}} </div>
+
+<div style="clear:both;"></div>
+(For non-standard services only) If the service is a non-standard one that does not use CRDs or Annotations (for example, it is a serverless component run by a Kubernetes CronJob), enter content for a Note to appear in the Monitoring summary table. Populate the CRD, Port, Endpoint/Selector, and Metrics update interval fields with "n/a" (or the template will do this for you if you leave them blank). {{FormTip|If you enter any information in the text box, the Service name cell will be set to straddle two rows, the remaining columns in the first row will be populated with "n/a", and the content you enter will display in a second row that straddles the remaining columns.}}
+<div class="col-md-12 ve-height">{{{field|NoCRDsOrAnnotations|input type=textarea|editor=visualeditor}}}</div>
+
+<div class="col-md-2 form-label">CRD {{FormTip|Specify the CRD if the service uses one &mdash;e.g., PodMonitor or ServiceMonitor. Populate either this CRDs field or the "Annotations" one.}}</div>
+<div class="col-md-10 ve-height">{{{field|CRD}}} </div>
+
+<div class="col-md-2 form-label">Annotations {{FormTip|If the service uses annotations instead of CRD(s), specify the annotations. You can use wiki markup in this field. Populate either this Annotations field or the "CRD" one.}}</div>
+<div class="col-md-10 ve-height">{{{field|Annotations}}} </div>
+
+<div class="col-md-2 form-label">Port </div>
+<div class="col-md-10 ve-height">{{{field|Port|input type=textarea|editor=visualeditor|max height=50}}} </div>
+
+<div class="col-md-2 form-label">Endpoint/Selector {{FormTip|Specify the monitoring endpoint/URI Prometheus will scrape. If it's not possible to specify this straightforwardly (for example, if a service with no sticky network identity uses a PodMonitor), show the selector details. You can use wiki markup in this field.}}</div>
+<div class="col-md-10 ve-height">{{{field|Endpoint|input type=textarea|editor=visualeditor|max height=200}}} </div>
+
+<div class="col-md-2 form-label">Metrics update interval </div>
+<div class="col-md-10 ve-height">{{{field|MetricsUpdateInterval}}} </div>
+
+<div style="clear:both"></div>
+
+==Metrics==
+Add any service-specific information about the metrics. There is no boilerplate introductory material.
+<div class="col-md-12 ve-height">{{{field|MetricsIntro|input type=textarea|editor=visualeditor}}}</div>
+
+<div class="col-md-12 ve-height">{{{field|PEMetric|holds template}}}</div>
+
+==Alerts==
+Are alerts defined for this service? {{FormTip|''If you select "No" the following boilerplate sentence is the only content that will display under this heading:''
+
+No alerts are defined for <service>.}}{{{field|AlertsDefined|input type=radiobutton|values=Yes,No|default=Yes|mandatory}}}
+
+Add any service-specific information about the alerts. Following whatever you specify here, the template adds a boilerplate introductory paragraph, which is reproduced in the tooltip for convenience. {{FormTip|''The following introductory sentence displays by default:''
+
+The following alerts are defined for {{#sub:{{MINTYDOCSDISPLAYNAME}}|0|-19}}.}}
+
+<div class="col-md-12 ve-height">{{{field|AlertsIntro|input type=textarea|editor=visualeditor}}}</div>
+
+<div class="col-md-12 ve-height">{{{field|PEAlert|holds template}}}</div>
+
+{{{end template}}}
+
+{{{for template|PEMetric|multiple|add button text=Add metric|displayed fields when minimized=Metric|embed in field=ArticlePEServiceMetrics[PEMetric]}}}
+{{Field|Metric|{{{field|Metric}}} }}
+{{Field|Type|{{{field|Type}}} }}
+{{Field|Unit|{{{field|Unit}}} }}
+{{Field|Label|{{{field|Label}}} }}
+<div class="col-md-12 ve-height">{{Field|Description|{{{field|MetricDescription|input type=textarea|editor=visualeditor}}} }}</div>
+{{Field|SampleValue|{{{field|SampleValue}}} }}
+{{Field|UsedFor|{{{field|UsedFor}}} }}
+{{{end template}}}
+
+
+{{{for template|PEAlert|multiple|add button text=Add alert|displayed fields when minimized=Alert|embed in field=ArticlePEServiceMetrics[PEAlert]}}}
+{{Field|Alert|{{{field|Alert}}} }}
+{{Field|Severity|{{{field|Severity}}} }}
+<div class="col-md-12 ve-height">{{Field|Description|{{{field|AlertDescription|input type=textarea|editor=visualeditor}}} }}</div>
+{{Field|Based on:|{{{field|BasedOn}}} }}
+{{Field|Threshold|{{{field|Threshold}}} }}
+{{{end template}}}
+
+{{{standard input|summary}}}
+
+{{{standard input|minor edit}}} {{{standard input|watch}}}
+
+{{{standard input|save}}} {{{standard input|preview}}} {{{standard input|changes}}} {{{standard input|cancel}}}
+</includeonly>
+{{FormCSS}}
+
+<noinclude>[[Category:PrivateEdition]] [[Category:ActiveForms]]</noinclude>

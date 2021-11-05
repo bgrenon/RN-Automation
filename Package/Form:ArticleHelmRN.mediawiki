@@ -1,55 +1,81 @@
 <noinclude>
-This is the "ArticleHelmRN" template.
+This is the "ArticleHelmRN" form.
+To create a page with this form, enter the page name below;
+if a page with that name already exists, you will be sent to a form to edit that page.
 
-It should be called in the following format:
-<pre>
-{{ArticleHelmRN
-|ServiceId=
-|ComponentId=
-|DeploymentTypeId=
-}}
 
-</pre>
-Edit the page to see the template text.
+{{#forminput:form=ArticleHelmRN}}
 
-{{#cargo_declare:_table=ArticleHelmRN
-|ServiceId=String
-|ComponentId=List (,) of String
-|DeploymentTypeId=List (,) of String
-}}
-{{#cargo_attach:_table=Article}}
-</noinclude>
-<includeonly>{{#css: .MintyDocsTopicDesc {display:none} }}[[Category:ArticleHelmRN]]__TOC__
-__NOEDITSECTION__{{#cargo_store:_table=Article|Standalone={{{Standalone}}}|Dimension={{#explode:{{FULLPAGENAME}}|/|3}}|productshort={{#explode:{{FULLPAGENAME}}|/|0}}|DisplayName={{{DisplayName|}}}|Context={{{Context|}}}}}{{#cargo_store:_table=ArticleHelmRN
-|ServiceId={{{ServiceId|}}}
-|ComponentId={{{ComponentId|}}}
-|DeploymentTypeId={{{DeploymentTypeId|}}}
-}}<!-- Set MintyDocs topic, including a switch for different treatment for Manual pages -->{{#switch:{{{PageType|}}}|Manual=|#default={{#mintydocs_topic:
-|display name={{{DisplayName|}}}
-|toc name={{{TocName|}}}
-}}}}<!-- Defining the EPPO Header; all parameters need to be passed to it -->{{EPPOHead|Role={{{Role|}}}|ComingSoon={{{ComingSoon|}}}|Dimension={{#explode:{{FULLPAGENAME}}|/|3}}|Context=Find lists of which containers were updated for each service release, and when.
-|UseCase={{{UseCase|}}}|Application={{{Application|}}}|Platform={{{Platform|}}}|PageType=Article}}<!--Defining the Prerequisite Head -->{{PrerequisitesHead|Prereq={{{Prereq|}}}}}<!-- Query for showing component list -->
-<includeonly>{{#cargo_query:
-tables=Issue,ComponentRN,ComponentRN__ComponentId,ComponentRN__DeploymentTypeId,Component
-|join on=Issue._pageName=ComponentRN._pageName,ComponentRN._ID=ComponentRN__ComponentId._rowID,ComponentRN._ID=ComponentRN__DeploymentTypeId._rowID,ComponentRN.ComponentId HOLDS Component.Id
-|fields=Component.Name=Service,ComponentRN.ReleaseNumber=Release Number,PrivateEditionReleaseDate=Release Date,Containers=Updated Helm Charts & Containers
-<!--|format=template
-|template=HelmPrint-->
-|where=(ComponentRN__ComponentId._value IN ({{#arraymap:{{{ComponentId|}}}|,|x|'x'}})) AND (ComponentRN__DeploymentTypeId._value IN ({{#arraymap:{{{DeploymentTypeId|}}}|,|x|'x'}})) AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}" AND PrivateEditionReleaseDate IS NOT NULL
-|named args=yes
-|group by=ComponentRN._pageName
-|order by=ComponentRN.ReleaseDate DESC
-}}
-__NOCACHE__
-<!--|join on=ArticleHelmRN.ComponentId HOLDS Component.Id,ComponentRN.ComponentId__full=ArticleHelmRN.ComponentId__full,ComponentRN.DeploymentTypeId HOLDS DeploymentType.Id
--->{{#css:
+</noinclude><includeonly>
+<div id="wikiPreview" style="display: none; padding-bottom: 25px; margin-bottom: 25px; border-bottom: 1px solid #AAAAAA;"></div>
+{{{info|edit title=Editing {{#explode:{{FULLPAGENAME}}|/|3}} }}}
+{{{for template|ArticleHelmRN}}}
+{{{field|PageType|hidden}}}
+
+<div class="col-md-2 form-label">Display title {{FormTip|
+Set up the H1 for your page. It should have some meat to establish context. The display name is also used in search results and links.|&nbsp;Help|width=600|mandatory}}</div>
+<div class="col-md-10">{{{field|DisplayName}}}</div>
+
+<div class="col-md-2 form-label">Components</div>
+
+<div class="col-md-10">{{{field|ComponentId|input type=tokens|cargo table=Component|cargo field=Id|mapping template=ComponentMap}}}</div>
+
+<div class="col-md-2 form-label">Deployment Type</div>
+
+<div class="col-md-10">{{{field|DeploymentTypeId|input type=tokens|cargo table=DeploymentType|cargo field=Id|mapping template=DeploymentTypeMap}}}</div>
+
+<div class="col-md-2 form-label">TOC Title {{FormTip|(Optional) Choose a shorter name for the left-hand navigation tree/TOC. Be careful to keep your Display and TOC page names logically consistent.|&nbsp;Help|width=600}}</div>
+
+
+
+<div class="col-md-10">{{{field|TocName}}}</div>
+
+
+<div class="col-md-10">{{{field|Context|hidden}}}</div>
+
+
+<div style="clear:both;"></div>
+
+
+</div>
+
+
+{{{end template}}}
+
+
+
+{{{standard input|summary}}}
+
+{{#css:
+.form-label {clear:both}
+.col-md-2, .col-md-4, .col-md-10, .col-md-12 { padding-left:0; margin-bottom: 15px;}
+.col-md-4 p { margin-bottom: 0; }
+.select2-container-multi .select2-choices { border-color: #BBB; background-image: none; }
+.select2-container-multi .select2-choices .select2-search-field input { font-family: roboto; }
+.select2-container-multi .select2-choices .select2-search-field { height: 30px; }
+input { font-size: 16px; }
+.form-label { font-weight: 500; text-align:left; }
+.bottom { font-size: 80%; margin-top: -10px; font-weight: 300; }
+.radioButtonItem, .checkboxLabel { padding-top: 0; margin-bottom: 0; font-weight: 300}
+.ve-height .ve-area-wrapper .ve-ce-documentNode { min-height: 100px; }
+.ve-area-wrapper .ve-ce-documentNode { padding: 0.6em 0.8em; min-height: 325px; max-height: 500px; overflow-y: scroll; }
 #mw-content-text .select2-container .select2-choice { height: 34px; line-height: normal; }
+div.pfComboBox { margin-bottom: 0; }
+#pf-expand-all { margin: 20px 0 30px 0; }
+#pf-expand-all a { background-color: #5d3e5d; border: 2px solid #5d3e5d; padding: 0.45em 2.50em; color: white; margin-top: 20px; border-radius: 3px; }
 .panel-title { padding: 10px; }
 .panel>.panel-heading { padding: 0 }
 .toggle-wrap { margin: 20px 0 25px; }
 .toggle-wrap>a{ display: block; padding: 10px; color: #333; background-color: #f5f5f5; border: 1px solid #ddd; border-top-left-radius: 3px; border-top-right-radius: 3px; }
 .toggle-wrap>a:before { content: '\f0d7'; float: left; font-family: FontAwesome; margin-right: 10px; text-decoration: none; }
 .toggle-content { padding: 10px 20px; border: 1px solid #ddd; border-top: none; border-bottom-left-radius: 3px; border-bottom-right-radius: 3px; }
-}}{{{ArticleHelmRN|}}}<!-- Removing the version dropdown for Standalone (version-less) pages -->{{#switch:{{{Standalone}}}|Yes={{#css: 
-button#version-dropdown { display: none; }
-}}|#default=}}[[Category:Linkable]]<nowiki /></includeonly><noinclude>[[Category:RNAutomation]]</noinclude>
+.multipleTemplateInstanceTable table > tbody > tr > td, .multipleTemplateInstanceTable table > tbody > tr > th {
+    padding: 5px;
+    background-color: white !important;
+    border: 1px solid lightgrey;
+}}
+
+{{{standard input|minor edit}}} {{{standard input|watch}}}
+
+{{{standard input|save and continue}}}{{{standard input|save}}} {{{standard input|preview}}} {{{standard input|changes}}} {{{standard input|cancel}}}
+</includeonly><noinclude>[[Category:Article_Cargo]][[Category:ActiveForms]][[Category:MintyDocs_Cargo]][[Category:RNAutomation]]</noinclude>

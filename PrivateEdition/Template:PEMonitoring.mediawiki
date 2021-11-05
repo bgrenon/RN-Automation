@@ -1,0 +1,42 @@
+<noinclude>
+This is the "PEMonitoring" template.
+It should be called in the following format:
+<pre>
+{{PEMonitoring
+|IncludedServiceId=
+|CRD=
+|Annotations=
+|Port=
+|Endpoint=
+|MetricsUpdateInterval=
+}}
+</pre>
+Edit the page to see the template text.
+{{#cargo_declare:_table=PEMonitoring
+|IncludedServiceId=String
+|CRD=String
+|Annotations=Wikitext
+|Port=Wikitext
+|Endpoint=Wikitext
+|MetricsUpdateInterval=String
+}}</noinclude><includeonly>{{#cargo_store:_table=PEMonitoring|IncludedServiceId={{{IncludedServiceId|}}}
+|CRD={{{CRD|}}}
+|Annotations={{{Annotations|}}}
+|Port={{{Port|}}}
+|Endpoint={{{Endpoint|}}}
+|MetricsUpdateInterval={{{MetricsUpdateInterval|}}} }}
+{|
+! '''Service'''
+!'''CRD or annotations?'''
+!'''Port'''
+!style="width: 30%" {{!}} '''Endpoint/Selector'''
+!'''Metrics update interval'''
+|-
+|{{#cargo_query:tables=IncludedService|fields=IF(ShortName IS NOT NULL,ShortName,Name)|where=Id="{{{IncludedServiceId}}}"}}
+|{{{CRD|}}}{{{Annotations|}}}
+|{{{Port|}}}
+|{{{Endpoint|}}}
+|{{{MetricsUpdateInterval|}}}
+|}
+
+</includeonly><noinclude>[[Category:PrivateEdition]]</noinclude>

@@ -1,0 +1,11 @@
+{{#cargo_query:tables=Service,MintyDocsManual
+|join on=MintyDocsManual.ServiceId=Service.Id
+|fields=Service.Id=ServiceId,CONCAT ('[[',MintyDocsManual._pageName,'|',Service.Name,']]')=Service
+|intro=<table class="sortable"><tr><th>Service</th><th>Included Services</th></tr>
+|outro=</table>
+|where=MintyDocsManual.ServiceId IS NOT NULL AND MintyDocsManual._pageNamespace="{{NAMESPACENUMBER}}"
+|format=template
+|template=PrintServices2
+|group by=Service.Id
+|order by=Service.Name
+|named args=yes}}<noinclude>[[Category:PrivateEdition]]</noinclude>

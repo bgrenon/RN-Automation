@@ -1,0 +1,35 @@
+<noinclude>
+This is the "UpgradeMode" form.
+To create a page with this form, enter the page name below;
+if a page with that name already exists, you will be sent to a form to edit that page.
+
+
+{{#forminput:form=UpgradeMode|autocomplete on category=UpgradeMode}}
+
+</noinclude><includeonly>
+<div id="wikiPreview" style="display: none; padding-bottom: 25px; margin-bottom: 25px; border-bottom: 1px solid #AAAAAA;"></div>
+{{{for template|UpgradeMode|multiple|displayed fields when minimized=Name}}}
+<div class="col-md-2 form-label">Id</div> 
+<div class="col-md-10">{{{field|Id|default=uuid}}}</div>
+
+<div class="col-md-2 form-label">Name</div> 
+<div class="col-md-10">{{{field|Name}}}</div>  
+
+<div class="col-md-2 form-label">Short description</div> 
+<div class="col-md-10">{{{field|Description|input type=textarea|editor=visual editor}}}</div>  
+
+<div class="col-md-2 form-label">Image</div> 
+<div class="col-md-10">{{{field|Image|uploadable|image preview}}}</div>  
+
+      
+{{{end template}}}
+
+{{{standard input|summary}}}
+
+{{{standard input|minor edit}}} {{{standard input|watch}}}
+
+{{{standard input|save}}} {{{standard input|preview}}} {{{standard input|changes}}} {{{standard input|cancel}}}
+</includeonly>
+{{FormCSS}}
+
+<noinclude>[[Category:RNAutomation]]</noinclude>

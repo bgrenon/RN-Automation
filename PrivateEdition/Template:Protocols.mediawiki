@@ -1,0 +1,16 @@
+<noinclude>
+This is the "Protocols" template.
+It should be called in the following format:
+<pre>
+{{Protocols
+|Id=
+|Name=
+}}
+</pre>
+Edit the page to see the template text.
+{{#cargo_declare:_table=Protocols|Id=String|Name=String}}
+</noinclude><includeonly>{{#cargo_store:_table=Protocols|Id={{{Id|}}}|Name={{{Name|}}} }}
+</includeonly>
+
+
+<noinclude>[[Category:PrivateEdition]]</noinclude>

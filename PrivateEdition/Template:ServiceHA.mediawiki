@@ -1,0 +1,35 @@
+<noinclude>
+This is the "ServiceHA" template.
+It should be called in the following format:
+<pre>
+{{ServiceHA
+|ServiceId=
+|HA=
+|DR=
+|NoHA=
+|Notes=
+|AddIncluded=
+}}
+</pre>
+Edit the page to see the template text.
+{{#cargo_declare:_table=ServiceHA|ServiceId=String|HA=List (,) of String|DR=List (,) of String|NoHA=String|Notes=Wikitext|AddIncluded=String}}
+</noinclude><includeonly>{{#cargo_store:_table=ServiceHA|ServiceId={{{ServiceId|}}}|HA={{{HA|}}}|DR={{{DR|}}}|NoHA={{{NoHA|}}}|Notes={{{Notes|}}}|AddIncluded={{{AddIncluded|}}} }}
+{{EmbedForm|Form=ServiceHA|ButtonText=HA Details}}
+
+{{#switch:{{{NoHA|}}}
+|Yes={{{Notes|}}}
+|No=
+{{{!}}
+!Service
+! High Availability
+! Disaster Recovery
+{{!}}-
+{{!}} {{#cargo_query:tables=ServiceHA,Service|join on=ServiceHA.ServiceId=Service.Id|fields=Service.Name|default=|where=ServiceHA._pageNamespace="{{NAMESPACENUMBER}}" AND ServiceId="{{{ServiceId}}}" }}
+{{!}} {{{HA|}}}
+{{!}} {{{DR|}}}
+{{!}}}
+}}
+
+See High Availability information for all services: {{SuiteLevelLink|hadr}}
+
+</includeonly>

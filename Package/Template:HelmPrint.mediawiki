@@ -1,0 +1,31 @@
+<includeonly>
+<tr>
+<td>
+{{{Service|}}}
+</td>
+<td>
+{{{ReleaseNumber|}}}
+</td>
+<td>
+{{{ReleaseDate|}}}
+</td>
+<td>
+{{#cargo_query:tables=RNElements,Component
+	|join on=RNElements.IpName=Component.IpName
+	|fields=CONCAT(RNElements.Filename,'{{#switch:{{NAMESPACENUMBER}}|620={{SuperscriptCheck}}|#default=}}')
+	|default={{#arraymap:{{{Containers|}}}|*|x|{{#switch:{{#sub:x|-3|}}|tgz=*x{{#switch:{{NAMESPACENUMBER}}|620={{SuperscriptFlag}}|#default=}}|#default=}}|\n }}
+	|format=ul
+	|where=Component.Id="{{{ComponentId|}}}" AND RNElements.Version="{{{ReleaseNumber|}}}" AND Type="helm" }}
+</td>
+<td>
+{{#cargo_query:tables=RNElements,Component
+	|join on=RNElements.IpName=Component.IpName
+	|fields=CONCAT(RNElements.Filename,'{{#switch:{{NAMESPACENUMBER}}|620={{SuperscriptCheck}}|#default=}}')
+	|default={{#arraymap:{{{Containers|}}}|*|x|{{#switch:{{#sub:x|-3|}}|#default=*x{{#switch:{{NAMESPACENUMBER}}|620={{SuperscriptFlag}}|#default=}}|tgz=}}|\n }}
+	|format=ul
+	|where=Component.Id="{{{ComponentId|}}}" AND RNElements.Version="{{{ReleaseNumber|}}}"  AND Type="docker" }}
+</td>
+</includeonly><noinclude>[[Category:RNAutomation]]</noinclude>
+
+
+

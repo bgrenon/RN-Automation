@@ -1,0 +1,17 @@
+<noinclude>
+This is the "DRType" template.
+It should be called in the following format:
+<pre>
+{{DRType
+|Id=
+|Name=
+|Image=
+}}
+</pre>
+Edit the page to see the template text.
+{{#cargo_declare:_table=DRType|Id=String|Name=String|Image=File}}
+</noinclude><includeonly>{{#cargo_store:_table=DRType|Id={{{Id|}}}|Name={{{Name|}}}|Image={{{Image|}}} }}
+</includeonly>
+
+
+<noinclude>[[Category:PrivateEdition]]</noinclude>

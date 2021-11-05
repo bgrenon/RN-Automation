@@ -1,0 +1,27 @@
+<noinclude>
+This is the "IncludedService" form.
+To create a page with this form, enter the page name below;
+if a page with that name already exists, you will be sent to a form to edit that page.
+
+
+{{#forminput:form=IncludedService}}
+
+</noinclude><includeonly>
+{{{for template|IncludedService|multiple}}}
+Parent Service: {{{field|ServiceId|input type=dropdown|cargo table=Service|cargo field=Id|mapping template=ServiceMap}}}
+
+{{{field|Id|unique|default=uuid|hidden}}}
+
+{{Field|Included Service|{{{field|Name}}} }}
+{{Field|Short name|{{{field|ShortName}}} }}
+
+
+{{{end template}}}
+
+{{{standard input|minor edit}}} {{{standard input|watch}}}
+
+{{{standard input|save}}} {{{standard input|cancel}}}
+{{HideExpandAll}}
+{{FullWidthUtility}}
+{{FormCSS}}</includeonly>
+<noinclude>[[Category:StandardMetadata]]</noinclude>

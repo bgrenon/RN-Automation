@@ -1,0 +1,40 @@
+<noinclude>
+This is the "ArticlePEServicePorts" form.
+To create a page with this form, enter the page name below;
+if a page with that name already exists, you will be sent to a form to edit that page.
+
+
+{{#forminput:form=ArticlePEServicePorts}}
+
+</noinclude><includeonly>
+<div id="wikiPreview" style="display: none; padding-bottom: 25px; margin-bottom: 25px; border-bottom: 1px solid #AAAAAA;"> </div>
+{{{for template|ArticlePEServicePorts}}}
+
+<div class="col-md-2 form-label">Service {{FormTip|Choose the service that contains the applicable Helm chart.}}</div>
+<div class="col-md-10 ve-height">{{{field|ServiceId|input type=dropdown|cargo table=Service|cargo field=Id|mapping template=ServiceMap}}} </div>
+
+<div class="col-md-12 ve-height">{{{field|PEPorts|holds template}}}</div>
+
+{{{end template}}}
+
+{{{for template|PEPorts|multiple|add button text=Add port|embed in field=ArticlePEServicePorts[PEPorts]}}}
+{{Field|Service|{{{field|IncludedServiceId|input type=dropdown|cargo table=Service|cargo field=Id|mapping template=IncludedServiceMap}}} }}
+{{Field|Port|{{{field|Port}}} }}
+
+{{Field|Protocol|{{{field|Protocol|input type=dropdown|cargo table=Protocol|cargo field=Id|mapping template=ProtocolMap}}} }}
+<div class="col-md-12 ve-height">{{Field|Purpose|{{{field|Purpose|input type=textarea|editor=visualeditor}}} }}</div>
+<div class="col-md-12 ve-height">{{Field|Comment|{{{field|Comment|input type=textarea|editor=visualeditor}}} }}</div>
+
+{{{end template}}}
+
+
+
+{{{standard input|summary}}}
+
+{{{standard input|minor edit}}} {{{standard input|watch}}}
+
+{{{standard input|save}}} {{{standard input|preview}}} {{{standard input|changes}}} {{{standard input|cancel}}}
+</includeonly>
+{{FormCSS}}
+
+<noinclude>[[Category:PrivateEdition]] [[Category:ActiveForms]]</noinclude>

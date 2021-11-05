@@ -16,6 +16,10 @@ if a page with that name already exists, you will be sent to a form to edit that
 Set up the H1 for your page. It should have some meat to establish context. The display name is also used in search results and links.|&nbsp;Help|width=600|mandatory}}</div>
 <div class="col-md-10">{{{field|DisplayName}}}</div>
 
+<div class="col-md-2 form-label">Service</div>
+
+<div class="col-md-10">{{{field|ServiceId|input type=tokens|cargo table=Service|cargo field=Id|mapping template=ServiceMap}}}</div>
+
 <div class="col-md-2 form-label">Components</div>
 
 <div class="col-md-10">{{{field|ComponentId|input type=tokens|cargo table=Component|cargo field=Id|mapping template=ComponentMap}}}</div>

@@ -1,0 +1,95 @@
+<noinclude>
+This is the "ArticlePEServiceObservability" form.
+To create a page with this form, enter the page name below;
+if a page with that name already exists, you will be sent to a form to edit that page.
+
+
+{{#forminput:form=ArticlePEServiceObservability}}
+
+</noinclude><includeonly>
+<div id="wikiPreview" style="display: none; padding-bottom: 25px; margin-bottom: 25px; border-bottom: 1px solid #AAAAAA;"></div>
+{{{info|edit title=Editing {{#explode:{{FULLPAGENAME}}|/|3}} }}}
+{{{for template|ArticlePEServiceObservability}}}
+
+==Monitoring==
+Add information to supplement the boilerplate introductory content provided by the template. For convenience, the boilerplate content is reproduced in the tooltip. 
+{{FormTip|''The following boilerplate automatically displays on the page:''
+
+Private edition services expose metrics that can be scraped by Prometheus, to support monitoring operations and alerting.
+* As described on {{Link-AnywhereElse|product=PrivateEdition|version=Current|manual=Operations|topic=Monitoring_Approach}}, you can use a tool like Grafana to create dashboards that query the Prometheus metrics to visualize operational status.
+*As described on {{Link-AnywhereElse|product=PrivateEdition|version=Current|manual=Operations|topic=Alerting|anchor=Alertmanager|display text=Customizing Alertmanager configuration}}, you can configure Alertmanager to send notifications to notification providers such as PagerDuty, to notify you when an alert is triggered because a metric has exceeded a defined threshold.
+
+The services expose a number of Genesys-defined and third-party metrics. The metrics that are defined in third-party software used by private edition services are available for you to use as long as the third-party provider still supports them. For descriptions of available {{#sub:{{MINTYDOCSMANUAL}}|0|-22}} metrics, see: 
+{{AnchorDiv|AlertsLinks}}
+* <Bulleted list of auto-generated links to the Metrics pages>}}
+
+<div class="col-md-12 ve-height">{{{field|Monitoring|input type=textarea|editor=visualeditor}}}</div>
+
+===Enable monitoring===
+Add information about what customers need to do to enable monitoring. Following whatever you specify here, the template adds a query-generated monitoring support summary, based on information you enter on the respective Metrics and alerts pages. If a Helm chart override is required, put the details on this page, and add a reciprocal link in the Helm chart overrides section(s) on the Configure <service> page(s). See the tooltip for an example for a service that enables monitoring by default. {{FormTip|''The following sample content is for a service that enables monitoring by default:''
+
+The Genesys Info Mart services use PodMonitor custom resource definitions (CRDs), which are defined in the Helm charts by default. No additional service-level configuration is required to enable monitoring. See <link to suite-level Ops Guide page> for information about enabling monitoring for your private edition solution.}}
+<div class="col-md-12 ve-height">{{{field|EnableMonitoring|input type=textarea|editor=visualeditor}}}</div>
+
+===Configure metrics===
+Add information about any configuration customers can do to customize their metrics. See the tooltip for an example for a service that requires no configuration. {{FormTip|''The following sample content is for a service that does not support customization:''
+
+The metrics that are exposed by the Genesys Info Mart services are available by default. No further configuration is required in order to define or expose these metrics. You cannot define your own custom metrics. 
+
+The Metrics pages linked to [[{{FULLPAGENAME}}#MetricsLinks|above]] show some of the metrics the Genesys Info Mart services expose. You can also query Prometheus directly or via a dashboard to see all the metrics available from the Genesys Info Mart services.}}
+<div class="col-md-12 ve-height">{{{field|ConfigureMetrics|input type=textarea|editor=visualeditor}}}</div>
+
+===What do the {{#sub:{{MINTYDOCSMANUAL}}|0|-22}} metrics monitor?===
+Add any general information you have about the kinds of metrics that are available and the operational parameters users should monitor. In other words, how users can use the metrics to help them manage this service. If you do not add any content, this section will be suppressed in the page display. Be aware that the section subheading might change -- for example, to "About <service> metrics" -- as we learn more about the kind of content writers need to add.
+
+<div class="col-md-12 ve-height">{{{field|AboutMonitoring|input type=textarea|editor=visualeditor}}}</div>
+
+==Alerting==
+Are alerts defined for this service? If you select "No," skip the rest of the fields under this H2. {{FormTip|''If you select "No" the following boilerplate sentence is the only content that will display under this heading:''
+
+No alerts are defined for <service>.}}{{{field|AlertsDefined|input type=radiobutton|values=Yes,No|default=Yes|mandatory}}}
+
+Add information to supplement the boilerplate introductory content provided by the template. For convenience, the boilerplate content is reproduced in the tooltip. 
+{{FormTip|''The following boilerplate automatically displays on the page:''
+
+Private edition services define a number of alerts based on Prometheus metrics thresholds. 
+
+{{NoteFormat|While you can use general third-party functionality to create rules to trigger alerts based on metrics values you specify, private edition does not enable you to create custom alerts, and Genesys does not provide support for custom alerting.}}
+
+For descriptions of available {{#sub:{{MINTYDOCSMANUAL}}|0|-22}} alerts, see:
+{{AnchorDiv|AlertsLinks}}
+* <Bulleted list of auto-generated links to the Metrics pages>}}
+
+<div class="col-md-12 ve-height">{{{field|Alerting|input type=textarea|editor=visualeditor}}}</div>
+
+===Configure alerts===
+Add information to supplement the boilerplate introductory content provided by the template. For convenience, the boilerplate content is reproduced in the tooltip. By default, the boilerplate is set to display a paragraph that might not apply to all services. Click "No" to suppress this extended boilerplate. {{FormTip|''The following boilerplate automatically displays on the page:''
+
+Private edition services define a number of alerts by default (for {{#sub:{{MINTYDOCSMANUAL}}|0|-22}}, see the pages linked to [[{{FULLPAGENAME}}#AlertsLinks|above]]). No further configuration is required. 
+
+''If you choose to include the extended boilerplate, the following additional paragraph displays:''
+
+The alerts are defined as '''PrometheusRule''' objects in a '''prometheus-rule.yaml''' file in the Helm charts. As described above, {{#sub:{{MINTYDOCSMANUAL}}|0|-22}} does not support customizing the alerts or defining additional '''PrometheusRule''' objects to create alerts based on the service-provided metrics.
+}}<br/>
+Display extended boilerplate? {{{field|ExtConfigAlertsBoilerplate|input type=radiobutton|values=Yes,No|default=Yes|mandatory}}}
+
+<div class="col-md-12 ve-height">{{{field|ConfigureAlerts|input type=textarea|editor=visualeditor}}}</div>
+
+==Logging==
+Boilerplate for the Logging section will be provided once we identify full requirements. For now, the ComingSoon template is automatically added.
+
+<div class="col-md-12 ve-height">{{{field|Logging|input type=textarea|editor=visualeditor}}}</div>
+
+{{{end template}}}
+
+{{{standard input|summary}}}
+
+{{{standard input|minor edit}}} {{{standard input|watch}}}
+
+{{{standard input|save}}} {{{standard input|preview}}} {{{standard input|changes}}} {{{standard input|cancel}}}
+</includeonly>
+{{FormCSS}}
+{{#css: .ve-height2 .ve-area-wrapper .ve-ce-documentNode { min-height: 1000px; }
+}}
+
+<noinclude>[[Category:PrivateEdition]] [[Category:ActiveForms]]</noinclude>

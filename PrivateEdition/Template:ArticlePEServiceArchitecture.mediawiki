@@ -1,0 +1,38 @@
+<noinclude>
+This is the "ArticlePEServiceArchitecture" template.
+
+It should be called in the following format:
+<pre>
+{{ArticlePEServiceArchitecture
+|ServiceId=
+}}
+
+</pre>
+Edit the page to see the template text.
+
+{{#cargo_declare:_table=ArticlePEServiceArchitecture
+|ServiceId=String
+}}{{#cargo_attach:_table=Article}}
+
+</noinclude>
+<includeonly>{{#css: .MintyDocsTopicDesc {display:none} }}[[Category:ArticlePEServiceArchitecture]]__TOC__
+__NOEDITSECTION__{{#cargo_store:_table=Article
+|productshort={{#explode:{{FULLPAGENAME}}|/|0}}
+|Role={{{Role|}}}
+|DisplayName=Architecture
+|TocName={{{TocName|}}}
+|Dimension={{{Dimension|}}}
+|Context=Lean about Voice Microservices architecture.
+|Product={{MINTYDOCSPRODUCT}}
+|Manual={{#explode:{{FULLPAGENAME}}|/|2}}
+|PEPageType={{{PEPageType|}}}
+}}
+{{#cargo_store:_table=ArticlePEServiceArchitecture
+|ServiceId={{{ServiceId|}}}
+}}<!-- Set MintyDocs topic, including a switch for different treatment for Manual pages -->{{#mintydocs_topic:
+|display name=Architecture
+}}<!-- Defining the EPPO Header; all parameters need to be passed to it -->{{EPPOHead|Context={{{Context|}}}|PageType=Article}}
+
+
+{{{PEArchitectureSection|}}}{{{Section|}}}
+[[Category:Linkable]]</includeonly><noinclude>[[Category:MintyDocs_Cargo]]</noinclude>

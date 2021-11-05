@@ -15,7 +15,7 @@ It should be called in the following format:
 Edit the page to see the template text.
 
 {{#cargo_declare:_table=ArticleCloudRN
-|ServiceId=String
+|ServiceId=List (,) of String
 |ComponentId=List (,) of String
 |DeploymentTypeId=List (,) of String
 |ReleaseTypeId=List (,) of String
@@ -35,7 +35,7 @@ __NOEDITSECTION__{{#cargo_store:_table=Article|Standalone={{{Standalone}}}|Dimen
 |display name={{{DisplayName|}}}
 |toc name={{{TocName|}}}
 }}}}<!-- Defining the EPPO Header; all parameters need to be passed to it -->{{EPPOHead|Role={{{Role|}}}|ComingSoon={{{ComingSoon|}}}|Dimension={{#explode:{{FULLPAGENAME}}|/|3}}Helm|Context=Not all releases or changes listed below may pertain to your deployment. Check the table below to see which releases apply to you.
-|UseCase={{{UseCase|}}}|Application={{{Application|}}}|Platform={{{Platform|}}}|PageType=Article}}<!--Defining the Prerequisite Head -->{{PrerequisitesHead|Prereq={{{Prereq|}}}}}<!-- Query for showing component list --><!-- removing toggle display for now<div class="toggle-wrap">
+|UseCase={{{UseCase|}}}|Application={{{Application|}}}|Platform={{{Platform|}}}|PageType=Article|ServiceId={{{ServiceId|}}}}}<!--Defining the Prerequisite Head -->{{PrerequisitesHead|Prereq={{{Prereq|}}}}}<!-- Query for showing component list --><!-- removing toggle display for now<div class="toggle-wrap">
 <toggledisplay linkstyle font-size:larger showtext="Quick lookup table" hidetext="Quick lookup table">
 <div class="toggle-content"> -->{{#cargo_query:
 tables=ArticleCloudRN__ComponentId,ArticleCloudRN,Component,ComponentRN__ComponentId,ComponentRN,DeploymentType
@@ -65,6 +65,8 @@ tables=Issue,ComponentRN,ComponentRN__ComponentId,ComponentRN__DeploymentTypeId,
 |group by=ComponentRN._pageName
 |order by=ComponentRN.ReleaseDate DESC
 }}
+
+
 
 {{#if:{{{Footer|}}}|
 ==Prior Releases==

@@ -1,0 +1,44 @@
+<noinclude>
+This is the "ArticlePEServicePorts" template.
+
+It should be called in the following format:
+<pre>
+{{ArticlePEServicePorts
+|ServiceId=
+|PEPorts=
+}}
+
+</pre>
+Edit the page to see the template text.
+
+{{#cargo_declare:_table=ArticlePEServicePorts
+|ServiceId=String
+}}{{#cargo_attach:_table=Article}}
+
+</noinclude>
+<includeonly>{{#css: .MintyDocsTopicDesc {display:none} }}[[Category:ArticlePEServicePorts]]__TOC__
+__NOEDITSECTION__{{#cargo_store:_table=Article
+|productshort={{#explode:{{FULLPAGENAME}}|/|0}}
+|Role={{{Role|}}}
+|DisplayName=Ports
+|TocName={{{TocName|}}}
+|Dimension={{{Dimension|}}}
+|Context=Lean about ports used for this service.
+|Product={{MINTYDOCSPRODUCT}}
+|Manual={{#explode:{{FULLPAGENAME}}|/|2}}
+|PEPageType={{{PEPageType|}}}
+}}{{#cargo_store:_table=ArticlePEServicePorts
+|ServiceId={{{ServiceId|}}}
+}}<!-- Set MintyDocs topic, including a switch for different treatment for Manual pages -->{{#mintydocs_topic:
+|display name=Ports
+}}
+
+
+<!-- Defining the EPPO Header; all parameters need to be passed to it -->{{EPPOHead|Context={{{Context|}}}|PageType=Article}}
+
+
+==Ports and protocols for {{ServiceMap|{{{ServiceId|}}}}}==
+
+{{#cargo_query:tables=PEPorts,Protocols,IncludedService|join on=PEPorts.Protocol=Protocols.Id,PEPorts.IncludedServiceId=IncludedService.Id|fields=IncludedService.Name=Included Service,Protocols.Name=Protocol,Port,DataType,Comment|where=PEPorts._pageName="{{FULLPAGENAME}}"}}
+
+{{{PEPorts|}}}[[Category:Linkable]]</includeonly><noinclude>[[Category:MintyDocs_Cargo]]</noinclude>

@@ -1,0 +1,26 @@
+<noinclude>
+This is the "PEPorts" template.
+It should be called in the following format:
+<pre>
+{{PEPorts
+|IncludedServiceId=
+|Port=
+|Protocol=
+|DataType=
+|Comment=
+}}
+</pre>
+Edit the page to see the template text.
+{{#cargo_declare:_table=PEPorts
+|IncludedServiceId=String
+|Port=String
+|Protocol=String
+|DataType=String
+|Comment=Wikitext}}
+</noinclude><includeonly>{{#cargo_store:_table=PEPorts
+|IncludedServiceId={{{IncludedServiceId|}}}
+|Port={{{Port|}}}
+|Protocol={{{Protocol|}}}
+|DataType={{{Purpose|}}}
+|Comment={{{Comment|}}} }}
+</includeonly>

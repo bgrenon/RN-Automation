@@ -1,0 +1,118 @@
+<noinclude>
+This is the "MintyDocsManual" template.
+
+It should be called in the following format:
+<pre>
+{{MintyDocsManual
+|Notice=
+|Manual=
+|Role=
+|UI=
+|displayname=
+|topicslist=
+|topicslistpage=
+|inherit=
+|pagination=
+|topic default form=
+|topic alternate forms=
+|version=
+|product=
+|Description=
+|ServiceId=
+}}
+
+</pre>
+Edit the page to see the template text.
+
+{{#cargo_declare:_table=MintyDocsManual
+|Manual=String
+|Notice=List (,) of String
+|UI=List (,) of String
+|Role=List (,) of String
+|displayname=String
+|topicslist=Text
+|topicslistpage=URL
+|inherit=String
+|pagination=String
+|defaultform=String
+|alternateforms=List (,) of String
+|version=String
+|product=String
+|Description=Wikitext (size=1000)
+|ServiceId=String
+}}
+
+
+</noinclude>
+<includeonly>[[Category:MintyDocsManual]]__TOC__
+__NOCACHE__
+__NOEDITSECTION__{{#cargo_store:_table=MintyDocsManual
+|Manual={{#explode:{{FULLPAGENAME}}|/|2}}
+|Notice={{{Notice|}}}
+|UI={{{UI|}}}
+|Role={{{Role|}}}
+|displayname={{{displayname|}}}
+|version=
+|topicslist={{{topicslist|}}}
+|topicslistpage={{{topicslistpage|}}}
+|inherit={{{inherit|}}}
+|pagination={{{pagination|}}}
+|defaultform={{{defaultform|}}}
+|alternateforms={{{alternateforms|}}}
+|version={{#explode:{{FULLPAGENAME}}|/|1}}
+|product={{#switch:{{NAMESPACENUMBER}}|620={{#explode:{{#explode:{{FULLPAGENAME}}|:|1}}|/|0}}|#default={{#explode:{{FULLPAGENAME}}|/|0}}}}
+|Description={{{Description|}}}
+|ServiceId={{{ServiceId|}}}
+}}{{#css:
+  .warningbox,.MintyDocsOtherManualVersions,.MintyDocsManualDesc {
+    display:none;
+  }
+}}{{#mintydocs_manual:
+display name={{{displayname|}}}
+|admins={{{admins|}}}
+|{{#if:{{{topicslist|}}}|topics list=
+{{{topicslist|}}}|topics list page={{{topicslistpage|}}}}}
+{{#switch:{{{pagination|}}}|yes={{!}}pagination|#default=}}
+{{#switch:{{{inherit|}}}|yes={{!}}inherit|#default=}}
+|topic default form={{#replace:{{{defaultform|}}}|Form:|}}
+|topic alternate forms={{#replace:{{{alternateforms|}}}|Form:|}}
+}}<!-- removing article list table until we decide we like it {{#cargo_query:tables=Article||fields=CONCAT('[[',_pageName,'|',DisplayName,']]')=Pages,Context=About|where=productshort="{{#explode:{{FULLPAGENAME}}|/|0}}" AND _pageNamespace="{{NAMESPACENUMBER}}" AND Manual="{{#explode:{{FULLPAGENAME}}|/|2}}"|order by=DisplayName|format=dynamic table|rows per page=100|default=}}-->[[Category:{{MINTYDOCSPRODUCT}}]]
+{{#switch:{{#explode:{{FULLPAGENAME}}|/|1}}|Internal=
+|#default=
+{{#switch:{{{Auto|}}}
+|ReleaseNotesAboutPage={{Article|PageType=Manual|Context={{{Context|}}} }}
+{{#cargo_query:
+tables=ArticleCloudRN__ComponentId,ArticleCloudRN,Component,ComponentRN__ComponentId,ComponentRN,DeploymentType
+|join on=ArticleCloudRN__ComponentId._value=Component.Id,ArticleCloudRN__ComponentId._rowID=ArticleCloudRN._ID,ArticleCloudRN__ComponentId._value = ComponentRN__ComponentId._value,ComponentRN__ComponentId._rowID=ComponentRN._ID,ComponentRN.DeploymentTypeId HOLDS DeploymentType.Id
+|fields=Component.Name=Service,CONCAT('[[',ArticleCloudRN._pageName,'#',DATE_FORMAT(MAX(ReleaseDate),'%M %d, %Y'),'|',DATE_FORMAT(MAX(ReleaseDate),'%M %d, %Y'),']]')=Release Date,CONCAT('[[File:',Image,'|80px]]')=Supported Cloud,Highlight=Highlights,ComponentId=ComponentId,MAX(ReleaseDate)=ReleaseDate
+|where=ComponentRN._pageNamespace="{{NAMESPACENUMBER}}" AND ArticleCloudRN._pageNamespace="{{NAMESPACENUMBER}}" AND ArticleCloudRN._pageName LIKE "%{{#explode:{{FULLPAGENAME}}|/|2}}%"
+|having=MAX(ReleaseDate)
+|intro=<h3>Latest release per service</h3><table class="wikitable sortable"><tr><th>Service</th><th style="width:12%">Released on</th><th style="width:12%">Released for</th><th>Highlights</th></tr>
+|outro=</table>
+|format=template
+|template=PrintTopRN
+|named args=yes
+|group by=ComponentRN.ComponentId
+<!--|order by=ComponentRN.ReleaseDate DESC-->
+}}
+|RNProduct=
+|Crafted summary table={{Article|PageType=Manual|Context={{{Context|}}}}}
+|Manual sections={{Article|PageType=Manual|Context={{{Context|}}}}}
+|None=
+|#default
+|Auto list=
+{{Article
+|PageType=Manual
+|Context=Search the table of all articles in this guide, listed in alphabetical order, to find the article you need.
+|Section={{Section
+|alignment=Vertical
+|structuredtext=<div class="pdf-remove">{{#cargo_query:
+tables=Article|fields=CONCAT('[[',_pageName,'|',DisplayName,']]')=Article,Context=Description|where=_pageName LIKE "%{{#explode:{{FULLPAGENAME}}|/|0}}/{{#explode:{{FULLPAGENAME}}|/|1}}/{{#explode:{{FULLPAGENAME}}|/|2}}%" AND _pageName NOT LIKE "%/%/{{#explode:{{FULLPAGENAME}}|/|2}}" AND _pageNamespace="{{NAMESPACENUMBER}}" AND DisplayName IS NOT NULL|format=dynamic table|rows per page=100|default=|limit=500}}}}</div>
+|Status=No
+}}
+}}
+{{#if:{{{Description|}}}|{{{Description|}}}|}}
+}}
+
+<nowiki />{{{Section|}}}{{{TSSection|}}}</includeonly>
+<noinclude>[[Category:MintyDocs]]</noinclude>

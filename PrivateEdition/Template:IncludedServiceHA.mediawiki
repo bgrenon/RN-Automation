@@ -1,0 +1,14 @@
+<noinclude>
+This is the "IncludedServiceHA" template.
+It should be called in the following format:
+<pre>
+{{IncludedServiceHA
+|IncludedServiceHA=
+|IncludedServiceDR=
+|IncludedServiceId=
+|IncludedServicePrimaryUnit=
+}}
+</pre>
+Edit the page to see the template text.
+{{#cargo_declare:_table=IncludedServiceHA|IncludedServiceHA=String|IncludedServiceDR=String|IncludedServiceId=String|IncludedServicePrimaryUnit=String}}
+</noinclude><includeonly>{{#cargo_store:_table=IncludedServiceHA|IncludedServiceHA={{{IncludedServiceHA|}}}|IncludedServiceId={{{IncludedServiceId|}}}|IncludedServiceDR={{{IncludedServiceDR|}}}|IncludedServicePrimaryUnit={{{IncludedServicePrimaryUnit|}}} }}</includeonly>

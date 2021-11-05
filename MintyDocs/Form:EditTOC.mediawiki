@@ -1,0 +1,53 @@
+<noinclude>
+This is the "EditTOC" form.
+To create a page with this form, enter the page name below;
+if a page with that name already exists, you will be sent to a form to edit that page.
+
+
+{{#forminput:form=EditTOC}}
+
+</noinclude><includeonly>
+<div id="wikiPreview" style="display: none; padding-bottom: 25px; margin-bottom: 25px; border-bottom: 1px solid #AAAAAA;"></div>
+{{{info|page name=<MintyDocsManual[product]>/<MintyDocsManual[version]>/<MintyDocsManual[manual]>|create title=Create a new manual|edit title=Editing {{#explode:{{FULLPAGENAME}}|/|2}}  }}}
+
+{{{for template|MintyDocsManual}}}
+{{{field|product|hidden}}}
+{{{field|version|hidden}}}
+{{{field|manual|hidden}}}
+{{{field|alternateforms|hidden}}}
+{{{field|displayname|hidden}}}
+{{{field|pagination|hidden}}}
+{{{field|Notice|hidden}}}
+==Construct TOC/navigation tree for this manual==
+'''Topics''' {{FormTip|
+==Add, remove, or rearrange your left navigation tree==
+This list defines the structure of the navigation tree that appears on the left sidebar of your page.
+
+Sample:
+[[File:EditTOCexample.png|none]]
+
+==Here are the rules and syntax==
+* The top-level "About" page for your manual is automatically added to the topics list for you. This allows for a consistent front-page URL across the system.
+* Build all of your topics under top-level category headings. These categories are '''not''' links and they do '''not''' map to any URL. You can change the text of the heading as you need to. Syntax: <nowiki>*- category name</nowiki>
+* Try to use only one level of headings. If necessary, you can use two levels. Avoid overloading the navigation tree.
+* We use topic names to create the URLs for the corresponding pages. Once you create a topic here, you cannot modify its name. (A management UI will be coming in the future; for now, follow the rules here).
+
+==Adding a new topic==
+#Add a new topic or subtopic to the list. Follow the syntax rules.
+#Save the form.
+#Look for the "red link" in the navigation tree. 
+#Click the red link and the '''Page create''' form opens automatically. 
+}}
+
+{{NoteFormat|Keep topic names short and alphanumeric. The topic names you enter below becomes part of the URL for your page. '''Do not''' use punctuation (slashes, quotes, commas, etc). Remember, you can choose any display name that you like later on - you are just creating the URL ID for your topic right now.|1}}
+{{{field|topicslist|input type=mintydocs toc}}}
+
+{{{field|topicslistpage|hidden}}}
+
+{{{end template}}}
+
+{{{standard input|summary|label=What did you add/change?}}}
+
+{{#css: #pf-expand-all {display:none} }}
+{{{standard input|save}}} {{{standard input|cancel}}}
+</includeonly><noinclude>[[Category:Article_Cargo]][[Category:MintyDocs_Cargo]]</noinclude>

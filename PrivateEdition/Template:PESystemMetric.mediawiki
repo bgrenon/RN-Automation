@@ -1,0 +1,21 @@
+<noinclude>
+This is the "PEMetric" template.
+It should be called in the following format:
+<pre>
+{{PESystemMetric
+|Metric=
+|MetricDescription=
+|PrometheusFormula=
+|Type=
+|UsedFor=
+}}
+</pre>
+Edit the page to see the template text.
+{{#cargo_declare:_table=PESystemMetric|Metric=Wikitext|MetricDescription=Wikitext(size=1000)|PrometheusFormula=String|Type=String|UsedFor=String}}
+</noinclude><includeonly>{{#cargo_store:_table=PESystemMetric|Metric={{{Metric|}}}|MetricDescription={{{MetricDescription|}}}|PrometheusFormula={{{PrometheusFormula|}}}|Type={{{Type|}}}|UsedFor={{{UsedFor}}} }}
+{{!}}-
+{{!}} {{#replace:{{{Metric}}}|_|_<wbr/>}}<br/>
+{{{MetricDescription|}}}
+{{!}} {{#replace:{{#replace:{{{PrometheusFormula|}}}|,|,<wbr/>}}|_|_<wbr/>}}
+{{!}} {{{UsedFor|}}}
+{{!}}-</includeonly>
