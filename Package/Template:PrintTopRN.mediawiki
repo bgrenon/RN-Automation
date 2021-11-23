@@ -1,12 +1,13 @@
 <tr>
 {{#ifeq:{{#cargo_query:tables=ArticleCloudRN,ArticleCloudRN__ComponentId|join on=ArticleCloudRN._ID=ArticleCloudRN__ComponentId._rowID|fields=COUNT(*)|where=ArticleCloudRN._pageName="{{FULLPAGENAME}}" AND ArticleCloudRN._pageNamespace="{{NAMESPACENUMBER}}"|no html}}|1||<td>{{{Service|}}}</td>}} 
 <td>{{{Release Date|}}}</td>
+{{#if:{{{ReleaseNumber|}}}|<td>{{{ReleaseNumber|}}}</td>|}}
 <td>{{#cargo_query:
 	table=ComponentRN,DeploymentType
 	|join on=ComponentRN.DeploymentTypeId HOLDS DeploymentType.Id
 	|intro=<div style="margin: -10px 0 -10px 0">
 	|outro=</div>
-	|fields=CONCAT('[[File:',Image,'|50px|link=]]')
+	|fields=CONCAT('[[File:',Image,'|',Size,'px|link=]]')
 	|delimiter=
 	|where=ComponentId HOLDS "{{{ComponentId|}}}" AND ReleaseDate="{{{ReleaseDate|}}}" AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}" {{#switch:{{#explode:{{FULLPAGENAME}}|/|3}}|Hosted=AND DeploymentType.Name!="Private Edition"|#default=}} }}</td>
 <td>{{#cargo_query:

@@ -9,11 +9,12 @@ It should be called in the following format:
 |NoHA=
 |Notes=
 |AddIncluded=
+|PrimaryUnit=
 }}
 </pre>
 Edit the page to see the template text.
-{{#cargo_declare:_table=ServiceHA|ServiceId=String|HA=List (,) of String|DR=List (,) of String|NoHA=String|Notes=Wikitext|AddIncluded=String}}
-</noinclude><includeonly>{{#cargo_store:_table=ServiceHA|ServiceId={{{ServiceId|}}}|HA={{{HA|}}}|DR={{{DR|}}}|NoHA={{{NoHA|}}}|Notes={{{Notes|}}}|AddIncluded={{{AddIncluded|}}} }}
+{{#cargo_declare:_table=ServiceHA|ServiceId=String|HA=List (,) of String|DR=List (,) of String|NoHA=String|Notes=Wikitext|AddIncluded=String|PrimaryUnit=String}}
+</noinclude><includeonly>{{#cargo_store:_table=ServiceHA|ServiceId={{{ServiceId|}}}|HA={{{HA|}}}|DR={{{DR|}}}|NoHA={{{NoHA|}}}|Notes={{{Notes|}}}|AddIncluded={{{AddIncluded|}}}|PrimaryUnit={{{PrimaryUnit|}}} }}
 {{EmbedForm|Form=ServiceHA|ButtonText=HA Details}}
 
 {{#switch:{{{NoHA|}}}

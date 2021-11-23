@@ -39,6 +39,6 @@ __NOEDITSECTION__{{#cargo_store:_table=Article
 
 ==Ports and protocols for {{ServiceMap|{{{ServiceId|}}}}}==
 
-{{#cargo_query:tables=PEPorts,Protocols,IncludedService|join on=PEPorts.Protocol=Protocols.Id,PEPorts.IncludedServiceId=IncludedService.Id|fields=IncludedService.Name=Included Service,Protocols.Name=Protocol,Port,DataType,Comment|where=PEPorts._pageName="{{FULLPAGENAME}}"}}
+{{#cargo_query:tables=PEPorts,Protocols,IncludedService|join on=PEPorts.Protocol=Protocols.Id,PEPorts.IncludedServiceId=IncludedService.Id|fields=IncludedService.Name=Included Service,Protocols.Name=Protocol,Port,DataType=Type of data,Comment|where=PEPorts._pageName="{{FULLPAGENAME}}"}}
 
 {{{PEPorts|}}}[[Category:Linkable]]</includeonly><noinclude>[[Category:MintyDocs_Cargo]]</noinclude>

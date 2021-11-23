@@ -21,6 +21,6 @@ Edit the page to see the template text.
 |IncludedServiceId={{{IncludedServiceId|}}}
 |Port={{{Port|}}}
 |Protocol={{{Protocol|}}}
-|DataType={{{Purpose|}}}
+|DataType={{{DataType|}}}
 |Comment={{{Comment|}}} }}
 </includeonly>

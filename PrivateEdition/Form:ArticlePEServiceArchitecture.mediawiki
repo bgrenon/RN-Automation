@@ -1,15 +1,15 @@
 <noinclude>
-This is the "PEArchitecture" form.
+This is the "ArticlePEServiceArchitecture" form.
 To create a page with this form, enter the page name below;
 if a page with that name already exists, you will be sent to a form to edit that page.
 
 
-{{#forminput:form=PEArchitecture}}
+{{#forminput:form=ArticlePEServiceArchitecture}}
 
 </noinclude><includeonly>
 <div id="wikiPreview" style="display: none; padding-bottom: 25px; margin-bottom: 25px; border-bottom: 1px solid #AAAAAA;"></div>
 {{{info|edit title=Editing {{#explode:{{FULLPAGENAME}}|/|3}} }}}
-{{{for template|PEArchitecture}}}
+{{{for template|ArticlePEServiceArchitecture}}}
 {{{field|PageType|hidden}}}
 <div class="toggle-wrap">
 <toggledisplay linkstyle font-size:larger showtext="Set up your page" hidetext="Set up your page">
@@ -75,10 +75,10 @@ Image filename: {{{field|Image|size=27}}}
 Alt-text: {{{field|AltText|size=100}}}
 
 
-{{{field|PEArchitectureSection|holds template}}}
+{{{field|ArticlePEServiceArchitectureSection|holds template}}}
 
 {{{end template}}}
-{{{for template|PEArchitectureSection|multiple|embed in field=PEArchitecture[PEArchitectureSection]|displayed fields when minimized=sectionHeading|add button text=Add additional architecture diagram }}}
+{{{for template|ArticlePEServiceArchitectureSection|multiple|embed in field=ArticlePEServiceArchitecture[ArticlePEServiceArchitectureSection]|displayed fields when minimized=sectionHeading|add button text=Add additional architecture diagram }}}
 
 <div class="col-md-2 form-label">Introdution </div>
 <div class="col-md-10">{{{field|IntroductionText|input type=textarea|editor=visual editor}}}</div>

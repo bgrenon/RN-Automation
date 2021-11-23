@@ -70,6 +70,11 @@
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Template%3ARNPrint.mediawiki"
 				},
 				{
+					"name": "RNPrintSubhead",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Template%3ARNPrintSubhead.mediawiki"
+				},				,
+				{
 					"name": "ArticleCloudRN",
 					"namespace": "NS_TEMPLATE",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Template%3AArticleCloudRN.mediawiki"
@@ -292,6 +297,11 @@
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Category%3AArticlePEServiceArchitecture.mediawiki"
 				},
 				{
+					"name": "ArticlePEServicePorts",
+					"namespace": "NS_CATEGORY",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Category%3AArticlePEServicePorts.mediawiki"
+				},
+				{
 					"name": "ArticlePEServiceMetrics",
 					"namespace": "PF_NS_FORM",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Form%3AArticlePEServiceMetrics.mediawiki"
@@ -300,6 +310,11 @@
 					"name": "ArticlePEServiceObservability",
 					"namespace": "PF_NS_FORM",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Form%3AArticlePEServiceObservability.mediawiki"
+				},
+				{
+					"name": "ArticlePEServicePorts",
+					"namespace": "PF_NS_FORM",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Form%3AArticlePEServicePorts.mediawiki"
 				},
 				{
 					"name": "IncludedService",
@@ -534,6 +549,11 @@
 					"name": "PEPorts",
 					"namespace": "NS_TEMPLATE",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3APEPorts.mediawiki"
+				},
+				{
+					"name": "ProtocolMap",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3AProtocolMap.mediawiki"
 				}
 
 			]

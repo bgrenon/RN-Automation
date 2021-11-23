@@ -1,12 +1,12 @@
 ''This information is under development: Flagged {{SuperscriptFlag}} items aren't yet confirmed or have info coming soon; Checked {{SuperscriptCheck}} items are valid.''
 
 {{#cargo_query:
-tables=ServiceHA,Service
-|join on=ServiceHA.ServiceID=Service.Id
-|fields=CONCAT('[[',ServiceHA._pageName,'|',Service.Name,']]')=Service,HA,DR,NoHA,Notes,Service.Id=ServiceId,AddIncluded
+tables=ArticleServiceHA,Service
+|join on=ArticleServiceHA.ServiceID=Service.Id
+|fields=CONCAT('[[',ArticleServiceHA._pageName,'|',Service.Name,']]')=Service,HA,DR,NoHA,Notes,Service.Id=ServiceId,AddIncluded,PrimaryUnit
 |intro=<table class="sortable"><tr><th>Service & Included Services</th><th>High Availability</th><th>Disaster Recovery</th><th>Where can you host this service?</th></tr>
 |outro=</table>
 |format=template
-|where=ServiceHA._pageNamespace="{{NAMESPACENUMBER}}" AND ServiceHA.ServiceId IS NOT NULL
+|where=ArticleServiceHA._pageNamespace="{{NAMESPACENUMBER}}" AND ArticleServiceHA.ServiceId IS NOT NULL
 |named args=yes
 |template=PrintServicesHAFormat}}<noinclude>[[Category:PrivateEdition]]</noinclude>

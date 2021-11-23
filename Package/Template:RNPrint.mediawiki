@@ -1,7 +1,7 @@
 <includeonly><h2>{{#ifeq:{{#cargo_query:tables=ArticleCloudRN,ArticleCloudRN__ComponentId|join on=ArticleCloudRN._ID=ArticleCloudRN__ComponentId._rowID|fields=COUNT(*)|where=ArticleCloudRN._pageName="{{FULLPAGENAME}}" AND ArticleCloudRN._pageNamespace="{{NAMESPACENUMBER}}"|no html}}|1||{{{ComponentName|}}}:}} {{#if:{{{ReleaseDate|}}}|{{#time:F d, Y|{{{ReleaseDate|}}}}}|<span style="background-color:yellow">Date needed</span>}} {{#cargo_query:
 tables=ComponentRN,DeploymentType=DT
 |join on=ComponentRN.DeploymentTypeId HOLDS DT.Id
-|fields=CONCAT('[[File:',DT.Image,'|50px|link=]]')
+|fields=CONCAT('[[File:',DT.Image,'|',Size,'px|link=]]')
 |delimiter=
 |where=ComponentRN.ComponentId HOLDS '{{{Component|}}}' AND ReleaseNumber="{{{ReleaseNumber|}}}" AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}"
 }}<!-- removing release type from display until required
@@ -10,14 +10,16 @@ tables=ComponentRN,ReleaseType=RT
 |join on=ComponentRN.ReleaseTypeId=RT.Id
 |fields=Label
 |where=ComponentRN.ComponentId HOLDS '{{{Component|}}}' AND ReleaseNumber="{{{ReleaseNumber|}}}"
-}}--></h2> {{AnchorDiv|{{{ComponentName|}}}-{{{ReleaseNumber|}}}}}{{#if:{{{PrivateEditionReleaseDate}}}|<div style="margin-top:-30px">{{#cargo_query:
+}}--></h2> {{AnchorDiv|{{{ComponentName|}}}-{{{ReleaseNumber|}}}}}{{#cargo_query:
 tables=ComponentRN,DeploymentType=DT
 |join on=ComponentRN.DeploymentTypeId HOLDS DT.Id
-|fields=CONCAT('[[File:',DT.Image,'|30px|link={{#switch:{{NAMESPACENUMBER}}|620=Draft:|#default=}}ReleaseNotes/Current/GenesysEngage-cloud/PrivateEdition]] ')
-|delimiter=
-|where=ComponentRN.ComponentId HOLDS '{{{Component|}}}' AND ReleaseNumber="{{{ReleaseNumber|}}}" AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}" AND DT.Name="Private Edition"
-}}{{Link-AnywhereElse|product=ReleaseNotes|version=Current|manual=GenesysEngage-cloud|topic=PrivateEdition|display text=Private edition}}: {{{ReleaseNumber|}}} available {{#time:F d, Y|{{{PrivateEditionReleaseDate|}}}}}</div>|}}
-{{#cargo_query:
+|fields=DT.Image=Image,DT.Size=Size,DT.Name=DTName,ComponentRN.ComponentId=ComponentId,ReleaseNumber,PrivateEditionReleaseDate
+|named args=yes
+|format=template
+|template=RNPrintSubhead
+|default=
+|where=ComponentRN.ComponentId HOLDS '{{{Component|}}}' AND ReleaseNumber="{{{ReleaseNumber|}}}" AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}" AND (DT.Name="Private Edition" OR DT.Name="Mixed mode")
+}}{{#cargo_query:
 tables=ComponentRN,Issue,IssueCategory
 |join on=ComponentRN._pageName=Issue._pageName,Issue.IssueCategoryId=IssueCategory.Id
 |fields=CONCAT('<h3>',IssueCategory.SectionName,'</h3>')=Name,IF (SupportingDocumentation IS NOT NULL, CONCAT (LocalContent,IF (Issue.TicketNumber IS NOT NULL, CONCAT (' (',Issue.TicketNumber,')'), ' '),' </br><b>More info</b>: ' ,SupportingDocumentation),CONCAT (LocalContent,IF (Issue.TicketNumber IS NOT NULL, CONCAT(' (',Issue.TicketNumber,')'), ' ')))
