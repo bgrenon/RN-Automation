@@ -5,6 +5,7 @@ It should be called in the following format:
 <pre>
 {{ArticlePEServiceArchitecture
 |ServiceId=
+|Images=
 }}
 
 </pre>
@@ -12,6 +13,7 @@ Edit the page to see the template text.
 
 {{#cargo_declare:_table=ArticlePEServiceArchitecture
 |ServiceId=String
+|Images=List (,) of String
 }}{{#cargo_attach:_table=Article}}
 
 </noinclude>
@@ -29,10 +31,26 @@ __NOEDITSECTION__{{#cargo_store:_table=Article
 }}
 {{#cargo_store:_table=ArticlePEServiceArchitecture
 |ServiceId={{{ServiceId|}}}
+|Images={{{Images|}}}
 }}<!-- Set MintyDocs topic, including a switch for different treatment for Manual pages -->{{#mintydocs_topic:
 |display name=Architecture
 }}<!-- Defining the EPPO Header; all parameters need to be passed to it -->{{EPPOHead|Context={{{Context|}}}|PageType=Article}}
+==About==
+{{{IntroductionText|}}}
 
+==Architecture Diagram==
+[[File:{{{Image}}}]]
 
-{{{PEArchitectureSection|}}}{{{Section|}}}
+==Connections table==
+{{#cargo_query:tables=PEConnections
+|fields=Connection,Source,Destination,Protocol,Port,Purpose,Classification
+|intro=<table class="sortable"><tr><th>Connection</th><th>Source</th><th>Destination</th><th>Protocol</th><th>Port</th><th>Purpose</th><th>Classification</th></tr>
+|outro=</table>
+|named args=yes
+|format=template
+|template=PEConnectionsPrint
+|where=PEConnections._pageName="{{FULLPAGENAME}}"
+}}
+
+{{{PEConnections|}}}
 [[Category:Linkable]]</includeonly><noinclude>[[Category:MintyDocs_Cargo]]</noinclude>
