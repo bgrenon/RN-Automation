@@ -1,0 +1,50 @@
+<noinclude>
+This is the "ArticleIndexRN" template.
+
+It should be called in the following format:
+<pre>
+{{ArticleIndexRN
+|ServiceId=
+|DeploymentTypeId=
+}}
+
+</pre>
+Edit the page to see the template text.
+
+{{#cargo_declare:_table=ArticleIndexRN
+|ServiceId=List (,) of String
+|DeploymentTypeId=List (,) of String
+}}
+{{#cargo_attach:_table=Article}}
+</noinclude>
+<includeonly>{{#css: .MintyDocsTopicDesc {display:none} }}[[Category:ArticleIndexRN]]__TOC__
+__NOEDITSECTION__{{#cargo_store:_table=Article
+|Standalone={{{Standalone}}}
+|Dimension={{#explode:{{FULLPAGENAME}}|/|3}}
+|productshort={{#explode:{{FULLPAGENAME}}|/|0}}
+|DisplayName={{{DisplayName|}}}
+|Context={{{Context|}}}}}{{#cargo_store:_table=ArticleIndexRN
+|ServiceId={{{ServiceId|}}}
+|ComponentId={{{ComponentId|}}}
+|DeploymentTypeId={{{DeploymentTypeId|}}}
+}}
+{{#mintydocs_topic:
+|display name={{{DisplayName|}}}
+|toc name={{{TocName|}}}
+}}
+{{EPPOHead|Role={{{Role|}}}|ComingSoon={{{ComingSoon|}}}|Dimension={{#explode:{{FULLPAGENAME}}|/|3}}|Context=These Release Notes provide information about recent releases of {{#cargo_query:tables=Service|fields=Name|where=Id LIKE '{{{ServiceId|}}}'|no html}}, starting with March 31, 2021. Click the Release Date next to a particular service name to see detailed information for that release. The release date indicates the earliest date when a service release might be available in your environments. Some updates might not apply to all environments.
+|UseCase={{{UseCase|}}}|Application={{{Application|}}}|Platform={{{Platform|}}}|PageType=Article}}
+{{#cargo_query:
+tables=ArticleCloudRN__ComponentId,ArticleCloudRN,Component,ComponentRN__ComponentId,ComponentRN,DeploymentType
+|join on=ArticleCloudRN__ComponentId._value=Component.Id,ArticleCloudRN__ComponentId._rowID=ArticleCloudRN._ID,ArticleCloudRN__ComponentId._value = ComponentRN__ComponentId._value,ComponentRN__ComponentId._rowID=ComponentRN._ID,ComponentRN.DeploymentTypeId HOLDS DeploymentType.Id
+|fields=Component.Name=Service,CONCAT('[[',ArticleCloudRN._pageName,'#',DATE_FORMAT(MAX(ReleaseDate),'%M %d, %Y'),'|',DATE_FORMAT(MAX(ReleaseDate),'%M %d, %Y'),']]')=Release Date,CONCAT('[[File:',Image,'|80px]]')=Supported Cloud,Highlight=Highlights,ComponentId=ComponentId,MAX(ReleaseDate)=ReleaseDate
+|where=ComponentRN._pageNamespace="{{NAMESPACENUMBER}}" AND ArticleCloudRN._pageNamespace="{{NAMESPACENUMBER}}" AND ArticleCloudRN._pageName LIKE "%{{#explode:{{FULLPAGENAME}}|/|2}}%" AND ArticleCloudRN.ServiceId HOLDS '{{{ServiceId|}}}'
+|having=MAX(ReleaseDate)
+|intro=<h2>Latest release per service</h2><table><tr><th>Service</th><th style="width:12%">Released on</th><th style="width:12%">Released for</th><th>Highlights</th></tr>
+|outro=</table>
+|format=template
+|template=PrintTopRN
+|named args=yes
+|group by=ComponentRN.ComponentId
+<!--|order by=ComponentRN.ReleaseDate DESC-->
+}}</includeonly><noinclude>[[Category:RNAutomation]]</noinclude>

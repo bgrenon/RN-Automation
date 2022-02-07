@@ -16,7 +16,7 @@
 				{
 					"name": "Component",
 					"namespace": "PF_NS_FORM",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Form%3AComponent.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Form%3AComponent.mediaw"
 				},
 				{
 					"name": "Component",
@@ -156,9 +156,9 @@
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Form%3AArticleHelmRN.mediawiki"
 				},
 				{
-					"name": "ArticleHelmRN",
+					"name": "ArticleIndexRN",
 					"namespace": "NS_CATEGORY",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Category%3AArticleHelmRN.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Category%3AArticleIndexRN.mediawiki"
 				}
 				
 			],
