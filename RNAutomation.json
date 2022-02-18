@@ -16,7 +16,7 @@
 				{
 					"name": "Component",
 					"namespace": "PF_NS_FORM",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Form%3AComponent.mediaw"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Form%3AComponent.mediawiki"
 				},
 				{
 					"name": "Component",
@@ -411,6 +411,11 @@
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Form%3AService.mediawiki"
 				},
 				{
+					"name": "Protocols",
+					"namespace": "PF_NS_FORM",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Form%3AProtocols.mediawiki"
+				},
+				{
 					"name": "DRType",
 					"namespace": "NS_TEMPLATE",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3ADRType.mediawiki"
@@ -481,9 +486,9 @@
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3AIncludedServiceHA.mediawiki"
 				},
 				{
-					"name": "IncludedServiceMap",
+					"name": "ServiceMap",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3AIncludedServiceMap.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3AServiceMap.mediawiki"
 				},
 				{
 					"name": "ServiceHA",
@@ -526,6 +531,11 @@
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3AProtocols.mediawiki"
 				},
 				{
+					"name": "TrafficTypes",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3ATrafficTypes.mediawiki"
+				},
+				{
 					"name": "EmbedPrintServices",
 					"namespace": "NS_TEMPLATE",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3AEmbedPrintServices.mediawiki"
@@ -541,6 +551,11 @@
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3AArticlePEServiceArchitecture.mediawiki"
 				},
 				{
+					"name": "PEConnectionsPrint",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3APEConnectionsPrint.mediawiki"
+				},
+				{
 					"name": "PEArchitectureSection",
 					"namespace": "NS_TEMPLATE",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3APEArchitectureSection.mediawiki"
@@ -551,9 +566,14 @@
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3APEPorts.mediawiki"
 				},
 				{
-					"name": "ProtocolMap",
+					"name": "ProtocolsMap",
 					"namespace": "NS_TEMPLATE",
-					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3AProtocolMap.mediawiki"
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3AProtocolsMap.mediawiki"
+				},
+				{
+					"name": "TrafficTypesMap",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3ATrafficTypesMap.mediawiki"
 				}
 
 			]

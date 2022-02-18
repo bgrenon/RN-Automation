@@ -5,6 +5,7 @@ It should be called in the following format:
 <pre>
 {{ArticleCloudRN
 |ServiceId=
+|DepGuideServiceId=
 |ComponentId=
 |DeploymentTypeId=
 |ReleaseTypeId=
@@ -16,6 +17,7 @@ Edit the page to see the template text.
 
 {{#cargo_declare:_table=ArticleCloudRN
 |ServiceId=List (,) of String
+|DepGuideServiceId=List (,) of String
 |ComponentId=List (,) of String
 |DeploymentTypeId=List (,) of String
 |ReleaseTypeId=List (,) of String
@@ -25,25 +27,26 @@ Edit the page to see the template text.
 
 </noinclude>
 <includeonly>{{#css: .MintyDocsTopicDesc {display:none} }}[[Category:ArticleCloudRN]]__TOC__
-__NOEDITSECTION__{{#cargo_store:_table=Article|Standalone={{{Standalone}}}|Dimension={{#explode:{{FULLPAGENAME}}|/|3}}Helm|productshort={{#explode:{{FULLPAGENAME}}|/|0}}|DisplayName={{{DisplayName|}}}|Context={{{Context|}}}}}{{#cargo_store:_table=ArticleCloudRN
+__NOEDITSECTION__{{#cargo_store:_table=Article|Standalone={{{Standalone}}}|Dimension={{{Dimension|}}}|productshort={{#explode:{{FULLPAGENAME}}|/|0}}|DisplayName={{{DisplayName|}}}|Context={{{Context|}}}}}{{#cargo_store:_table=ArticleCloudRN
 |ServiceId={{{ServiceId|}}}
 |ComponentId={{{ComponentId|}}}
 |DeploymentTypeId={{{DeploymentTypeId|}}}
 |ReleaseTypeId={{{ReleaseTypeId|}}}
 |Footer={{{Footer|}}}
+|DepGuideServiceId={{{DepGuideServiceId|}}}
 }}<!-- Set MintyDocs topic, including a switch for different treatment for Manual pages -->{{#switch:{{{PageType|}}}|Manual=|#default={{#mintydocs_topic:
 |display name={{{DisplayName|}}}
 |toc name={{{TocName|}}}
-}}}}<!-- Defining the EPPO Header; all parameters need to be passed to it -->{{EPPOHead|Role={{{Role|}}}|ComingSoon={{{ComingSoon|}}}|Dimension={{#explode:{{FULLPAGENAME}}|/|3}}Helm|Context=Not all releases or changes listed below may pertain to your deployment. Check the table below to see which releases apply to you.
-|UseCase={{{UseCase|}}}|Application={{{Application|}}}|Platform={{{Platform|}}}|PageType=Article|ServiceId={{{ServiceId|}}}}}<!--Defining the Prerequisite Head -->{{PrerequisitesHead|Prereq={{{Prereq|}}}}}<!-- Query for showing component list --><!-- removing toggle display for now<div class="toggle-wrap">
+}}}}<!-- Defining the EPPO Header; all parameters need to be passed to it -->{{EPPOHead|RN=Yes|Role={{{Role|}}}|ComingSoon={{{ComingSoon|}}}|Context=Not all releases or changes listed below may pertain to your deployment. Check the table below to see which releases apply to you.
+|UseCase={{{UseCase|}}}|Application={{{Application|}}}|Platform={{{Platform|}}}|PageType=Article|DepGuideServiceId={{{DepGuideServiceId|}}}|ServiceId={{{ServiceId|}}}}}<!--Defining the Prerequisite Head -->{{PrerequisitesHead|Prereq={{{Prereq|}}}}}<!-- Query for showing component list --><!-- removing toggle display for now<div class="toggle-wrap">
 <toggledisplay linkstyle font-size:larger showtext="Quick lookup table" hidetext="Quick lookup table">
-<div class="toggle-content"> -->{{#cargo_query:
+<div class="toggle-content"> -->{{NoteFormat|The Release table lists the initial availability date for each release and the deployment environments for which a release is made available. Except when otherwise stated in the description for a specific release, each release includes all of the features and resolved issues that were introduced on earlier dates, regardless of the deployment environment. The features and resolved issues that apply only to a specific deployment environment are noted as such.}}{{#cargo_query:
 tables=ArticleCloudRN__ComponentId,ArticleCloudRN,Component,ComponentRN__ComponentId,ComponentRN,DeploymentType
 |join on=ArticleCloudRN__ComponentId._value=Component.Id,ArticleCloudRN__ComponentId._rowID=ArticleCloudRN._ID,ArticleCloudRN__ComponentId._value = ComponentRN__ComponentId._value,ComponentRN__ComponentId._rowID=ComponentRN._ID,ComponentRN.DeploymentTypeId HOLDS DeploymentType.Id
 |fields=Component.Name=Service,CONCAT('[[#',Component.Name,'-',ReleaseNumber,'|',DATE_FORMAT(ReleaseDate,'%M %d, %Y'),']]')=Release Date,CONCAT('[[File:',Image,'|80px]]')=Supported Cloud,Highlight=Highlights,ComponentId=ComponentId,ReleaseDate=ReleaseDate,PrivateEditionReleaseDate,ReleaseNumber
 |where=(ComponentRN__ComponentId._value IN ({{#arraymap:{{{ComponentId|}}}|,|x|'x'}})) AND (ComponentRN__DeploymentTypeId._value IN ({{#arraymap:{{{DeploymentTypeId|}}}|,|x|'x'}})) AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}"
 |intro=<table class="sortable"><tr>{{#ifeq:{{#cargo_query:tables=ArticleCloudRN,ArticleCloudRN__ComponentId|join on=ArticleCloudRN._ID=ArticleCloudRN__ComponentId._rowID|fields=COUNT(*)|where=ArticleCloudRN._pageName="{{FULLPAGENAME}}" AND ArticleCloudRN._pageNamespace="{{NAMESPACENUMBER}}"|no html}}|1||<th>Service</th>}} 
-<th style="width:12% !important;">First availabile</th><th style="width:20% !important;">Available for</th><th>Highlights</th><th>Release number</th></tr>
+<th style="width:12% !important;">First availability</th><th style="width:20% !important;">Released for</th><th>Highlights</th><th>Release number</th></tr>
 |outro=</table>
 |format=template
 |template=PrintTopRN

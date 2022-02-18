@@ -21,7 +21,7 @@ Edit the page to see the template text.
 __NOEDITSECTION__{{#cargo_store:_table=Article
 |productshort={{#explode:{{FULLPAGENAME}}|/|0}}
 |Role={{{Role|}}}
-|DisplayName=Architecture
+|DisplayName=Architecture {{#if:{{{AdditionalTitle|}}}|- {{{AdditionalTitle|}}}|}}
 |TocName={{{TocName|}}}
 |Dimension={{{Dimension|}}}
 |Context=Lean about Voice Microservices architecture.
@@ -33,23 +33,24 @@ __NOEDITSECTION__{{#cargo_store:_table=Article
 |ServiceId={{{ServiceId|}}}
 |Images={{{Images|}}}
 }}<!-- Set MintyDocs topic, including a switch for different treatment for Manual pages -->{{#mintydocs_topic:
-|display name=Architecture
-}}<!-- Defining the EPPO Header; all parameters need to be passed to it -->{{EPPOHead|Context={{{Context|}}}|PageType=Article}}
-==About==
+|display name=Architecture {{#if:{{{AdditionalTitle|}}}|- {{{AdditionalTitle|}}}|}}
+}}<!-- Defining the EPPO Header; all parameters need to be passed to it -->{{EPPOHead|ServiceId={{{ServiceId|}}}|Context={{#if:{{{IntroductionText|}}}|
 {{{IntroductionText|}}}
+|}}|PageType=Article}}
 
 ==Architecture Diagram==
 [[File:{{{Image}}}]]
 
-==Connections table==
 {{#cargo_query:tables=PEConnections
 |fields=Connection,Source,Destination,Protocol,Port,Purpose,Classification
-|intro=<table class="sortable"><tr><th>Connection</th><th>Source</th><th>Destination</th><th>Protocol</th><th>Port</th><th>Purpose</th><th>Classification</th></tr>
+|intro=<h2>Connections table</h2><table class="sortable"><tr><th>Connection</th><th>Source</th><th>Destination</th><th>Protocol</th><th>Port</th><th>Classification</th><th>Data that travels on this connection</th></tr>
 |outro=</table>
 |named args=yes
+|default=
 |format=template
 |template=PEConnectionsPrint
-|where=PEConnections._pageName="{{FULLPAGENAME}}"
+|where=PEConnections._pageName="{{FULLPAGENAME}}" AND Connection IS NOT NULL
+|order by=Connection ASC
 }}
 
 {{{PEConnections|}}}

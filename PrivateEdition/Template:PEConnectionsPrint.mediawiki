@@ -1,0 +1,9 @@
+<tr>
+<td>{{{Connection|}}}</td>
+<td>{{ServiceMap|{{{Source|}}}}}{{IncludedServiceMap|{{{Source|}}}}}</td>
+<td>{{ServiceMap|{{{Destination|}}}}}{{IncludedServiceMap|{{{Destination|}}}}}</td>
+<td>{{ProtocolsMap|{{{Protocol|}}}}}</td>
+<td>{{{Port|}}}</td>
+<td>{{TrafficTypesMap|{{{Classification|}}}}}</td>
+<td>{{{Purpose|}}}</td>
+</tr>

@@ -1,8 +1,13 @@
 <div class="col-md-12" style="margin-top:-30px;padding-left:0">
-<div class="col-md-1" style="padding:0;width:4.33333%">
-<span style="font-size:50%">[[File:{{{Image|}}}|{{{Size|}}}px|link={{#switch:{{NAMESPACENUMBER}}|620=Draft:|#default=}}ReleaseNotes/Current/GenesysEngage-cloud/{{#replace:{{{DTName}}}| |}}]]
-</div>
-<div class="col-md-10" style="padding:10px 0">
-{{Link-AnywhereElse|product=ReleaseNotes|version=Current|manual=GenesysEngage-cloud|topic={{#replace:{{{DTName}}}| |}}|display text={{{DTName}}}}}: {{{ReleaseNumber|}}} available {{#time:F d, Y|{{{PrivateEditionReleaseDate|}}}}}
-</div>
+<ul class="related-links pages">
+<li style="padding-left:0"><!--<div class="col-md-1" style="padding:0;width:4.33333%">
+<span style="font-size:50%">-->[[File:{{{Image|}}}|{{{Size|}}}px|link={{#switch:{{NAMESPACENUMBER}}|620=Draft:|#default=}}ReleaseNotes/Current/GenesysEngage-cloud/{{#replace:{{{DTName}}}| |}}]]</span>
+<!--</div>-->{{Link-AnywhereElse|product=ReleaseNotes|version=Current|manual=GenesysEngage-cloud|topic={{#replace:{{{DTName}}}| |}}|display text={{{DTName}}}}}: {{{ReleaseNumber|}}} available {{#time:F d, Y|{{{Date|}}}}}
+</li>
+<li>{{#cargo_query:tables=ArticleCloudRN,ArticleCloudRN__ServiceId,ArticleHelmRN__ServiceId,ArticleHelmRN
+|join on=ArticleCloudRN._ID=ArticleCloudRN__ServiceId._rowID,ArticleCloudRN__ServiceId._value=ArticleHelmRN__ServiceId._value,ArticleHelmRN__ServiceId._rowID=ArticleHelmRN._ID
+|fields=CONCAT('[[',ArticleHelmRN._pageName,'|Helm charts and containers]]')
+|where=ArticleCloudRN._pageName="{{FULLPAGENAME}}"
+}}</li>
+</ul>
 </div>

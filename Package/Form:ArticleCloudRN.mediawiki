@@ -20,6 +20,10 @@ Set up the H1 for your page. It should have some meat to establish context. The 
 
 <div class="col-md-10">{{{field|ServiceId|input type=tokens|cargo table=Service|cargo field=Id|mapping template=ServiceMap}}}</div>
 
+<div class="col-md-2 form-label">Select PE Deployment Guide to link to</div>
+
+<div class="col-md-10">{{{field|DepGuideServiceId|input type=tokens|cargo table=Service|cargo field=Id|mapping template=ServiceMap}}}</div>
+
 <div class="col-md-2 form-label">Components</div>
 
 <div class="col-md-10">{{{field|ComponentId|input type=tokens|cargo table=Component|cargo field=Id|mapping template=ComponentMap|delimiter=;}}}</div>

@@ -10,7 +10,7 @@ tables=ComponentRN,ReleaseType=RT
 |join on=ComponentRN.ReleaseTypeId=RT.Id
 |fields=Label
 |where=ComponentRN.ComponentId HOLDS '{{{Component|}}}' AND ReleaseNumber="{{{ReleaseNumber|}}}"
-}}--></h2> {{AnchorDiv|{{{ComponentName|}}}-{{{ReleaseNumber|}}}}}{{#cargo_query:
+}}--></h2>{{AnchorDiv|{{{ComponentName|}}}-{{{ReleaseNumber|}}}}}{{#cargo_query:
 tables=ComponentRN,DeploymentType=DT
 |join on=ComponentRN.DeploymentTypeId HOLDS DT.Id
 |fields=DT.Image=Image,DT.Size=Size,DT.Name=DTName,ComponentRN.ComponentId=ComponentId,ReleaseNumber,PrivateEditionReleaseDate
