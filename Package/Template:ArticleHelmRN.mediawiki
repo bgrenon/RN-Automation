@@ -13,7 +13,7 @@ It should be called in the following format:
 Edit the page to see the template text.
 
 {{#cargo_declare:_table=ArticleHelmRN
-|ServiceId=String
+|ServiceId=List (,) of String
 |ComponentId=List (,) of String
 |DeploymentTypeId=List (,) of String
 }}
@@ -27,7 +27,7 @@ __NOEDITSECTION__{{#cargo_store:_table=Article|Standalone={{{Standalone}}}|Dimen
 }}<!-- Set MintyDocs topic, including a switch for different treatment for Manual pages -->{{#switch:{{{PageType|}}}|Manual=|#default={{#mintydocs_topic:
 |display name={{{DisplayName|}}}
 |toc name={{{TocName|}}}
-}}}}<!-- Defining the EPPO Header; all parameters need to be passed to it -->{{EPPOHead|RN=Yes|ServiceId={{{ServiceId|}}}|Role={{{Role|}}}|ComingSoon={{{ComingSoon|}}}|Dimension={{#explode:{{FULLPAGENAME}}|/|3}}|Context=Find lists of which containers were updated for each service release, and when.
+}}}}<!-- Defining the EPPO Header; all parameters need to be passed to it -->{{EPPOHead|RN=Yes|ServiceId={{{ServiceId|}}}|Role={{{Role|}}}|ComingSoon={{{ComingSoon|}}}|Context=Find lists of which containers were updated for each service release, and when.
 |UseCase={{{UseCase|}}}|Application={{{Application|}}}|Platform={{{Platform|}}}|PageType=Article}}<!--Defining the Prerequisite Head -->{{PrerequisitesHead|Prereq={{{Prereq|}}}}}<!-- Query for showing component list -->
 <includeonly>{{#cargo_query:
 tables=Issue,ComponentRN,ComponentRN__ComponentId,ComponentRN__DeploymentTypeId,Component
@@ -58,4 +58,4 @@ __NOCACHE__
 .toggle-content { padding: 10px 20px; border: 1px solid #ddd; border-top: none; border-bottom-left-radius: 3px; border-bottom-right-radius: 3px; }
 }}{{{ArticleHelmRN|}}}<!-- Removing the version dropdown for Standalone (version-less) pages -->{{#switch:{{{Standalone}}}|Yes={{#css: 
 button#version-dropdown { display: none; }
-}}|#default=}}[[Category:Linkable]]<nowiki /></includeonly><noinclude>[[Category:RNAutomation]]</noinclude>''
+}}|#default=}}[[Category:Linkable]]<nowiki /></includeonly><noinclude>[[Category:RNAutomation]]</noinclude>

@@ -9,6 +9,7 @@ ul.related-links li.apps {padding: 0 18px 0 18px;}
 ul.related-links li.apps:last-child {padding-right: 18px;}
 ul.related-links li.apps:first-child {padding-left: 18px;border-left: 1px solid #77828f;}
 ul.related-links.pages li:first-child, ul.related-links>a:first-child {border:0 none;}
+span.mw-redirectedfrom {display: none;}
 }}<div class="eppo-head" style="background-color:#f6f6f6; color: #5d3e5d;margin:-20px -18px 20px -36px; padding:20px 20px 30px 40px;">
 <div class="col-md-10" id="eppo-links" style="padding:0; margin-top:-10px;min-height:20px;">
 <ul class="related-links">{{#if:{{{Application|}}}|
@@ -28,7 +29,7 @@ ul.related-links.pages li:first-child, ul.related-links>a:first-child {border:0 
 }}
 {{#if:{{#cargo_query:
 tables=HIW
-|fields=CONCAT('[[PEC-Admin/HIW|Getting started with Genesys Engage cloud]]')
+|fields=CONCAT('[[PEC-Admin/HIW|Getting started with Genesys Multicloud CX]]')
 |where=HIW._pageName="{{FULLPAGENAME}}"
 |format=template
 |template=ListItems
@@ -118,7 +119,7 @@ tables=HIW
       |group by=ArticleHelmRN._pageName,Service.Name
       }} }} |}}|<div style="margin-top:20px;"><span style="font-weight:600;">Related documentation:</span><ul class="related-links pages">{{#cargo_query:
 tables=HIW
-|fields=CONCAT('[[PEC-Admin/HIW|Getting started with Genesys Engage cloud]]')
+|fields=CONCAT('[[PEC-Admin/HIW|Getting started with Genesys Multicloud CX]]')
 |where=HIW._pageName="{{FULLPAGENAME}}"
 |format=template
 |template=ListItems
