@@ -13,12 +13,12 @@ tables=ComponentRN,ReleaseType=RT
 }}--></h2>{{AnchorDiv|{{{ComponentName|}}}-{{{ReleaseNumber|}}}}}{{#cargo_query:
 tables=ComponentRN,DeploymentType=DT
 |join on=ComponentRN.DeploymentTypeId HOLDS DT.Id
-|fields=DT.Image=Image,DT.Size=Size,DT.Name=DTName,ComponentRN.ComponentId=ComponentId,ReleaseNumber,PrivateEditionReleaseDate
+|fields=DT.Image=Image,DT.Size=Size,DT.Name=DTName,ComponentRN.ComponentId=ComponentId,ReleaseNumber,PrivateEditionReleaseDate=PEDate,MixedModeReleaseDate=MixedDate
 |named args=yes
 |format=template
 |template=RNPrintSubhead
 |default=
-|where=ComponentRN.ComponentId HOLDS '{{{Component|}}}' AND ReleaseNumber="{{{ReleaseNumber|}}}" AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}" AND (DT.Name="Private Edition" OR DT.Name="Mixed mode")
+|where=ComponentRN._pageNamespace="{{NAMESPACENUMBER}}"  AND  ComponentRN.ComponentId HOLDS '{{{Component|}}}' AND ReleaseNumber="{{{ReleaseNumber|}}}" AND (DT.Name="Private Edition" OR DT.Name="Mixed mode")
 }}{{#cargo_query:
 tables=ComponentRN,Issue,IssueCategory
 |join on=ComponentRN._pageName=Issue._pageName,Issue.IssueCategoryId=IssueCategory.Id

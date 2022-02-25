@@ -154,6 +154,11 @@
 					"name": "ArticleIndexRN",
 					"namespace": "NS_CATEGORY",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Category%3AArticleIndexRN.mediawiki"
+				},
+				{
+					"name": "ArticleIndexRN",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Template%3AArticleIndexRN.mediawiki"
 				}
 				
 			],
