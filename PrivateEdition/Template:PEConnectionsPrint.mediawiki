@@ -1,7 +1,7 @@
 <tr>
 <td>{{{Connection|}}}</td>
-<td>{{ServiceMap|{{{Source|}}}}}{{IncludedServiceMap|{{{Source|}}}}}</td>
-<td>{{ServiceMap|{{{Destination|}}}}}{{IncludedServiceMap|{{{Destination|}}}}}</td>
+<td>{{#switch:{{{SourceType|}}}|Service={{ServiceMap|{{{Source|}}}}}|Included Service={{IncludedServiceMap|{{{Source|}}}}}|UI={{{Source|}}}|API={{{Source|}}}|Other={{{Source|}}} }}</td>
+<td>{{#switch:{{{DestinationType|}}}|Service={{ServiceMap|{{{Destination|}}}}}|Included Service={{IncludedServiceMap|{{{Destination|}}}}}|Third Party={{MapThirdPartyItem|{{{Destination}}}}}|Other={{{Destination|}}} }}</td>
 <td>{{ProtocolsMap|{{{Protocol|}}}}}</td>
 <td>{{{Port|}}}</td>
 <td>{{TrafficTypesMap|{{{Classification|}}}}}</td>

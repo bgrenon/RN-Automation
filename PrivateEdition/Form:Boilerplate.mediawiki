@@ -1,0 +1,31 @@
+<noinclude>
+This is the "Boilerplate" form.
+To create a page with this form, enter the page name below;
+if a page with that name already exists, you will be sent to a form to edit that page.
+
+{{#forminput:form=Boilerplate}}
+
+</noinclude><includeonly>
+<div id="wikiPreview" style="display: none; padding-bottom: 25px; margin-bottom: 25px; border-bottom: 1px solid #AAAAAA;"></div>
+{{{for template|Boilerplate|multiple}}}
+{| class="formtable"
+! Id: 
+| {{{field|Id|mandatory|default=uuid}}}
+|-
+! Short name for the boilerplate: 
+| {{{field|Name|mandatory|restricted}}}
+|-
+! Where will this boilerplate appear: 
+| {{{field|InUse|input type=tokens|mandatory|values=NF,HL|list|delimiter=,}}}
+|-
+! Enable boilerplate: 
+| {{{field|Enable|restricted|default=Yes}}}
+|}
+{{{end template}}}
+
+{{{standard input|summary}}}
+
+{{{standard input|minor edit}}} {{{standard input|watch}}}
+
+{{{standard input|save}}} {{{standard input|preview}}} {{{standard input|changes}}} {{{standard input|cancel}}}
+</includeonly>

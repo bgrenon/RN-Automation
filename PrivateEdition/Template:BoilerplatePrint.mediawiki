@@ -1,0 +1,20 @@
+<tr>
+<td>
+{{{Id|}}}
+</td>
+<td>
+{{{Name|}}}
+</td>
+<td>
+[[Template:{{{Id|}}}]]
+</td>
+<td>
+{{#switch:{{{InUse|}}}|NF=New feature|HL=Highlight}}
+</td>
+<td>
+{{{Enable|}}}
+</td>
+<td>
+{{#ifexpr:{{#len:{{#ifexist:Template:{{{Id|}}} |{{#sub:{{{{{Id|}}}}}|0|200}}|}}}} > 199 | {{#ifexist:Template:{{{Id|}}} |{{#sub:{{{{{Id|}}}}}|0|200}}|}}... |{{#ifexist:Template:{{{Id|}}} |{{#sub:{{{{{Id|}}}}}|0|200}}|}}}}
+</td>
+</tr>

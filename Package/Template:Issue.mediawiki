@@ -4,6 +4,7 @@ It should be called in the following format:
 <pre>
 {{Issue
 |JiraType=
+|NFBoilerplateId=
 |TicketNumber=
 |IssueCategoryId=
 |LastUpdated=
@@ -16,9 +17,10 @@ It should be called in the following format:
 </pre>
 
 Edit the page to see the template text.
-{{#cargo_declare:_table=Issue|JiraType=String|TicketNumber=String|IssueCategoryId=String|LastUpdated=Date|Content=Wikitext|LocalContent=Wikitext|SupportingDocumentation=Wikitext|DeploymentTypeId=List (,) of String}}
+{{#cargo_declare:_table=Issue|JiraType=String|NFBoilerplateId=String|TicketNumber=String|IssueCategoryId=String|LastUpdated=Date|Content=Wikitext|LocalContent=Wikitext|SupportingDocumentation=Wikitext|DeploymentTypeId=List (,) of String}}
 </noinclude><includeonly>{{#cargo_store:_table=Issue
 |JiraType={{{JiraType|}}}
+|NFBoilerplateId={{{NFBoilerplateId|}}}
 |TicketNumber={{{TicketNumber|}}}
 |IssueCategoryId={{{IssueCategoryId|}}}
 |LastUpdated={{{LastUpdated|}}}

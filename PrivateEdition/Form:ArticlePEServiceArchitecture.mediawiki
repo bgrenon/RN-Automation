@@ -11,57 +11,19 @@ if a page with that name already exists, you will be sent to a form to edit that
 {{{info|edit title=Editing {{#explode:{{FULLPAGENAME}}|/|3}} }}}
 {{{for template|ArticlePEServiceArchitecture}}}
 {{{field|PageType|hidden}}}
-<div class="toggle-wrap">
-<toggledisplay linkstyle font-size:larger showtext="Set up your page" hidetext="Set up your page">
-<div class="toggle-content">
-<div class="col-md-2 form-label">Display title {{FormTip|
-Set up the H1 for your page. It should have some meat to establish context. The display name is also used in search results and links.}}</div>
-<div class="col-md-10">{{{field|DisplayName|size=100%}}}</div>
 
-<div class="col-md-2 form-label">TOC title {{FormTip|(Optional) Choose a shorter name for the left-hand navigation tree/TOC. Be careful to keep your Display and TOC page names logically consistent.}}</div>
-<div class="col-md-10">{{{field|TocName|size=100%}}}</div>
+<h3>Select service for this page</h3>
 
-<div class="col-md-2 form-label">Contextual statement {{FormTip|Add an introductory "contextual" sentence to set up the context for this page - a snapshot of what the reader can expect to learn or accomplish from reading this page. 
+{{{field|ServiceId|input type=tokens|cargo table=Service|cargo field=Id|mapping template=ServiceMap}}}
 
-The goal is this: 
-*A user reaches this page through search, or a link. 
-*They need to understand as quickly as possible whether this page is worth reading for their purposes.
-*The two best places to establish context are the title of the page, and this intro sentence.
-*If the reader determines that no, this is the wrong page, header or sidebar links should direct them to higher level pages to guide them further.
+<h3>Additional title</h3>
+For additional architecture pages, you must include a suffix to identify the page as separate from the standard architecture page. This display title on the resulting page will then show in this format: '''Architeture - suffix'''
 
-Here are a two examples of successful contextual statements:
+Example:
+'''Architecture - Cross-region'''
 
-[[File:ContextExample_hist.png]]
+Additional title: {{{field|AdditionalTitle|size=100}}}
 
-[[File:ContextExample_intraday.png]]
-
-
-{{NoteFormat|These context statements are saved in Cargo and can be re-used on portal pages and other global lists. Consider this secondary purpose as well: how this statement can give context to a link or list, letting a reader know what to expect before they click to come to this page.}}
-}}</div>
-
-<div class="col-md-10 ve-height">{{{field|Context|input type=textarea|editor=visualeditor|mandatory|maxlength=500}}}</div>
-
-<div class="col-md-2 form-label">EPPO head links</div>
-<div class="col-md-10">
-<div class="col-md-4">
-{{{field|Dimension|input type=tokens|size=30|values=Journey}}}<br/>
-<span class="form-label bottom">Related topics tags {{FormTip|Set up a "dimension" tag to enable a "related topics" widget between a tightly-coupled set of pages. For example "email" could be a dimension that applies to a set of pages within your doc or doc set pertaining to email.}}</span>
-</div>
-<div class="col-md-4">
-{{{field|UseCase|input type=tokens|size=10|cargo table=PublicUseCase|cargo field=DisplayName|mapping template=UCList}}}<br/>
-<span class="form-label bottom">Use cases{{FormTip|Select the use case(s) related to this topic.}}</span>
-</div>
-</div>
-
-<div class="col-md-2 form-label">Genesys Engage cloud settings</div>
-<div class="col-md-10">
-<div class="col-md-4">{{{field|Role|input type=tokens|size=100%|cargo table=PEC_User_Role_MasterList|cargo field=Role}}}<br/>
-<span class="form-label bottom">User roles{{FormTip|Select the user role(s) for this page. For example, if this is an article in Agent Setup, the user role would be Administrator.}}</span></div>
-</div>
-<div style="clear:both;"></div>
-</div>
-</toggledisplay>
-</div>
 
 <h2>Introduction</h2>
 Explain the architecture of all services in the container and introduce the architecture diagram. Link to the suite-level architecture page: {{SuiteLevelLink|architecture}}
@@ -74,38 +36,122 @@ Image filename: {{{field|Image|size=27}}}
 
 Alt-text: {{{field|AltText|size=100}}}
 
+{{NoteFormat|You can select only one diagram per architecture page. If your service needs more diagrams, create a new page for each diagram. Contact [mailto:ixhelpdesk@genesys.com IX Help Desk] if you need help with this form, or if you need changes made to the form to accomodate your team's needs.}}
 
-{{{field|ArticlePEServiceArchitectureSection|holds template}}}
+<h2>Connections table</h2>
+{{#invoke:PEArchitecture|findImages}}
 
+{{{field|PEConnections|holds template}}}
 {{{end template}}}
-{{{for template|ArticlePEServiceArchitectureSection|multiple|embed in field=ArticlePEServiceArchitecture[ArticlePEServiceArchitectureSection]|displayed fields when minimized=sectionHeading|add button text=Add additional architecture diagram }}}
+{{{for template|PEConnections|multiple|embed in field=ArticlePEServiceArchitecture[PEConnections]|displayed fields when minimized=sectionHeading|add button text=Add row|displayed fields when minimized=Connection,Source}}}
 
-<div class="col-md-2 form-label">Introdution </div>
-<div class="col-md-10">{{{field|IntroductionText|input type=textarea|editor=visual editor}}}</div>
-
-<div id="Horizontal">
-<div class="col-md-2 form-label">Select image</div>
+{{Field|Number in diagram|{{{field|Connection|input type=text|label=Diagram number}}}}}
+<div class="col-md-2 form-label">Source</div>
 <div class="col-md-10">
-<div class="col-md-4">{{{field|image|size=27}}}<br/>
-<span class="form-label bottom">Filename or Vimeo ID</span></div>
-<div class="col-md-10">{{{field|AltText|size=100}}}
-<span class="form-label bottom">Alt-Text</span></div>
-
+	<div class="col-md-3">
+{{{field|SourceType|input type=dropdown|values=Service,Included Service,UI,API,Other|show on select=Service=>SourceService;Included Service=>SourceIncluded;UI=>SourceUI;API=>SourceAPI;Other=>SourceOther}}}
+</div>
+<div id="SourceService">
+<div class="col-md-3">
+{{{field|SourceService|input type=dropdown|values={{#cargo_query:tables=Service|fields=Service.Id|no html}}|mapping template=ServiceMap }}} 
+<span class="form-label bottom">Service</span>
 </div>
 </div>
-
-<div class="form-label">Section text</div>
-<div class="col-md-12">{{{field|structuredtext|input type=textarea|editor=visualeditor}}}</div>
-
-<div id="Horizontal">
-<div class="form-label">Wide section text{{FormTip|Add extra full-width text beneath the horizontal text-image pair (optional)}}</div>
-<div class="col-md-12 ve-height">{{{field|structuredtextwide|input type=textarea|editor=visualeditor}}}</div>
+<div id="SourceIncluded">
+	<div class="col-md-3">
+{{{field|SourceIncluded|input type=dropdown|values={{#cargo_query:tables=IncludedService|fields=IncludedService.Id|no html}}|mapping template=IncludedServiceMap }}} 
+<span class="form-label bottom">Included Service</span>
 </div>
+</div>
+<div id="SourceUI">
+	<div class="col-md-3">
+{{{field|SourceUI}}} 
+<span class="form-label bottom">UI</span>
+</div>
+</div>
+<div id="SourceAPI">
+	<div class="col-md-3">
+{{{field|SourceAPI }}} 
+<span class="form-label bottom">API</span>
+</div>
+</div>
+<div id="SourceOther">
+<div class="col-md-3">
+{{{field|SourceOther|input type=text}}} 
+<span class="form-label bottom">Other</span>
+</div>
+</div>
+</div>
+<div class="col-md-2 form-label">Destination</div>
+<div class="col-md-10">
+	<div class="col-md-3">
+{{{field|DestinationType|input type=dropdown|values=Service,Included Service,Third Party,Other|show on select=Service=>DestinationService;Included Service=>DestinationIncluded;Third Party=>DestinationThirdParty;Other=>DestinationOther}}}
+</div>
+<div id="DestinationService">
+<div class="col-md-3">
+{{{field|DestinationService|input type=dropdown|values={{#cargo_query:tables=Service|fields=Service.Id|no html}}|mapping template=ServiceMap }}} 
+<span class="form-label bottom">Service</span>
+</div>
+</div>
+<div id="DestinationIncluded">
+<div class="col-md-3">
+{{{field|DestinationIncludedService|input type=dropdown|values={{#cargo_query:tables=IncludedService|fields=IncludedService.Id|no html}}|mapping template=IncludedServiceMap }}} 
+<span class="form-label bottom">Included Service</span>
+</div>
+</div>
+<div id="DestinationThirdParty">
+	<div class="col-md-3">
+		{{{field|DestinationThirdParty|input type=dropdown|values={{#cargo_query:tables=ThirdPartyItem|fields=ThirdPartyItem.Id|no html}}|mapping template=MapThirdPartyItem}}}
+	</div>
+</div>
+<div id="DestinationOther">
+<div class="col-md-3">
+{{{field|DestinationOther|input type=text}}} 
+<span class="form-label bottom">Other</span>
+</div>
+</div>
+</div>
+{{Field|Protocol|{{{field|Protocol|input type=dropdown|values={{#cargo_query:tables=Protocols|fields=Id|no html}}|mapping template=ProtocolsMap }}} }}
+{{Field|Port|{{{field|Port|input type=text}}}}}
+<div class="form-label">Purpose</div>
+<div class="col-md-12 ve-height">{{{field|Purpose|input type=textarea|editor=visualeditor}}}</div>
+{{Field|Classification|{{{field|Classification|input type=dropdown|values={{#cargo_query:tables=TrafficTypes|fields=Id|no html}}|mapping template=TrafficTypesMap }}}}}<!--dropdown|values=incoming,outgoing,bidirectional}}}-->
 
 {{{end template}}}
 {{{standard input|summary}}}
-{{FormCSS}}
 
+{{#css:
+.form-label {clear:both}
+.col-md-3 {margin-right:15px;}
+.col-md-2, .col-md-3, .col-md-4, .col-md-10, .col-md-12 { padding-left:0; margin-bottom: 15px;}
+.col-md-4 p { margin-bottom: 0; }
+.select2-container-multi .select2-choices { border-color: #BBB; background-image: none; }
+.select2-container-multi .select2-choices .select2-search-field input { font-family: roboto; }
+.select2-container-multi .select2-choices .select2-search-field { height: 30px; }
+input { font-size: 16px; }
+.form-label { font-weight: 500; text-align:left; }
+.bottom { font-size: 80%; margin-top: -10px; font-weight: 300; }
+.radioButtonItem, .checkboxLabel { padding-top: 0; margin-bottom: 0; font-weight: 300}
+.ve-height .ve-area-wrapper .ve-ce-documentNode { min-height: 100px; }
+.ve-area-wrapper .ve-ce-documentNode { padding: 0.6em 0.8em; min-height: 325px; max-height: 500px; overflow-y: scroll; }
+#mw-content-text .select2-container .select2-choice { height: 34px; line-height: normal; }
+div.pfComboBox { margin-bottom: 0; }
+#pf-expand-all { margin: 20px 0 30px 0; }
+#pf-expand-all a { background-color: #5d3e5d; border: 2px solid #5d3e5d; padding: 0.45em 2.50em; color: white; margin-top: 20px; border-radius: 3px; }
+.panel-title { padding: 10px; }
+.panel>.panel-heading { padding: 0 }
+.toggle-wrap { margin: 20px 0 25px; }
+.toggle-wrap>a{ display: block; padding: 10px; color: #333; background-color: #f5f5f5; border: 1px solid #ddd; border-top-left-radius: 3px; border-top-right-radius: 3px; }
+.toggle-wrap>a:before { content: '\f0d7'; float: left; font-family: FontAwesome; margin-right: 10px; text-decoration: none; }
+.toggle-content { padding: 10px 20px; border: 1px solid #ddd; border-top: none; border-bottom-left-radius: 3px; border-bottom-right-radius: 3px; }
+.multipleTemplateInstanceTable table > tbody > tr > td, .multipleTemplateInstanceTable table > tbody > tr > th {
+    padding: 5px;
+    background-color: white !important;
+    border: 1px solid lightgrey; }
+}}
+{{#css: #acrolinxContainer {
+    display: none;
+} }}
 
 {{{standard input|minor edit}}} {{{standard input|watch}}}
 

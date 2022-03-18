@@ -9,13 +9,7 @@
 	|fields=CONCAT('[[File:',Image,'|',Size,'px|link=]]')
 	|delimiter=
 	|where=ComponentId HOLDS "{{{ComponentId|}}}" AND ReleaseDate="{{{ReleaseDate|}}}" AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}" {{#switch:{{#explode:{{FULLPAGENAME}}|/|3}}|Hosted=AND DeploymentType.Name!="Private Edition"|#default=}} }}</td>
-<td>{{#cargo_query:
-	table=ComponentRN,DeploymentType
-	|join on=ComponentRN.DeploymentTypeId HOLDS DeploymentType.Id
-	|fields=Highlight
-	|group by=Highlight
-	|delimiter=
-	|where=ComponentId HOLDS "{{{ComponentId|}}}" AND ReleaseDate="{{{ReleaseDate|}}}" AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}"}}</td>
+<td>{{#if:{{{HighlightBoilerplateId|}}}|{{{{{HighlightBoilerplateId|}}}}}<br/>{{{Highlights|}}}|{{{Highlights|}}}}}</td>
 {{#if:{{{ReleaseNumber|}}}|<td>{{{ReleaseNumber|}}}</td>|}}
 </tr>
 <noinclude>[[Category:RNAutomation]]</noinclude>

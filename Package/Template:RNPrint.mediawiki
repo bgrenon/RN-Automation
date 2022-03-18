@@ -22,9 +22,11 @@ tables=ComponentRN,DeploymentType=DT
 }}{{#cargo_query:
 tables=ComponentRN,Issue,IssueCategory
 |join on=ComponentRN._pageName=Issue._pageName,Issue.IssueCategoryId=IssueCategory.Id
-|fields=CONCAT('<h3>',IssueCategory.SectionName,'</h3>')=Name,IF (SupportingDocumentation IS NOT NULL, CONCAT (LocalContent,IF (Issue.TicketNumber IS NOT NULL, CONCAT (' (',Issue.TicketNumber,')'), ' '),' </br><b>More info</b>: ' ,SupportingDocumentation),CONCAT (LocalContent,IF (Issue.TicketNumber IS NOT NULL, CONCAT(' (',Issue.TicketNumber,')'), ' ')))
-|format=outline
-|outline fields=Name
+|fields=IssueCategory.SectionName=Name,SupportingDocumentation,LocalContent,Issue.TicketNumber,SupportingDocumentation,NFBoilerplateId,ReleaseNumber,ComponentId
+|format=template
+|template=RNPrintFormat
+|named args=yes
 |where=ComponentRN.ComponentId HOLDS '{{{Component|}}}' AND ReleaseNumber="{{{ReleaseNumber|}}}" AND LocalContent IS NOT NULL AND IssueCategoryId IS NOT NULL AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}"
 |order by=IssueCategory.PrintOrder ASC
+|group by=IssueCategory.SectionName
 }}__NOCACHE__{{#switch:{{NAMESPACENUMBER}}|620=<span style="font-size:80%">[[{{{Page|}}}|(Link to source)]]</span>|#default=}}</includeonly><noinclude>[[Category:RNAutomation]]</noinclude>

@@ -5,7 +5,7 @@ It should be called in the following format:
 <pre>
 {{ArticlePEServiceArchitecture
 |ServiceId=
-|Images=
+|Image=
 }}
 
 </pre>
@@ -13,7 +13,7 @@ Edit the page to see the template text.
 
 {{#cargo_declare:_table=ArticlePEServiceArchitecture
 |ServiceId=String
-|Images=List (,) of String
+|Image=List (,) of String
 }}{{#cargo_attach:_table=Article}}
 
 </noinclude>
@@ -24,25 +24,28 @@ __NOEDITSECTION__{{#cargo_store:_table=Article
 |DisplayName=Architecture {{#if:{{{AdditionalTitle|}}}|- {{{AdditionalTitle|}}}|}}
 |TocName={{{TocName|}}}
 |Dimension={{{Dimension|}}}
-|Context=Lean about Voice Microservices architecture.
+|Context=Learn about {{#cargo_query:tables=ArticlePEServiceArchitecture,Service
+|join on=ArticlePEServiceArchitecture.ServiceId=Service.Id|fields=Service.Name|where=ArticlePEServiceArchitecture._pageName="{{FULLPAGENAME}}"}} {{#if:{{{AdditionalTitle|}}}|- {{lc:{{{AdditionalTitle|}}}|}}}} architecture
 |Product={{MINTYDOCSPRODUCT}}
 |Manual={{#explode:{{FULLPAGENAME}}|/|2}}
 |PEPageType={{{PEPageType|}}}
 }}
 {{#cargo_store:_table=ArticlePEServiceArchitecture
 |ServiceId={{{ServiceId|}}}
-|Images={{{Images|}}}
+|Image={{{Image|}}}
 }}<!-- Set MintyDocs topic, including a switch for different treatment for Manual pages -->{{#mintydocs_topic:
 |display name=Architecture {{#if:{{{AdditionalTitle|}}}|- {{{AdditionalTitle|}}}|}}
-}}<!-- Defining the EPPO Header; all parameters need to be passed to it -->{{EPPOHead|ServiceId={{{ServiceId|}}}|Context={{#if:{{{IntroductionText|}}}|
+}}<!-- Defining the EPPO Header; all parameters need to be passed to it -->{{EPPOHead|ServiceId={{{ServiceId|}}}|Context=Learn about {{#cargo_query:tables=ArticlePEServiceArchitecture,Service
+|join on=ArticlePEServiceArchitecture.ServiceId=Service.Id|fields=Service.Name|where=ArticlePEServiceArchitecture._pageName="{{FULLPAGENAME}}"}} {{#if:{{{AdditionalTitle|}}}|- {{lc:{{{AdditionalTitle|}}}|}}}} architecture|PageType=Article}}
+{{#if:{{{IntroductionText|}}}|
+<h2>Introduction</h2>
 {{{IntroductionText|}}}
-|}}|PageType=Article}}
-
+|}}
 ==Architecture Diagram==
 [[File:{{{Image}}}]]
 
 {{#cargo_query:tables=PEConnections
-|fields=Connection,Source,Destination,Protocol,Port,Purpose,Classification
+|fields=Connection,SourceType,Source,DestinationType,Destination,Protocol,Port,Purpose,Classification
 |intro=<h2>Connections table</h2><table class="sortable"><tr><th>Connection</th><th>Source</th><th>Destination</th><th>Protocol</th><th>Port</th><th>Classification</th><th>Data that travels on this connection</th></tr>
 |outro=</table>
 |named args=yes
@@ -54,4 +57,5 @@ __NOEDITSECTION__{{#cargo_store:_table=Article
 }}
 
 {{{PEConnections|}}}
+{{{PEConnectionsPrint|}}}
 [[Category:Linkable]]</includeonly><noinclude>[[Category:MintyDocs_Cargo]]</noinclude>

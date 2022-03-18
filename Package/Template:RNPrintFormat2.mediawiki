@@ -1,0 +1,5 @@
+<li>
+{{#if:{{{NFBoilerplateId|}}}|{{{{{NFBoilerplateId|}}}}}|{{{LocalContent|}}}}}
+{{#if:{{{TicketNumber|}}}| &nbsp;({{{TicketNumber|}}})}}
+{{#if:{{{SupportingDocumentation|}}}|<br/>'''More info: '''{{{SupportingDocumentation|}}}'''}}
+</li>

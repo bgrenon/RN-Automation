@@ -1,0 +1,16 @@
+<noinclude>
+This is the "Boilerplate" template.
+It should be called in the following format:
+<pre>
+{{Boilerplate
+|Id=
+|Name=
+|InUse=
+|Enable=
+}}
+</pre>
+Edit the page to see the template text.
+{{#cargo_declare:_table=Boilerplate|Id=String|Name=Wikitext|InUse=String|Enable=Boolean}}
+</noinclude><includeonly>{{#cargo_store:_table=Boilerplate|Id={{{Id|}}}|Name={{{Name|}}}|InUse={{{InUse|}}}|Enable={{{Enable|}}} }}
+</includeonly>
+<noinclude>[[Category:RNAutomation]]</noinclude>

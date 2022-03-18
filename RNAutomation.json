@@ -70,6 +70,16 @@
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Template%3ARNPrint.mediawiki"
 				},
 				{
+					"name": "RNPrintFormat",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Template%3ARNPrintFormat.mediawiki"
+				},
+				{
+					"name": "RNPrintFormat2",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Template%3ARNPrintFormat2.mediawiki"
+				},
+				{
 					"name": "RNPrintSubhead",
 					"namespace": "NS_TEMPLATE",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Template%3ARNPrintSubhead.mediawiki"
@@ -556,6 +566,11 @@
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3APEConnectionsPrint.mediawiki"
 				},
 				{
+					"name": "PEConnections",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3APEConnections.mediawiki"
+				},
+				{
 					"name": "PEArchitectureSection",
 					"namespace": "NS_TEMPLATE",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3APEArchitectureSection.mediawiki"
@@ -574,6 +589,21 @@
 					"name": "TrafficTypesMap",
 					"namespace": "NS_TEMPLATE",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3ATrafficTypesMap.mediawiki"
+				},
+				{
+					"name": "Boilerplate",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3ABoilerplate.mediawiki"
+				},
+				{
+					"name": "BoilerplateMap",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3ABoilerplateMap.mediawiki"
+				},
+				{
+					"name": "BoilerplatePrint",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Form%3ABoilerplatePrint.mediawiki"
 				}
 
 			]

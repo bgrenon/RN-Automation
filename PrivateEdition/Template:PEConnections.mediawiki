@@ -1,0 +1,38 @@
+<noinclude>This is the "PEConnections" template.
+It should be called in the following format:
+<pre>
+{{PEConnections
+|Connection=
+|Source=
+|SourceType=
+|Destination=
+|DestinationType=
+|Protocol=
+|Port=
+|Purpose=
+|Classification=
+}}
+</pre>
+Edit the page to see the template text.
+{{#cargo_declare:_table=PEConnections
+|Connection=Integer
+|Source=String
+|SourceType=String
+|Destination=String
+|DestinationType=String
+|Protocol=String
+|Port=String
+|Purpose=Wikitext
+|Classification=String}}
+</noinclude><includeonly>{{#cargo_store:_table=PEConnections
+|Connection={{{Connection|}}}
+|SourceType={{{SourceType|}}}
+|Source={{#switch:{{{SourceType|}}}|Service={{{SourceService|}}}|Included Service={{{SourceIncluded|}}}|UI={{{SourceUI|}}}|API={{{SourceAPI|}}}|Other={{{SourceOther|}}} }}
+|DestinationType={{{DestinationType|}}}
+|Destination={{#switch:{{{DestinationType|}}}|Service={{{DestinationService|}}}|Included Service={{{DestinationIncludedService|}}}|Third Party={{{DestinationThirdParty|}}}|Other={{{DestinationOther|}}} }}
+|Protocol={{{Protocol|}}}
+|Port={{{Port|}}}
+|Purpose={{{Purpose|}}}
+|Classification={{{Classification|}}}
+}}
+</includeonly>

@@ -25,8 +25,8 @@ if a page with that name already exists, you will be sent to a form to edit that
 <div class="col-md-2 form-label">Mixed Mode Release Date:</div>
 <div class="col-md-10">{{{field|MixedModeReleaseDate|input type=datepicker}}}</div> 
 <!-- adding Boilerplate field  -->
-{{Field|Select a highlight boilerplate| {{{field|HighlightBoilerplateId|input type=tokens|existing values only|
-values={{#cargo_query:tables=Boilerplate|fields=Id|where=InUse="HL" AND Enable|no html}}|mapping template=BoilerplateMap}}} 
+{{Field|Select Boilerplate| {{{field|HighlightBoilerplateId|input type=tokens|existing values only|
+values={{#cargo_query:tables=Boilerplate|fields=Id|where=InUse="HL"|no html}}|mapping template=BoilerplateMap}}} 
 }}
 
 <div class="col-md-2 form-label">Highlight:{{FormTip|Craft a single sentence that sums up the main selling point for this release. For example, <need 2 or 3 solid examples>}}</div>
@@ -49,8 +49,8 @@ Craft these into an unordered (bulleted) list. Note: this will be automated at s
 <!-- removing deployment type <div class="col-md-2 form-label">Deployment Type</div>
 <div class="col-md-10">{{{field|DeploymentTypeId|input type=tokens|cargo table=DeploymentType|cargo field=Id|mapping template=DeploymentTypeMap}}}</div>-->
 <!-- Adding new feature boilerplate -->
-{{Field|Select a boilerplate text| {{{field|NFBoilerplateId|input type=tokens|existing values only|
-values={{#cargo_query:tables=Boilerplate|fields=Id|where=InUse="NF" AND Enable|no html}}|mapping template=BoilerplateMap}}} 
+{{Field|Select New Feature Boilerplate| {{{field|NFBoilerplateId|input type=tokens|existing values only|
+values={{#cargo_query:tables=Boilerplate|fields=Id|where=InUse="NF"|no html}}|mapping template=BoilerplateMap}}} 
 }}
 <div class="col-md-2 form-label">Content</div>
 <div class="col-md-10">{{{field|Content|input type=textarea|restricted=GenericUser}}}</div>

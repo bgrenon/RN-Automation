@@ -4,10 +4,12 @@ It should be called in the following format:
 <pre>
 {{ComponentRN
 |Highlight=
+|HighlightBoilerplateId=
 |ComponentId=
 |ReleaseNumber=
 |ReleaseDate=
 |PrivateEditionReleaseDate=
+|MixedModeReleaseDate=
 |ReleaseTypeId=
 |JQL=
 |DeploymentTypeId=
@@ -15,9 +17,9 @@ It should be called in the following format:
 }}
 </pre>
 Edit the page to see the template text.
-{{#cargo_declare:_table=ComponentRN|Highlight=Wikitext|Containers=Wikitext|ComponentId=List (,) of String|ReleaseNumber=String|ReleaseDate=String|PrivateEditionReleaseDate=String|ReleaseTypeId=String|JQL=String|DeploymentTypeId=List (,) of String}}
-</noinclude><includeonly>{{#cargo_store:_table=ComponentRN|Highlight={{{Highlight|}}}|Containers={{{Containers|}}}|ComponentId={{{ComponentId|}}}|ReleaseNumber={{#explode:{{FULLPAGENAME}}|/|2}}
-|ReleaseDate={{{ReleaseDate|}}}|PrivateEditionReleaseDate={{{PrivateEditionReleaseDate|}}}|ReleaseTypeId={{{ReleaseTypeId|}}}|JQL={{{JQL|}}}|DeploymentTypeId={{{DeploymentTypeId|}}}}}{{#mintydocs_topic:
+{{#cargo_declare:_table=ComponentRN|Highlight=Wikitext|HighlightBoilerplateId=String|Containers=Wikitext|ComponentId=List (,) of String|ReleaseNumber=String|ReleaseDate=String|PrivateEditionReleaseDate=String|MixedModeReleaseDate=String|ReleaseTypeId=String|JQL=String|DeploymentTypeId=List (,) of String}}
+</noinclude><includeonly>{{#cargo_store:_table=ComponentRN|Highlight={{{Highlight|}}}|HighlightBoilerplateId={{{HighlightBoilerplateId|}}}|Containers={{{Containers|}}}|ComponentId={{{ComponentId|}}}|ReleaseNumber={{#explode:{{FULLPAGENAME}}|/|2}}
+|ReleaseDate={{{ReleaseDate|}}}|PrivateEditionReleaseDate={{{PrivateEditionReleaseDate|}}}|MixedModeReleaseDate={{{MixedModeReleaseDate|}}}|ReleaseTypeId={{{ReleaseTypeId|}}}|JQL={{{JQL|}}}|DeploymentTypeId={{{DeploymentTypeId|}}}}}{{#mintydocs_topic:
 |standalone
 |display name=Base unit of content for {{#cargo_query:tables=Component|fields=Name|where=Id="{{{ComponentId|}}}"|no html}} - {{#explode:{{FULLPAGENAME}}|/|2}}
 }}
@@ -38,11 +40,17 @@ Edit the page to see the template text.
 !Highlight
 |{{{Highlight|}}}
 |-
+!HighlightBoilerplate
+|{{#ifexists:Template:{{{HighlightBoilerplateId|}}}|{{{{{HighlightBoilerplateId|}}}}}
+|-
 ! Release Date
 | {{{ReleaseDate|}}}
 |-
 ! Private Edition Release Date
 | {{{PrivateEditionReleaseDate|}}}
+|-
+! Mixed Mode Release ReleaseDate
+| {{{MixedModeReleaseDate|}}}
 |-
 ! Private Edition Containers List
 | 
