@@ -1,0 +1,1 @@
+<includeonly>{{#arraymap:{{{1|}}}|*|x|{{#switch:{{#sub:x|-3|}}|#default=*x{{#switch:{{NAMESPACENUMBER}}|620={{SuperscriptFlag}}|#default=}}|tgz=}}|\n }}</includeonly><noinclude>[[Category:PrivateEdition]]</noinclude>

@@ -604,6 +604,26 @@
 					"name": "BoilerplatePrint",
 					"namespace": "NS_TEMPLATE",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Form%3ABoilerplatePrint.mediawiki"
+				},
+				{
+					"name": "ArrayMapHelm",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Form%3AArrayMapHelm.mediawiki"
+				},
+				{
+					"name": "ArrayMapDocker",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Form%3AArrayMapDocker.mediawiki"
+				},
+				{
+					"name": "GetContainers",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Form%3AGetContainers.mediawiki"
+				},
+				{
+					"name": "GetMaxPrivateEditionReleaseDate",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Form%3AGetMaxPrivateEditionReleaseDate.mediawiki"
 				}
 
 			]

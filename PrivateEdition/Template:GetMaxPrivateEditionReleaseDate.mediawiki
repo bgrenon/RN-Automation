@@ -1,0 +1,10 @@
+<includeonly><!-- Finding the MAX PrivateEditionReleaseDate and passing that and ComponentId to formatting template -->
+{{#cargo_query:
+tables=ComponentRN,Component
+|join on=ComponentRN.ComponentId HOLDS Component.Id
+|fields=ComponentRN.ComponentId=ComponentId,MAX(PrivateEditionReleaseDate)=PrivateEditionReleaseDate
+|where=ComponentId HOLDS '{{{ComponentId|}}}' AND PrivateEditionReleaseDate IS NOT NULL AND ComponentRN._pageNamespace="0"
+|format=template
+|template=GetContainers
+|named args=yes
+}}</includeonly><noinclude>[[Category:PrivateEdition]]</noinclude>
