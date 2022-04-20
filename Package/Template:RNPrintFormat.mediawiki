@@ -3,11 +3,11 @@
 {{#cargo_query:
 tables=ComponentRN,Issue,IssueCategory
 |join on=ComponentRN._pageName=Issue._pageName,Issue.IssueCategoryId=IssueCategory.Id
-|fields=SupportingDocumentation,LocalContent,Issue.TicketNumber,SupportingDocumentation,NFBoilerplateId
+|fields=SupportingDocumentation,LocalContent,Issue.TicketNumber,SupportingDocumentation,NFBoilerplateId, ReleaseNumber
 |format=template
 |template=RNPrintFormat2
 |named args=yes
-|where=ComponentRN.ComponentId HOLDS '{{{ComponentId|}}}' AND ReleaseNumber="{{{ReleaseNumber|}}}" AND LocalContent IS NOT NULL AND IssueCategoryId IS NOT NULL AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}" AND IssueCategory.SectionName="{{{Name|}}}"
+|where=ComponentRN.ComponentId HOLDS '{{{ComponentId|}}}' AND ReleaseNumber="{{{ReleaseNumber|}}}" AND IssueCategoryId IS NOT NULL AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}" AND IssueCategory.SectionName="{{{Name|}}}"
 |order by=IssueCategory.PrintOrder ASC
 |group by=LocalContent
 }}

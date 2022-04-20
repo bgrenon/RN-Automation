@@ -26,7 +26,7 @@ tables=ComponentRN,Issue,IssueCategory
 |format=template
 |template=RNPrintFormat
 |named args=yes
-|where=ComponentRN.ComponentId HOLDS '{{{Component|}}}' AND ReleaseNumber="{{{ReleaseNumber|}}}" AND LocalContent IS NOT NULL AND IssueCategoryId IS NOT NULL AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}"
+|where=ComponentRN.ComponentId HOLDS '{{{Component|}}}' AND ReleaseNumber="{{{ReleaseNumber|}}}" AND IssueCategoryId IS NOT NULL AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}"
 |order by=IssueCategory.PrintOrder ASC
 |group by=IssueCategory.SectionName
 }}__NOCACHE__{{#switch:{{NAMESPACENUMBER}}|620=<span style="font-size:80%">[[{{{Page|}}}|(Link to source)]]</span>|#default=}}</includeonly><noinclude>[[Category:RNAutomation]]</noinclude>

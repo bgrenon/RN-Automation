@@ -175,8 +175,8 @@ tables=HIW
      |group by=MintyDocsManual._pageName,Service.Name,MintyDocsManual.ServiceId
 }}|\s}}{{#if:{{{ServiceId|}}}|{{#switch:{{{RN|}}}|#default=|Yes={{#if:{{#cargo_query: 
       tables=ArticleIndexRN
-      |where=ArticleIndexRN._pageName != "{{FULLPAGENAME}}"
-      |default=}}|{{#cargo_query: 
+      |where=ArticleIndexRN._pageName = "{{FULLPAGENAME}}"
+      |default=}}||{{#cargo_query: 
       tables=Article,ArticleIndexRN,Service
       |join on=Article._pageNamespace=ArticleIndexRN._pageNamespace,ArticleIndexRN.ServiceId HOLDS Service.Id
       |fields=CONCAT('[[',ArticleIndexRN._pageName,'|',ArticleIndexRN.DisplayName,']]')=Page
@@ -196,7 +196,7 @@ tables=HIW
       |group by=ArticleCloudRN._pageName,Service.Name<!--Article.DisplayName-->
       }}
       |group by=ArticleIndexRN._pageName,ArticleIndexRN.DisplayName
-      }} |}}
+      }} }}
  }}{{#switch:{{{RN|}}}|#default=|Yes={{#cargo_query: 
       tables=Article,ArticleHelmRN,Service
       |join on=Article._pageNamespace=ArticleHelmRN._pageNamespace,ArticleHelmRN.ServiceId HOLDS Service.Id
