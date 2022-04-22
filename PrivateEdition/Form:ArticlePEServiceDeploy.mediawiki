@@ -1,0 +1,121 @@
+<!-- New wiki page: Remove this with text of the new page --><noinclude>
+This is the "ArticlePEServiceDeploy" form.
+To create a page with this form, enter the page name below;
+if a page with that name already exists, you will be sent to a form to edit that page.
+
+
+{{#forminput:form=ArticlePEServiceDeploy}}
+
+</noinclude><includeonly>
+<div id="wikiPreview" style="display: none; padding-bottom: 25px; margin-bottom: 25px; border-bottom: 1px solid #AAAAAA;"></div>
+{{{info|edit title=Editing {{#explode:{{FULLPAGENAME}}|/|3}} }}}
+{{{for template|ArticlePEServiceDeploy}}}
+<div class="toggle-wrap">
+<toggledisplay linkstyle font-size:larger showtext="Set up this page" hidetext="Set up this page">
+<div class="toggle-content">
+<div class="col-md-2 form-label">Select the service for this topic:</div> 
+<div class="col-md-10">{{{field|ServiceId|input type=tokens|max values=1|cargo table=Service|cargo field=Id|mapping template=ServiceMap}}}</div>
+<div class="col-md-2 form-label">If this topic is for an included service, select the required included service:</div>
+<div class="col-md-19">{{{field|IncludedServiceId|input type=tokens|max values=1|values={{#cargo_query:tables=IncludedService|fields=IncludedService.Id|no html}}|mapping template=IncludedServiceMap}}}</div>
+
+<div class="col-md-2 form-label">Do you want to add "namespace assumptions" boilerplate to your page? {{FormTip|
+This option is selected by default. Deselect it to not display the boilerplate.}}</div> <div class="col-md-1">{{{field|IncludeAssumptions|input type=checkbox|values=yes,no|mandatory|default=yes}}}</div>
+
+<div class="col-md-9">
+<blockquote>
+{{Template:fad4ebcb-b064-4403-88b0-61809001e2cb}}
+</blockquote></div>
+<div style="clear:both;"></div>
+</div>
+</toggledisplay>
+</div>
+
+<h2>Start adding your content sections</h2>
+{{{field|Section|holds template}}}
+{{{end template}}}
+
+{{{for template|Section|multiple|embed in field=ArticlePEServiceDeploy[Section]|displayed fields when minimized=sectionHeading|add button text=Add a section}}}
+
+<div class="col-md-2 form-label">Section heading{{FormTip|
+===Set the heading for your section===
+Enter the H2 heading for this section. This heading populates the Bootstrap in-page navigation widget that appears in the right sidebar.
+
+Sample:
+[[File:Sampleheading.png]]}}</div>
+<div class="col-md-10">{{{field|sectionHeading|input type=text|size=80}}}</div>
+
+<div class="col-md-2 form-label">Anchor ID{{FormTip|
+===Set an anchor for this section===
+Use this ID for creating direct links to this section.
+
+Use an anchor for your direct section links so that you are free to change the section heading without breaking any incoming links.
+
+Note: The ID must be unique to this particular article. It does not need to be unique across the system.}}</div>
+<div class="col-md-10">{{{field|anchor|size=27}}}</div>
+
+<div class="col-md-2 form-label">Section alignment{{FormTip|
+===Choose the alignment for this section===
+You can choose from two possible layouts: horizontal and vertical.
+
+Horizontal layout is the default. In this layout, you must select an image which appears to the left, and accompanying text appears on the right.
+
+Vertical layout lets you add content full width, images or text, as you see fit.}}</div>
+<div class="col-md-10">{{{field|alignment|input type=dropdown|existing values only|default=Vertical|values=Horizontal,Vertical|show on select=Horizontal=>Horizontal}}}</div>
+
+<div id="Horizontal">
+<div class="col-md-2 form-label">Media</div>
+<div class="col-md-10">
+<div class="col-md-4">{{{field|Media|input type=combobox|values=Image,GIF,Video|existing values only}}}
+<span class="form-label bottom">Media type</span></div>
+<div class="col-md-4">{{{field|image|size=27}}}<br/>
+<span class="form-label bottom">Filename or Vimeo ID</span></div>
+<div class="col-md-10">{{{field|AltText|input type=text|size=100|maxlength=125}}}
+<span class="form-label bottom">Alt-Text</span></div>
+
+</div>
+</div>
+
+<div class="form-label">Section text</div>
+<div class="col-md-12">{{{field|structuredtext|input type=textarea|editor=visualeditor}}}</div>
+
+<div id="Horizontal">
+<div class="form-label">Wide section text{{FormTip|Add extra full-width text beneath the horizontal text-image pair (optional)}}</div>
+<div class="col-md-12 ve-height">{{{field|structuredtextwide|input type=textarea|editor=visualeditor}}}</div>
+</div>
+
+<div class="col-md-2 form-label">FAQ question{{FormTip|
+===Convert this section into an FAQ===
+You can convert any section into an FAQ. Create a useful question as your heading.  
+
+The FAQ sections for this guide appear if you add an FAQ page to this guide.
+
+Note: Use FAQs judiciously. Every "converted section" FAQ will be included in a general FAQ repository (Cargo) and will be re-used in various ways in the future.
+
+===To add an FAQ page to this guide:===
+#Click Manage Content -> Edit manual in the right sidebar.
+#Add FAQ to the Alternate Form field in the manage manual form.
+#Add an FAQ section and page to your topics list
+#When you open the red link for this new FAQ topic, select "FAQ" from the list of available alternate forms. 
+
+Sample FAQ page:
+[[File:FAQSample.png]]
+}}</div>
+<div class="col-md-10">{{{field|FAQHeading|input type=text|size=80}}}</div>
+
+<div class="col-md-2 form-label">Hide from published?</div>
+<div class="col-md-10">{{{field|Status|input type=radiobutton|values=Yes,No|default=No|mandatory}}}</div>
+{{{end template}}}
+
+
+{{{standard input|summary}}}
+
+{{FormCSS}}
+
+{{#css: #acrolinxContainer {
+    display: none;
+} }}
+
+{{{standard input|minor edit}}} {{{standard input|watch}}}
+
+{{{standard input|save and continue}}}{{{standard input|save}}} {{{standard input|preview}}} {{{standard input|changes}}} {{{standard input|cancel}}}
+</includeonly><noinclude>[[Category:Article_Cargo]][[Category:ActiveForms]][[Category:MintyDocs_Cargo]]</noinclude>
