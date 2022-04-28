@@ -7,9 +7,10 @@ It should be called in the following format:
 |Name=
 |DeploymentTypeId=
 |IpName=
+|ParentComponentId=
 }}
 </pre>
 Edit the page to see the template text.
-{{#cargo_declare:_table=Component|Id=String|Name=String|DeploymentTypeId=String|IpName=String}}
-</noinclude><includeonly>{{#cargo_store:_table=Component|Id={{{Id|}}}|Name={{{Name|}}}|DeploymentTypeId={{{DeploymentTypeId|}}}|IpName={{{IpName|}}} }}
+{{#cargo_declare:_table=Component|Id=String|Name=String|DeploymentTypeId=String|IpName=String|ParentComponentId=String}}
+</noinclude><includeonly>{{#cargo_store:_table=Component|Id={{{Id|}}}|Name={{{Name|}}}|DeploymentTypeId={{{DeploymentTypeId|}}}|IpName={{{IpName|}}}|ParentComponentId={{{ParentComponentId|}}} }}
 </includeonly><noinclude>[[Category:RNAutomation]]</noinclude>

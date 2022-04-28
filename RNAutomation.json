@@ -591,6 +591,12 @@
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3ATrafficTypesMap.mediawiki"
 				},
 				{
+					"name": "MapThirdPartyItemNameOnly",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3AMapThirdPartyItemNameOnly.mediawiki"
+				}
+				,
+				{
 					"name": "Boilerplate",
 					"namespace": "NS_TEMPLATE",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3ABoilerplate.mediawiki"
