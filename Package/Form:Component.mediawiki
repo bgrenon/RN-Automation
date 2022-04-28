@@ -22,7 +22,10 @@ For example, SIP Server is constrained to '''on-premises''' and '''private editi
 <div class="col-md-10">{{{field|DeploymentTypeId|input type=tokens|cargo table=DeploymentType|cargo field=Id}}}</div>  
 
 <div class="col-md-2 form-label">IP Name {{FormTip|Map this value to the incoming IP Name}}</div> 
-<div class="col-md-10">{{{field|IpName|input type=tokens|values={{#cargo_query:tables=RNElements|fields=IpName|group by=IpName|no html}} }}}--></div> 
+<div class="col-md-10">{{{field|IpName|input type=tokens|values={{#cargo_query:tables=RNElements|fields=IpName|group by=IpName|no html}} }}}</div> 
+
+<div class="col-md-2 form-label">Parent component {{FormTip|For child components whose parents hold their containers, use this field to point to the parent containers page. For example: for Agent Setup, set this field to "Workspace Web Edition"}}</div> 
+<div class="col-md-10">{{{field|ParentComponentId|input type=dropdown|cargo table=Component|cargo field=Id|mapping template=ComponentMap}}}</div> 
 {{{end template}}}
 
 {{{standard input|summary}}}

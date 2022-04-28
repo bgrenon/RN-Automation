@@ -1,0 +1,7 @@
+{{#cargo_query:
+table=ThirdPartyItem
+|fields=Name
+|where=Id="{{{1}}}"
+|no html
+|default=
+}}
