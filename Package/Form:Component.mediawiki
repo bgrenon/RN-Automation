@@ -15,12 +15,6 @@ if a page with that name already exists, you will be sent to a form to edit that
 <div class="col-md-2 form-label">Name</div> 
 <div class="col-md-10">{{{field|Name}}}</div>   
     
-<div class="col-md-2 form-label">Deployment Type {{FormTip|This component will populate all possible release note display types by default. To constrain this component to a subset of possible display types, set that list here.
-
-For example, SIP Server is constrained to '''on-premises''' and '''private edition''' displays only.
-}}</div> 
-<div class="col-md-10">{{{field|DeploymentTypeId|input type=tokens|cargo table=DeploymentType|cargo field=Id}}}</div>  
-
 <div class="col-md-2 form-label">IP Name {{FormTip|Map this value to the incoming IP Name}}</div> 
 <div class="col-md-10">{{{field|IpName|input type=tokens|values={{#cargo_query:tables=RNElements|fields=IpName|group by=IpName|no html}} }}}</div> 
 

@@ -33,13 +33,23 @@ tables=ArticleCloudRN__ComponentId,ArticleCloudRN,Component,ComponentRN__Compone
 |group by=RNElements.Version,RNElements.Filename
 |format=ul
 |where=ComponentRN.ComponentId HOLDS '{{{ComponentId|}}}' AND PrivateEditionReleaseDate="{{{PrivateEditionReleaseDate|}}}" AND Type="helm" AND ComponentRN._pageNamespace="0"
-|default={{#cargo_query:tables=ComponentRN
-|fields=Containers
-|where=ComponentRN.ComponentId HOLDS '{{{ComponentId|}}}' AND PrivateEditionReleaseDate="{{{PrivateEditionReleaseDate|}}}" AND ComponentRN._pageNamespace="0" AND Containers IS NOT NULL
-|format=template
-|template=ArrayMapHelm
-|default=N/A
-}}
+|default=
+     {{#cargo_query:tables=ComponentRN
+     |fields=Containers
+     |where=ComponentRN.ComponentId HOLDS '{{{ComponentId|}}}' AND PrivateEditionReleaseDate="{{{PrivateEditionReleaseDate|}}}" AND ComponentRN._pageNamespace="0" AND Containers IS NOT NULL
+     |format=template
+     |template=ArrayMapHelm
+     |default=
+           {{#cargo_query: 
+           tables=ArticleHelmRN,Component
+           |join on=ArticleHelmRN.ComponentId HOLDS Component.ParentComponentId
+           |fields=CONCAT('See [[',ArticleHelmRN._pageName,'|parent]]*') 
+           |where=Component.Id = "{{{ComponentId|}}}" AND ArticleHelmRN._pageNamespace="0"
+           |delimiter= 
+           |default=N/A
+           |group by=ArticleHelmRN._pageName,Component.Name
+           }}
+     }}
 }}
 </td>
 <td>
@@ -51,13 +61,23 @@ tables=ArticleCloudRN__ComponentId,ArticleCloudRN,Component,ComponentRN__Compone
 |group by=RNElements.Version,RNElements.Filename
 |format=ul
 |where=ComponentRN.ComponentId HOLDS '{{{ComponentId|}}}' AND PrivateEditionReleaseDate="{{{PrivateEditionReleaseDate|}}}" AND Type="docker" AND ComponentRN._pageNamespace="0"
-|default={{#cargo_query:tables=ComponentRN
-|fields=Containers
-|where=ComponentRN.ComponentId HOLDS '{{{ComponentId|}}}' AND PrivateEditionReleaseDate="{{{PrivateEditionReleaseDate|}}}" AND ComponentRN._pageNamespace="0" AND Containers IS NOT NULL
-|format=template
-|template=ArrayMapDocker
-|default=N/A
-}}
+|default=
+        {{#cargo_query:tables=ComponentRN
+        |fields=Containers
+        |where=ComponentRN.ComponentId HOLDS '{{{ComponentId|}}}' AND PrivateEditionReleaseDate="{{{PrivateEditionReleaseDate|}}}" AND ComponentRN._pageNamespace="0" AND Containers IS NOT NULL
+        |format=template
+        |template=ArrayMapDocker
+        |default=
+              {{#cargo_query: 
+              tables=ArticleHelmRN,Component
+              |join on=ArticleHelmRN.ComponentId HOLDS Component.ParentComponentId
+              |fields=CONCAT('See [[',ArticleHelmRN._pageName,'|parent]]*') 
+              |where=Component.Id = "{{{ComponentId|}}}" AND ArticleHelmRN._pageNamespace="0"
+              |delimiter= 
+              |default=N/A
+              |group by=ArticleHelmRN._pageName,Component.Name
+              }}
+        }}
 }}
 </td>
 </tr></includeonly><noinclude>[[Category:PrivateEdition]]</noinclude>
