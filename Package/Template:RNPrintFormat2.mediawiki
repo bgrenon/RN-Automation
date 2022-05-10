@@ -1,4 +1,5 @@
 <li>
+{{#cargo_query:tables=Issue,DeploymentType|join on=Issue.DeploymentTypeId HOLDS DeploymentType.Id|intro=<b>(|outro=&nbsp;only)</b>|delimiter=&nbsp;and|fields=DeploymentType.Name|where=TicketNumber="{{{TicketNumber|}}}"|default=}}
 {{#if:{{{NFBoilerplateId|}}}|{{{{{NFBoilerplateId|}}}}}|{{{LocalContent|}}}}}
 {{#if:{{{TicketNumber|}}}| &nbsp;({{{TicketNumber|}}})}}
 {{#if:{{{SupportingDocumentation|}}}|<br/>'''More info: '''{{{SupportingDocumentation|}}}'''}}

@@ -367,6 +367,11 @@
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3AIncludedService.mediawiki"
 				},
 				{
+					"name": "IncludedServiceMap",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3AIncludedServiceMap.mediawiki"
+				},
+				{
 					"name": "PEAlert",
 					"namespace": "NS_TEMPLATE",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3APEAlert.mediawiki"

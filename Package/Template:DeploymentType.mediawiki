@@ -7,11 +7,12 @@ It should be called in the following format:
 |Name=
 |Image=
 |Size=
+|Hosted=
 }}
 </pre>
 Edit the page to see the template text.
-{{#cargo_declare:_table=DeploymentType|Id=String|Name=String|Image=File|Size=Integer}}
-</noinclude><includeonly>{{#cargo_store:_table=DeploymentType|Id={{{Id|}}}|Name={{{Name|}}}|Image={{{Image|}}}|Size={{{Size|}}} }}
+{{#cargo_declare:_table=DeploymentType|Id=String|Name=String|Image=File|Size=Integer|Hosted=Boolean}}
+</noinclude><includeonly>{{#cargo_store:_table=DeploymentType|Id={{{Id|}}}|Name={{{Name|}}}|Image={{{Image|}}}|Size={{{Size|}}}|Hosted={{{Hosted|}}} }}
 </includeonly>
 
 

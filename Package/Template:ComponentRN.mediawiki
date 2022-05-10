@@ -69,7 +69,7 @@ Edit the page to see the template text.
 |}{{#cargo_query:
 tables=ComponentRN,Issue,IssueCategory
 |join on=ComponentRN._pageName=Issue._pageName,Issue.IssueCategoryId=IssueCategory.Id
-|fields=CONCAT ('[https://jira.genesys.com/browse/',Issue.TicketNumber,' ',Issue.TicketNumber,']')=Issue,IssueCategory.Name=Issue Category,<!--DeploymentType.Name=Deployment Type,-->IF(LENGTH(LocalContent) > 100, CONCAT(
+|fields=CONCAT ('[https://genesysjira.atlassian.net/browse/',Issue.TicketNumber,' ',Issue.TicketNumber,']')=Issue,IssueCategory.Name=Issue Category,<!--DeploymentType.Name=Deployment Type,-->IF(LENGTH(LocalContent) > 100, CONCAT(
 SUBSTRING(LocalContent, 1, 100),"..."), LocalContent)=Description,SupportingDocumentation
 |format=dynamic table
 |where=ComponentRN.ComponentId HOLDS '{{{ComponentId|}}}' AND ReleaseNumber="{{#explode:{{FULLPAGENAME}}|/|2}}"

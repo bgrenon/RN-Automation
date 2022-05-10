@@ -7,6 +7,7 @@ It should be called in the following format:
 |ServiceId=
 |ComponentId=
 |DeploymentTypeId=
+|DisplayName=
 }}
 
 </pre>
@@ -16,6 +17,7 @@ Edit the page to see the template text.
 |ServiceId=List (,) of String
 |ComponentId=List (,) of String
 |DeploymentTypeId=List (,) of String
+|DisplayName=String
 }}
 {{#cargo_attach:_table=Article}}
 </noinclude>
@@ -24,6 +26,7 @@ __NOEDITSECTION__{{#cargo_store:_table=Article|Standalone={{{Standalone}}}|Dimen
 |ServiceId={{{ServiceId|}}}
 |ComponentId={{{ComponentId|}}}
 |DeploymentTypeId={{{DeploymentTypeId|}}}
+|DisplayName={{{DisplayName|}}}
 }}<!-- Set MintyDocs topic, including a switch for different treatment for Manual pages -->{{#switch:{{{PageType|}}}|Manual=|#default={{#mintydocs_topic:
 |display name={{{DisplayName|}}}
 |toc name={{{TocName|}}}

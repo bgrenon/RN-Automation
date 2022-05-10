@@ -75,13 +75,13 @@ tables=HIW
  }}{{#arraymap:{{{DepGuideServiceId|}}}|,|x|{{#cargo_query:
      tables=ArticleCloudRN,MintyDocsManual,Service
      |join on=ArticleCloudRN.DepGuideServiceId HOLDS MintyDocsManual.ServiceId,MintyDocsManual.ServiceId=Service.Id
-     |fields=CONCAT('[[',MintyDocsManual._pageName,'| Deploying ',Service.Name,']]')
+     |fields=CONCAT('[[',MintyDocsManual._pageName,'|',MintyDocsManual.displayname,']]')
      |where=ArticleCloudRN.DepGuideServiceId HOLDS "x" AND MintyDocsManual.ServiceId IS NOT NULL AND ArticleCloudRN._pageNamespace="{{NAMESPACENUMBER}}" AND MintyDocsManual._pageNamespace="{{NAMESPACENUMBER}}"
      |format=template
      |delimiter=
      |template=ListItems
      |default=
-     |group by=MintyDocsManual._pageName,Service.Name,MintyDocsManual.ServiceId
+     |group by=MintyDocsManual._pageName,MintyDocsManual.displayname,MintyDocsManual.ServiceId
 }}|\s}}{{#if:{{{ServiceId|}}}|{{#switch:{{{RN|}}}|#default=|Yes={{#if:{{#cargo_query: 
       tables=ArticleIndexRN
       |where=ArticleIndexRN._pageName != "{{FULLPAGENAME}}"
@@ -109,7 +109,7 @@ tables=HIW
  }}{{#switch:{{{RN|}}}|#default=|Yes={{#cargo_query: 
       tables=Article,ArticleHelmRN,Service
       |join on=Article._pageNamespace=ArticleHelmRN._pageNamespace,ArticleHelmRN.ServiceId HOLDS Service.Id
-      |fields=CONCAT('[[',ArticleHelmRN._pageName,'| Helm charts and containers for ',Service.Name,']]') 
+      |fields=CONCAT('[[',ArticleHelmRN._pageName,'|',ArticleHelmRN.DisplayName,']]') 
       |where={{#arraymap:{{{ServiceId|}}}|,|x|(Article._pageName="{{FULLPAGENAME}}" AND ArticleHelmRN.ServiceId HOLDS 'x')| |OR }} AND ArticleHelmRN._pageName != "{{FULLPAGENAME}}"
       |format=template 
       |delimiter= 
@@ -165,13 +165,13 @@ tables=HIW
  }}{{#arraymap:{{{DepGuideServiceId|}}}|,|x|{{#cargo_query:
      tables=ArticleCloudRN,MintyDocsManual,Service
      |join on=ArticleCloudRN.DepGuideServiceId HOLDS MintyDocsManual.ServiceId,MintyDocsManual.ServiceId=Service.Id
-     |fields=CONCAT('[[',MintyDocsManual._pageName,'| Deploying ',Service.Name,']]')
+     |fields=CONCAT('[[',MintyDocsManual._pageName,'|',MintyDocsManual.displayname,']]')
      |where=ArticleCloudRN.DepGuideServiceId HOLDS "x" AND MintyDocsManual.ServiceId IS NOT NULL AND ArticleCloudRN._pageNamespace="{{NAMESPACENUMBER}}" AND MintyDocsManual._pageNamespace="{{NAMESPACENUMBER}}"
      |format=template
      |delimiter=
      |template=ListItems
      |default=
-     |group by=MintyDocsManual._pageName,Service.Name,MintyDocsManual.ServiceId
+     |group by=MintyDocsManual._pageName,MintyDocsManual.displayname,MintyDocsManual.ServiceId
 }}|\s}}{{#if:{{{ServiceId|}}}|{{#switch:{{{RN|}}}|#default=|Yes={{#if:{{#cargo_query: 
       tables=ArticleIndexRN
       |where=ArticleIndexRN._pageName = "{{FULLPAGENAME}}"
@@ -199,7 +199,7 @@ tables=HIW
  }}{{#switch:{{{RN|}}}|#default=|Yes={{#cargo_query: 
       tables=Article,ArticleHelmRN,Service
       |join on=Article._pageNamespace=ArticleHelmRN._pageNamespace,ArticleHelmRN.ServiceId HOLDS Service.Id
-      |fields=CONCAT('[[',ArticleHelmRN._pageName,'| Helm charts and containers for ',Service.Name,']]') 
+      |fields=CONCAT('[[',ArticleHelmRN._pageName,'|',ArticleHelmRN.DisplayName,']]') 
       |where={{#arraymap:{{{ServiceId|}}}|,|x|(Article._pageName="{{FULLPAGENAME}}" AND ArticleHelmRN.ServiceId HOLDS 'x')| |OR }} AND ArticleHelmRN._pageName != "{{FULLPAGENAME}}"
       |format=template 
       |delimiter= 
