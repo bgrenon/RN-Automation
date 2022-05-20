@@ -105,6 +105,11 @@
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Template%3AIssueCategoryMap.mediawiki"
 				},
 				{
+					"name": "ListRN",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Template%3AListRNs.mediawiki"
+				},
+				{
 					"name": "IssueCategory",
 					"namespace": "PF_NS_FORM",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/Package/Form%3AIssueCategory.mediawiki"

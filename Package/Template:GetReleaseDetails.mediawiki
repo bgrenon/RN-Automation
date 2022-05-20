@@ -1,53 +1,105 @@
 <includeonly><tr>
 <td><!-- get component name -->
 {{#cargo_query:
-tables=ComponentRN,Component
-|join on=ComponentRN.ComponentId HOLDS Component.Id
+tables=ComponentRN,
+Component
+|join on=ComponentRN.ComponentId=Component.Id
 |fields=Component.Name
 |group by=Name
-|where=ComponentId HOLDS '{{{ComponentId|}}}' AND ReleaseDate="{{{ReleaseDate|}}}"
+|where=
+ComponentId="{{{ComponentId|}}}"
+AND ReleaseDate="{{{ReleaseDate|}}}"
 }}
 </td>
 <td><!-- get release number -->
 {{#cargo_query:
 tables=ComponentRN
 |fields=MAX(ReleaseNumber)
-|where=ComponentId HOLDS '{{{ComponentId|}}}' AND ReleaseDate="{{{ReleaseDate|}}}"
+|where=
+ComponentId="{{{ComponentId|}}}"
+AND ReleaseDate="{{{ReleaseDate|}}}"
 }}
 </td>
-<td><!-- get release date and format as link to ArticleCloudRN page -->
+<td><!-- get release date and format as link to ArticleCloudRN page 
+
+IMPORTANT: this query uses hard-coded uuids-->
 {{#cargo_query:
-tables=ArticleCloudRN__ComponentId,ArticleCloudRN,Component,ComponentRN__ComponentId,ComponentRN
-|join on=ArticleCloudRN__ComponentId._value=Component.Id,ArticleCloudRN__ComponentId._rowID=ArticleCloudRN._ID,ArticleCloudRN__ComponentId._value = ComponentRN__ComponentId._value,ComponentRN__ComponentId._rowID=ComponentRN._ID
-|fields=CONCAT('[[',ArticleCloudRN._pageName,'#',DATE_FORMAT(MAX(ReleaseDate),'%M %d, %Y'),'|',DATE_FORMAT(MAX(ReleaseDate),'%M %d, %Y'),']]')
-|where=ComponentRN__ComponentId._value="{{{ComponentId|}}}" AND ArticleCloudRN._pageNamespace="0" AND ReleaseDate="{{{ReleaseDate|}}}" AND (DeploymentTypeId HOLDS NOT '8b480b3c-2733-433a-9166-eab2c2d0663a' OR DeploymentTypeId HOLDS NOT '577e188b-36c5-4733-86a7-e1d0d6564aff')
-|group by=ComponentRN.ComponentId
+tables=
+ArticleCloudRN__ComponentId,
+ArticleCloudRN,
+ComponentRN,
+Component
+|join on=
+ArticleCloudRN__ComponentId._value=Component.Id,
+ArticleCloudRN__ComponentId._rowID=ArticleCloudRN._ID,
+ArticleCloudRN__ComponentId._value = ComponentRN.ComponentId,
+ComponentRN.ComponentId=Component.Id
+|fields=
+CONCAT
+	(
+	'[[',ArticleCloudRN._pageName,'#',Component.Name,'-',ReleaseNumber,'|',DATE_FORMAT(MAX(ReleaseDate),'%M %d, %Y'),']]'
+	)
+|where=
+ComponentRN.ComponentId="{{{ComponentId|}}}" 
+AND ArticleCloudRN._pageNamespace="0" 
+AND ReleaseDate="{{{ReleaseDate|}}}" 
+AND (
+	DeploymentTypeId HOLDS NOT '8b480b3c-2733-433a-9166-eab2c2d0663a' 
+	OR DeploymentTypeId HOLDS NOT '577e188b-36c5-4733-86a7-e1d0d6564aff'
+	)
 }}
 </td>
 <td>
 <!-- get AWS icons for relevant release  -->
 {{#cargo_query:
-	table=ComponentRN,DeploymentType
-	|join on=ComponentRN.DeploymentTypeId HOLDS DeploymentType.Id
-	|intro=<div style="margin: -10px 0 -10px 0">
-	|outro=</div>
-	|fields=CONCAT('[[File:',Image,'|',Size,'px|link=]]')
-	|delimiter=
-	|where=ComponentId HOLDS "{{{ComponentId|}}}" AND ReleaseDate="{{{ReleaseDate|}}}" AND ComponentRN._pageNamespace="0" AND DeploymentType.Id="5439f1be-1868-4091-b058-1667389b6ce1"
-        |default=
+table=
+ComponentRN,
+DeploymentType
+|join on=ComponentRN.DeploymentTypeId HOLDS DeploymentType.Id
+|intro=<div style="margin: -10px 0 -10px 0">
+|outro=</div>
+|fields=CONCAT('[[File:',Image,'|',Size,'px|link=]]')
+|delimiter=
+|where=
+ComponentId="{{{ComponentId|}}}" 
+AND ReleaseDate="{{{ReleaseDate|}}}" 
+AND ComponentRN._pageNamespace="0" 
+AND DeploymentType.Id="5439f1be-1868-4091-b058-1667389b6ce1"
+|default=
 }}
 </td>
 <td>
 <!-- get Azure icons for relevant release  -->
 {{#cargo_query:
-	table=ComponentRN,DeploymentType
-	|join on=ComponentRN.DeploymentTypeId HOLDS DeploymentType.Id
-	|intro=<div style="margin: -10px 0 -10px 0">
-	|outro=</div>
-	|fields=CONCAT('[[File:',Image,'|',Size,'px|link=]]')
-	|delimiter=
-	|where=ComponentId HOLDS "{{{ComponentId|}}}" AND ReleaseDate="{{{ReleaseDate|}}}" AND ComponentRN._pageNamespace="0" AND DeploymentType.Id="ec194bf2-b79a-436d-8ff6-eaff94d9f43a"
-        |default=
+table=ComponentRN,DeploymentType
+|join on=ComponentRN.DeploymentTypeId HOLDS DeploymentType.Id
+|intro=<div style="margin: -10px 0 -10px 0">
+|outro=</div>
+|fields=CONCAT('[[File:',Image,'|',Size,'px|link=]]')
+|delimiter=
+|where=
+ComponentId="{{{ComponentId|}}}" 
+AND ReleaseDate="{{{ReleaseDate|}}}" 
+AND ComponentRN._pageNamespace="0" 
+AND DeploymentType.Id="ec194bf2-b79a-436d-8ff6-eaff94d9f43a"
+|default=
+}}
+</td>
+<!-- get GCP icons for relevant release  -->
+<td>
+{{#cargo_query:
+table=ComponentRN,DeploymentType
+|join on=ComponentRN.DeploymentTypeId HOLDS DeploymentType.Id
+|intro=<div style="margin: -10px 0 -10px 0">
+|outro=</div>
+|fields=CONCAT('[[File:',Image,'|',Size,'px|link=]]')
+|delimiter=
+|where=
+ComponentId="{{{ComponentId|}}}" 
+AND ReleaseDate="{{{ReleaseDate|}}}" 
+AND ComponentRN._pageNamespace="0" 
+AND DeploymentType.Id="0cffec00-9053-4406-88d7-461255f48f53"
+|default=
 }}
 </td>
 <td>
@@ -57,12 +109,19 @@ tables=ComponentRN
 |format=template
 |template=PrintHighlightBoilerplate
 |named args=yes
-|where=ComponentRN._pageNamespace="0" AND ComponentId HOLDS '{{{ComponentId|}}}' AND ReleaseDate="{{{ReleaseDate|}}}" AND HighlightBoilerplateId IS NOT NULL
+|where=
+ComponentRN._pageNamespace="0" 
+AND ComponentId="{{{ComponentId|}}}"
+AND ReleaseDate="{{{ReleaseDate|}}}" 
+AND HighlightBoilerplateId IS NOT NULL
 |default=
 }}<!-- get Highlight from each release -->{{#cargo_query:
 tables=ComponentRN
 |fields=Highlight
-|where=ComponentId HOLDS '{{{ComponentId|}}}' AND ReleaseDate="{{{ReleaseDate|}}}" AND ComponentRN._pageNamespace="0"
+|where=
+ComponentId="{{{ComponentId|}}}"
+AND ReleaseDate="{{{ReleaseDate|}}}" 
+AND ComponentRN._pageNamespace="0"
 |default=
 }}
-</tr></includeonly><noinclude>[[Category:PrivateEdition]]</noinclude>
+</tr></includeonly><noinclude>[[Category:PrivateEdition]][[Category:ComponentRN.ComponentId cleanup]]</noinclude>

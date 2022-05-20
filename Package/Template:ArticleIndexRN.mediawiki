@@ -22,7 +22,7 @@ Edit the page to see the template text.
 {{#cargo_attach:_table=Article}}
 </noinclude>
 <includeonly>{{#css: .MintyDocsTopicDesc {display:none} }}[[Category:ArticleIndexRN]]__TOC__
-__NOEDITSECTION__{{#cargo_store:_table=Article
+__NOEDITSECTION__<!-- storing cargo values for this page -->{{#cargo_store:_table=Article
 |Standalone={{{Standalone}}}
 |Dimension=
 |productshort={{#explode:{{FULLPAGENAME}}|/|0}}
@@ -34,22 +34,53 @@ __NOEDITSECTION__{{#cargo_store:_table=Article
 |DeploymentTypeId={{{DeploymentTypeId|}}}
 |DisplayName={{{DisplayName|}}}
 }}
-{{#mintydocs_topic:
+<!-- setting the mintydocs topic for this page -->{{#mintydocs_topic:
 |display name={{{DisplayName|}}}
 |toc name={{{TocName|}}}
-}}{{EPPOHead|Role={{{Role|}}}|ComingSoon={{{ComingSoon|}}}|ServiceId={{{ServiceId|}}}|DepGuideServiceId={{{DepGuideServiceId|}}}|Context=These Release Notes provide information about recent releases of {{#arraymap:{{{ServiceId|}}}|,|x| {{#cargo_query:tables=Service|fields=Name|where=Id LIKE 'x'|no html}}| |and}}, starting with March 31, 2021. Click the Release Date next to a particular service name to see detailed information for that release. The release date indicates the earliest date when a service release might be available in your environments. Some updates might not apply to all environments.
+}}<!-- Setting up the EPPO header of links and headings at the top of this page-->{{EPPOHead|Role={{{Role|}}}|ComingSoon={{{ComingSoon|}}}|ServiceId={{{ServiceId|}}}|DepGuideServiceId={{{DepGuideServiceId|}}}|Context=These Release Notes provide information about recent releases of {{#arraymap:{{{ServiceId|}}}|,|x| {{#cargo_query:tables=Service|fields=Name|where=Id LIKE 'x'|no html}}| |and}}, starting with March 31, 2021. Click the Release Date next to a particular service name to see detailed information for that release. The release date indicates the earliest date when a service release might be available in your environments. Some updates might not apply to all environments.
 |UseCase={{{UseCase|}}}|Application={{{Application|}}}|Platform={{{Platform|}}}|PageType=Article|RN=Yes}}
-{{#cargo_query:
-tables=ArticleCloudRN__ComponentId,ArticleCloudRN,Component,ComponentRN__ComponentId,ComponentRN,DeploymentType
-|join on=ArticleCloudRN__ComponentId._value=Component.Id,ArticleCloudRN__ComponentId._rowID=ArticleCloudRN._ID,ArticleCloudRN__ComponentId._value = ComponentRN__ComponentId._value,ComponentRN__ComponentId._rowID=ComponentRN._ID,ComponentRN.DeploymentTypeId HOLDS DeploymentType.Id
-|fields=Component.Name=Service,CONCAT('[[',ArticleCloudRN._pageName,'#',DATE_FORMAT(MAX(ReleaseDate),'%M %d, %Y'),'|',DATE_FORMAT(MAX(ReleaseDate),'%M %d, %Y'),']]')=Release Date,CONCAT('[[File:',Image,'|80px]]')=Supported Cloud,Highlight=Highlights,ComponentId=ComponentId,MAX(ReleaseDate)=ReleaseDate
-|where=ComponentRN._pageNamespace="{{NAMESPACENUMBER}}" AND ArticleCloudRN._pageNamespace="{{NAMESPACENUMBER}}" AND ArticleCloudRN._pageName LIKE "%{{#explode:{{FULLPAGENAME}}|/|2}}%"  AND ({{#arraymap:{{{ServiceId|}}}|,|x| ArticleCloudRN.ServiceId HOLDS 'x'| |OR }})
+<!-- finding all relevant release notes that match the cargo values set for this page-->{{#cargo_query:
+tables=ArticleCloudRN,
+ArticleCloudRN__ComponentId,
+Component,
+ComponentRN,
+DeploymentType
+|join on=
+ArticleCloudRN._ID=ArticleCloudRN__ComponentId._rowID,
+ArticleCloudRN__ComponentId._value = Component.Id,
+Component.Id=ComponentRN.ComponentId,
+ComponentRN.DeploymentTypeId HOLDS DeploymentType.Id
+|fields=
+ComponentRN.ComponentId,
+ComponentRN.ReleaseNumber,
+ComponentRN.ReleaseDate,
+ComponentRN.Highlight,
+ComponentRN.HighlightBoilerplateId
+|where=
+ComponentRN._pageNamespace="{{NAMESPACENUMBER}}" 
+AND ArticleCloudRN._pageNamespace="{{NAMESPACENUMBER}}" 
+AND ArticleCloudRN._pageName LIKE "%{{#explode:{{FULLPAGENAME}}|/|2}}%"  
+AND ({{#arraymap:{{{ServiceId|}}}|,|x| ArticleCloudRN.ServiceId HOLDS 'x'| |OR }})
 |having=MAX(ReleaseDate)
-|intro=<h2>Latest release per service</h2><table><tr><th>Service</th><th style="width:12%">Released on</th><th style="width:12%">Released for</th><th>Highlights</th></tr>
+|intro=
+    <table class="sortable" style="font-size:90%">
+    <tr>
+      {{#ifeq:{{#cargo_query:tables=ArticleCloudRN,ArticleCloudRN__ComponentId|join on=ArticleCloudRN._ID=ArticleCloudRN__ComponentId._rowID|fields=COUNT(*)|where=ArticleCloudRN._pageName="{{FULLPAGENAME}}" AND ArticleCloudRN._pageNamespace="{{NAMESPACENUMBER}}"|no html}}|1||<th rowspan="2" style="width:15%">Service</th>}} 
+    <th rowspan="2" style="width:12%">Available</th>
+    <th colspan="3" style="text-align: center>Genesys CX on</th>
+	<th rowspan="2">Private edition</th>
+    <th rowspan="2">Highlights</th>
+    <th rowspan="2">Release</th>
+    </tr>
+    <tr>
+    <th>AWS</th>
+	<th>Azure</th>
+	<th>GCP</th>
+	<tr>
 |outro=</table>
 |format=template
 |template=PrintTopRN
 |named args=yes
 |group by=ComponentRN.ComponentId
 <!--|order by=ComponentRN.ReleaseDate DESC-->
-}}</includeonly><noinclude>[[Category:RNAutomation]]</noinclude>
+}}</includeonly><noinclude>[[Category:RNAutomation]][[Category:ComponentRN.ComponentId cleanup]]</noinclude>

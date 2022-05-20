@@ -1,0 +1,11 @@
+<h2>{{ComponentMap|{{{ComponentId|}}}}}</h2>
+<div id="{{ComponentMap|{{{ComponentId|}}}}}"></div>
+{{#cargo_query:
+tables=ComponentRN,Component
+|join on=ComponentRN.ComponentId=Component.Id
+|fields=ComponentRN._pageName=URL,ReleaseNumber,ReleaseDate
+|where=ComponentRN.ComponentId="{{{ComponentId|}}}" AND ComponentRN._pageNamespace="620"
+|limit=10000
+|default=No RNs - yet!
+|format=dynamic table
+}}<noinclude>[[Category:ComponentRN.ComponentId cleanup]]</noinclude>

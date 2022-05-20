@@ -1,32 +1,54 @@
-<includeonly><h2>{{#ifeq:{{#cargo_query:tables=ArticleCloudRN,ArticleCloudRN__ComponentId|join on=ArticleCloudRN._ID=ArticleCloudRN__ComponentId._rowID|fields=COUNT(*)|where=ArticleCloudRN._pageName="{{FULLPAGENAME}}" AND ArticleCloudRN._pageNamespace="{{NAMESPACENUMBER}}"|no html}}|1||{{{ComponentName|}}}:}} {{#if:{{{ReleaseDate|}}}|{{#time:F d, Y|{{{ReleaseDate|}}}}}|<span style="background-color:yellow">Date needed</span>}} {{#cargo_query:
-tables=ComponentRN,DeploymentType=DT
+<includeonly><!-- Creating section heading--><h2>{{#ifeq:{{#cargo_query:tables=ArticleCloudRN,
+	ArticleCloudRN__ComponentId
+	|join on=ArticleCloudRN._ID=ArticleCloudRN__ComponentId._rowID
+	|fields=COUNT(*)
+	|where=ArticleCloudRN._pageName="{{FULLPAGENAME}}" 
+	AND ArticleCloudRN._pageNamespace="{{NAMESPACENUMBER}}"|no html}}|1||{{{ComponentName|}}}:}} {{#if:{{{ReleaseDate|}}}|{{#time:F d, Y|{{{ReleaseDate|}}}}}|<span style="background-color:yellow">Date needed</span>}} {{#cargo_query:
+tables=ComponentRN,
+DeploymentType=DT
 |join on=ComponentRN.DeploymentTypeId HOLDS DT.Id
 |fields=CONCAT('[[File:',DT.Image,'|',Size,'px|link=]]')
 |delimiter=
-|where=ComponentRN.ComponentId HOLDS '{{{Component|}}}' AND ReleaseNumber="{{{ReleaseNumber|}}}" AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}"
-}}<!-- removing release type from display until required
-{{#cargo_query:
-tables=ComponentRN,ReleaseType=RT
-|join on=ComponentRN.ReleaseTypeId=RT.Id
-|fields=Label
-|where=ComponentRN.ComponentId HOLDS '{{{Component|}}}' AND ReleaseNumber="{{{ReleaseNumber|}}}"
-}}--></h2>{{AnchorDiv|{{{ComponentName|}}}-{{{ReleaseNumber|}}}}}{{#cargo_query:
-tables=ComponentRN,DeploymentType=DT
+|where=ComponentRN.ComponentId="{{{Component|}}}"
+AND ReleaseNumber="{{{ReleaseNumber|}}}" 
+AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}"
+}}</h2><!-- adding anchor div for linking to RN entry -->{{AnchorDiv|{{{ComponentName|}}}-{{{ReleaseNumber|}}}}}<!-- printing subheading to indicate private edition or mixed mode release info --><!-- IMPORTANT: This query includes hard-coded value for DeploymentType.Name-->{{#cargo_query:
+tables=ComponentRN,
+DeploymentType=DT
 |join on=ComponentRN.DeploymentTypeId HOLDS DT.Id
-|fields=DT.Image=Image,DT.Size=Size,DT.Name=DTName,ComponentRN.ComponentId=ComponentId,ReleaseNumber,PrivateEditionReleaseDate=PEDate,MixedModeReleaseDate=MixedDate
+|fields=DT.Image=Image,
+DT.Size=Size,
+DT.Name=DTName,
+ComponentRN.ComponentId=ComponentId,
+ReleaseNumber,
+PrivateEditionReleaseDate=PEDate,
+MixedModeReleaseDate=MixedDate
 |named args=yes
 |format=template
 |template=RNPrintSubhead
 |default=
-|where=ComponentRN._pageNamespace="{{NAMESPACENUMBER}}"  AND  ComponentRN.ComponentId HOLDS '{{{Component|}}}' AND ReleaseNumber="{{{ReleaseNumber|}}}" AND (DT.Name="Private Edition" OR DT.Name="Mixed mode")
-}}{{#cargo_query:
-tables=ComponentRN,Issue,IssueCategory
-|join on=ComponentRN._pageName=Issue._pageName,Issue.IssueCategoryId=IssueCategory.Id
-|fields=IssueCategory.SectionName=Name,SupportingDocumentation,LocalContent,Issue.TicketNumber,SupportingDocumentation,NFBoilerplateId,ReleaseNumber,ComponentId
+|where=ComponentRN._pageNamespace="{{NAMESPACENUMBER}}"  
+AND ComponentRN.ComponentId="{{{Component|}}}"
+AND ReleaseNumber="{{{ReleaseNumber|}}}" 
+AND (DT.Name="Private Edition" OR DT.Name="Mixed mode")
+}}<!-- printing out the list of Issues according to their IssueCategory-->{{#cargo_query:
+tables=ComponentRN,
+Issue,
+IssueCategory
+|join on=ComponentRN._pageName=Issue._pageName,
+Issue.IssueCategoryId=IssueCategory.Id
+|fields=IssueCategory.SectionName=Name,
+SupportingDocumentation,
+LocalContent,
+Issue.TicketNumber,
+SupportingDocumentation,
+NFBoilerplateId,
+ReleaseNumber,
+ComponentId
 |format=template
 |template=RNPrintFormat
 |named args=yes
-|where=ComponentRN.ComponentId HOLDS '{{{Component|}}}' AND ReleaseNumber="{{{ReleaseNumber|}}}" AND IssueCategoryId IS NOT NULL AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}"
+|where=ComponentRN.ComponentId = "{{{Component|}}}" AND ReleaseNumber="{{{ReleaseNumber|}}}" AND IssueCategoryId IS NOT NULL AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}"
 |order by=IssueCategory.PrintOrder ASC
 |group by=IssueCategory.SectionName
-}}__NOCACHE__{{#switch:{{NAMESPACENUMBER}}|620=<span style="font-size:80%">[[{{{Page|}}}|(Link to source)]]</span>|#default=}}</includeonly><noinclude>[[Category:RNAutomation]]</noinclude>
+}}__NOCACHE__{{#switch:{{NAMESPACENUMBER}}|620=<span style="font-size:80%">[[{{{Page|}}}|(Link to source)]]</span>|#default=}}</includeonly><noinclude>[[Category:RNAutomation]][[Category:ComponentRN.ComponentId cleanup]][[Category:TrackConstants]]</noinclude>

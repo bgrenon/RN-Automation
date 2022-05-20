@@ -1,50 +1,89 @@
 <includeonly><tr>
 <td><!-- get component name -->
-{{#cargo_query:
-tables=ComponentRN,Component
-|join on=ComponentRN.ComponentId HOLDS Component.Id
+{{#cargo_query:tables=
+ComponentRN,
+Component
+|join on=ComponentRN.ComponentId=Component.Id
 |fields=Component.Name
 |group by=Name
-|where=ComponentId HOLDS '{{{ComponentId|}}}' AND PrivateEditionReleaseDate="{{{PrivateEditionReleaseDate|}}}" AND ComponentRN._pageNamespace="0"
+|where=
+ComponentRN.ComponentId="{{{ComponentId|}}}" 
+AND PrivateEditionReleaseDate="{{{PrivateEditionReleaseDate|}}}" 
+AND ComponentRN._pageNamespace="0"
 }}
 </td>
 <td><!-- get release number -->
-{{#cargo_query:
-tables=ComponentRN
-|fields=MAX(ReleaseNumber)
-|where=ComponentId HOLDS '{{{ComponentId|}}}' AND PrivateEditionReleaseDate="{{{PrivateEditionReleaseDate|}}}" AND ComponentRN._pageNamespace="0"
+{{#cargo_query:tables=
+ComponentRN
+|fields=
+MAX(ReleaseNumber)
+|where=
+ComponentRN.ComponentId="{{{ComponentId|}}}" 
+AND PrivateEditionReleaseDate="{{{PrivateEditionReleaseDate|}}}" 
+AND ComponentRN._pageNamespace="0"
 }}
 </td>
 <td><!-- get release date and format as link to ArticleCloudRN page -->
-{{#cargo_query:
-tables=ArticleCloudRN__ComponentId,ArticleCloudRN,Component,ComponentRN__ComponentId,ComponentRN
-|join on=ArticleCloudRN__ComponentId._value=Component.Id,ArticleCloudRN__ComponentId._rowID=ArticleCloudRN._ID,ArticleCloudRN__ComponentId._value = ComponentRN__ComponentId._value,ComponentRN__ComponentId._rowID=ComponentRN._ID
-|fields=CONCAT('[[',ArticleCloudRN._pageName,'#',DATE_FORMAT(MAX(ReleaseDate),'%M %d, %Y'),'|',DATE_FORMAT(MAX(PrivateEditionReleaseDate),'%M %d, %Y'),']]')
-|where=ComponentRN__ComponentId._value="{{{ComponentId|}}}" AND ArticleCloudRN._pageNamespace="0" AND PrivateEditionReleaseDate="{{{PrivateEditionReleaseDate|}}}"
+{{#cargo_query:tables=
+ArticleCloudRN__ComponentId,
+ArticleCloudRN,
+ComponentRN,
+Component
+|join on=
+ArticleCloudRN__ComponentId._rowID=ArticleCloudRN._ID,
+ArticleCloudRN__ComponentId._value = ComponentRN.ComponentId,
+ComponentRN.ComponentId=Component.Id
+|fields=
+CONCAT('[[',ArticleCloudRN._pageName,'#',Component.Name,'-',ReleaseNumber,'|',DATE_FORMAT(MAX(PrivateEditionReleaseDate),'%M %d, %Y'),']]')
+|where=
+ComponentRN.ComponentId="{{{ComponentId|}}}" 
+AND ArticleCloudRN._pageNamespace="0" 
+AND PrivateEditionReleaseDate="{{{PrivateEditionReleaseDate|}}}"
 |group by=ComponentRN.ComponentId
 }}
 </td>
 <td>
 <!-- finding helm from RNElements with default to manual containers list from ComponentRN -->
-{{#cargo_query:tables=ComponentRN,Component,RNElements
-|join on=ComponentRN.ComponentId HOLDS Component.Id,Component.IpName=RNElements.IpName
-|fields=RNElements.Filename
-|having=MAX(ComponentRN.ReleaseNumber)=RNElements.Version
-|group by=RNElements.Version,RNElements.Filename
-|format=ul
-|where=ComponentRN.ComponentId HOLDS '{{{ComponentId|}}}' AND PrivateEditionReleaseDate="{{{PrivateEditionReleaseDate|}}}" AND Type="helm" AND ComponentRN._pageNamespace="0"
+{{#cargo_query:tables=
+ComponentRN,
+Component,
+RNElements
+|join on=
+ComponentRN.ComponentId=Component.Id,
+Component.IpName=RNElements.IpName
+|fields=
+RNElements.Filename
+|having=
+MAX(ComponentRN.ReleaseNumber)=RNElements.Version
+|group by=
+RNElements.Version,RNElements.Filename
+|format=
+ul
+|where=
+ComponentRN.ComponentId="{{{ComponentId|}}}" 
+AND PrivateEditionReleaseDate="{{{PrivateEditionReleaseDate|}}}" 
+AND Type="helm" 
+AND ComponentRN._pageNamespace="0"
 |default=
      {{#cargo_query:tables=ComponentRN
      |fields=Containers
-     |where=ComponentRN.ComponentId HOLDS '{{{ComponentId|}}}' AND PrivateEditionReleaseDate="{{{PrivateEditionReleaseDate|}}}" AND ComponentRN._pageNamespace="0" AND Containers IS NOT NULL
+     |where=
+      ComponentRN.ComponentId="{{{ComponentId|}}}" 
+      AND PrivateEditionReleaseDate="{{{PrivateEditionReleaseDate|}}}" 
+      AND ComponentRN._pageNamespace="0" 
+      AND Containers IS NOT NULL
      |format=template
      |template=ArrayMapHelm
      |default=
            {{#cargo_query: 
-           tables=ArticleHelmRN,Component
+           tables=
+            ArticleHelmRN,
+            Component
            |join on=ArticleHelmRN.ComponentId HOLDS Component.ParentComponentId
            |fields=CONCAT('See [[',ArticleHelmRN._pageName,'|parent]]*') 
-           |where=Component.Id = "{{{ComponentId|}}}" AND ArticleHelmRN._pageNamespace="0"
+           |where=
+            Component.Id = "{{{ComponentId|}}}" 
+            AND ArticleHelmRN._pageNamespace="0"
            |delimiter= 
            |default=N/A
            |group by=ArticleHelmRN._pageName,Component.Name
@@ -55,16 +94,16 @@ tables=ArticleCloudRN__ComponentId,ArticleCloudRN,Component,ComponentRN__Compone
 <td>
 <!-- finding containers from RNElements with default to manual containers list from ComponentRN -->
 {{#cargo_query:tables=ComponentRN,Component,RNElements
-|join on=ComponentRN.ComponentId HOLDS Component.Id,Component.IpName=RNElements.IpName
+|join on=ComponentRN.ComponentId=Component.Id,Component.IpName=RNElements.IpName
 |fields=RNElements.Filename
 |having=MAX(ComponentRN.ReleaseNumber)=RNElements.Version
 |group by=RNElements.Version,RNElements.Filename
 |format=ul
-|where=ComponentRN.ComponentId HOLDS '{{{ComponentId|}}}' AND PrivateEditionReleaseDate="{{{PrivateEditionReleaseDate|}}}" AND Type="docker" AND ComponentRN._pageNamespace="0"
+|where=ComponentRN.ComponentId="{{{ComponentId|}}}" AND PrivateEditionReleaseDate="{{{PrivateEditionReleaseDate|}}}" AND Type="docker" AND ComponentRN._pageNamespace="0"
 |default=
         {{#cargo_query:tables=ComponentRN
         |fields=Containers
-        |where=ComponentRN.ComponentId HOLDS '{{{ComponentId|}}}' AND PrivateEditionReleaseDate="{{{PrivateEditionReleaseDate|}}}" AND ComponentRN._pageNamespace="0" AND Containers IS NOT NULL
+        |where=ComponentRN.ComponentId="{{{ComponentId|}}}" AND PrivateEditionReleaseDate="{{{PrivateEditionReleaseDate|}}}" AND ComponentRN._pageNamespace="0" AND Containers IS NOT NULL
         |format=template
         |template=ArrayMapDocker
         |default=
@@ -80,4 +119,4 @@ tables=ArticleCloudRN__ComponentId,ArticleCloudRN,Component,ComponentRN__Compone
         }}
 }}
 </td>
-</tr></includeonly><noinclude>[[Category:PrivateEdition]]</noinclude>
+</tr></includeonly><noinclude>[[Category:PrivateEdition]][[Category:ComponentRN.ComponentId cleanup]]</noinclude>

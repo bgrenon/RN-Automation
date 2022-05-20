@@ -1,0 +1,17 @@
+<includeonly><!-- Finding the MAX ReleaseDate and passing that and ComponentId to formatting template 
+
+IMPORTANT: this query uses hard coded uui values -->
+{{#cargo_query:
+tables=ComponentRN,
+ComponentRN__DeploymentTypeId=DepId
+|join on=ComponentRN._ID=DepId._rowID
+|fields=ComponentRN.ComponentId=ComponentId,
+MAX(ReleaseDate)=ReleaseDate
+|where=ComponentRN._pageNamespace="0" 
+AND ComponentRN.ComponentId="{{{ComponentId|}}}" 
+AND (DepId._value='5439f1be-1868-4091-b058-1667389b6ce1' OR DepId._value='ec194bf2-b79a-436d-8ff6-eaff94d9f43a')
+|format=template
+|template=GetReleaseDetails
+|named args=yes
+}}
+</includeonly><noinclude>[[Category:RNAutomtion]][[Category:TrackConstants]][[Category:ComponentRN.ComponentId cleanup]]</noinclude>

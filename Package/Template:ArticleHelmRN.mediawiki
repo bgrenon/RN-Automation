@@ -33,9 +33,20 @@ __NOEDITSECTION__{{#cargo_store:_table=Article|Standalone={{{Standalone}}}|Dimen
 }}}}<!-- Defining the EPPO Header; all parameters need to be passed to it -->{{EPPOHead|RN=Yes|ServiceId={{{ServiceId|}}}|Role={{{Role|}}}|ComingSoon={{{ComingSoon|}}}|Context=Find lists of which containers were updated for each service release, and when.
 |UseCase={{{UseCase|}}}|Application={{{Application|}}}|Platform={{{Platform|}}}|PageType=Article}}<!--Defining the Prerequisite Head -->{{PrerequisitesHead|Prereq={{{Prereq|}}}}}<!-- Query for showing component list -->
 <includeonly>{{#cargo_query:
-tables=Issue,ComponentRN,ComponentRN__ComponentId,ComponentRN__DeploymentTypeId,Component
-|join on=Issue._pageName=ComponentRN._pageName,ComponentRN._ID=ComponentRN__ComponentId._rowID,ComponentRN._ID=ComponentRN__DeploymentTypeId._rowID,ComponentRN.ComponentId HOLDS Component.Id
-|fields=Component.Name=Service,ComponentRN.ReleaseNumber,PrivateEditionReleaseDate=ReleaseDate,Containers,ComponentId
+tables=Component,
+ComponentRN,
+ComponentRN__DeploymentTypeId,
+Issue
+|join on=
+Component.Id=ComponentRN.ComponentId,
+ComponentRN._ID=ComponentRN__DeploymentTypeId._rowID,
+ComponentRN._pageName=Issue._pageName
+|fields=
+Component.Name=Service,
+ComponentRN.ReleaseNumber,
+PrivateEditionReleaseDate=ReleaseDate,
+Containers,
+ComponentId
 |intro={{#switch:{{NAMESPACENUMBER}}|620={{NoteFormat|In the '''DRAFT PAGE ONLY''', you can tell where table values are being pulled from:
 * ''Checked {{SuperscriptCheck}} items are confirmed to have come directly from XING.''
 * ''Flagged {{SuperscriptFlag}} items are pulled from the manual parameter in the Base Unit RN.''
@@ -44,7 +55,11 @@ Published content will not include this note, or icons that indicate where the l
 |named args=yes
 |format=template
 |template=HelmPrint
-|where=(ComponentRN__ComponentId._value IN ({{#arraymap:{{{ComponentId|}}}|,|x|'x'}})) AND (ComponentRN__DeploymentTypeId._value IN ({{#arraymap:{{{DeploymentTypeId|}}}|,|x|'x'}})) AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}" AND PrivateEditionReleaseDate IS NOT NULL
+|where=
+(ComponentRN.ComponentId IN ({{#arraymap:{{{ComponentId|}}}|,|x|'x'}})) 
+AND (ComponentRN__DeploymentTypeId._value IN ({{#arraymap:{{{DeploymentTypeId|}}}|,|x|'x'}})) 
+AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}" 
+AND PrivateEditionReleaseDate IS NOT NULL
 |named args=yes
 |group by=ComponentRN._pageName
 |order by=ComponentRN.ReleaseDate DESC
@@ -61,4 +76,4 @@ __NOCACHE__
 .toggle-content { padding: 10px 20px; border: 1px solid #ddd; border-top: none; border-bottom-left-radius: 3px; border-bottom-right-radius: 3px; }
 }}{{{ArticleHelmRN|}}}<!-- Removing the version dropdown for Standalone (version-less) pages -->{{#switch:{{{Standalone}}}|Yes={{#css: 
 button#version-dropdown { display: none; }
-}}|#default=}}[[Category:Linkable]]<nowiki /></includeonly><noinclude>[[Category:RNAutomation]]</noinclude>
+}}|#default=}}[[Category:Linkable]]<nowiki /></includeonly><noinclude>[[Category:RNAutomation]][[Category:ComponentRN.ComponentId cleanup]]</noinclude>

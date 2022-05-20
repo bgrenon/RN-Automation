@@ -17,7 +17,7 @@ It should be called in the following format:
 }}
 </pre>
 Edit the page to see the template text.
-{{#cargo_declare:_table=ComponentRN|Highlight=Wikitext|HighlightBoilerplateId=String|Containers=Wikitext|ComponentId=List (,) of String|ReleaseNumber=String|ReleaseDate=String|PrivateEditionReleaseDate=String|MixedModeReleaseDate=String|ReleaseTypeId=String|JQL=String|DeploymentTypeId=List (,) of String}}
+{{#cargo_declare:_table=ComponentRN|Highlight=Wikitext|HighlightBoilerplateId=String|Containers=Wikitext|ComponentId=String|ReleaseNumber=String|ReleaseDate=String|PrivateEditionReleaseDate=String|MixedModeReleaseDate=String|ReleaseTypeId=String|JQL=String|DeploymentTypeId=List (,) of String}}
 </noinclude><includeonly>{{#cargo_store:_table=ComponentRN|Highlight={{{Highlight|}}}|HighlightBoilerplateId={{{HighlightBoilerplateId|}}}|Containers={{{Containers|}}}|ComponentId={{{ComponentId|}}}|ReleaseNumber={{#explode:{{FULLPAGENAME}}|/|2}}
 |ReleaseDate={{{ReleaseDate|}}}|PrivateEditionReleaseDate={{{PrivateEditionReleaseDate|}}}|MixedModeReleaseDate={{{MixedModeReleaseDate|}}}|ReleaseTypeId={{{ReleaseTypeId|}}}|JQL={{{JQL|}}}|DeploymentTypeId={{{DeploymentTypeId|}}}}}{{#mintydocs_topic:
 |standalone
@@ -41,7 +41,7 @@ Edit the page to see the template text.
 |{{{Highlight|}}}
 |-
 !HighlightBoilerplate
-|{{#ifexists:Template:{{{HighlightBoilerplateId|}}}|{{{{{HighlightBoilerplateId|}}}}}
+|{{#ifexist: Template:{{{HighlightBoilerplateId|}}} | {{Template:{{{HighlightBoilerplateId|}}}|{{{ReleaseNumber|}}}}} |  }}
 |-
 ! Release Date
 | {{{ReleaseDate|}}}
@@ -72,11 +72,11 @@ tables=ComponentRN,Issue,IssueCategory
 |fields=CONCAT ('[https://genesysjira.atlassian.net/browse/',Issue.TicketNumber,' ',Issue.TicketNumber,']')=Issue,IssueCategory.Name=Issue Category,<!--DeploymentType.Name=Deployment Type,-->IF(LENGTH(LocalContent) > 100, CONCAT(
 SUBSTRING(LocalContent, 1, 100),"..."), LocalContent)=Description,SupportingDocumentation
 |format=dynamic table
-|where=ComponentRN.ComponentId HOLDS '{{{ComponentId|}}}' AND ReleaseNumber="{{#explode:{{FULLPAGENAME}}|/|2}}"
+|where=ComponentRN.ComponentId ="{{{ComponentId|}}}" AND ReleaseNumber="{{#explode:{{FULLPAGENAME}}|/|2}}"
 |group by=Issue.TicketNumber
 |order by=IssueCategory.PrintOrder ASC
 }}__NOCACHE__
 __TOC__
 __NOINDEX__
 [[Category:EditRN]]</includeonly>
-<noinclude>[[Category:RNAutomation]]</noinclude>
+<noinclude>[[Category:RNAutomation]][[Category:ComponentRN.ComponentId cleanup]]</noinclude>
