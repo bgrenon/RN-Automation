@@ -8,72 +8,158 @@ It should be called in the following format:
 |ComponentId=
 |DeploymentTypeId=
 |DisplayName=
+|DepGuideServiceId=
 }}
 
 </pre>
 Edit the page to see the template text.
 
 {{#cargo_declare:_table=ArticleHelmRN
-|ServiceId=List (,) of String
-|ComponentId=List (,) of String
-|DeploymentTypeId=List (,) of String
-|DisplayName=String
+	|ServiceId=List (,) of String
+	|ComponentId=List (,) of String
+	|DeploymentTypeId=List (,) of String
+	|DisplayName=String
+	|DepGuideServiceId=List (,) of String
 }}
 {{#cargo_attach:_table=Article}}
 </noinclude>
-<includeonly>{{#css: .MintyDocsTopicDesc {display:none} }}[[Category:ArticleHelmRN]]__TOC__
-__NOEDITSECTION__{{#cargo_store:_table=Article|Standalone={{{Standalone}}}|Dimension={{#explode:{{FULLPAGENAME}}|/|3}}|productshort={{#explode:{{FULLPAGENAME}}|/|0}}|DisplayName={{{DisplayName|}}}|Context={{{Context|}}}}}{{#cargo_store:_table=ArticleHelmRN
-|ServiceId={{{ServiceId|}}}
-|ComponentId={{{ComponentId|}}}
-|DeploymentTypeId={{{DeploymentTypeId|}}}
-|DisplayName={{{DisplayName|}}}
-}}<!-- Set MintyDocs topic, including a switch for different treatment for Manual pages -->{{#switch:{{{PageType|}}}|Manual=|#default={{#mintydocs_topic:
-|display name={{{DisplayName|}}}
-|toc name={{{TocName|}}}
-}}}}<!-- Defining the EPPO Header; all parameters need to be passed to it -->{{EPPOHead|RN=Yes|ServiceId={{{ServiceId|}}}|Role={{{Role|}}}|ComingSoon={{{ComingSoon|}}}|Context=Find lists of which containers were updated for each service release, and when.
-|UseCase={{{UseCase|}}}|Application={{{Application|}}}|Platform={{{Platform|}}}|PageType=Article}}<!--Defining the Prerequisite Head -->{{PrerequisitesHead|Prereq={{{Prereq|}}}}}<!-- Query for showing component list -->
-<includeonly>{{#cargo_query:
-tables=Component,
-ComponentRN,
-ComponentRN__DeploymentTypeId,
-Issue
-|join on=
-Component.Id=ComponentRN.ComponentId,
-ComponentRN._ID=ComponentRN__DeploymentTypeId._rowID,
-ComponentRN._pageName=Issue._pageName
-|fields=
-Component.Name=Service,
-ComponentRN.ReleaseNumber,
-PrivateEditionReleaseDate=ReleaseDate,
-Containers,
-ComponentId
-|intro={{#switch:{{NAMESPACENUMBER}}|620={{NoteFormat|In the '''DRAFT PAGE ONLY''', you can tell where table values are being pulled from:
+<includeonly><!--
+
+	adding category to lauch forma
+
+-->[[Category:ArticleHelmRN]]<!--
+
+	forcing TOC and suppressing section editing
+
+-->__TOC__
+__NOEDITSECTION__<!--
+
+	storing values in Article table for general use
+
+-->{{#cargo_store:
+	_table=Article
+	|Standalone={{{Standalone}}}
+	|Dimension={{#explode:{{FULLPAGENAME}}|/|3}}
+	|productshort={{#explode:{{FULLPAGENAME}}|/|0}}
+	|DisplayName={{{DisplayName|}}}
+	|Context={{{Context|}}}
+}}<!--
+
+	storing values in ArticleHelmRN table for specific use
+
+-->{{#cargo_store:
+	_table=ArticleHelmRN
+	|ServiceId={{{ServiceId|}}}
+	|ComponentId={{{ComponentId|}}}
+	|DeploymentTypeId={{{DeploymentTypeId|}}}
+	|DisplayName={{{DisplayName|}}}
+	|DepGuideServiceId={{{DepGuideServiceId|}}}
+}}<!-- 
+
+	Set MintyDocs topic, including a switch for different treatment for Manual pages 
+
+-->{{#switch:{{{PageType|}}}
+	|Manual=
+	|#default={{#mintydocs_topic:
+		|display name={{{DisplayName|}}}
+		|toc name={{{TocName|}}}
+	}}
+}}<!-- 
+
+	Defining the EPPO Header; all parameters need to be passed to it 
+
+-->{{EPPOHead
+	|RN=Yes
+	|ServiceId={{{ServiceId|}}}
+	|Role={{{Role|}}}
+	|ComingSoon={{{ComingSoon|}}}
+	|Context=Find lists of which containers were updated for each service release, and when.
+	|UseCase={{{UseCase|}}}
+	|Application={{{Application|}}}
+	|Platform={{{Platform|}}}
+	|PageType=Article
+	|DepGuideServiceId={{{DepGuideServiceId|}}}
+}}<!--
+
+	Defining the Prerequisite Head 
+
+-->{{PrerequisitesHead|Prereq={{{Prereq|}}}}}<!-- 
+
+	Query for showing component list 
+
+--><includeonly>{{#cargo_query:
+	tables=Component,ComponentRN,ComponentRN__DeploymentTypeId,Issue
+	|join on=
+		Component.Id=ComponentRN.ComponentId,
+		ComponentRN._ID=ComponentRN__DeploymentTypeId._rowID,
+		ComponentRN._pageName=Issue._pageName
+	|fields=
+		Component.Name=Service,
+		ComponentRN.ReleaseNumber,
+		PrivateEditionReleaseDate=ReleaseDate,
+		Containers,
+		ComponentId
+	|intro={{#switch:{{NAMESPACENUMBER}}
+		|620=
+{{NoteFormat|In the '''DRAFT PAGE ONLY''', you can tell where table values are being pulled from:
 * ''Checked {{SuperscriptCheck}} items are confirmed to have come directly from XING.''
 * ''Flagged {{SuperscriptFlag}} items are pulled from the manual parameter in the Base Unit RN.''
-Published content will not include this note, or icons that indicate where the list of containers/helm charts come from.}}|#default=}}<table class="sortable"><tr><th>Service</th><th>Release Number</th><th>Release Date</th><th>Updated Helm Charts</th><th>Updated Containers</tr>
-|outro=</table>
-|named args=yes
-|format=template
-|template=HelmPrint
-|where=
-(ComponentRN.ComponentId IN ({{#arraymap:{{{ComponentId|}}}|,|x|'x'}})) 
-AND (ComponentRN__DeploymentTypeId._value IN ({{#arraymap:{{{DeploymentTypeId|}}}|,|x|'x'}})) 
-AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}" 
-AND PrivateEditionReleaseDate IS NOT NULL
-|named args=yes
-|group by=ComponentRN._pageName
-|order by=ComponentRN.ReleaseDate DESC
-}}
-__NOCACHE__
-<!--|join on=ArticleHelmRN.ComponentId HOLDS Component.Id,ComponentRN.ComponentId__full=ArticleHelmRN.ComponentId__full,ComponentRN.DeploymentTypeId HOLDS DeploymentType.Id
+Published content will not include this note, or icons that indicate where the list of containers/helm charts come from.}}
+		|#default=
+	}}
+	<table class="sortable">
+	<tr>
+	<th>Service</th>
+	<th>Release Number</th>
+	<th>Release Date</th>
+	<th>Updated Helm Charts</th>
+	<th>Updated Containers</th>
+	</tr>
+	|outro=</table>
+	|named args=yes
+	|format=template
+	|template=HelmPrint
+	|where=
+		(ComponentRN.ComponentId IN ({{#arraymap:{{{ComponentId|}}}|,|x|'x'}})) 
+		AND (ComponentRN__DeploymentTypeId._value IN ({{#arraymap:{{{DeploymentTypeId|}}}|,|x|'x'}})) 
+		AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}" 
+		AND PrivateEditionReleaseDate IS NOT NULL
+	|named args=yes
+	|group by=ComponentRN._pageName
+	|order by=ComponentRN.ReleaseDate DESC
+}}<!--
+
+	supprssing cache on this pages
+
+-->__NOCACHE__<!--
+
+	local CSS overrides
+
 -->{{#css:
-#mw-content-text .select2-container .select2-choice { height: 34px; line-height: normal; }
-.panel-title { padding: 10px; }
-.panel>.panel-heading { padding: 0 }
-.toggle-wrap { margin: 20px 0 25px; }
-.toggle-wrap>a{ display: block; padding: 10px; color: #333; background-color: #f5f5f5; border: 1px solid #ddd; border-top-left-radius: 3px; border-top-right-radius: 3px; }
-.toggle-wrap>a:before { content: '\f0d7'; float: left; font-family: FontAwesome; margin-right: 10px; text-decoration: none; }
-.toggle-content { padding: 10px 20px; border: 1px solid #ddd; border-top: none; border-bottom-left-radius: 3px; border-bottom-right-radius: 3px; }
-}}{{{ArticleHelmRN|}}}<!-- Removing the version dropdown for Standalone (version-less) pages -->{{#switch:{{{Standalone}}}|Yes={{#css: 
-button#version-dropdown { display: none; }
-}}|#default=}}[[Category:Linkable]]<nowiki /></includeonly><noinclude>[[Category:RNAutomation]][[Category:ComponentRN.ComponentId cleanup]]</noinclude>
+	#mw-content-text .select2-container .select2-choice { height: 34px; line-height: normal; }
+	.panel-title { padding: 10px; }
+	.panel>.panel-heading { padding: 0 }
+	.toggle-wrap { margin: 20px 0 25px; }
+	.toggle-wrap>a{ display: block; padding: 10px; color: #333; background-color: #f5f5f5; border: 1px solid #ddd; border-top-left-radius: 3px; border-top-right-radius: 3px; }
+	.toggle-wrap>a:before { content: '\f0d7'; float: left; font-family: FontAwesome; margin-right: 10px; text-decoration: none; }
+	.toggle-content { padding: 10px 20px; border: 1px solid #ddd; border-top: none; border-bottom-left-radius: 3px; border-bottom-right-radius: 3px; }
+}}<!--
+
+	passing values 
+
+-->{{{ArticleHelmRN|}}}<!-- 
+
+	Removing the version dropdown for Standalone (version-less) pages 
+
+-->{{#switch:{{{Standalone}}}
+		|Yes=
+			{{#css: 
+				button#version-dropdown { display: none; }
+				.MintyDocsTopicDesc {display:none} 
+			}}
+			|#default=
+}}<!-- 
+
+adding this page to linkgrabber tool
+
+-->[[Category:Linkable]]<nowiki /></includeonly><noinclude>[[Category:RNAutomation]][[Category:ComponentRN.ComponentId cleanup]]</noinclude>

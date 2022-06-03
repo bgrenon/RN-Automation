@@ -16,7 +16,9 @@ Service: {{{field|Name}}}
 
 Workspace: {{{field|workspace_id|input type=dropdown|cargo table=MintyDocsProduct|cargo field=workspace_id}}}
 
-Short name for URL: {{{field|ShortName}}}
+Approved acronym: {{{field|ShortName}}}
+
+URL shortname for PE guide: {{{field|URLName}}}
 
 {{{end template}}}
 {{{standard input|minor edit}}} {{{standard input|watch}}}

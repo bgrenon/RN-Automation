@@ -26,91 +26,150 @@ Edit the page to see the template text.
 {{#cargo_attach:_table=Article}}
 
 </noinclude>
-<includeonly>{{#css: .MintyDocsTopicDesc {display:none} }}[[Category:ArticleCloudRN]]__TOC__
-__NOEDITSECTION__{{#cargo_store:_table=Article|Standalone={{{Standalone}}}|Dimension={{{Dimension|}}}|productshort={{#explode:{{FULLPAGENAME}}|/|0}}|DisplayName={{{DisplayName|}}}|Context={{{Context|}}}}}{{#cargo_store:_table=ArticleCloudRN
-|ServiceId={{{ServiceId|}}}
-|ComponentId={{{ComponentId|}}}
-|DeploymentTypeId={{{DeploymentTypeId|}}}
-|ReleaseTypeId={{{ReleaseTypeId|}}}
-|Footer={{{Footer|}}}
-|DepGuideServiceId={{{DepGuideServiceId|}}}
-}}<!-- Set MintyDocs topic, including a switch for different treatment for Manual pages -->{{#switch:{{{PageType|}}}|Manual=|#default={{#mintydocs_topic:
+<includeonly><!-- 
+
+adding category to set form
+
+-->[[Category:ArticleCloudRN]]
+
+<!--
+
+forcing TOC and suppressing section inks
+
+-->__TOC__
+__NOEDITSECTION__<!--
+
+  storing cargo values in both Article table for general queries 
+
+-->{{#cargo_store:
+  _table=Article
+  |Standalone={{{Standalone}}}
+  |Dimension={{{Dimension|}}}
+  |productshort={{#explode:{{FULLPAGENAME}}|/|0}}
+  |DisplayName={{{DisplayName|}}}
+  |Context={{{Context|}}}}}<!--
+
+  storing values in ArticleCloudRN table for specific queries 
+
+-->{{#cargo_store:
+  _table=ArticleCloudRN
+  |ServiceId={{{ServiceId|}}}
+  |ComponentId={{{ComponentId|}}}
+  |DeploymentTypeId={{{DeploymentTypeId|}}}
+  |ReleaseTypeId={{{ReleaseTypeId|}}}
+  |Footer={{{Footer|}}}
+  |DepGuideServiceId={{{DepGuideServiceId|}}}
+}}<!-- 
+
+  Set MintyDocs topic, including a switch for different treatment for Manual pages 
+
+-->{{#switch:{{{PageType|}}}|Manual=|#default={{#mintydocs_topic:
 |display name={{{DisplayName|}}}
 |toc name={{{TocName|}}}
-}}}}<!-- Defining the EPPO Header; all parameters need to be passed to it -->{{EPPOHead|RN=Yes|Role={{{Role|}}}|ComingSoon={{{ComingSoon|}}}|Context=Not all releases or changes listed below may pertain to your deployment. Check the table below to see which releases apply to you.
-|UseCase={{{UseCase|}}}|Application={{{Application|}}}|Platform={{{Platform|}}}|PageType=Article|DepGuideServiceId={{{DepGuideServiceId|}}}|ServiceId={{{ServiceId|}}}}}<!--Defining the Prerequisite Head -->{{PrerequisitesHead|Prereq={{{Prereq|}}}}}<!-- Query for showing component list --><!-- removing toggle display for now<div class="toggle-wrap">
-<toggledisplay linkstyle font-size:larger showtext="Quick lookup table" hidetext="Quick lookup table">
-<div class="toggle-content"> -->{{NoteFormat|The Release table lists the initial availability date for each release and the deployment environments for which a release is made available. Except when otherwise stated in the description for a specific release, each release includes all of the features and resolved issues that were introduced on earlier dates, regardless of the deployment environment. The features and resolved issues that apply only to a specific deployment environment are noted as such.}}
-<!-- setting up list of releases table -->
-{{#cargo_query:tables=
-ArticleCloudRN,
-ComponentRN,
-ComponentRN__DeploymentTypeId
-|join on=
-ArticleCloudRN.ComponentId HOLDS ComponentRN.ComponentId,
-ComponentRN._ID =ComponentRN__DeploymentTypeId._rowID
-|fields=
-ComponentRN.ComponentId,
-ComponentRN.ReleaseNumber,
-ComponentRN.ReleaseDate,
-ComponentRN.Highlight,
-ComponentRN.HighlightBoilerplateId
-|where=ArticleCloudRN._pageNamespace="{{NAMESPACENUMBER}}" 
-AND ComponentRN._pageNamespace=ArticleCloudRN._pageNamespace
-AND (ComponentRN.ComponentId IN ({{#arraymap:{{{ComponentId|}}}|,|x|'x'}})) 
-AND (ComponentRN__DeploymentTypeId._value IN ({{#arraymap:{{{DeploymentTypeId|}}}|,|x|'x'}}))
-|limit=10000
-|order by=ComponentRN.ReleaseDate DESC
-|group by=ComponentRN.ComponentId,
-ComponentRN.ReleaseNumber,
-ComponentRN.ReleaseDate,
-ComponentRN.Highlight,
-ComponentRN.HighlightBoilerplateId
-|named args=yes
-|format=template
-|template=PrintTopRN
-|intro=
-    <table class="sortable" style="font-size:90%">
-    <tr>
-      {{#ifeq:{{#cargo_query:tables=ArticleCloudRN,ArticleCloudRN__ComponentId|join on=ArticleCloudRN._ID=ArticleCloudRN__ComponentId._rowID|fields=COUNT(*)|where=ArticleCloudRN._pageName="{{FULLPAGENAME}}" AND ArticleCloudRN._pageNamespace="{{NAMESPACENUMBER}}"|no html}}|1||<th rowspan="2" style="width:15%">Service</th>}} 
-    <th rowspan="2" style="width:12%">Available</th>
-    <th colspan="3" style="text-align: center>Genesys CX on</th>
-	<th rowspan="2">Private edition</th>
-    <th rowspan="2">Highlights</th>
-    <th rowspan="2">Release</th>
-    </tr>
-    <tr>
-    <th>AWS</th>
-	<th>Azure</th>
-	<th>GCP</th>
-	<tr>
-|outro=</table>
-}}
-<!-- printing content of indivual release note entries -->
-{{#cargo_query:
-tables=Issue,
-ComponentRN,
-ComponentRN__DeploymentTypeId,
-Component
-|join on=Issue._pageName=ComponentRN._pageName,
-ComponentRN._ID=ComponentRN__DeploymentTypeId._rowID,
-ComponentRN.ComponentId=Component.Id
-|fields=ComponentId=Component,
-ComponentRN.ReleaseNumber=ReleaseNumber,
-ComponentRN.ReleaseDate=ReleaseDate,
-PrivateEditionReleaseDate,
-ComponentRN._pageName=Page,
-Component.Name=ComponentName
-|format=template
-|template=RNPrint
-|where=(ComponentRN.ComponentId IN ({{#arraymap:{{{ComponentId|}}}|,|x|'x'}})) 
-AND (ComponentRN__DeploymentTypeId._value IN ({{#arraymap:{{{DeploymentTypeId|}}}|,|x|'x'}})) 
-AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}"
-|named args=yes
-|order by=ComponentRN.ReleaseDate DESC
-|group by=ComponentRN._pageName
-}}
+}}}}<!-- 
 
+  Defining the EPPO Header; all parameters need to be passed to it 
+
+-->{{EPPOHead
+  |RN=Yes
+  |Role={{{Role|}}}
+  |ComingSoon={{{ComingSoon|}}}
+  |Context=Not all releases or changes listed below may pertain to your deployment. Check the table below to see which releases apply to you.
+  |UseCase={{{UseCase|}}}
+  |Application={{{Application|}}}
+  |Platform={{{Platform|}}}
+  |PageType=Article
+  |DepGuideServiceId={{{DepGuideServiceId|}}}
+  |ServiceId={{{ServiceId|}}}
+}}<!--
+
+Defining the Prerequisite Head 
+
+-->{{PrerequisitesHead|Prereq={{{Prereq|}}}}}<!-- 
+
+  Query for showing component list 
+
+-->{{NoteFormat
+    |The Release table lists the initial availability date for each release and the deployment environments for which a release is made available. Except when otherwise stated in the description for a specific release, each release includes all of the features and resolved issues that were introduced on earlier dates, regardless of the deployment environment. The features and resolved issues that apply only to a specific deployment environment are noted as such.
+}}<!-- 
+
+  setting up list of releases table 
+
+-->{{#cargo_query:
+  tables=
+    ArticleCloudRN,
+    ComponentRN,
+    ComponentRN__DeploymentTypeId
+  |join on=
+    ArticleCloudRN.ComponentId HOLDS ComponentRN.ComponentId,
+    ComponentRN._ID =ComponentRN__DeploymentTypeId._rowID
+  |fields=
+    ComponentRN.ComponentId,
+    ComponentRN.ReleaseNumber,
+    ComponentRN.ReleaseDate,
+    ComponentRN.Highlight,
+    ComponentRN.HighlightBoilerplateId
+  |where=ArticleCloudRN._pageNamespace="{{NAMESPACENUMBER}}" 
+    AND ComponentRN._pageNamespace=ArticleCloudRN._pageNamespace
+    AND (ComponentRN.ComponentId IN ({{#arraymap:{{{ComponentId|}}}|,|x|'x'}})) 
+    AND (ComponentRN__DeploymentTypeId._value IN ({{#arraymap:{{{DeploymentTypeId|}}}|,|x|'x'}}))
+  |limit=10000
+  |order by=ComponentRN.ReleaseDate DESC
+  |group by=ComponentRN.ComponentId,
+    ComponentRN.ReleaseNumber,
+    ComponentRN.ReleaseDate,
+    ComponentRN.Highlight,
+    ComponentRN.HighlightBoilerplateId
+  |named args=yes
+  |format=template
+  |template=PrintTopRN
+  |intro=
+      <table class="sortable" style="font-size:90%">
+      <tr>
+        {{#ifeq:{{#cargo_query:tables=ArticleCloudRN,ArticleCloudRN__ComponentId|join on=ArticleCloudRN._ID=ArticleCloudRN__ComponentId._rowID|fields=COUNT(*)|where=ArticleCloudRN._pageName="{{FULLPAGENAME}}" AND ArticleCloudRN._pageNamespace="{{NAMESPACENUMBER}}"|no html}}|1||<th rowspan="2" style="width:15%">Service</th>}} 
+      <th rowspan="2" style="width:12%">Available</th>
+      <th colspan="3" style="text-align: center>Genesys CX on</th>
+  	<th rowspan="2">Private edition</th>
+      <th rowspan="2">Highlights</th>
+      <th rowspan="2">Release</th>
+      </tr>
+      <tr>
+      <th>AWS</th>
+  	<th>Azure</th>
+  	<th>GCP</th>
+  	<tr>
+  |outro=</table>
+}}<!-- 
+
+  printing content of indivual release note entries 
+
+-->{{#cargo_query:
+  tables=
+    Issue,
+    ComponentRN,
+    ComponentRN__DeploymentTypeId,
+    Component
+  |join on=
+    Issue._pageName=ComponentRN._pageName,
+    ComponentRN._ID=ComponentRN__DeploymentTypeId._rowID,
+    ComponentRN.ComponentId=Component.Id
+  |fields=
+    ComponentId=Component,
+    ComponentRN.ReleaseNumber=ReleaseNumber,
+    ComponentRN.ReleaseDate=ReleaseDate,
+    PrivateEditionReleaseDate,
+    ComponentRN._pageName=Page,
+    Component.Name=ComponentName
+  |format=template
+  |template=RNPrint
+  |where=
+    (ComponentRN.ComponentId IN ({{#arraymap:{{{ComponentId|}}}|,|x|'x'}})) 
+    AND (ComponentRN__DeploymentTypeId._value IN ({{#arraymap:{{{DeploymentTypeId|}}}|,|x|'x'}})) 
+    AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}"
+  |named args=yes
+  |order by=ComponentRN.ReleaseDate DESC
+  |group by=ComponentRN._pageName
+}}
 
 {{#if:{{{Footer|}}}|
 ==Prior Releases==
@@ -120,16 +179,25 @@ AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}"
 {{{AzureBoilerplate|}}}
 
 {{#css:
-#mw-content-text .select2-container .select2-choice { height: 34px; line-height: normal; }
-.panel-title { padding: 10px; }
-.panel>.panel-heading { padding: 0 }
-.toggle-wrap { margin: 20px 0 25px; }
-.toggle-wrap>a{ display: block; padding: 10px; color: #333; background-color: #f5f5f5; border: 1px solid #ddd; border-top-left-radius: 3px; border-top-right-radius: 3px; }
-.toggle-wrap>a:before { content: '\f0d7'; float: left; font-family: FontAwesome; margin-right: 10px; text-decoration: none; }
-.toggle-content { padding: 10px 20px; border: 1px solid #ddd; border-top: none; border-bottom-left-radius: 3px; border-bottom-right-radius: 3px; }
+  #mw-content-text .select2-container .select2-choice { height: 34px; line-height: normal; }
+  .panel-title { padding: 10px; }
+  .panel>.panel-heading { padding: 0 }
+  .toggle-wrap { margin: 20px 0 25px; }
+  .toggle-wrap>a{ display: block; padding: 10px; color: #333; background-color: #f5f5f5; border: 1px solid #ddd; border-top-left-radius: 3px; border-top-right-radius: 3px; }
+  .toggle-wrap>a:before { content: '\f0d7'; float: left; font-family: FontAwesome; margin-right: 10px; text-decoration: none; }
+  .toggle-content { padding: 10px 20px; border: 1px solid #ddd; border-top: none; border-bottom-left-radius: 3px; border-bottom-right-radius: 3px; }
 }}
 
 {{{ArticleCloudRN|}}}
-<!-- Removing the version dropdown for Standalone (version-less) pages -->{{#switch:{{{Standalone}}}|Yes={{#css: 
-button#version-dropdown { display: none; }
-}}|#default=}}[[Category:Linkable]]<nowiki /></includeonly><noinclude>[[Category:RNAutomation]][[Category:ComponentRN.ComponentId cleanup]]</noinclude>
+<!-- 
+
+  Removing the version dropdown for Standalone (version-less) pages 
+
+-->{{#switch:{{{Standalone}}}
+    |Yes=
+      {{#css: 
+        button#version-dropdown { display: none; }
+        .MintyDocsTopicDesc {display:none} 
+      }}
+    |#default=
+}}[[Category:Linkable]]<nowiki /></includeonly><noinclude>[[Category:RNAutomation]][[Category:ComponentRN.ComponentId cleanup]]</noinclude>

@@ -10,7 +10,7 @@ MAX(PrivateEditionReleaseDate)=PrivateEditionReleaseDate
 |where=
 ComponentRN.ComponentId="{{{ComponentId|}}}" 
 AND PrivateEditionReleaseDate IS NOT NULL 
-AND ComponentRN._pageNamespace="0"
+AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}"
 |format=template
 |template=GetContainers
 |named args=yes

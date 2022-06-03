@@ -9,7 +9,7 @@ Component
 |where=
 ComponentRN.ComponentId="{{{ComponentId|}}}" 
 AND PrivateEditionReleaseDate="{{{PrivateEditionReleaseDate|}}}" 
-AND ComponentRN._pageNamespace="0"
+AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}"
 }}
 </td>
 <td><!-- get release number -->
@@ -20,7 +20,7 @@ MAX(ReleaseNumber)
 |where=
 ComponentRN.ComponentId="{{{ComponentId|}}}" 
 AND PrivateEditionReleaseDate="{{{PrivateEditionReleaseDate|}}}" 
-AND ComponentRN._pageNamespace="0"
+AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}"
 }}
 </td>
 <td><!-- get release date and format as link to ArticleCloudRN page -->
@@ -37,7 +37,7 @@ ComponentRN.ComponentId=Component.Id
 CONCAT('[[',ArticleCloudRN._pageName,'#',Component.Name,'-',ReleaseNumber,'|',DATE_FORMAT(MAX(PrivateEditionReleaseDate),'%M %d, %Y'),']]')
 |where=
 ComponentRN.ComponentId="{{{ComponentId|}}}" 
-AND ArticleCloudRN._pageNamespace="0" 
+AND ArticleCloudRN._pageNamespace="{{NAMESPACENUMBER}}" 
 AND PrivateEditionReleaseDate="{{{PrivateEditionReleaseDate|}}}"
 |group by=ComponentRN.ComponentId
 }}
@@ -63,14 +63,14 @@ ul
 ComponentRN.ComponentId="{{{ComponentId|}}}" 
 AND PrivateEditionReleaseDate="{{{PrivateEditionReleaseDate|}}}" 
 AND Type="helm" 
-AND ComponentRN._pageNamespace="0"
+AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}"
 |default=
      {{#cargo_query:tables=ComponentRN
      |fields=Containers
      |where=
       ComponentRN.ComponentId="{{{ComponentId|}}}" 
       AND PrivateEditionReleaseDate="{{{PrivateEditionReleaseDate|}}}" 
-      AND ComponentRN._pageNamespace="0" 
+      AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}" 
       AND Containers IS NOT NULL
      |format=template
      |template=ArrayMapHelm
@@ -83,7 +83,7 @@ AND ComponentRN._pageNamespace="0"
            |fields=CONCAT('See [[',ArticleHelmRN._pageName,'|parent]]*') 
            |where=
             Component.Id = "{{{ComponentId|}}}" 
-            AND ArticleHelmRN._pageNamespace="0"
+            AND ArticleHelmRN._pageNamespace="{{NAMESPACENUMBER}}"
            |delimiter= 
            |default=N/A
            |group by=ArticleHelmRN._pageName,Component.Name
@@ -99,11 +99,11 @@ AND ComponentRN._pageNamespace="0"
 |having=MAX(ComponentRN.ReleaseNumber)=RNElements.Version
 |group by=RNElements.Version,RNElements.Filename
 |format=ul
-|where=ComponentRN.ComponentId="{{{ComponentId|}}}" AND PrivateEditionReleaseDate="{{{PrivateEditionReleaseDate|}}}" AND Type="docker" AND ComponentRN._pageNamespace="0"
+|where=ComponentRN.ComponentId="{{{ComponentId|}}}" AND PrivateEditionReleaseDate="{{{PrivateEditionReleaseDate|}}}" AND Type="docker" AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}"
 |default=
         {{#cargo_query:tables=ComponentRN
         |fields=Containers
-        |where=ComponentRN.ComponentId="{{{ComponentId|}}}" AND PrivateEditionReleaseDate="{{{PrivateEditionReleaseDate|}}}" AND ComponentRN._pageNamespace="0" AND Containers IS NOT NULL
+        |where=ComponentRN.ComponentId="{{{ComponentId|}}}" AND PrivateEditionReleaseDate="{{{PrivateEditionReleaseDate|}}}" AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}" AND Containers IS NOT NULL
         |format=template
         |template=ArrayMapDocker
         |default=
@@ -111,7 +111,7 @@ AND ComponentRN._pageNamespace="0"
               tables=ArticleHelmRN,Component
               |join on=ArticleHelmRN.ComponentId HOLDS Component.ParentComponentId
               |fields=CONCAT('See [[',ArticleHelmRN._pageName,'|parent]]*') 
-              |where=Component.Id = "{{{ComponentId|}}}" AND ArticleHelmRN._pageNamespace="0"
+              |where=Component.Id = "{{{ComponentId|}}}" AND ArticleHelmRN._pageNamespace="{{NAMESPACENUMBER}}"
               |delimiter= 
               |default=N/A
               |group by=ArticleHelmRN._pageName,Component.Name

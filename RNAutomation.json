@@ -306,6 +306,11 @@
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/MintyDocs/Template%3AEPPOHead.mediawiki"
 				},
 				{
+					"name": "EPPOQueries",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/MintyDocs/Template%3AEPPOQueries.mediawiki"
+				},
+				{
 					"name": "MintyDocsManual",
 					"namespace": "NS_TEMPLATE",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/MintyDocs/Template%3AMintyDocsManual.mediawiki"

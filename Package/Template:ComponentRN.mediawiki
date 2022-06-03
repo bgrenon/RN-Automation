@@ -41,7 +41,7 @@ Edit the page to see the template text.
 |{{{Highlight|}}}
 |-
 !HighlightBoilerplate
-|{{#ifexist: Template:{{{HighlightBoilerplateId|}}} | {{Template:{{{HighlightBoilerplateId|}}}|{{{ReleaseNumber|}}}}} |  }}
+|{{#if: {{{HighlightBoilerplateId|}}} | {{Template:{{{HighlightBoilerplateId|}}}|{{{ReleaseNumber|}}}}} |  }}
 |-
 ! Release Date
 | {{{ReleaseDate|}}}
