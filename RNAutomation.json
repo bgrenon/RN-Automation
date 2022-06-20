@@ -319,6 +319,16 @@
 					"name": "TaskSummary",
 					"namespace": "NS_TEMPLATE",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/MintyDocs/Template%3ATaskSummary.mediawiki"
+				},
+				{
+					"name": "GetStartedPortal",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/MintyDocs/Template%3AGetStartedPortal.mediawiki"
+				},
+				{
+					"name": "ApplicationsMapHorizontal",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/MintyDocs/Template%3AApplicationsMapHorizontal.mediawiki"
 				}
 			]
 		},

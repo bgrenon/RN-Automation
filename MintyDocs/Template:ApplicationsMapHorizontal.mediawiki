@@ -1,0 +1,18 @@
+<noinclude>
+This is the "ApplicationsMap" template.
+
+</noinclude><includeonly><!--
+
+	creating div for the row of application ApplicationsMap
+
+--><div style="float:left;margin-right: 15px;"><!--
+
+	finding list of application icons from PEC_Application_MasterList table
+
+-->{{#cargo_query:
+	tables=
+		PEC_Applications_MasterList
+	|fields=CONCAT('[[File:',Portal_Icon_Image,'|frameless|40px|link={{#switch:{{NAMESPACENUMBER}}|620=Draft:|#default=}}',Link,']]')
+	|where=PEC_Applications_MasterList.Application="{{{1}}}"
+	|default=
+}}</div></includeonly>

@@ -1,0 +1,56 @@
+<div class="clearfix" style="border-bottom: 1px solid #959699; padding-bottom: 20px;">
+<h3>{{{featurename|}}}</h3>
+<div class="row">
+<div class="col-md-7" style="padding-right: 30px;"><!--
+
+	listing names of hosted applciations from HIW table
+
+-->{{#cargo_query:
+	tables=HIW
+	|fields=Application
+	|where=
+		featurename="{{{featurename}}}" 
+		AND _pageNamespace={{NAMESPACENUMBER}}
+	|format=template
+	|template=HIW_Portal
+	|default=
+	|named args=yes
+}}<!--
+
+	Listing short description for each application
+	
+-->{{#cargo_query:
+	tables=HIW
+	|fields=ShortDescription
+	|where=
+		HIW._pageNamespace="{{NAMESPACENUMBER}}" 
+		AND HIW.featurename="{{{featurename}}}"
+	|default=<needs ShortDescription added to HIW pages via form>
+}}</div><div class="col-md-5" style="padding-left:0;"><!--
+
+	adding links to the HIW page per application
+
+--><ul>{{#cargo_query:
+	tables=HIW
+	|fields=CONCAT('<li>[[',HIW._pageName,'|',HIW.Displayname,']]</li>')
+	|where=
+		HIW._pageNamespace="{{NAMESPACENUMBER}}"  
+		AND HIW.featurename="{{{featurename}}}"
+	|delimiter=
+	|default=
+}}<!--
+
+	adding links to Getting started pages per aplication 
+
+-->{{#cargo_query:
+	tables=GetStarted
+	|fields=CONCAT('<li>[[',GetStarted._pageName,'|',GetStarted.DisplayName,']]</li>')
+	|where=
+		GetStarted._pageNamespace="{{NAMESPACENUMBER}}" 
+		AND  GetStarted.Product="{{{featurename}}}"
+	|delimiter=
+	|default=
+}}
+</ul>
+</div></div></div>
+<div style="clear:both;"></div>
