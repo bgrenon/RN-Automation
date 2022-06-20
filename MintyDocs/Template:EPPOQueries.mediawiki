@@ -1,0 +1,241 @@
+<includeonly><!-- 
+
+	add link to HIW portal to HIW pages 
+
+-->{{#cargo_query: 
+	tables=HIW
+	|fields=CONCAT('[[PEC-Admin/HIW|Getting started with Genesys Multicloud CX]]')
+	|where=HIW._pageName="{{FULLPAGENAME}}"
+	|format=template
+	|template=ListItems
+	|default=
+}}<!-- 
+
+	find How it works pages 
+
+-->{{#cargo_query: 
+	tables=HIW
+	|fields=CONCAT('[[',HIW._pageName ,'|',HIW.DisplayName,']]')
+	|where=
+		HIW.productshort LIKE '%{{#explode:{{FULLPAGENAME}}|/|0}}%' 
+		AND HIW._pageNamespace="{{NAMESPACENUMBER}}" 
+		AND HIW._pageName!="{{FULLPAGENAME}}"
+	|format=template
+	|template=ListItems
+	|default=
+}}<!-- 
+
+	find Getting Started pages 
+
+-->{{#cargo_query: 
+	tables=GetStarted
+	|fields=CONCAT('[[',GetStarted._pageName,'|',GetStarted.DisplayName,']]')
+	|where=
+		GetStarted.productshort LIKE '%{{#explode:{{FULLPAGENAME}}|/|0}}%' 
+		AND GetStarted._pageNamespace="{{NAMESPACENUMBER}}" 
+		AND GetStarted._pageName!="{{FULLPAGENAME}}" 
+		AND _pageName LIKE "%/{{#explode:{{FULLPAGENAME}}|/|2}}/%"
+	|format=template
+	|template=ListItems
+	|default=
+}}<!-- 
+
+	Using Dimension tagging for links 
+
+-->{{#cargo_query: 
+	tables={{{PageType|}}}
+	|fields=CONCAT('[[',_pageName,'|',DisplayName,']]')
+	|where=
+		Dimension="{{{Dimension|}}}" 
+		AND Dimension IS NOT NULL 
+		AND _pageName!="{{FULLPAGENAME}}" 
+		AND {{{PageType|}}}._pageName LIKE '%{{#explode:{{FULLPAGENAME}}|/|1}}%' 
+		AND {{{PageType|}}}._pageNamespace="{{NAMESPACENUMBER}}"
+	|format=template
+	|template=ListItems
+	|default=
+}}<!-- 
+
+	Link to Suite-level guide 
+
+-->{{#cargo_query: 
+	tables=Article,MintyDocsManual
+	|join on=Article._pageNamespace=MintyDocsManual._pageNamespace
+	|fields=CONCAT('[[',MintyDocsManual._pageName ,'|Suite-level guide]]')
+	|where=
+		MintyDocsManual._pageNamespace="{{NAMESPACENUMBER}}"
+		AND Article._pageName="{{FULLPAGENAME}}" 
+		AND Article.Manual=MintyDocsManual.Manual
+		AND Article.productshort=MintyDocsManual.product
+		AND MintyDocsManual._pageName!="{{FULLPAGENAME}}"
+		AND MintyDocsManual._pageName NOT LIKE "%Boilerplate%"
+		AND MintyDocsManual.ServiceId IS NOT NULL
+	|format=template
+	|template=ListItems
+	|default=
+}}<!-- 
+
+	Adding link to service list to PE pages 
+
+-->{{#cargo_query: 
+	tables=Article,MintyDocsManual
+	|join on=Article._pageNamespace=MintyDocsManual._pageNamespace
+	|fields=CONCAT('{{Link-AnywhereElse|product=PrivateEdition|version=Current|manual=PEGuide|topic=GEServices|display text=All services}}')
+	|where=
+		Article._pageName="{{FULLPAGENAME}}" 
+		AND Article.Manual=MintyDocsManual.Manual
+		AND MintyDocsManual._pageName NOT LIKE "%Boilerplate%"
+		AND Article._pageName NOT LIKE "%GEServices%"
+		AND MintyDocsManual.ServiceId IS NOT NULL
+	|format=template
+	|template=ListItems
+	|default=
+	|group by=MintyDocsManual.ServiceId
+}}<!-- 
+
+    Adding link Index RN on PE pages, if exists 
+
+-->{{#cargo_query: 
+	tables=ArticleIndexRN,MintyDocsManual,Article,Service
+	|join on=
+		ArticleIndexRN.ServiceId HOLDS MintyDocsManual.ServiceId,
+		MintyDocsManual.Manual=Article.Manual,
+		MintyDocsManual.ServiceId=Service.Id
+	|fields=CONCAT('[[',ArticleIndexRN._pageName,'|',Service.Name,' Release Notes]]')
+	|where=
+		Article._pageName="{{FULLPAGENAME}}" 
+		AND MintyDocsManual.ServiceId IS NOT NULL 
+		AND ArticleIndexRN._pageNamespace="{{NAMESPACENUMBER}}" 
+	|format=template
+	|template=ListItems
+	|default=
+		{{#cargo_query:
+			tables=ArticleCloudRN,MintyDocsManual,Article,Service
+			|join on=
+				ArticleCloudRN.ServiceId HOLDS MintyDocsManual.ServiceId,
+				MintyDocsManual.Manual=Article.Manual,
+				MintyDocsManual.ServiceId=Service.Id
+			|fields=CONCAT('[[',ArticleCloudRN._pageName,'|',Service.Name,' Release Notes]]')
+			|where=
+				Article._pageName="{{FULLPAGENAME}}" 
+				AND MintyDocsManual.ServiceId IS NOT NULL 
+				AND ArticleCloudRN._pageNamespace="{{NAMESPACENUMBER}}"
+			|format=template
+			|template=ListItems
+			|default=
+			|group by=ArticleCloudRN._pageName,Service.Name
+		}}
+	|group by=ArticleIndexRN._pageName,Service.Name
+}}<!-- 
+
+    Linking to PE guides on ArticleCloudRN pages 
+
+-->{{#arraymap:{{{DepGuideServiceId|}}} 
+	|,
+	|x
+	|{{#cargo_query:
+		tables=ArticleCloudRN,MintyDocsManual,Service
+		|join on=
+			ArticleCloudRN.DepGuideServiceId HOLDS MintyDocsManual.ServiceId,
+			MintyDocsManual.ServiceId=Service.Id
+		|fields=CONCAT('[[',MintyDocsManual._pageName,'|',MintyDocsManual.displayname,']]')
+		|where=
+			ArticleCloudRN.DepGuideServiceId HOLDS "x" 
+			AND MintyDocsManual.ServiceId IS NOT NULL 
+			AND ArticleCloudRN._pageNamespace="{{NAMESPACENUMBER}}" 
+			AND MintyDocsManual._pageNamespace="{{NAMESPACENUMBER}}"
+			AND ArticleCloudRN._pageName="{{FULLPAGENAME}}"
+		|format=template
+		|delimiter=
+		|template=ListItems
+		|default=
+		|group by=MintyDocsManual._pageName,MintyDocsManual.displayname,MintyDocsManual.ServiceId
+	}}
+	|\s
+}}<!-- 
+
+    Linking to PE guides on ArticleHelmRN pages 
+
+-->{{#arraymap:{{{DepGuideServiceId|}}} 
+	|,
+	|x
+	|{{#cargo_query:
+		tables=ArticleHelmRN,MintyDocsManual,Service
+		|join on=
+			ArticleHelmRN.DepGuideServiceId HOLDS MintyDocsManual.ServiceId,
+			MintyDocsManual.ServiceId=Service.Id
+		|fields=CONCAT('[[',MintyDocsManual._pageName,'|',MintyDocsManual.displayname,']]')
+		|where=
+			ArticleHelmRN.DepGuideServiceId HOLDS "x" 
+			AND MintyDocsManual.ServiceId IS NOT NULL 
+			AND ArticleHelmRN._pageNamespace="{{NAMESPACENUMBER}}" 
+			AND MintyDocsManual._pageNamespace="{{NAMESPACENUMBER}}"
+			AND ArticleHelmRN._pageName="{{FULLPAGENAME}}"
+		|format=template
+		|delimiter=
+		|template=ListItems
+		|default=
+		|group by=MintyDocsManual._pageName,MintyDocsManual.displayname,MintyDocsManual.ServiceId
+	}}
+	|\s
+}}<!-- 
+
+    Special handling for PE Release Notes pages 
+
+-->{{#if:{{{ServiceId|}}} 
+	|{{#switch:{{{RN|}}} <!-- RN page types pass in "RN=Yes" -->
+		|#default=
+		|Yes=
+			{{#cargo_query: <!-- Adding link to helm/containers RN page -->
+					tables=Article,ArticleHelmRN,Service
+					|join on=
+						Article._pageNamespace=ArticleHelmRN._pageNamespace,
+						ArticleHelmRN.ServiceId HOLDS Service.Id
+					|fields=CONCAT('[[',ArticleHelmRN._pageName,'|',ArticleHelmRN.DisplayName,']]') 
+					|where=
+						{{#arraymap:{{{ServiceId|}}}|,|x|(Article._pageName="{{FULLPAGENAME}}" AND ArticleHelmRN.ServiceId HOLDS 'x')||OR }} 
+						AND ArticleHelmRN._pageName != "{{FULLPAGENAME}}"
+					|format=template 
+					|delimiter= 
+					|template=ListItems 
+					|default=
+					|group by=ArticleHelmRN._pageName,ArticleHelmRN.DisplayName
+				}} 
+			{{#if: <!-- check if page is IndexRN  -->
+				{{#cargo_query: 
+					tables=ArticleIndexRN
+					|where=ArticleIndexRN._pageName = "{{FULLPAGENAME}}"
+					|default=
+				}}
+				| <!-- do not nothing if IndexRN page -->
+				|{{#cargo_query: <!-- If not IndexRN, and IndexRN exists, then link to it -->
+				tables=Article,ArticleIndexRN,Service
+				|join on=
+					Article._pageNamespace=ArticleIndexRN._pageNamespace,
+					ArticleIndexRN.ServiceId HOLDS Service.Id
+				|fields=CONCAT('[[',ArticleIndexRN._pageName,'|',ArticleIndexRN.DisplayName,']]')=Page
+				|where={{#arraymap:{{{ServiceId|}}}|,|z| (ArticleIndexRN._pageName != "{{FULLPAGENAME}}" AND Article._pageName="{{FULLPAGENAME}}" AND ArticleIndexRN.ServiceId HOLDS 'z')||OR }} 
+				|format=template
+				|delimiter= 
+				|template=ListItems 
+				|default=
+					{{#cargo_query: <!-- Link to regular RN, if no IndexRN -->
+						tables=ArticleIndexRN,Article,ArticleCloudRN,Service
+						|join on=
+							ArticleIndexRN._pageNamespace=Article._pageNamespace,
+							Article._pageNamespace=ArticleCloudRN._pageNamespace,
+							ArticleCloudRN.ServiceId HOLDS Service.Id
+						|fields=CONCAT('[[',ArticleCloudRN._pageName,'|',Service.Name,' Release Notes]]')=Page
+						|where={{#arraymap:{{{ServiceId|}}}|,|z| (ArticleCloudRN._pageName != "{{FULLPAGENAME}}"  AND Article._pageName="{{FULLPAGENAME}}" AND ArticleCloudRN.ServiceId HOLDS 'z')||OR }}
+						|format=template
+						|delimiter= 
+						|template=ListItems 
+						|default=
+						|group by=ArticleCloudRN._pageName,Service.Name<!--Article.DisplayName-->
+					}}
+				|group by=ArticleIndexRN._pageName,ArticleIndexRN.DisplayName
+				}} 
+			}}
+		}}
+	|
+}}</includeonly>

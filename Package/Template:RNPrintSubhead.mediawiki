@@ -1,15 +1,36 @@
 <includeonly><div class="col-md-12" style="margin-top:-30px;padding-left:0">
 <ul class="related-links pages">
-<li style="padding-left:0"><!--<div class="col-md-1" style="padding:0;width:4.33333%">
-<span style="font-size:50%">-->[[File:{{{Image|}}}|{{{Size|}}}px|link={{#switch:{{NAMESPACENUMBER}}|620=Draft:|#default=}}ReleaseNotes/Current/GenesysEngage-cloud/{{#replace:{{{DTName}}}| |}}]]</span>
-<!--</div>-->{{Link-AnywhereElse|product=ReleaseNotes|version=Current|manual=GenesysEngage-cloud|topic={{#replace:{{{DTName}}}| |}}|display text={{{DTName}}}}}: {{{ReleaseNumber|}}} available {{#time:F d, Y|{{#if:{{{PEDate|}}}|{{{PEDate|}}}|{{{MixedDate|}}} }} }}
-</li>
-{{#cargo_query:tables=ArticleCloudRN,ArticleCloudRN__ServiceId,ArticleHelmRN__ServiceId,ArticleHelmRN
-|join on=ArticleCloudRN._ID=ArticleCloudRN__ServiceId._rowID,ArticleCloudRN__ServiceId._value=ArticleHelmRN__ServiceId._value,ArticleHelmRN__ServiceId._rowID=ArticleHelmRN._ID
-|fields=CONCAT('<li>[[',ArticleHelmRN._pageName,'|Helm charts and containers]]</li>')
-|where=ArticleCloudRN._pageName="{{FULLPAGENAME}}" AND ArticleHelmRN._pageNamespace="{{NAMESPACENUMBER}}"
-|default=
-|delimiter=
+<li style="padding-left:0">[[File:{{{Image|}}}|{{{Size|}}}px|link={{#switch:{{NAMESPACENUMBER}}|620=Draft:|#default=}}ReleaseNotes/Current/GenesysEngage-cloud/{{#replace:{{{DTName}}}| |}}]]</span>
+<!--
+
+	adding link to PE index pages
+
+-->{{Link-AnywhereElse
+	|product=ReleaseNotes
+	|version=Current
+	|manual=GenesysEngage-cloud
+	|topic={{#replace:{{{DTName}}}| |}}
+	|display text={{{DTName}}}}}: {{{ReleaseNumber|}}} available {{#time:F d, Y|{{#if:{{{PEDate|}}}|{{{PEDate|}}}|{{{MixedDate|}}} }} }}
+</li><!--  
+
+	print link to helm chart page, if exists 
+
+-->{{#cargo_query:
+	tables=
+		ArticleCloudRN,
+		ArticleCloudRN__ServiceId,
+		ArticleHelmRN__ServiceId,
+		ArticleHelmRN
+	|join on=
+		ArticleCloudRN._ID=ArticleCloudRN__ServiceId._rowID,
+		ArticleCloudRN__ServiceId._value=ArticleHelmRN__ServiceId._value,
+		ArticleHelmRN__ServiceId._rowID=ArticleHelmRN._ID
+	|fields=CONCAT('<li>[[',ArticleHelmRN._pageName,'|Helm charts and containers]]</li>')
+	|where=
+		ArticleCloudRN._pageName="{{FULLPAGENAME}}" 
+		AND ArticleHelmRN._pageNamespace="{{NAMESPACENUMBER}}"
+	|default=
+	|delimiter=
 }}
 </ul>
-</div></includeonly>
+</div></includeonly><noinclude>[[Category:ComponentRN.ComponentId cleanup]]</noinclude>

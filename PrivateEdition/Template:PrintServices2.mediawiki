@@ -1,14 +1,71 @@
 <tr>
 <td>
-{{{Service|}}}
-</td>
-<td>
-{{#cargo_query:tables=Service,IncludedService
-|join on=Service.Id=IncludedService.ServiceId
-|fields=IncludedService.Name=Included Service
-|where=Service.Id="{{{ServiceId|}}}" AND IncludedService.Id IS NOT NULL
-|format=ul
-|default=
+<h4>{{{Service}}}</h4>
+{{#cargo_query:
+	tables=
+		Service,
+		IncludedService
+	|join on=Service.Id=IncludedService.ServiceId
+	|fields=IncludedService.Name
+	|where=
+		Service.Id="{{{ServiceId|}}}" 
+		AND IncludedService.Id IS NOT NULL
+	|format=ul
+	|default=
 }}
 </td>
-</tr><noinclude>[[Category:PrivateEdition]]</noinclude>
+<!-- 
+
+	listing relevant books 
+
+--><td>{{#cargo_query:
+	tables=MintyDocsManual,Service
+	|join on=MintyDocsManual.ServiceId=Service.Id
+	|fields=CONCAT('[[',MintyDocsManual._pageName,'|',DisplayName,']]')
+	|where=
+		MintyDocsManual._pageNamespace="{{NAMESPACENUMBER}}" 
+		AND MintyDocsManual.ServiceId = "{{{ServiceId|}}}"
+	|default=
+	|format=template
+	|template=ListItemsFontAwesome
+	|intro=<div class="fontawesome"><div class="FontAwesomeBook"><h4>Guides</h4><div style="margin-left:10px">
+	|outro=</div></div></div>
+}}<!-- 
+
+	listing release notes 
+
+-->{{#cargo_query:
+	tables=Article,ArticleCloudRN,Service
+	|join on=Article._pageName=ArticleCloudRN._pageName,ArticleCloudRN.ServiceId HOLDS Service.Id
+	|fields=CONCAT('[[',ArticleCloudRN._pageName,'|',DisplayName,']]')
+	|where=
+		ArticleCloudRN._pageNamespace="{{NAMESPACENUMBER}}" 
+		AND ArticleCloudRN.ServiceId HOLDS "{{{ServiceId|}}}"
+	|default=
+	|format=template
+	|template=ListItemsFontAwesome
+	|intro=<div class="fontawesome"><div class="FontAwesomeRocket"><h4>Release Notes</h4><div style="margin-left:10px">
+	|outro=</div></div></div>
+}}<!-- 
+
+	listing containers
+
+-->{{#cargo_query:
+	tables=ArticleHelmRN,Service
+	|join on=ArticleHelmRN.ServiceId HOLDS Service.Id
+	|fields=CONCAT('[[',ArticleHelmRN._pageName,'|',REPLACE(DisplayName,'Helm charts and containers for',' '),']]')
+	|where=
+		ArticleHelmRN._pageNamespace="{{NAMESPACENUMBER}}" 
+		AND ArticleHelmRN.ServiceId HOLDS "{{{ServiceId|}}}"
+	|default=
+	|format=template
+	|template=ListItemsFontAwesome
+	|intro=<div class="fontawesome"><div class="FontAwesomeFileCode"><h4>Helm charts and containers </h4><div style="margin-left:10px">
+	|outro=</div></div></div>
+	}}
+</td>
+</tr><!--
+
+	local css overrides
+
+-->{{#css: h4 {margin:5px } }}<noinclude>[[Category:PrivateEdition]]</noinclude>

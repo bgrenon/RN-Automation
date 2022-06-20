@@ -1,17 +1,38 @@
 <h3>{{{Name|}}}</h3>
 <ul>
 {{#cargo_query:
-tables=ComponentRN,
-Issue,
-IssueCategory
-|join on=ComponentRN._pageName=Issue._pageName,
-Issue.IssueCategoryId=IssueCategory.Id
-|fields=SupportingDocumentation,LocalContent,Issue.TicketNumber,SupportingDocumentation,NFBoilerplateId, ReleaseNumber
-|format=template
-|template=RNPrintFormat2
-|named args=yes
-|where=ComponentRN.ComponentId="{{{ComponentId|}}}" AND ReleaseNumber="{{{ReleaseNumber|}}}" AND IssueCategoryId IS NOT NULL AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}" AND IssueCategory.SectionName="{{{Name|}}}"
-|order by=IssueCategory.PrintOrder ASC
-|group by=LocalContent
+	tables=
+		ComponentRN,
+		Issue,
+		IssueCategory
+	|join on=
+		ComponentRN._pageName=Issue._pageName,
+		Issue.IssueCategoryId=IssueCategory.Id
+	|fields=
+		SupportingDocumentation,
+		LocalContent,
+		Issue.TicketNumber,
+		SupportingDocumentation,
+		NFBoilerplateId
+	|format=template
+	|template=RNPrintFormat2
+	|named args=yes
+	|where=
+		ComponentRN.ComponentId="{{{ComponentId|}}}" 
+		AND ReleaseNumber="{{{ReleaseNumber|}}}" 
+		AND IssueCategoryId IS NOT NULL 
+		AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}" 
+		AND IssueCategory.SectionName="{{{Name|}}}"
+	|order by=IssueCategory.PrintOrder ASC
+	|group by=
+		ComponentRN._pageID,
+		Issue._pageID,
+		IssueCategory._pageID,
+		SupportingDocumentation,
+		LocalContent,
+		Issue.TicketNumber,
+		SupportingDocumentation,
+		NFBoilerplateId,
+		IssueCategory.PrintOrder
 }}
 </ul><noinclude>[[Category:RNAutomation]][[Category:ComponentRN.ComponentId cleanup]]</noinclude>

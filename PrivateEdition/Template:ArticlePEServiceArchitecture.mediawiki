@@ -6,6 +6,7 @@ It should be called in the following format:
 {{ArticlePEServiceArchitecture
 |ServiceId=
 |Image=
+|DataFlowImage=
 }}
 
 </pre>
@@ -14,48 +15,146 @@ Edit the page to see the template text.
 {{#cargo_declare:_table=ArticlePEServiceArchitecture
 |ServiceId=String
 |Image=List (,) of String
+|DataFlowImage=String
 }}{{#cargo_attach:_table=Article}}
 
 </noinclude>
-<includeonly>{{#css: .MintyDocsTopicDesc {display:none} }}[[Category:ArticlePEServiceArchitecture]]__TOC__
-__NOEDITSECTION__{{#cargo_store:_table=Article
-|productshort={{#explode:{{FULLPAGENAME}}|/|0}}
-|Role={{{Role|}}}
-|DisplayName=Architecture {{#if:{{{AdditionalTitle|}}}|- {{{AdditionalTitle|}}}|}}
-|TocName={{{TocName|}}}
-|Dimension={{{Dimension|}}}
-|Context=Learn about {{#cargo_query:tables=ArticlePEServiceArchitecture,Service
-|join on=ArticlePEServiceArchitecture.ServiceId=Service.Id|fields=Service.Name|where=ArticlePEServiceArchitecture._pageName="{{FULLPAGENAME}}"}} {{#if:{{{AdditionalTitle|}}}|- {{lc:{{{AdditionalTitle|}}}|}}}} architecture
-|Product={{MINTYDOCSPRODUCT}}
-|Manual={{#explode:{{FULLPAGENAME}}|/|2}}
-|PEPageType={{{PEPageType|}}}
-}}
-{{#cargo_store:_table=ArticlePEServiceArchitecture
-|ServiceId={{{ServiceId|}}}
-|Image={{{Image|}}}
-}}<!-- Set MintyDocs topic, including a switch for different treatment for Manual pages -->{{#mintydocs_topic:
-|display name=Architecture {{#if:{{{AdditionalTitle|}}}|- {{{AdditionalTitle|}}}|}}
-}}<!-- Defining the EPPO Header; all parameters need to be passed to it -->{{EPPOHead|ServiceId={{{ServiceId|}}}|Context=Learn about {{#cargo_query:tables=ArticlePEServiceArchitecture,Service
-|join on=ArticlePEServiceArchitecture.ServiceId=Service.Id|fields=Service.Name|where=ArticlePEServiceArchitecture._pageName="{{FULLPAGENAME}}"}} {{#if:{{{AdditionalTitle|}}}|- {{lc:{{{AdditionalTitle|}}}|}}}} architecture|PageType=Article}}
-{{#if:{{{IntroductionText|}}}|
+<includeonly><!-- 
+
+	setting CSS for this pages
+	-->{{#css: 
+	.MintyDocsTopicDesc {display:none} 
+}}<!-- 
+
+adding category to set form
+
+-->[[Category:ArticlePEServiceArchitecture]]<!--
+
+forcing TOC and suppressing section inks
+
+-->__TOC__
+__NOEDITSECTION__<!--
+
+	storing values in Article table for general queries
+
+-->{{#cargo_store:
+	_table=Article
+	|productshort={{#explode:{{FULLPAGENAME}}|/|0}}
+	|Role={{{Role|}}}
+	|DisplayName=Architecture {{#if:{{{AdditionalTitle|}}}|- {{{AdditionalTitle|}}}|}}
+	|TocName={{{TocName|}}}
+	|Dimension={{{Dimension|}}}
+	|Context=Learn about the architeture for this service.{{#cargo_query:
+			tables=ArticlePEServiceArchitecture,Service
+			|join on=ArticlePEServiceArchitecture.ServiceId=Service.Id
+			|fields=Service.Name
+			|where=ArticlePEServiceArchitecture._pageName="Draft: BDS/Current/BDSPEGuide/Architecture"
+			|no html
+		}} {{#if:{{{AdditionalTitle|}}}
+			|- {{lc:{{{AdditionalTitle|}}}
+			|}}
+		}}architecture
+	|Product={{MINTYDOCSPRODUCT}}
+	|Manual={{#explode:{{FULLPAGENAME}}|/|2}}
+	|PEPageType={{{PEPageType|}}}
+}}<!--
+
+	storing values in ArticlePEServiceArchitecture for specific queries
+
+-->{{#cargo_store:
+	_table=ArticlePEServiceArchitecture
+	|ServiceId={{{ServiceId|}}}
+	|Image={{{Image|}}}
+}}<!-- 
+
+	Set MintyDocs topic, including a switch for different treatment for Manual pages 
+
+-->{{#mintydocs_topic:
+	|display name=Architecture {{#if:{{{AdditionalTitle|}}}|- {{{AdditionalTitle|}}}|}}
+}}<!-- 
+
+	Defining the EPPO Header; all parameters need to be passed to it 
+-->{{EPPOHead
+	|ServiceId={{{ServiceId|}}}
+	|Context=Learn about {{#cargo_query:
+		tables=ArticlePEServiceArchitecture,Service
+		|join on=ArticlePEServiceArchitecture.ServiceId=Service.Id
+		|fields=Service.Name
+		|where=ArticlePEServiceArchitecture._pageName="{{FULLPAGENAME}}"
+		}}{{#if:{{{AdditionalTitle|}}}|- {{lc:{{{AdditionalTitle|}}}|}}}} architecture
+	|PageType=Article
+	|UseCase={{{UseCase|}}}
+	|Application={{{Application|}}}
+	|Platform={{{Platform|}}}
+	|ServiceId={{{ServiceId|}}}
+}}<!-- 
+
+	Introduction text 
+
+-->
 <h2>Introduction</h2>
 {{{IntroductionText|}}}
-|}}
-==Architecture Diagram==
+
+For information about the overall architecture of Genesys Multicloud CX private edition, see the high-level {{Link-AnywhereElse|product=PrivateEdition|version=Current|manual=PEGuide|topic=Architecture}} page. {{#if:{{{DataFlowImage|}}}|<nowiki/>
+
+The following diagrams show the {{#cargo_query:tables=ArticlePEServiceArchitecture,Service
+|join on=ArticlePEServiceArchitecture.ServiceId=Service.Id|fields=Service.Name|where=ArticlePEServiceArchitecture._pageName="{{FULLPAGENAME}}"}} architecture.
+*[[{{FULLPAGENAME}}#DataFlows|Architecture diagram — Data flows]] is from the point of view of data.
+*[[{{FULLPAGENAME}}#Connections|Architecture diagram — Connections]] is from the point of view of network connections.|}}
+
+See also [[{{#replace:{{FULLPAGENAME}}|{{#explode:{{FULLPAGENAME}}|/|3}}|HADR}}|High availability and disaster recovery]] for information about high availability/disaster recovery architecture.
+{{#if:{{{DataFlowImage|}}}|{{AnchorDiv|DataFlows}}
+==Architecture diagram — Data flows==
+The numbers on the connection lines refer to the connection numbers in the [[{{FULLPAGENAME}}#ConnectionsTable|table]] that follows the diagrams. The direction of the arrows indicates the direction of data flows.
+
+[[File:{{{DataFlowImage}}}]]|}}
+{{AnchorDiv|Connections}}
+==Architecture diagram — Connections==
+The numbers on the connection lines refer to the connection numbers in the [[{{FULLPAGENAME}}#ConnectionsTable|table]] that follows the diagram{{#if:{{{DataFlowImage|}}}|s|}}. The direction of the arrows indicates where the connection is initiated (the source) and where an initiated connection connects to (the destination), from the point of view of {{#cargo_query:tables=ArticlePEServiceArchitecture,Service
+|join on=ArticlePEServiceArchitecture.ServiceId=Service.Id|fields=Service.Name|where=ArticlePEServiceArchitecture._pageName="{{FULLPAGENAME}}"}} as a service in the network.
+
 [[File:{{{Image}}}]]
 
-{{#cargo_query:tables=PEConnections
-|fields=Connection,SourceType,Source,DestinationType,Destination,Protocol,Port,Purpose,Classification
-|intro=<h2>Connections table</h2><table class="sortable"><tr><th>Connection</th><th>Source</th><th>Destination</th><th>Protocol</th><th>Port</th><th>Classification</th><th>Data that travels on this connection</th></tr>
-|outro=</table>
-|named args=yes
-|default=
-|format=template
-|template=PEConnectionsPrint
-|where=PEConnections._pageName="{{FULLPAGENAME}}" AND Connection IS NOT NULL
-|order by=Connection ASC
-}}
+{{AnchorDiv|ConnectionsTable}}
+==Connections table==
+The connection numbers refer to the numbers on the connection lines in the diagram{{#if:{{{DataFlowImage|}}}|s|}}. The '''Source''', '''Destination''', and '''Connection Classification''' columns in the table relate to the direction of the arrows in the Connections diagram above: The source is where the connection is initiated, and the destination is where an initiated connection connects to, from the point of view of {{#cargo_query:tables=ArticlePEServiceArchitecture,Service
+|join on=ArticlePEServiceArchitecture.ServiceId=Service.Id|fields=Service.Name|where=ArticlePEServiceArchitecture._pageName="{{FULLPAGENAME}}"}} as a service in the network. ''Egress'' means the {{#cargo_query:tables=ArticlePEServiceArchitecture,Service
+|join on=ArticlePEServiceArchitecture.ServiceId=Service.Id|fields=Service.Name|where=ArticlePEServiceArchitecture._pageName="{{FULLPAGENAME}}"}} service is the source, and ''Ingress'' means the {{#cargo_query:tables=ArticlePEServiceArchitecture,Service
+|join on=ArticlePEServiceArchitecture.ServiceId=Service.Id|fields=Service.Name|where=ArticlePEServiceArchitecture._pageName="{{FULLPAGENAME}}"}} service is the destination. ''Intra-cluster'' means the connection is between services in the cluster.
+<!--
 
-{{{PEConnections|}}}
-{{{PEConnectionsPrint|}}}
-[[Category:Linkable]]</includeonly><noinclude>[[Category:MintyDocs_Cargo]]</noinclude>
+	adding connections table
+
+-->{{#cargo_query:
+	tables=PEConnections
+	|fields=Connection,SourceType,Source,DestinationType,Destination,Protocol,Port,Purpose,Classification
+	|intro=
+		<h2>Connections table</h2>
+		<table class="sortable">
+		<tr><th>Connection</th>
+		<th>Source</th>
+		<th>Destination</th>
+		<th>Protocol</th>
+		<th>Port</th>
+		<th>Classification</th>
+		<th>Data that travels on this connection</th>
+		</tr>
+	|outro=</table>
+	|named args=yes
+	|default=
+	|format=template
+	|template=PEConnectionsPrint
+	|where=
+		PEConnections._pageName="{{FULLPAGENAME}}" 
+		AND Connection IS NOT NULL
+	|order by=Connection ASC
+}}<!--
+
+	passing parameters to the relevant templates
+
+-->{{{PEConnections|}}}
+{{{PEConnectionsPrint|}}}<!--
+
+	adding this page type to Linkgrabber
+
+-->[[Category:Linkable]]</includeonly><noinclude>[[Category:MintyDocs_Cargo]]</noinclude>

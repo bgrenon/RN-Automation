@@ -1,6 +1,45 @@
-<li>
-{{#cargo_query:tables=Issue,DeploymentType|join on=Issue.DeploymentTypeId HOLDS DeploymentType.Id|intro=<b>(|outro=&nbsp;only)</b>|delimiter=&nbsp;and|fields=DeploymentType.Name|where=TicketNumber="{{{TicketNumber|}}}"|default=}}
-{{#if:{{{NFBoilerplateId|}}}|{{{{{NFBoilerplateId|}}}}}|{{{LocalContent|}}}}}
-{{#if:{{{TicketNumber|}}}| &nbsp;({{{TicketNumber|}}})}}
-{{#if:{{{SupportingDocumentation|}}}|<br/>'''More info: '''{{{SupportingDocumentation|}}}'''}}
-</li>
+<!--
+
+	formatting each issue entry
+
+--><li><p><!--
+
+	adding new feature boilerplate, if exists
+
+-->
+{{#if:{{{NFBoilerplateId|}}}
+	|{{{{{NFBoilerplateId|}}}|{{{ReleaseNumber|}}}|{{{ComponentId|}}}}}{{{LocalContent|}}}
+	|{{{LocalContent|}}}
+}}<!--
+
+	adding issue number, if exists
+-->{{#if:{{{TicketNumber|}}}
+	| &nbsp;({{{TicketNumber|}}})
+}}<!--
+
+	adding link to related documentation
+
+-->{{#if:{{{SupportingDocumentation|}}}
+	|<br/><b>More info: </b>{{{SupportingDocumentation|}}}
+	|
+}}<!-- 
+
+	adding limitation per deployment type subline
+
+-->{{#cargo_query:
+	tables=
+		Issue,
+		DeploymentType
+	|join on=Issue.DeploymentTypeId HOLDS DeploymentType.Id
+	|fields=CONCAT('<br/><span style=" color: black;
+	    background-color: #f9f9f9;
+	    border: 1px solid #ddd;
+	    border-radius: 2px;
+	    padding: 1px 4px;
+	    font-size:85%"><b>Limited to</b>:&nbsp;',DeploymentType.Name,'</span>')
+	|where=TicketNumber="{{{TicketNumber|}}}"
+	|default=
+	|delimiter=&nbsp;and&nbsp;
+	|outro=
+}}
+</p></li><noinclude>{{#css: .img{margin:0px} }}</noinclude>

@@ -1,7 +1,7 @@
 {{#switch:{{{Boilerplate|}}}
 |1=Support for Genesys Engage cloud on Azure
 |2=
-Starting with this release, {{#cargo_query:tables=ComponentRN,Component|join on=ComponentRN.ComponentId=Component.Id|fields=Component.Name|no html|where=ComponentRN._pageName="{{FULLPAGENAME}}"|group by=Component.Name}} is available in Genesys Engage cloud on Azure.
+Starting with this release, {{#cargo_query:tables=ComponentRN,Component|join on=ComponentRN.ComponentId=Component.Id|fields=Component.Name|no html|where=ComponentRN._pageName="{{FULLPAGENAME}}"|group by=Component._pageID,Component.Name}} is available in Genesys Engage cloud on Azure.
 |#default=
 }}<noinclude>[[Category:RNAutomation]][[Category:ComponentRN.ComponentId cleanup]]<templatedata>
 {

@@ -38,13 +38,12 @@
 |}}{{#if:{{{Context|}}}|
 <span>{{{Context}}}</span>}}
 <!-- An IF to find if any links at all exist. If yes, format accordingly. If no, do nothing. -->
-{{#if: 
-	{{EPPOQueries
+{{#if:{{EPPOQueries
 		|PageType={{{PageType|}}}
 		|RN={{{RN|}}}
 		|ServiceId={{{ServiceId|}}}
 		|DepGuideServiceId={{{DepGuideServiceId|}}}
-	}}	
+	}}
 	|<div style="margin-top:20px;"><span style="font-weight:600;">Related documentation:</span><ul class="related-links pages">
 	{{EPPOQueries
 		|PageType={{{PageType|}}}
@@ -53,10 +52,8 @@
 		|DepGuideServiceId={{{DepGuideServiceId|}}}
 	}}	
 	</ul>
-	| <!-- do nothing if no links -->
-}}
-</div>
-</div>
+	|<!-- do nothing if no links 
+-->}}
 <div>
 {{#if:{{{UseCase|}}}
 |
@@ -67,6 +64,7 @@
 	}}
 |
 }}
+</div>
 </div>
 </div>
 <!-- Notices--><div id="footer-notice" style="margin: 0 auto;margin-top:20px;display: none;">

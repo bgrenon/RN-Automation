@@ -30,9 +30,7 @@ Edit the page to see the template text.
 
 adding category to set form
 
--->[[Category:ArticleCloudRN]]
-
-<!--
+-->[[Category:ArticleCloudRN]]<!--
 
 forcing TOC and suppressing section inks
 
@@ -102,7 +100,7 @@ Defining the Prerequisite Head
     ComponentRN__DeploymentTypeId
   |join on=
     ArticleCloudRN.ComponentId HOLDS ComponentRN.ComponentId,
-    ComponentRN._ID =ComponentRN__DeploymentTypeId._rowID
+    ComponentRN._ID=ComponentRN__DeploymentTypeId._rowID
   |fields=
     ComponentRN.ComponentId,
     ComponentRN.ReleaseNumber,
@@ -115,7 +113,9 @@ Defining the Prerequisite Head
     AND (ComponentRN__DeploymentTypeId._value IN ({{#arraymap:{{{DeploymentTypeId|}}}|,|x|'x'}}))
   |limit=10000
   |order by=ComponentRN.ReleaseDate DESC
-  |group by=ComponentRN.ComponentId,
+  |group by=
+  	ComponentRN._pageID,
+  	ComponentRN.ComponentId,
     ComponentRN.ReleaseNumber,
     ComponentRN.ReleaseDate,
     ComponentRN.Highlight,
@@ -125,8 +125,7 @@ Defining the Prerequisite Head
   |template=PrintTopRN
   |intro=
       <table class="sortable" style="font-size:90%">
-      <tr>
-        {{#ifeq:{{#cargo_query:tables=ArticleCloudRN,ArticleCloudRN__ComponentId|join on=ArticleCloudRN._ID=ArticleCloudRN__ComponentId._rowID|fields=COUNT(*)|where=ArticleCloudRN._pageName="{{FULLPAGENAME}}" AND ArticleCloudRN._pageNamespace="{{NAMESPACENUMBER}}"|no html}}|1||<th rowspan="2" style="width:15%">Service</th>}} 
+      <tr>{{#ifeq:{{#cargo_query:tables=ArticleCloudRN,ArticleCloudRN__ComponentId|join on=ArticleCloudRN._ID=ArticleCloudRN__ComponentId._rowID|fields=COUNT(*)|where=ArticleCloudRN._pageName="{{FULLPAGENAME}}" AND ArticleCloudRN._pageNamespace="{{NAMESPACENUMBER}}"|no html}}|1||<th rowspan="2" style="width:15%">Service</th>}}
       <th rowspan="2" style="width:12%">Available</th>
       <th colspan="3" style="text-align: center>Genesys CX on</th>
   	<th rowspan="2">Private edition</th>
@@ -145,21 +144,18 @@ Defining the Prerequisite Head
 
 -->{{#cargo_query:
   tables=
-    Issue,
+    Component,
     ComponentRN,
-    ComponentRN__DeploymentTypeId,
-    Component
+    ComponentRN__DeploymentTypeId
   |join on=
-    Issue._pageName=ComponentRN._pageName,
-    ComponentRN._ID=ComponentRN__DeploymentTypeId._rowID,
-    ComponentRN.ComponentId=Component.Id
+  	Component.Id=ComponentRN.ComponentId,
+    ComponentRN._ID=ComponentRN__DeploymentTypeId._rowID
   |fields=
     ComponentId=Component,
     ComponentRN.ReleaseNumber=ReleaseNumber,
     ComponentRN.ReleaseDate=ReleaseDate,
-    PrivateEditionReleaseDate,
-    ComponentRN._pageName=Page,
-    Component.Name=ComponentName
+    Component.Name=ComponentName,
+    ComponentRN._pageName=Page
   |format=template
   |template=RNPrint
   |where=
@@ -168,7 +164,14 @@ Defining the Prerequisite Head
     AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}"
   |named args=yes
   |order by=ComponentRN.ReleaseDate DESC
-  |group by=ComponentRN._pageName
+  |group by=
+  	Component._pageID,
+  	ComponentRN._pageID,
+  	ComponentRN.ComponentId,
+  	ComponentRN.ReleaseNumber,
+  	ComponentRN.ReleaseDate,
+  	Component.Name,
+  	ComponentRN._pageName
 }}
 
 {{#if:{{{Footer|}}}|

@@ -1,0 +1,32 @@
+<!--
+
+	formatting each list item
+
+--><includeonly><li>{{{1}}}</li><nowiki /></includeonly><!--
+
+	css to show various bullet list icons
+
+-->{{#css: .fontawesome ul {
+  list-style: none;
+  padding: 0;
+}
+.fontawesome li {
+  padding-left: 1.3em;
+  list-style-type:none;
+}
+.fontawesome .FontAwesomeBook li:before {  
+	display: inline-block;
+  	margin-left: -1.3em; /* same as padding-left set on li */width: 1.3em; /* same as padding-left set on li */
+	content: "\f02d"; /* FontAwesome Unicode */font-family: FontAwesome;
+}
+.fontawesome .FontAwesomeRocket li:before {  
+	 display: inline-block;
+  	margin-left: -1.3em; /* same as padding-left set on li */width: 1.3em; /* same as padding-left set on li */
+	content: "\f135"; /* FontAwesome Unicode */font-family: FontAwesome;
+}
+.fontawesome .FontAwesomeFileCode li:before {  
+	 display: inline-block;
+  	margin-left: -1.3em; /* same as padding-left set on li */width: 1.3em; /* same as padding-left set on li */
+	content: "\f1c9"; /* FontAwesome Unicode */font-family: FontAwesome;
+}
+}}

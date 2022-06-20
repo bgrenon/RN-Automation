@@ -20,6 +20,8 @@ Approved acronym: {{{field|ShortName}}}
 
 URL shortname for PE guide: {{{field|URLName}}}
 
+Released y/n: {{{field|Released}}}
+
 {{{end template}}}
 {{{standard input|minor edit}}} {{{standard input|watch}}}
 

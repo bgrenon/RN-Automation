@@ -1,15 +1,111 @@
-<tr>
-{{#ifeq:{{#cargo_query:tables=ArticleCloudRN,ArticleCloudRN__ComponentId|join on=ArticleCloudRN._ID=ArticleCloudRN__ComponentId._rowID|fields=COUNT(*)|where=ArticleCloudRN._pageName="{{FULLPAGENAME}}" AND ArticleCloudRN._pageNamespace="{{NAMESPACENUMBER}}"|no html}}|1||<td>{{{Service|}}}</td>}} 
-<td>{{{Release Date|}}}</td>
-<td>{{#cargo_query:
-	table=ComponentRN,DeploymentType
-	|join on=ComponentRN.DeploymentTypeId HOLDS DeploymentType.Id
-	|intro=<div style="margin: -10px 0 -10px 0">
-	|outro=</div>
-	|fields=CONCAT('[[File:',Image,'|',Size,'px|link=]]')
-	|delimiter=
-	|where=ComponentId HOLDS "{{{ComponentId|}}}" AND ReleaseDate="{{{ReleaseDate|}}}" AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}" {{#switch:{{#explode:{{FULLPAGENAME}}|/|3}}|Hosted=AND DeploymentType.Name!="Private Edition"|#default=}} }}</td>
-<td>{{#if:{{{HighlightBoilerplateId|}}}|{{{{{HighlightBoilerplateId|}}}}}<br/>{{{Highlights|}}}|{{{Highlights|}}}}}</td>
-{{#if:{{{ReleaseNumber|}}}|<td>{{{ReleaseNumber|}}}</td>|}}
+<tr><!-- 
+
+	print Service column if there is more than 1 service 
+
+-->{{#ifeq:
+		{{#cargo_query:tables=ArticleCloudRN,ArticleCloudRN__ComponentId
+			|join on=ArticleCloudRN._ID=ArticleCloudRN__ComponentId._rowID
+			|fields=COUNT(*)
+			|where=
+				ArticleCloudRN._pageName="{{FULLPAGENAME}}" 
+				AND ArticleCloudRN._pageNamespace="{{NAMESPACENUMBER}}"
+			|no html
+		}}
+|1||<td>{{#cargo_query:tables=Component|fields=Name|where=Id="{{{ComponentId|}}}"}}</td>
+}}<!-- 
+
+	Print ReleaseDate 
+
+--><td>{{#cargo_query:
+		tables=Component
+		|fields=CONCAT('[[#',Name,'-{{{ReleaseNumber|}}}|{{#time:F j, Y|{{{ReleaseDate|}}}}}]]')
+		|where=Id="{{{ComponentId|}}}"
+}}</td>
+<td><!--
+
+	Find and print Genesys CX on AWS per ComponentRN 
+-->{{#cargo_query:
+		tables=ComponentRN,DeploymentType
+		|join on=ComponentRN.DeploymentTypeId HOLDS DeploymentType.Id
+		|fields=CONCAT('[[File:',Image,'|',Size,'px|link=]]')
+		|where=
+			ComponentRN.ComponentId="{{{ComponentId|}}}" 
+			AND ComponentRN.ReleaseNumber="{{{ReleaseNumber|}}}" 
+			AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}" 
+			AND DeploymentType.Id="ec194bf2-b79a-436d-8ff6-eaff94d9f43a"
+		|delimiter=
+		|order by=DeploymentType.Name
+		|default=
+}}
+</td>
+<td>
+	<!-- 
+
+		Find and print Genesys CX on Azure per ComponentRN
+
+	-->{{#cargo_query:
+		tables=ComponentRN,DeploymentType
+		|join on=ComponentRN.DeploymentTypeId HOLDS DeploymentType.Id
+		|fields=CONCAT('[[File:',Image,'|',Size,'px|link=]]')
+		|where=
+			ComponentRN.ComponentId="{{{ComponentId|}}}" 
+			AND ComponentRN.ReleaseNumber="{{{ReleaseNumber|}}}" 
+			AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}" 
+			AND DeploymentType.Id="5439f1be-1868-4091-b058-1667389b6ce1"
+		|delimiter=
+		|order by=DeploymentType.Name
+	|default=
+	}}
+</td>
+<td>
+	<!--Find Genesys CX on GCP-->
+	 {{#cargo_query:tables=ComponentRN,DeploymentType
+		|join on=ComponentRN.DeploymentTypeId HOLDS DeploymentType.Id
+		|fields=CONCAT('[[File:',Image,'|',Size,'px|link=]]')
+		|where=
+			ComponentRN.ComponentId="{{{ComponentId|}}}" 
+			AND ComponentRN.ReleaseNumber="{{{ReleaseNumber|}}}" 
+			AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}" 
+			AND DeploymentType.Id="7c8eda4b-c696-4c95-b976-87c22dd28a1a"
+		|delimiter=
+		|order by=DeploymentType.Name
+		|default=
+}}</td>
+<td>
+<!--Find Private Edition-->
+	 {{#cargo_query:tables=ComponentRN,DeploymentType
+		|join on=ComponentRN.DeploymentTypeId HOLDS DeploymentType.Id
+		|fields=CONCAT('[[File:',Image,'|',Size,'px|link=]]')
+		|where=
+			ComponentRN.ComponentId="{{{ComponentId|}}}" 
+			AND ComponentRN.ReleaseNumber="{{{ReleaseNumber|}}}" 
+			AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}" 
+			AND DeploymentType.Id="8b480b3c-2733-433a-9166-eab2c2d0663a"
+		|delimiter=
+		|order by=DeploymentType.Name
+		|default=
+}}</td><!-- 
+
+	print Highlights
+
+-->
+<td><!-- 
+
+	printing boilerplate and content for highlight content
+
+-->{{#if:{{{HighlightBoilerplateId|}}}
+	|{{
+		{{{HighlightBoilerplateId|}}}
+			|{{{ReleaseNumber|}}}
+			|{{{ComponentId}}}
+		}}<br/>{{{Highlight|}}}|{{{Highlight|}}}
+}}</td><!--
+
+	include relase number if exists 
+
+-->{{#if:{{{ReleaseNumber|}}}
+	|<td>{{{ReleaseNumber|}}}</td>
+	|
+}}
 </tr>
-<noinclude>[[Category:RNAutomation]]</noinclude>
+<noinclude>[[Category:RNAutomation]][[Category:TrackConstants]][[Category:ComponentRN.ComponentId cleanup]]</noinclude>
