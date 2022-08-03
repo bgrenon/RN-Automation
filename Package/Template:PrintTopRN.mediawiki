@@ -93,13 +93,26 @@
 
 	printing boilerplate and content for highlight content
 
--->{{#if:{{{HighlightBoilerplateId|}}}
-	|{{
+|{{
 		{{{HighlightBoilerplateId|}}}
 			|{{{ReleaseNumber|}}}
 			|{{{ComponentId}}}
-		}}<br/>{{{Highlight|}}}|{{{Highlight|}}}
-}}</td><!--
+		}}
+}}
+
+-->{{#if:{{{HighlightBoilerplateId|}}}
+	|
+		{{#arraymap:
+			{{{HighlightBoilerplateId|}}}
+			|,
+			|x
+			|{{Template:x|{{{ReleaseNumber|}}}|{{{ComponentId}}}}}
+			|<br/>
+		}}
+	<br/>{{{Highlight|}}}
+	|{{{Highlight|}}}
+}}
+</td><!--
 
 	include relase number if exists 
 

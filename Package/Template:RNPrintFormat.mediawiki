@@ -13,7 +13,9 @@
 		LocalContent,
 		Issue.TicketNumber,
 		SupportingDocumentation,
-		NFBoilerplateId
+		NFBoilerplateId,
+		ReleaseNumber,
+		ComponentId
 	|format=template
 	|template=RNPrintFormat2
 	|named args=yes
@@ -33,6 +35,8 @@
 		Issue.TicketNumber,
 		SupportingDocumentation,
 		NFBoilerplateId,
-		IssueCategory.PrintOrder
+		IssueCategory.PrintOrder,
+		ReleaseNumber,
+		ComponentId
 }}
 </ul><noinclude>[[Category:RNAutomation]][[Category:ComponentRN.ComponentId cleanup]]</noinclude>

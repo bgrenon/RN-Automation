@@ -22,36 +22,176 @@ Edit the page to see the template text.
 {{#cargo_attach:_table=Article}}
 
 </noinclude>
-<includeonly>{{#css: .MintyDocsTopicDesc {display:none} }}<!-- Hiding the topic description -->{{#default_form:ArticlePEServiceDeploy}}
-[[Category:ArticlePEServiceDeploy]]__TOC__ <!-- For the TOC to appear -->
-__NOEDITSECTION__ <!-- Hides the links to the Edit section -->
-{{#cargo_store:_table=ArticlePEServiceDeploy
-|ServiceId={{{ServiceId|}}}
-|IncludedServiceId={{{IncludedServiceId|}}}
-|IncludeAssumptions={{{IncludeAssumptions|}}}
-}}{{#cargo_store:_table=Article
-|productshort={{#explode:{{FULLPAGENAME}}|/|0}}
-|ComingSoon={{{ComingSoon|}}}
-|DisplayName=Deploy {{#cargo_query:tables=ArticlePEServiceDeploy,IncludedService
-|join on=ArticlePEServiceDeploy.ServiceId=IncludedService.ServiceId|fields=CONCAT(IncludedService.Name,' (',IncludedService.ShortName,')')|where=ArticlePEServiceDeploy._pageName="{{FULLPAGENAME}}" AND IncludedService.Id="{{{IncludedServiceId|}}}"|default={{#cargo_query:tables=ArticlePEServiceDeploy,Service
-|join on=ArticlePEServiceDeploy.ServiceId=Service.Id|fields=IF(Service.ShortName IS NULL, Service.Name, Service.ShortName)|no html|where=ArticlePEServiceDeploy._pageName="{{FULLPAGENAME}}"|default=}}|no html}}
-|TocName={{{TocName|}}}
-|Dimension={{{Dimension|}}}
-|Context=Learn how to deploy {{#cargo_query:tables=ArticlePEServiceDeploy,IncludedService
-|join on=ArticlePEServiceDeploy.ServiceId=IncludedService.ServiceId|fields=IF (IncludedService.ShortName IS NULL, IncludedService.Name, CONCAT(IncludedService.Name,' (',IncludedService.ShortName,')'))|where=ArticlePEServiceDeploy._pageName="{{FULLPAGENAME}}" AND IncludedService.Id="{{{IncludedServiceId|}}}"|default={{#cargo_query:tables=ArticlePEServiceDeploy,Service
-|join on=ArticlePEServiceDeploy.ServiceId=Service.Id|fields=IF(Service.ShortName IS NULL, Service.Name, CONCAT(Service.Name,' (',Service.ShortName,')'))|no html|where=ArticlePEServiceDeploy._pageName="{{FULLPAGENAME}}"|default=}}|no html}} into a private edition environment.
-|Product={{MINTYDOCSPRODUCT}}
-|Manual={{#explode:{{FULLPAGENAME}}|/|2}}
-}}<!-- Set MintyDocs topic-->{{#mintydocs_topic:
-|display name=Deploy {{#cargo_query:tables=ArticlePEServiceDeploy,IncludedService
-|join on=ArticlePEServiceDeploy.ServiceId=IncludedService.ServiceId|fields=IncludedService.Name|where=ArticlePEServiceDeploy._pageName="{{FULLPAGENAME}}" AND IncludedService.Id="{{{IncludedServiceId|}}}"|default={{#cargo_query:tables=ArticlePEServiceDeploy,Service
-|join on=ArticlePEServiceDeploy.ServiceId=Service.Id|fields=Service.Name|no html|where=ArticlePEServiceDeploy._pageName="{{FULLPAGENAME}}"|default=}}|no html}}
-|toc name=Deploy {{#cargo_query:tables=ArticlePEServiceDeploy,IncludedService
-|join on=ArticlePEServiceDeploy.ServiceId=IncludedService.ServiceId|fields=IF(IncludedService.ShortName IS NULL, IncludedService.Name, IncludedService.ShortName)|where=ArticlePEServiceDeploy._pageName="{{FULLPAGENAME}}" AND IncludedService.Id="{{{IncludedServiceId|}}}"|default={{#cargo_query:tables=ArticlePEServiceDeploy,Service
-|join on=ArticlePEServiceDeploy.ServiceId=Service.Id|fields=IF(Service.ShortName IS NULL, Service.Name, Service.ShortName)|no html|where=ArticlePEServiceDeploy._pageName="{{FULLPAGENAME}}"|default=}}|no html}}
-}}<!-- Defining the EPPO Header; all parameters need to be passed to it -->{{EPPOHead|Role={{{Role|}}}|ComingSoon={{{ComingSoon|}}}|Dimension={{{Dimension|}}}|Context=Learn how to deploy {{#cargo_query:tables=ArticlePEServiceDeploy,IncludedService
-|join on=ArticlePEServiceDeploy.ServiceId=IncludedService.ServiceId|fields=IF (IncludedService.ShortName IS NULL, IncludedService.Name, CONCAT(IncludedService.Name,' (',IncludedService.ShortName,')'))|where=ArticlePEServiceDeploy._pageName="{{FULLPAGENAME}}" AND IncludedService.Id="{{{IncludedServiceId|}}}"|default={{#cargo_query:tables=ArticlePEServiceDeploy,Service
-|join on=ArticlePEServiceDeploy.ServiceId=Service.Id|fields=IF(Service.ShortName IS NULL, Service.Name, CONCAT(Service.Name,' (',Service.ShortName,')'))|no html|where=ArticlePEServiceDeploy._pageName="{{FULLPAGENAME}}"|default=}}|no html}} into a private edition environment.|PageType=Article}}
-{{#switch:{{{IncludeAssumptions|}}}|Yes={{Template:fad4ebcb-b064-4403-88b0-61809001e2cb}}|#default=}}
+<includeonly><!-- 
+
+	Hiding the topic description 
+
+-->{{#css: .MintyDocsTopicDesc {display:none} }}<!--
+
+    setting default form
+
+-->{{#default_form:ArticlePEServiceDeploy}}
+[[Category:ArticlePEServiceDeploy]]<!-- 
+
+	For the TOC to appear 
+
+-->__TOC__ <!-- 
+
+	Hides the links to the Edit section 
+
+-->
+__NOEDITSECTION__ <!--
+
+	storing values in ArticlePEServiceDeploy
+
+-->
+{{#cargo_store:
+	_table=
+		ArticlePEServiceDeploy
+	|ServiceId={{{ServiceId|}}}
+	|IncludedServiceId={{{IncludedServiceId|}}}
+	|IncludeAssumptions={{{IncludeAssumptions|}}}
+}}<!--
+
+	storing values in Article
+
+-->{{#cargo_store:
+	_table=
+		Article
+	|productshort={{#explode:{{FULLPAGENAME}}|/|0}}
+	|ComingSoon={{{ComingSoon|}}}
+	|DisplayName=Deploy {{#cargo_query:
+							tables=ArticlePEServiceDeploy,IncludedService
+							|join on=
+								ArticlePEServiceDeploy.ServiceId=IncludedService.ServiceId
+							|fields=CONCAT(IncludedService.Name,' (',IncludedService.ShortName,')')
+							|where=
+								ArticlePEServiceDeploy._pageName="{{FULLPAGENAME}}" 
+								AND IncludedService.Id="{{{IncludedServiceId|}}}"
+							|default={{#cargo_query:
+										tables=
+											ArticlePEServiceDeploy,
+											Service
+										|join on=
+											ArticlePEServiceDeploy.ServiceId=Service.Id
+										|fields=IF(Service.ShortName IS NULL, Service.Name, Service.ShortName)
+										|no html
+										|where=ArticlePEServiceDeploy._pageName="{{FULLPAGENAME}}"
+										|default=}}
+										|no html
+									}}
+	|TocName={{{TocName|}}}
+	|Dimension={{{Dimension|}}}
+	|Context=Learn how to deploy {{#cargo_query:
+								tables=ArticlePEServiceDeploy,IncludedService
+								|join on=
+									ArticlePEServiceDeploy.ServiceId=IncludedService.ServiceId
+								|fields=IF (IncludedService.ShortName IS NULL, IncludedService.Name, CONCAT(IncludedService.Name,' (',IncludedService.ShortName,')'))
+								|where=
+									ArticlePEServiceDeploy._pageName="{{FULLPAGENAME}}" 
+									AND IncludedService.Id="{{{IncludedServiceId|}}}"
+								|default={{#cargo_query:
+											tables=
+												ArticlePEServiceDeploy,
+												Service
+											|join on=ArticlePEServiceDeploy.ServiceId=Service.Id
+											|fields=IF(Service.ShortName IS NULL, Service.Name, CONCAT(Service.Name,' (',Service.ShortName,')'))
+											|no html
+											|where=ArticlePEServiceDeploy._pageName="{{FULLPAGENAME}}"
+											|default=
+										}}
+								|no html
+}} into a private edition environment.
+	|Product={{MINTYDOCSPRODUCT}}
+	|Manual={{#explode:{{FULLPAGENAME}}|/|2}}
+}}<!-- 
+
+	Set MintyDocs topic
+
+-->{{#mintydocs_topic:
+	|display name=Deploy {{#cargo_query:
+							tables=
+								ArticlePEServiceDeploy,
+								IncludedService
+							|join on=
+								ArticlePEServiceDeploy.ServiceId=IncludedService.ServiceId
+							|fields=IncludedService.Name
+							|where=
+								ArticlePEServiceDeploy._pageName="{{FULLPAGENAME}}" 
+								AND IncludedService.Id="{{{IncludedServiceId|}}}"
+							|default={{#cargo_query:
+										tables=
+											ArticlePEServiceDeploy,
+											Service
+										|join on=ArticlePEServiceDeploy.ServiceId=Service.Id
+										|fields=Service.Name
+										|no html
+										|where=ArticlePEServiceDeploy._pageName="{{FULLPAGENAME}}"
+										|default=
+									}}
+							|no html
+}}
+	|toc name=Deploy {{#cargo_query:
+						tables=
+							ArticlePEServiceDeploy,
+							IncludedService
+						|join on=ArticlePEServiceDeploy.ServiceId=IncludedService.ServiceId
+						|fields=IF(IncludedService.ShortName IS NULL, IncludedService.Name, IncludedService.ShortName)
+						|where=
+							ArticlePEServiceDeploy._pageName="{{FULLPAGENAME}}" 
+							AND IncludedService.Id="{{{IncludedServiceId|}}}"
+						|default={{#cargo_query:
+									tables=
+										ArticlePEServiceDeploy,
+										Service
+									|join on=ArticlePEServiceDeploy.ServiceId=Service.Id
+									|fields=IF(Service.ShortName IS NULL, Service.Name, Service.ShortName)
+									|no html
+									|where=ArticlePEServiceDeploy._pageName="{{FULLPAGENAME}}"
+									|default=
+								}}
+						|no html
+						}}
+}}<!-- 
+
+	Defining the EPPO Header; all parameters need to be passed to it 
+
+-->{{EPPOHead
+	|Role={{{Role|}}}
+	|ComingSoon={{{ComingSoon|}}}
+	|Dimension={{{Dimension|}}}
+	|Context=Learn how to deploy {{#cargo_query:
+									tables=
+										ArticlePEServiceDeploy,
+										IncludedService
+									|join on=ArticlePEServiceDeploy.ServiceId=IncludedService.ServiceId
+									|fields=IF (IncludedService.ShortName IS NULL, IncludedService.Name, CONCAT(IncludedService.Name,' (',IncludedService.ShortName,')'))
+									|where=
+										ArticlePEServiceDeploy._pageName="{{FULLPAGENAME}}" 
+										AND IncludedService.Id="{{{IncludedServiceId|}}}"
+									|default={{#cargo_query:
+													tables=
+														ArticlePEServiceDeploy,
+														Service
+												|join on=ArticlePEServiceDeploy.ServiceId=Service.Id
+												|fields=IF(Service.ShortName IS NULL, Service.Name, CONCAT(Service.Name,' (',Service.ShortName,')'))
+												|no html
+												|where=ArticlePEServiceDeploy._pageName="{{FULLPAGENAME}}"
+												|default=
+												}}
+									|no html
+								}} into a private edition environment.
+	|PageType=Article
+}}<!--
+
+		add assumptions 
+
+-->
+{{#switch:{{{IncludeAssumptions|}}}|Yes={{Template:fad4ebcb-b064-4403-88b0-61809001e2cb}}|#default=}}<!--
+
+	pass through sections
+
+-->
+
 {{{Section|}}}
 </includeonly><noinclude>[[Category:MintyDocs_Cargo]]</noinclude>

@@ -6,11 +6,12 @@
 	tables=Service
 	|fields=
 		Service.Id=ServiceId,
-		Service.Name=Service
+		IF (workspace_id IS NULL, Service.Name, CONCAT('[[',workspace_id,'|',Service.Name,']]'))=Service
 	|intro=<table class="sortable">
 			<tr>
 			<th>Services</th>
-			<th>Documentation</th>
+                        <th>Included services</th>
+			<th>Service documentation</th>
 			</tr>
 	|outro=</table>
 	|where=Released="1"
@@ -18,4 +19,12 @@
 	|template=PrintServices2	
 	|order by=Service.Name
 	|named args=yes
+}}<!--
+
+	local css overrides
+
+-->{{#css: .ListItems h4 {margin:5px 5px 5px 0; padding-top:5px;} 
+.ListItems {margin-right: 0; margin-left: 0;}
+.with-navbar.with-navbar-fixed .mw-headline {padding-top: 0;}
+.ListItems .icon {float: left; min-width: 30px; text-align: center;}
 }}<noinclude>[[Category:PrivateEdition]]</noinclude>

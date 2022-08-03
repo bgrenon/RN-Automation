@@ -1,6 +1,8 @@
 <tr>
 <td>
-<h4>{{{Service}}}</h4>
+{{{Service}}}
+</td>
+<td>
 {{#cargo_query:
 	tables=
 		Service,
@@ -11,10 +13,9 @@
 		Service.Id="{{{ServiceId|}}}" 
 		AND IncludedService.Id IS NOT NULL
 	|format=ul
-	|default=
+	|default=<i>Single microservice only</i>
 }}
-</td>
-<!-- 
+</td><!-- 
 
 	listing relevant books 
 
@@ -27,9 +28,9 @@
 		AND MintyDocsManual.ServiceId = "{{{ServiceId|}}}"
 	|default=
 	|format=template
-	|template=ListItemsFontAwesome
-	|intro=<div class="fontawesome"><div class="FontAwesomeBook"><h4>Guides</h4><div style="margin-left:10px">
-	|outro=</div></div></div>
+	|template=ListItem
+	|intro=<div class="ListItems"><div class="icon">[[File:PrivateEditionBlack.png|20px|link=]]</div><h4 class="clearfix">Guides</h4><ul>
+	|outro=</ul></div>
 }}<!-- 
 
 	listing release notes 
@@ -43,9 +44,9 @@
 		AND ArticleCloudRN.ServiceId HOLDS "{{{ServiceId|}}}"
 	|default=
 	|format=template
-	|template=ListItemsFontAwesome
-	|intro=<div class="fontawesome"><div class="FontAwesomeRocket"><h4>Release Notes</h4><div style="margin-left:10px">
-	|outro=</div></div></div>
+	|template=ListItem
+	|intro=<div class="ListItems"><div class="icon">[[File:ReleaseNotes.png|11px|link=]]</div><h4 class="clearfix">Release Notes</h4><ul>
+	|outro=</ul></div>
 }}<!-- 
 
 	listing containers
@@ -59,13 +60,9 @@
 		AND ArticleHelmRN.ServiceId HOLDS "{{{ServiceId|}}}"
 	|default=
 	|format=template
-	|template=ListItemsFontAwesome
-	|intro=<div class="fontawesome"><div class="FontAwesomeFileCode"><h4>Helm charts and containers </h4><div style="margin-left:10px">
-	|outro=</div></div></div>
+	|template=ListItem
+	|intro=<div class="ListItems"><div class="icon">[[File:Process-expanded.png|17px|link=]]</div><h4 class="clearfix">Helm charts and containers</h4><ul>
+	|outro=</ul></div>
 	}}
 </td>
-</tr><!--
-
-	local css overrides
-
--->{{#css: h4 {margin:5px } }}<noinclude>[[Category:PrivateEdition]]</noinclude>
+</tr>

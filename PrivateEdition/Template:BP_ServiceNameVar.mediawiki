@@ -1,0 +1,21 @@
+<noinclude>This template is used for displaying the Service (Component) Name.</noinclude><onlyinclude><!--
+
+	finding name of component
+
+-->{{#cargo_query:
+	tables=
+		ArticleCloudRN,
+		ComponentRN,
+		Component
+	|join on=
+		ArticleCloudRN.ComponentId HOLDS ComponentRN.ComponentId,
+        ComponentRN.ComponentId=Component.Id
+	|fields=Component.Name
+    |default=<service name>
+	|no html
+	|group by=Component._pageID,Component.Name
+	|where=
+		ArticleCloudRN._pageName="{{FULLPAGENAME}}" 
+		AND ComponentRN.ReleaseNumber = "{{{1|}}}"
+        AND ComponentRN.ComponentId = "{{{2|}}}"
+}}</onlyinclude><noinclude>[[Category:Macros]]</noinclude>

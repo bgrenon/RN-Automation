@@ -17,12 +17,53 @@ It should be called in the following format:
 }}
 </pre>
 Edit the page to see the template text.
-{{#cargo_declare:_table=ComponentRN|Highlight=Wikitext|HighlightBoilerplateId=String|Containers=Wikitext|ComponentId=String|ReleaseNumber=String|ReleaseDate=String|PrivateEditionReleaseDate=String|MixedModeReleaseDate=String|ReleaseTypeId=String|JQL=String|DeploymentTypeId=List (,) of String}}
-</noinclude><includeonly>{{#cargo_store:_table=ComponentRN|Highlight={{{Highlight|}}}|HighlightBoilerplateId={{{HighlightBoilerplateId|}}}|Containers={{{Containers|}}}|ComponentId={{{ComponentId|}}}|ReleaseNumber={{#explode:{{FULLPAGENAME}}|/|2}}
-|ReleaseDate={{{ReleaseDate|}}}|PrivateEditionReleaseDate={{{PrivateEditionReleaseDate|}}}|MixedModeReleaseDate={{{MixedModeReleaseDate|}}}|ReleaseTypeId={{{ReleaseTypeId|}}}|JQL={{{JQL|}}}|DeploymentTypeId={{{DeploymentTypeId|}}}}}{{#mintydocs_topic:
-|standalone
-|display name=Base unit of content for {{#cargo_query:tables=Component|fields=Name|where=Id="{{{ComponentId|}}}"|no html}} - {{#explode:{{FULLPAGENAME}}|/|2}}
+{{#cargo_declare:
+	_table=ComponentRN
+	|Highlight=Wikitext
+	|HighlightBoilerplateId=List (,) of String
+	|Containers=Wikitext
+	|ComponentId=String
+	|ReleaseNumber=String
+	|ReleaseDate=String
+	|PrivateEditionReleaseDate=String
+	|MixedModeReleaseDate=String
+	|ReleaseTypeId=String
+	|JQL=String
+	|DeploymentTypeId=List (,) of String
 }}
+</noinclude><includeonly><!--
+	
+	setting default form based on Category
+
+-->[[Category:EditRN]]<!--
+
+	storing values in ComponentRN table
+
+-->{{#cargo_store:
+	_table=ComponentRN
+	|Highlight={{{Highlight|}}}
+	|HighlightBoilerplateId={{{HighlightBoilerplateId|}}}
+	|Containers={{{Containers|}}}
+	|ComponentId={{{ComponentId|}}}
+	|ReleaseNumber={{#explode:{{FULLPAGENAME}}|/|2}}
+	|ReleaseDate={{{ReleaseDate|}}}
+	|PrivateEditionReleaseDate={{{PrivateEditionReleaseDate|}}}
+	|MixedModeReleaseDate={{{MixedModeReleaseDate|}}}
+	|ReleaseTypeId={{{ReleaseTypeId|}}}
+	|JQL={{{JQL|}}}
+	|DeploymentTypeId={{{DeploymentTypeId|}}}
+}}<!--
+
+	setting up mintydocs topic
+
+-->{{#mintydocs_topic:
+	|standalone
+	|display name=Base unit of content for {{#cargo_query:tables=Component|fields=Name|where=Id="{{{ComponentId|}}}"|no html}} - {{#explode:{{FULLPAGENAME}}|/|2}}
+}}<!--
+
+	table of main ComponentRN values from form
+
+-->
 ==Component RN Definition==
 {| class="wikitable"
 ! Component
@@ -43,6 +84,10 @@ Edit the page to see the template text.
 !HighlightBoilerplate
 |{{#if: {{{HighlightBoilerplateId|}}} | {{Template:{{{HighlightBoilerplateId|}}}|{{{ReleaseNumber|}}}}} |  }}
 |-
+! Boilerplate(s) Used
+| {{#arraymap:{{{HighlightBoilerplateId|}}}|,|x|{{#cargo_query:tables=Boilerplate|fields= CONCAT('[[Template:',Id,'{{!}}',Name,']]')|where=Id="x"}} }}
+
+|- 
 ! Release Date
 | {{{ReleaseDate|}}}
 |-
@@ -66,17 +111,32 @@ Edit the page to see the template text.
 !Test Links
 | Links to test pages (for RN Admins only)
 {{#cargo_query:tables=ArticleCloudRN|field=_pageName|where=ComponentId HOLDS '{{{ComponentId|}}}' AND ArticleCloudRN._pageName LIKE "%Internal%"|format=ul|default=None yet!}}
-|}{{#cargo_query:
-tables=ComponentRN,Issue,IssueCategory
-|join on=ComponentRN._pageName=Issue._pageName,Issue.IssueCategoryId=IssueCategory.Id
-|fields=CONCAT ('[https://genesysjira.atlassian.net/browse/',Issue.TicketNumber,' ',Issue.TicketNumber,']')=Issue,IssueCategory.Name=Issue Category,<!--DeploymentType.Name=Deployment Type,-->IF(LENGTH(LocalContent) > 100, CONCAT(
-SUBSTRING(LocalContent, 1, 100),"..."), LocalContent)=Description,SupportingDocumentation
-|format=dynamic table
-|where=ComponentRN.ComponentId ="{{{ComponentId|}}}" AND ReleaseNumber="{{#explode:{{FULLPAGENAME}}|/|2}}"
-|group by=Issue.TicketNumber
-|order by=IssueCategory.PrintOrder ASC
-}}__NOCACHE__
+|}<!--
+
+	query to list Issues saved to this page
+
+-->{{#cargo_query:
+	tables=ComponentRN,Issue,IssueCategory
+	|join on=
+		ComponentRN._pageName=Issue._pageName,
+		Issue.IssueCategoryId=IssueCategory.Id
+	|fields=
+		CONCAT ('[https://genesysjira.atlassian.net/browse/',Issue.TicketNumber,' ',Issue.TicketNumber,']')=Issue,
+		IssueCategory.Name=Issue Category,
+		<!--DeploymentType.Name=Deployment Type,-->
+		IF(LENGTH(LocalContent) > 100, CONCAT(SUBSTRING(LocalContent, 1, 100),"..."),LocalContent)=Description,
+		SupportingDocumentation
+	|format=dynamic table
+	|where=
+		ComponentRN.ComponentId ="{{{ComponentId|}}}" 
+		AND ReleaseNumber="{{#explode:{{FULLPAGENAME}}|/|2}}"
+	|group by=Issue.TicketNumber
+	|order by=IssueCategory.PrintOrder ASC
+}}<!-- 
+
+	supressing cache and section editing, adding TOC
+
+-->__NOCACHE__
 __TOC__
-__NOINDEX__
-[[Category:EditRN]]</includeonly>
+__NOINDEX__</includeonly>
 <noinclude>[[Category:RNAutomation]][[Category:ComponentRN.ComponentId cleanup]]</noinclude>

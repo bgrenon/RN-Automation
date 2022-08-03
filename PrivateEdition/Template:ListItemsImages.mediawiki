@@ -1,0 +1,24 @@
+<!--
+
+	formatting each list item
+
+--><includeonly><li>{{{1}}}</li><nowiki /></includeonly><!--
+
+	css to show various bullet list icons
+
+-->{{#css: .ListItemImages ul {
+  list-style: none;
+  padding: 0;
+}
+.ListItemImages li {
+  padding-left: 1.3em;
+  list-style-type:none;
+}
+
+.ListItemImages .ListItemReleaseNotes li:before {  
+	content: url('\images-supersite\8\8e\ReleaseNotes.png');
+	height: 1em;
+
+}
+
+}}

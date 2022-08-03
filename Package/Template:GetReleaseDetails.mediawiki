@@ -110,7 +110,7 @@ IMPORTANT: this query uses hard-coded uuids-->
 <td>
 <!-- get HighlightBoilerplateId and send to formatting template -->{{#cargo_query:
 	tables=ComponentRN
-	|fields=HighlightBoilerplateId
+	|fields=HighlightBoilerplateId,ReleaseNumber,ComponentId
 	|format=template
 	|template=PrintHighlightBoilerplate
 	|named args=yes
@@ -118,7 +118,6 @@ IMPORTANT: this query uses hard-coded uuids-->
 		ComponentRN._pageNamespace="{{NAMESPACENUMBER}}" 
 		AND ComponentId="{{{ComponentId|}}}"
 		AND ReleaseDate="{{{ReleaseDate|}}}" 
-		AND HighlightBoilerplateId IS NOT NULL
 	|default=
 }}<!-- get Highlight from each release -->{{#cargo_query:
 	tables=ComponentRN

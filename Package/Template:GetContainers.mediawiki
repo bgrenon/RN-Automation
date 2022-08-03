@@ -1,122 +1,169 @@
 <includeonly><tr>
-<td><!-- get component name -->
-{{#cargo_query:tables=
-ComponentRN,
-Component
-|join on=ComponentRN.ComponentId=Component.Id
-|fields=Component.Name
-|group by=Name
-|where=
-ComponentRN.ComponentId="{{{ComponentId|}}}" 
-AND PrivateEditionReleaseDate="{{{PrivateEditionReleaseDate|}}}" 
-AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}"
+<td><!-- 
+
+	get component name 
+
+-->{{#cargo_query:
+	tables=
+		ComponentRN,
+		Component
+	|join on=ComponentRN.ComponentId=Component.Id
+	|fields=Component.Name
+	|where=
+		ComponentRN.ComponentId="{{{ComponentId|}}}" 
+		AND PrivateEditionReleaseDate="{{{PrivateEditionReleaseDate|}}}" 
+		AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}"
+	|group by=
+		ComponentRN._pageID,
+		Component._pageID,
+		Name
 }}
 </td>
-<td><!-- get release number -->
-{{#cargo_query:tables=
-ComponentRN
-|fields=
-MAX(ReleaseNumber)
-|where=
-ComponentRN.ComponentId="{{{ComponentId|}}}" 
-AND PrivateEditionReleaseDate="{{{PrivateEditionReleaseDate|}}}" 
-AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}"
+<td><!-- 
+
+	get release number 
+
+-->
+{{#cargo_query:
+	tables=
+		ComponentRN
+	|fields=MAX(ReleaseNumber)
+	|where=
+		ComponentRN.ComponentId="{{{ComponentId|}}}" 
+		AND PrivateEditionReleaseDate="{{{PrivateEditionReleaseDate|}}}" 
+		AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}"
+	|group by=
+		ComponentRN._pageID
 }}
 </td>
-<td><!-- get release date and format as link to ArticleCloudRN page -->
-{{#cargo_query:tables=
-ArticleCloudRN__ComponentId,
-ArticleCloudRN,
-ComponentRN,
-Component
-|join on=
-ArticleCloudRN__ComponentId._rowID=ArticleCloudRN._ID,
-ArticleCloudRN__ComponentId._value = ComponentRN.ComponentId,
-ComponentRN.ComponentId=Component.Id
-|fields=
-CONCAT('[[',ArticleCloudRN._pageName,'#',Component.Name,'-',ReleaseNumber,'|',DATE_FORMAT(MAX(PrivateEditionReleaseDate),'%M %d, %Y'),']]')
-|where=
-ComponentRN.ComponentId="{{{ComponentId|}}}" 
-AND ArticleCloudRN._pageNamespace="{{NAMESPACENUMBER}}" 
-AND PrivateEditionReleaseDate="{{{PrivateEditionReleaseDate|}}}"
-|group by=ComponentRN.ComponentId
-}}
-</td>
-<td>
-<!-- finding helm from RNElements with default to manual containers list from ComponentRN -->
-{{#cargo_query:tables=
-ComponentRN,
-Component,
-RNElements
-|join on=
-ComponentRN.ComponentId=Component.Id,
-Component.IpName=RNElements.IpName
-|fields=
-RNElements.Filename
-|having=
-MAX(ComponentRN.ReleaseNumber)=RNElements.Version
-|group by=
-RNElements.Version,RNElements.Filename
-|format=
-ul
-|where=
-ComponentRN.ComponentId="{{{ComponentId|}}}" 
-AND PrivateEditionReleaseDate="{{{PrivateEditionReleaseDate|}}}" 
-AND Type="helm" 
-AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}"
-|default=
-     {{#cargo_query:tables=ComponentRN
-     |fields=Containers
-     |where=
-      ComponentRN.ComponentId="{{{ComponentId|}}}" 
-      AND PrivateEditionReleaseDate="{{{PrivateEditionReleaseDate|}}}" 
-      AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}" 
-      AND Containers IS NOT NULL
-     |format=template
-     |template=ArrayMapHelm
-     |default=
-           {{#cargo_query: 
-           tables=
-            ArticleHelmRN,
-            Component
-           |join on=ArticleHelmRN.ComponentId HOLDS Component.ParentComponentId
-           |fields=CONCAT('See [[',ArticleHelmRN._pageName,'|parent]]*') 
-           |where=
-            Component.Id = "{{{ComponentId|}}}" 
-            AND ArticleHelmRN._pageNamespace="{{NAMESPACENUMBER}}"
-           |delimiter= 
-           |default=N/A
-           |group by=ArticleHelmRN._pageName,Component.Name
-           }}
-     }}
+<td><!-- 
+
+	get release date and format as link to ArticleCloudRN page 
+
+-->{{#cargo_query:
+	tables=
+		ArticleCloudRN__ComponentId,
+		ArticleCloudRN,
+		ComponentRN,
+		Component
+	|join on=
+		ArticleCloudRN__ComponentId._rowID=ArticleCloudRN._ID,
+		ArticleCloudRN__ComponentId._value = ComponentRN.ComponentId,
+		ComponentRN.ComponentId=Component.Id
+	|fields=CONCAT('[[',ArticleCloudRN._pageName,'#',Component.Name,'-',ReleaseNumber,'|',DATE_FORMAT(MAX(PrivateEditionReleaseDate),'%M %d, %Y'),']]')
+	|where=
+		ComponentRN.ComponentId="{{{ComponentId|}}}" 
+		AND ArticleCloudRN._pageNamespace="{{NAMESPACENUMBER}}" 
+		AND PrivateEditionReleaseDate="{{{PrivateEditionReleaseDate|}}}"
+	|group by=
+		ArticleCloudRN._pageName,
+		Component.Name,
+		ReleaseNumber,
+		ComponentRN._pageID
 }}
 </td>
 <td>
-<!-- finding containers from RNElements with default to manual containers list from ComponentRN -->
-{{#cargo_query:tables=ComponentRN,Component,RNElements
-|join on=ComponentRN.ComponentId=Component.Id,Component.IpName=RNElements.IpName
-|fields=RNElements.Filename
-|having=MAX(ComponentRN.ReleaseNumber)=RNElements.Version
-|group by=RNElements.Version,RNElements.Filename
-|format=ul
-|where=ComponentRN.ComponentId="{{{ComponentId|}}}" AND PrivateEditionReleaseDate="{{{PrivateEditionReleaseDate|}}}" AND Type="docker" AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}"
-|default=
-        {{#cargo_query:tables=ComponentRN
-        |fields=Containers
-        |where=ComponentRN.ComponentId="{{{ComponentId|}}}" AND PrivateEditionReleaseDate="{{{PrivateEditionReleaseDate|}}}" AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}" AND Containers IS NOT NULL
-        |format=template
-        |template=ArrayMapDocker
-        |default=
-              {{#cargo_query: 
-              tables=ArticleHelmRN,Component
-              |join on=ArticleHelmRN.ComponentId HOLDS Component.ParentComponentId
-              |fields=CONCAT('See [[',ArticleHelmRN._pageName,'|parent]]*') 
-              |where=Component.Id = "{{{ComponentId|}}}" AND ArticleHelmRN._pageNamespace="{{NAMESPACENUMBER}}"
-              |delimiter= 
-              |default=N/A
-              |group by=ArticleHelmRN._pageName,Component.Name
-              }}
-        }}
+<!-- 
+
+	finding helm from RNElements with default to manual containers list from ComponentRN 
+
+-->{{#cargo_query:
+	tables=
+		ComponentRN,
+		Component,
+		RNElements
+	|join on=
+		ComponentRN.ComponentId=Component.Id,
+		Component.IpName=RNElements.IpName
+	|fields=RNElements.Filename
+	|having=MAX(ComponentRN.ReleaseNumber)=RNElements.Version
+	|group by=
+		RNElements.Version,
+		RNElements.Filename,
+		ComponentRN._pageID,
+		RNElements._pageID
+	|format=ul
+	|where=
+		ComponentRN.ComponentId="{{{ComponentId|}}}" 
+		AND PrivateEditionReleaseDate="{{{PrivateEditionReleaseDate|}}}" 
+		AND Type="helm" 
+		AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}"
+	|default=
+	     {{#cargo_query:tables=ComponentRN
+	     |fields=Containers
+	     |where=
+		      ComponentRN.ComponentId="{{{ComponentId|}}}" 
+		      AND PrivateEditionReleaseDate="{{{PrivateEditionReleaseDate|}}}" 
+		      AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}" 
+		      AND Containers IS NOT NULL
+	     |format=template
+	     |template=ArrayMapHelm
+	     |default=
+	           {{#cargo_query: 
+		           tables=
+			            ArticleHelmRN,
+			            Component
+		           |join on=ArticleHelmRN.ComponentId HOLDS Component.ParentComponentId
+		           |fields=CONCAT('See [[',ArticleHelmRN._pageName,'|parent]]*') 
+		           |where=
+			            Component.Id = "{{{ComponentId|}}}" 
+			            AND ArticleHelmRN._pageNamespace="{{NAMESPACENUMBER}}"
+		           |delimiter= 
+		           |default=N/A
+		           |group by=
+		           		ArticleHelmRN._pageName,
+		           		Component.Name
+	           }}
+	     }}
+}}
+</td>
+<td><!-- 
+
+	finding containers from RNElements with default to manual containers list from ComponentRN 
+
+-->{{#cargo_query:
+	tables=ComponentRN,Component,RNElements
+	|join on=
+		ComponentRN.ComponentId=Component.Id,
+		Component.IpName=RNElements.IpName
+	|fields=RNElements.Filename
+	|having=MAX(ComponentRN.ReleaseNumber)=RNElements.Version
+	|group by=
+		RNElements.Version,
+		RNElements.Filename,
+		ComponentRN._pageID,
+		RNElements._pageID
+	|format=ul
+	|where=
+		ComponentRN.ComponentId="{{{ComponentId|}}}" 
+		AND PrivateEditionReleaseDate="{{{PrivateEditionReleaseDate|}}}" 
+		AND Type="docker" 
+		AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}"
+	|default=
+	        {{#cargo_query:tables=ComponentRN
+		        |fields=Containers
+		        |where=
+		        	ComponentRN.ComponentId="{{{ComponentId|}}}" 
+		        	AND PrivateEditionReleaseDate="{{{PrivateEditionReleaseDate|}}}" 
+		        	AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}" 
+		        	AND Containers IS NOT NULL
+		        |format=template
+		        |template=ArrayMapDocker
+		        |default=
+		              {{#cargo_query: 
+			              tables=ArticleHelmRN,Component
+			              |join on=ArticleHelmRN.ComponentId HOLDS Component.ParentComponentId
+			              |fields=CONCAT('See [[',ArticleHelmRN._pageName,'|parent]]*') 
+			              |where=
+			              	Component.Id = "{{{ComponentId|}}}" 
+			              	AND ArticleHelmRN._pageNamespace="{{NAMESPACENUMBER}}"
+			              |delimiter= 
+			              |default=N/A
+			              |group by=
+			              		ArticleHelmRN._pageName,
+			              		Component.Name
+		              }}
+	        }}
 }}
 </td>
 </tr></includeonly><noinclude>[[Category:PrivateEdition]][[Category:ComponentRN.ComponentId cleanup]]</noinclude>

@@ -6,12 +6,11 @@
 
 	adding new feature boilerplate, if exists
 
--->
-{{#if:{{{NFBoilerplateId|}}}
-	|{{{{{NFBoilerplateId|}}}|{{{ReleaseNumber|}}}|{{{ComponentId|}}}}}{{{LocalContent|}}}
+-->{{#if:{{{NFBoilerplateId|}}}
+	|{{{{{NFBoilerplateId|}}}|{{{ReleaseNumber|}}}|{{{ComponentId|}}}}}
+	{{{LocalContent|}}}
 	|{{{LocalContent|}}}
 }}<!--
-
 	adding issue number, if exists
 -->{{#if:{{{TicketNumber|}}}
 	| &nbsp;({{{TicketNumber|}}})
@@ -37,7 +36,7 @@
 	    border-radius: 2px;
 	    padding: 1px 4px;
 	    font-size:85%"><b>Limited to</b>:&nbsp;',DeploymentType.Name,'</span>')
-	|where=TicketNumber="{{{TicketNumber|}}}"
+	|where=TicketNumber="{{{TicketNumber|}}}" AND Issue._pageNamespace="{{NAMESPACENUMBER}}"
 	|default=
 	|delimiter=&nbsp;and&nbsp;
 	|outro=

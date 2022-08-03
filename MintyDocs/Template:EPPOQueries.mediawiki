@@ -128,6 +128,31 @@
 	|group by=ArticleIndexRN._pageName,Service.Name
 }}<!-- 
 
+	Adding link to Index RN and all services page on suite-level PE guide
+
+-->{{#cargo_query: 
+	tables=Article
+	|fields=CONCAT('{{Link-AnywhereElse|product=ReleaseNotes|version=Current|manual=GenesysEngage-cloud|topic=PrivateEdition|display text=Release Notes}}')
+	|where=
+		Article._pageName="{{FULLPAGENAME}}" 
+		AND (Article.productshort="PrivateEdition" OR Article.productshort="Draft:PrivateEdition")
+		AND Article._pageNamespace="{{NAMESPACENUMBER}}" 
+	|format=template
+	|template=ListItems
+	|default=
+}}{{#cargo_query: 
+	tables=Article
+	|fields=CONCAT('{{Link-AnywhereElse|product=PrivateEdition|version=Current|manual=PEGuide|topic=GEServices|display text=All services}}')
+	|where=
+		Article._pageName="{{FULLPAGENAME}}" 
+		AND (Article.productshort="PrivateEdition" OR Article.productshort="Draft:PrivateEdition")
+		AND Article._pageNamespace="{{NAMESPACENUMBER}}" 
+		AND (Article._pageName!="PrivateEdition/Current/PEGuide/GEServices" AND Article._pageName!="Draft:PrivateEdition/Current/PEGuide/GEServices")
+	|format=template
+	|template=ListItems
+	|default=
+}}<!-- 
+
     Linking to PE guides on ArticleCloudRN pages 
 
 -->{{#arraymap:{{{DepGuideServiceId|}}} 

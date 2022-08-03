@@ -669,8 +669,17 @@
 					"name": "ArticlePEServiceDeploy",
 					"namespace": "PF_NS_FORM",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Form%3AGArticlePEServiceDeploy.mediawiki"
+				},
+				{
+					"name": "BP_ServiceNameVar",
+					"namespace": "NS_TEMPLATE	",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3AGBP_ServiceNameVar.mediawiki"
+				},
+				{
+					"name": "ListItem",
+					"namespace": "NS_TEMPLATE	",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3AGListItem.mediawiki"
 				}
-
 			]
 		}
 	}

@@ -1,0 +1,6 @@
+<!--
+	formatting each list item
+
+--><includeonly><li>{{{1}}}</li><nowiki /></includeonly><!--
+
+-->

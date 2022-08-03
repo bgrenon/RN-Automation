@@ -1,0 +1,16 @@
+<includeonly>{{#cargo_query:
+	tables=
+		ArticleCloudRN, 
+		ComponentRN, 
+		Component
+	|join on=
+		ArticleCloudRN.ComponentId HOLDS ComponentRN.ComponentId, 
+		ComponentRN.ComponentId=Component.Id
+	|fields=DATE_FORMAT(ComponentRN.ReleaseDate,'%M %d, %Y')
+	|where=
+		ReleaseNumber="{{{1}}}" 
+		AND ComponentRN.ComponentId="{{{2}}}" 
+		AND ComponentRN.ReleaseDate !=''
+	|group by=ComponentRN.ReleaseDate
+	|order by=ComponentRN.ReleaseDate
+}}</includeonly><noinclude>[[Category:BoilerplateVariables]][[Category:ComponentRN.ComponentId cleanup]]</noinclude>

@@ -83,11 +83,16 @@ __NOEDITSECTION__<!--
 
 	Defining the Prerequisite Head 
 
--->{{PrerequisitesHead|Prereq={{{Prereq|}}}}}<!-- 
+-->{{PrerequisitesHead|Prereq={{{Prereq|}}}}}<!--
+
+	Adding link to visual diff doc PageType
+--><div class="new-note Tip"><div class="new-note-heading">Find out what has changed between releases</div>Because the structure for Genesys Multicloud CX helm charts and containers are consistent and standardized, you can use established third-party software to quickly generate a visual diff that provides a detailed report of changes made between each release. See this explanation on how you can use an example tool to generate a full report of changes:
+*{{Link-AnywhereElse|product=ReleaseNotes|version=Current|manual=GenesysEngage-cloud|topic=VisualDiff}}</div>
+<!-- 
 
 	Query for showing component list 
 
---><includeonly>{{#cargo_query:
+-->{{#cargo_query:
 	tables=Component,ComponentRN,ComponentRN__DeploymentTypeId,Issue
 	|join on=
 		Component.Id=ComponentRN.ComponentId,
