@@ -679,6 +679,21 @@
 					"name": "ListItem",
 					"namespace": "NS_TEMPLATE	",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3AGListItem.mediawiki"
+				},
+				{
+					"name": "ServicesUpgradeStrat",
+					"namespace": "NS_TEMPLATE	",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3AGServicesUpgradeStrat.mediawiki"
+				},
+				{
+					"name": "PrintServicesUpgradeStrat",
+					"namespace": "NS_TEMPLATE	",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3AGPrintServicesUpgradeStrat.mediawiki"
+				},
+				{
+					"name": "PrintIncludedServicesUpgradeStrat",
+					"namespace": "NS_TEMPLATE	",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/PrivateEdition/Template%3AGPrintIncludedServicesUpgradeStrat.mediawiki"
 				}
 			]
 		}

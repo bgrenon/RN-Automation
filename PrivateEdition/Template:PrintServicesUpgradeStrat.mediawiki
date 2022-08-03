@@ -1,0 +1,85 @@
+<noinclude>
+This is the second level template for building a consolidated table listing the PE services, their included services, and the upgrade strategies supported by them. This template populates the tick mark in the supported upgraded startegy columns at the service-level. The last query retrieves the included services selected for each service.
+</noinclude>
+
+<tr>
+{{#switch:{{{AddIncluded|}}}
+	|No
+	|#default=
+		<td>
+		{{{Service|}}}
+		</td>
+	|Yes=
+		<td colspan="4">
+		{{{Service|}}}
+		</td>
+</tr>
+}}
+{{#switch:{{{AddIncluded|}}}
+	|No
+	|#default=
+		<td style="text-align:center;">
+		{{#cargo_query:
+			tables=ArticlePEServiceUpgrade,Service,UpgradeStrategy
+			|join on=
+				ArticlePEServiceUpgrade.ServiceId=Service.Id,
+				ArticlePEServiceUpgrade.UpgradeStrategy=UpgradeStrategy.Id
+			|fields=IF(ArticlePEServiceUpgrade.UpgradeStrategy='40f069a2-01ae-4027-9aef-13f54bc53613',CONCAT('&#10003;'),CONCAT(''))
+			|where=
+				ArticlePEServiceUpgrade.ServiceId="{{{ServiceId}}}" 
+				AND {{#switch:{{NAMESPACENUMBER}}
+						|620=ArticlePEServiceUpgrade._pageName LIKE "Draft:%%"
+						|#default=ArticlePEServiceUpgrade._pageName NOT LIKE "Draft:%%"}}
+		}}
+		</td>
+		<td style="text-align:center;">
+		{{#cargo_query:
+		tables=ArticlePEServiceUpgrade,Service,UpgradeStrategy
+		|join on=
+			ArticlePEServiceUpgrade.ServiceId=Service.Id,
+			ArticlePEServiceUpgrade.UpgradeStrategy=UpgradeStrategy.Id
+		|fields=IF(ArticlePEServiceUpgrade.UpgradeStrategy='adcd5516-e0cf-4525-a74e-1467389675c9',CONCAT('&#10003;'),CONCAT(''))=Blue/Green,
+		|where=
+			ArticlePEServiceUpgrade.ServiceId="{{{ServiceId}}}" 
+			AND {{#switch:{{NAMESPACENUMBER}}
+				|620=ArticlePEServiceUpgrade._pageName LIKE "Draft:%%"
+				|#default=ArticlePEServiceUpgrade._pageName NOT LIKE "Draft:%%"}}
+		}}
+		</td>
+		<td style="text-align:center;">
+		{{#cargo_query:
+		tables=ArticlePEServiceUpgrade,Service,UpgradeStrategy
+		|join on=
+			ArticlePEServiceUpgrade.ServiceId=Service.Id,
+			ArticlePEServiceUpgrade.UpgradeStrategy=UpgradeStrategy.Id
+		|fields=IF(ArticlePEServiceUpgrade.UpgradeStrategy='d58cea3b-ff08-4fad-8b9d-7579b4145ba8',CONCAT('&#10003;'),CONCAT(''))=Canary,
+		|where=
+			ArticlePEServiceUpgrade.ServiceId="{{{ServiceId}}}" 
+			AND {{#switch:{{NAMESPACENUMBER}}
+				|620=ArticlePEServiceUpgrade._pageName LIKE "Draft:%%"
+				|#default=ArticlePEServiceUpgrade._pageName NOT LIKE "Draft:%%"}}
+		}}
+		</td>
+	|Yes=
+		{{#cargo_query:
+		tables=ArticlePEServiceUpgrade,Service,IncludedServiceUpgradeStrategy,IncludedService
+		|join on=
+			ArticlePEServiceUpgrade.ServiceId=Service.Id,
+			ArticlePEServiceUpgrade._pageName=IncludedServiceUpgradeStrategy._pageName,
+			IncludedServiceUpgradeStrategy.IncludedServiceId=IncludedService.Id
+		|fields=IncludedService.Name=Included Service,IncludedService.Id=IncludedServiceId
+		|where=
+			IncludedService.ServiceId="{{{ServiceId|}}}" 
+			AND ArticlePEServiceUpgrade._pageNamespace="{{NAMESPACENUMBER}}"
+		|format=template
+		|named args=yes
+		|template=PrintIncludedServicesUpgradeStrat
+		}}
+}}
+</tr>
+
+
+<noinclude>
+[[Category:MintyDocs_Cargo]]
+[[Category:PrivateEdition]]
+</noinclude>

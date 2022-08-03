@@ -1,0 +1,29 @@
+<noinclude>
+
+This is the first level template for building a consolidated table listing the PE services, their included services, and the upgrade strategies supported by them. This template builds the header row for table.
+
+Edit the page to see the template text.
+
+</noinclude>
+
+<onlyinclude>
+	{{#cargo_query:
+		tables=ArticlePEServiceUpgrade,Service
+		|join on=ArticlePEServiceUpgrade.ServiceId=Service.Id
+		|fields=CONCAT('[[',ArticlePEServiceUpgrade._pageName,'|',Service.Name,']]')=Service,Service.Id=ServiceId,AddIncluded,UpgradeStrategy
+		|intro=<table><tr><th>Service and Included Services</th><th>Rolling Update</th><th>Blue/Green</th><th>Canary</th></tr>
+		|outro=</table>
+		|format=template
+		|where=
+			{{#switch:{{NAMESPACENUMBER}}
+				|620=ArticlePEServiceUpgrade._pageName LIKE "Draft:%%"
+				|#default=ArticlePEServiceUpgrade._pageName NOT LIKE "Draft:%%"}}
+			AND ArticlePEServiceUpgrade.ServiceId IS NOT NULL
+		|named args=yes
+		|template=PrintServicesUpgradeStrat}}
+</onlyinclude>
+
+<noinclude>
+[[Category:MintyDocs_Cargo]]
+[[Category:PrivateEdition]]
+</noinclude>

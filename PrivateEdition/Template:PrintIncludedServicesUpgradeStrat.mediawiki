@@ -1,0 +1,67 @@
+<noinclude>
+
+This is the third level template for building the consolidated table listing the PE services, their included services, and the upgrade strategies supported by them. This template populates the tick mark in the supported upgraded startegy columns at the included service-level.
+
+Edit the page to see the template text.
+</noinclude>
+
+<tr>
+<td style="white-space: nowrap;">&nbsp;&nbsp;&mdash; {{{Included Service|}}}
+</td>
+</td>
+<td style="text-align:center;">
+	{{#cargo_query:
+		tables=ArticlePEServiceUpgrade,Service,IncludedServiceUpgradeStrategy,IncludedService
+		|join on=
+			ArticlePEServiceUpgrade.ServiceId=Service.Id,
+			ArticlePEServiceUpgrade._pageName=IncludedServiceUpgradeStrategy._pageName,
+			IncludedServiceUpgradeStrategy.IncludedServiceId=IncludedService.Id
+		|fields=IF(IncludedServiceUpgradeStrategy.IncludedServiceUpgradeStrategy LIKE "%40f069a2-01ae-4027-9aef-13f54bc53613%",CONCAT('&#10003;'),CONCAT(''))
+		|where=
+			IncludedServiceUpgradeStrategy.IncludedServiceId="{{{IncludedServiceId|}}}" 
+			AND {{#switch:{{NAMESPACENUMBER}}
+			|620=ArticlePEServiceUpgrade._pageName LIKE "Draft:%%"
+			|#default=ArticlePEServiceUpgrade._pageName NOT LIKE "Draft:%%"}}
+	}}
+</td>
+<td style="text-align:center;">
+	{{#cargo_query:
+		tables=ArticlePEServiceUpgrade,Service,UpgradeStrategy,IncludedServiceUpgradeStrategy,IncludedService
+		|join on=
+			ArticlePEServiceUpgrade.ServiceId=Service.Id,
+			ArticlePEServiceUpgrade.UpgradeStrategy=UpgradeStrategy.Id,
+			ArticlePEServiceUpgrade._pageName=IncludedServiceUpgradeStrategy._pageName,
+			IncludedServiceUpgradeStrategy.IncludedServiceId=IncludedService.Id
+		|fields=IF(IncludedServiceUpgradeStrategy.IncludedServiceUpgradeStrategy LIKE "%adcd5516-e0cf-4525-a74e-1467389675c9%",CONCAT('&#10003;'),CONCAT(''))
+		|where=
+			IncludedServiceUpgradeStrategy.IncludedServiceId="{{{IncludedServiceId|}}}" 
+			AND 
+			{{#switch:{{NAMESPACENUMBER}}
+				|620=ArticlePEServiceUpgrade._pageName LIKE "Draft:%%"
+				|#default=ArticlePEServiceUpgrade._pageName NOT LIKE "Draft:%%"}}
+	}}
+</td>
+<td style="text-align:center;">
+	{{#cargo_query:
+		tables=ArticlePEServiceUpgrade,Service,UpgradeStrategy,IncludedServiceUpgradeStrategy,IncludedService
+		|join on=
+			ArticlePEServiceUpgrade.ServiceId=Service.Id,
+			ArticlePEServiceUpgrade.UpgradeStrategy=UpgradeStrategy.Id,
+			ArticlePEServiceUpgrade._pageName=IncludedServiceUpgradeStrategy._pageName,
+			IncludedServiceUpgradeStrategy.IncludedServiceId=IncludedService.Id
+		|fields=IF(IncludedServiceUpgradeStrategy.IncludedServiceUpgradeStrategy LIKE "%d58cea3b-ff08-4fad-8b9d-7579b4145ba8%",CONCAT('&#10003;'),CONCAT(''))
+		|where=
+			IncludedServiceUpgradeStrategy.IncludedServiceId="{{{IncludedServiceId|}}}" 
+			AND 
+			{{#switch:{{NAMESPACENUMBER}}
+				|620=ArticlePEServiceUpgrade._pageName LIKE "Draft:%%"
+				|#default=ArticlePEServiceUpgrade._pageName NOT LIKE "Draft:%%"}}
+	}}
+</td>
+</td>
+
+
+<noinclude>
+[[Category:MintyDocs_Cargo]]
+[[Category:PrivateEdition]]
+</noinclude>
