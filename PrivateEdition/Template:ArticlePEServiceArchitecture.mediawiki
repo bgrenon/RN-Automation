@@ -7,6 +7,7 @@ It should be called in the following format:
 |ServiceId=
 |Image=
 |DataFlowImage=
+|AdditionalTitle=
 }}
 
 </pre>
@@ -16,6 +17,7 @@ Edit the page to see the template text.
 |ServiceId=String
 |Image=List (,) of String
 |DataFlowImage=String
+|AdditionalTitle=String
 }}{{#cargo_attach:_table=Article}}
 
 </noinclude>
@@ -65,6 +67,7 @@ __NOEDITSECTION__<!--
 	_table=ArticlePEServiceArchitecture
 	|ServiceId={{{ServiceId|}}}
 	|Image={{{Image|}}}
+        |AdditionalTitle={{{AdditionalTitle|}}}
 }}<!-- 
 
 	Set MintyDocs topic, including a switch for different treatment for Manual pages 
@@ -129,7 +132,6 @@ The connection numbers refer to the numbers on the connection lines in the diagr
 	tables=PEConnections
 	|fields=Connection,SourceType,Source,DestinationType,Destination,Protocol,Port,Purpose,Classification
 	|intro=
-		<h2>Connections table</h2>
 		<table class="sortable">
 		<tr><th>Connection</th>
 		<th>Source</th>

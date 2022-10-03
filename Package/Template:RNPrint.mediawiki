@@ -30,6 +30,7 @@
 		ComponentRN.ComponentId="{{{Component|}}}"
 		AND ReleaseNumber="{{{ReleaseNumber|}}}" 
 		AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}"
+		AND DT.Name!="Mixed mode"
 }}</h2><!-- 
 
 	adding anchor div for linking to RN entry 
@@ -60,7 +61,25 @@
 		ComponentRN._pageNamespace="{{NAMESPACENUMBER}}"  
 		AND ComponentRN.ComponentId="{{{Component|}}}"
 		AND ReleaseNumber="{{{ReleaseNumber|}}}" 
-		AND (DT.Name="Private Edition" OR DT.Name="Mixed mode")
+		AND DT.Name="Private Edition"
+}}<!--
+
+	special handling for on-premises pages tagged with mixed MixedMode
+
+-->{{#cargo_query:
+	tables=
+		ComponentRN,
+		DeploymentType=DT
+	|join on=ComponentRN.DeploymentTypeId HOLDS DT.Id
+	|fields=
+		CONCAT('<b>Note</b>: Availability of release ',ReleaseNumber,' for on-premises deployments is limited to select customers.')
+	|named args=yes
+	|default=
+	|where=
+		ComponentRN._pageNamespace="{{NAMESPACENUMBER}}"  
+		AND ComponentRN.ComponentId="{{{Component|}}}"
+		AND ReleaseNumber="{{{ReleaseNumber|}}}" 
+		AND DT.Name="Mixed mode"
 }}<!-- 
 
 	printing out the list of Issues according to their IssueCategory

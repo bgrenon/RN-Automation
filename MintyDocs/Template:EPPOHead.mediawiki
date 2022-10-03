@@ -63,13 +63,38 @@
 		|PureConnect=<span style="font-weight:600; ">Related use cases:</span><ul class="related-links">{{#arraymaptemplate:{{{UseCase|}}}|UseCasesMapPCON|,|}}</ul>
 	}}
 |
+}}<!--
+
+	adding RSS links to Relase notes pages & PE guide pages
+
+-->{{#switch:{{{RN|}}}
+	|Yes=<span style="font-weight:600; ">RSS:</span><ul class="related-links pages"><li>[https://all.docs.genesys.com/ReleaseNotes/Current/GenesysEngage-cloud/Hosted?action=rnrss For cloud]</li><li>[https://all.docs.genesys.com/ReleaseNotes/Current/GenesysEngage-cloud/PrivateEdition?action=rnrss For private edition]</li></ul>
+	|#default={{#cargo_query: 
+		tables=MintyDocsManual,Article,Service
+		|join on=
+			MintyDocsManual.Manual=Article.Manual,
+			MintyDocsManual.ServiceId=Service.Id
+		|intro=<span style="font-weight:600; ">RSS:</span><ul class="related-links pages">
+		|outro=</ul>
+		|fields=CONCAT('[https://all.docs.genesys.com/ReleaseNotes/Current/GenesysEngage-cloud/PrivateEdition?action=rnrss For private edition]')
+		|where=
+			Article._pageName="{{FULLPAGENAME}}" 
+			AND (MintyDocsManual.ServiceId IS NOT NULL OR MintyDocsManual.Manual="PEGuide" OR MintyDocsManual.Manual="Operations")
+			AND Article._pageNamespace="{{NAMESPACENUMBER}}"
+		|format=template
+		|template=ListItems
+		|default=
+		|group by=Article._pageName
+	}}
 }}
 </div>
 </div>
 </div>
 <!-- Notices--><div id="footer-notice" style="margin: 0 auto;margin-top:20px;display: none;">
 {{#cargo_query:
-	tables=Article,MintyDocsManual
+	tables=
+		Article,
+		MintyDocsManual
 	|join on=Article._pageNamespace=MintyDocsManual._pageNamespace
 	|fields=MintyDocsManual.Notice
 	|where=

@@ -61,7 +61,7 @@ ComponentRN._pageNamespace="{{NAMESPACENUMBER}}"
 AND ArticleCloudRN._pageNamespace="{{NAMESPACENUMBER}}" 
 AND ArticleCloudRN._pageName LIKE "%{{#explode:{{FULLPAGENAME}}|/|2}}%"  
 AND ({{#arraymap:{{{ServiceId|}}}|,|x| ArticleCloudRN.ServiceId HOLDS 'x'| |OR }})
-|having=MAX(ReleaseDate)
+<!--|having=MAX(ReleaseDate)-->
 |intro=
     <table class="sortable" style="font-size:90%">
     <tr>
@@ -79,8 +79,8 @@ AND ({{#arraymap:{{{ServiceId|}}}|,|x| ArticleCloudRN.ServiceId HOLDS 'x'| |OR }
 	<tr>
 |outro=</table>
 |format=template
-|template=PrintTopRN
+|template=PrintTopIndexRN
 |named args=yes
-|group by=ComponentRN.ComponentId
-<!--|order by=ComponentRN.ReleaseDate DESC-->
+|group by=ComponentRN.ReleaseNumber
+|order by=ComponentRN.ReleaseDate DESC
 }}</includeonly><noinclude>[[Category:RNAutomation]][[Category:ComponentRN.ComponentId cleanup]]</noinclude>

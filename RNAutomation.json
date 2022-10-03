@@ -329,7 +329,18 @@
 					"name": "ApplicationsMapHorizontal",
 					"namespace": "NS_TEMPLATE",
 					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/MintyDocs/Template%3AApplicationsMapHorizontal.mediawiki"
+				},
+				{
+					"name": "ArticleWhatsNew",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/MintyDocs/Template%3AArticleWhatsNew.mediawiki"
+				},
+				{
+					"name": "Section",
+					"namespace": "NS_TEMPLATE",
+					"url": "https://raw.githubusercontent.com/bgrenon/RN-Automation/DEV/MintyDocs/Template%3ASection.mediawiki"
 				}
+
 			]
 		},
 		"PrivateEdition": {

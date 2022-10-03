@@ -1,0 +1,2 @@
+This section was added or modified for ticket '''{{{Ticket|}}}''' in the '''{{#time:F d, Y|{{{Date|}}}}}''' release of '''{{{Name|}}}'''.
+Find more details about this release, see [[{{{Page|}}}#{{{Name|}}}-{{{ReleaseNumber|}}}|{{{Name|}}}: {{#time:F d, Y|{{{Date|}}}}}]].

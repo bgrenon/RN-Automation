@@ -1,0 +1,207 @@
+<noinclude>
+This is the "Section" template.
+
+It should be called in the following format:
+<pre>
+{{Section
+|alignment=
+|anchor=
+|sectionHeading=
+|FAQHeading=
+|structuredtext=
+|structuredtextwide=
+|image=
+|Media=
+|Status=
+|Issue=
+}}
+
+</pre>
+Edit the page to see the template text.
+
+{{#cargo_declare:_table=Section
+|alignment=String
+|anchor=String
+|sectionHeading=Text
+|FAQHeading=Text
+|structuredtext=Wikitext (size=10000)
+|structuredtextwide=Wikitext (size=10000)
+|image=String
+|Media=String
+|Status=String
+|Issue=String
+}}
+{{#cargo_attach:_table=Videos}}
+</noinclude>
+<includeonly><!--
+
+	storing values in Section table
+
+-->{{#cargo_store:
+		_table=Section
+		|alignment={{{alignment|}}}
+		|anchor={{{anchor|}}}
+		|sectionHeading={{{sectionHeading|}}}
+		|FAQHeading={{{FAQHeading|}}}
+		|structuredtext={{#replace:{{{structuredtext|}}}|GlossaryTooltip|GlossaryCargoSafe}}
+		|structuredtextwide={{#replace:{{{structuredtextwide|}}}|GlossaryTooltip|GlossaryCargoSafe}}
+		|image={{{image|}}}
+		|Media={{{Media|}}}
+		|Status={{{Status|}}}
+		|Issue={{{Issue|}}}
+}}<!--
+
+	switch to store values in Video table if media=video
+
+-->{{#switch:
+		{{{Media|}}}
+	|Video=
+		{{#cargo_store:
+			_table=Videos
+			|Id={{{image|}}}
+			|ConcatId={{FULLPAGENAME}}-{{{image|}}}
+			|WorkspaceId={{#explode:{{FULLPAGENAME}}|/|0}}
+			|Description={{{sectionHeading|}}} 
+		}}
+	|#default=
+}}<!--
+
+		logic for what to print for the section
+
+-->{{#if:
+		{{{sectionHeading|}}}
+		|<!-- 
+	
+		show/hide section from published content if tagged
+
+-->{{#switch:
+		{{{Status|}}}
+		|Yes=
+			{{#switch:
+				{{NAMESPACENUMBER}}
+				|620=
+					<div style="margin-top: 40px; padding: 0 10px; opacity: .75; border-left: solid 3px lightgrey;">
+					<div style="background-color: lightgrey; padding-left: 15px; margin-bottom: -30px; font-size: 90%; margin: 0 -10px -30px;">
+					<i class="glyphicon glyphicon-eye-close" style="margin-right:5px;"></i> 
+					<strong>Hidden section</strong>
+					</div>
+				|0=
+					<div style="display:none;">
+			}}
+	}}<!--
+
+	print section sectionHeading
+
+--><h2>{{{sectionHeading}}}</h2><!--
+
+	include link to Jira issue in RN if tagged and matched
+
+-->{{#if:
+		{{{Issue|}}}
+		|<!--
+
+	print jira issue if tagged
+
+-->{{#switch:
+		{{NAMESPACENUMBER}}
+		|0=
+		|620=<div style="float:right;font-size:80%"><code>{{{Issue|}}}</code></div><br/>
+	}}<!--
+
+	adding section added/modified
+
+--><div style="float:right;font-size:70%">Section added/modifed: <!--
+
+			lightbox to show tagged Jira issue content 
+
+		-->{{#ppin:
+				{{#cargo_query:
+					tables=
+						ArticleCloudRN,
+						ComponentRN,
+						Component,
+						Issue,
+						Section
+					|join on=
+						ArticleCloudRN.ComponentId HOLDS ComponentRN.ComponentId,
+						ComponentRN.ComponentId = Component.Id,
+						ComponentRN._pageName = Issue._pageName,
+						Issue.TicketNumber = Section.Issue
+					|format=template
+					|template=PrintJiraPopup
+					|fields=
+						ComponentRN.ReleaseDate=Date,
+						Component.Name=Name,
+						ArticleCloudRN._pageName=Page,
+						ComponentRN.ReleaseNumber=ReleaseNumber,
+						Issue.TicketNumber=Ticket
+					|named args=yes
+					|default=
+					|where=
+						TicketNumber="{{{Issue|}}}"
+						AND Section.Issue = Issue.TicketNumber
+						AND Section._pageName="{{FULLPAGENAME}}"
+						AND Section._pageNamespace="{{NAMESPACENUMBER}}"
+						AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}"
+						AND ArticleCloudRN._pageNamespace="{{NAMESPACENUMBER}}"
+				}}
+				|{{#cargo_query:
+					tables=
+						ComponentRN,
+						Component,
+						Issue,
+						Section
+					|join on=
+						ComponentRN.ComponentId = Component.Id,
+						ComponentRN._pageName = Issue._pageName,
+						Issue.TicketNumber = Section.Issue
+					|fields=DATE_FORMAT(ComponentRN.ReleaseDate,'%M %d, %Y')
+					|where=
+						TicketNumber="{{{Issue|}}}"
+						AND Section.Issue = Issue.TicketNumber
+						AND Section._pageName="{{FULLPAGENAME}}"
+						AND Section._pageNamespace="{{NAMESPACENUMBER}}"
+						AND ComponentRN._pageNamespace="{{NAMESPACENUMBER}}"
+				}}
+				|50%
+				}}
+			</div>
+|}}
+}}
+{{#switch:{{{Media|}}}|Video={{AnchorDiv|{{{image|}}}}}|#default=}}{{#if:{{{anchor|}}}|{{AnchorDiv|{{{anchor}}}}}|}}{{#switch:{{{alignment|}}}
+|Horizontal=<div class="clearfix">
+<div class="col-md-7">
+{{#switch:{{{Media|}}}
+|Image=[[File:{{{image}}}|1|alt={{{AltText|}}}|]]
+|GIF=[[File:{{{image}}}|1|class=gifffer|alt={{{AltText|}}}]]
+|Video={{#widget:Vimeo|id={{{image}}}|width=100%}}
+|#default=
+}}
+</div>
+<div class="col-md-5">
+{{#if:{{{structuredtext|}}}|
+{{{structuredtext}}}
+|}}</div>
+{{#if:{{{structuredtextwide|}}}|
+<div class="col-md-12" style="padding-left: 0; padding-right: 0;">
+{{{structuredtextwide}}}
+</div>
+||}}
+</div>
+|Vertical=<div class="clearfix">
+{{#switch:{{{Media|}}}
+|Image=[[File:{{{image}}}|1|alt={{{Alt-Text|}}}|]]
+|GIF=[[File:{{{image}}}|1|class=gifffer|alt={{{Alt-Text|}}}]]
+|Video={{#widget:Vimeo|id={{{image}}}|width=100%}}
+|#default=
+}}
+{{#if:{{{structuredtext|}}}|
+{{{structuredtext}}}
+|}}
+{{#if:{{{structuredtextwide|}}}|
+{{{structuredtextwide}}}
+||}}</div>
+}}{{#switch:{{{Status|}}}
+|Yes={{#switch:{{NAMESPACENUMBER}}|620=</div>|0=</div>}}}}
+<nowiki /></includeonly><noinclude>[[Category:Article_Cargo]]
+</noinclude>

@@ -1,0 +1,125 @@
+<noinclude>
+This is the "ArticleWhatsNew" template.
+
+It should be called in the following format:
+<pre>
+{{ArticleWhatsNew
+|DisplayName=
+|Context=
+|DiffDays=
+}}
+
+</pre>
+Edit the page to see the template text.
+
+{{#cargo_declare:_table=ArticleWhatsNew
+	|DisplayName=String
+	|Context=Wikitext
+	|DiffDays=String
+}}
+{{#cargo_attach:_table=Article}}
+</noinclude><includeonly><!--
+
+	adding category to lauch forma
+
+-->[[Category:ArticleWhatsNew]]<!--
+
+	forcing TOC and suppressing section editing
+
+-->__TOC__
+__NOEDITSECTION__<!--
+
+	storing values in Article table for general use
+
+-->{{#cargo_store:
+	_table=Article
+	|productshort={{#explode:{{FULLPAGENAME}}|/|0}}
+	|DisplayName={{{DisplayName|}}}
+	|Context={{{Context|}}}
+}}<!--
+
+	storing values in ArticleWhatsNew table for specific use
+
+-->{{#cargo_store:
+	_table=ArticleWhatsNew
+	|DisplayName={{{DisplayName|}}}
+	|Context={{{Context|}}}
+	|DiffDays={{{DiffDays|}}}
+}}<!-- 
+
+	Set MintyDocs topic, including a switch for different treatment for Manual pages 
+
+-->{{#mintydocs_topic:
+		|display name={{{DisplayName|}}}
+		|toc name={{{TocName|}}}
+}}<!-- 
+
+	Defining the EPPO Header; all parameters need to be passed to it 
+
+-->{{EPPOHead
+	|ComingSoon={{{ComingSoon|}}}
+	|Context={{{Context|}}}
+	|UseCase={{{UseCase|}}}
+	|Application={{{Application|}}}
+	|Platform={{{Platform|}}}
+	|PageType=Article
+}}
+==About this page==
+A few notes about the content on this page and how to use it:
+*The summary text shown on this page describes, as a preview, the changes made to content in between revisions. This text is generated automatically, using machine-learning and human-readable diff tools, for your convenience. You may see various grammatical or other syntactical issues.
+*You can also click the "(diff)" link in each entry to go to a visual diff page, showing in detail all changes between revisions.
+*To get notified whenever this list of recent changes is updated, copy the following RSS feed into your reader of choice:
+*:[[File:RSS.png]] <code><nowiki>https://all.docs-qa.genesys.com/rss/PrivateEdition-rss.xml</nowiki></code>
+
+==Updated articles in the last {{{DiffDays|30}}} days==
+{{#cargo_query:
+	tables=Article,Hackathon,_pageData
+	|join on=Article._pageName=Hackathon.Title, Article._pageName=_pageData._pageName
+	|fields=Article._pageName=pageName, Article.DisplayName, Hackathon.Summary, Hackathon.Date, CONCAT('[',Hackathon.Link,' diff]')=Link, Hackathon.UpdatedSections, Hackathon.AddedSections, Hackathon.QAns
+	|format=template
+	|template=HackathonUpdatedPages
+	|named args=yes
+	|default=* There were no updates for this manual in the last {{{DiffDays|30}}} days.
+    |order by=Hackathon.Date DESC, Article.DisplayName
+	|where=
+		Article.Manual="{{#explode:{{FULLPAGENAME}}|/|2}}"
+		AND Article._pageNamespace="0"
+		AND Hackathon.Summary != "false"
+		AND DATEDIFF(NOW(),Hackathon.Date) <= {{{DiffDays|30}}}
+		AND Hackathon.Summary NOT LIKE "%Typos%"
+		AND Hackathon.Type="updated"
+}}
+<div class="clearfix"></div>
+==New articles published in the last {{{DiffDays|30}}} days==
+{{#cargo_query:
+	tables=Article,Hackathon,_pageData
+	|join on=Article._pageName=Hackathon.Title, Article._pageName=_pageData._pageName
+	|fields=Article._pageName=pageName, Article.DisplayName, Hackathon.Summary, Hackathon.Date, CONCAT('[',Hackathon.Link,' diff]')=Link
+	|format=template
+	|template=HackathonNewPages
+	|named args=yes
+	|default=* There were no new articles for this manual in the last {{{DiffDays|30}}} days.
+    |order by=Hackathon.Date DESC, Article.DisplayName
+	|where=
+		Article.Manual="{{#explode:{{FULLPAGENAME}}|/|2}}"
+		AND Article._pageNamespace="0"
+		AND Hackathon.Summary != "false"
+		AND DATEDIFF(NOW(),Hackathon.Date) <= {{{DiffDays|30}}}
+		AND Hackathon.Summary NOT LIKE "%Typos%"
+		AND Hackathon.Type="new"
+}}<!--
+
+    adding local css overrides
+
+-->{{#css:
+.row {
+    margin-right: 0px;
+    margin-left: 0px;
+}
+.toggle-wrap>a{ display: block; padding: 10px; color: #333; background-color: #f5f5f5; border: 1px solid #ddd; border-radius: 3px; margin-bottom: 5px;}
+.toggle-wrap>a:before { content: '\f0d7'; float: left; font-family: FontAwesome; margin-right: 10px; text-decoration: none; }
+.toggle-content { padding: 10px 20px; border: 1px solid #ddd; border-top: none; border-bottom-left-radius: 3px; border-bottom-right-radius: 3px; margin-top: -5px; margin-bottom: 5px}
+.change-article { padding: 25px 0; border-bottom: 1px solid #959699; }
+.col-md-12.change-article .col-md-12, .col-md-12.change-article .col-md-8, .col-md-12.change-article .col-md-4 { padding-left: 0; padding-right: 0; }
+.eppo-head { margin-left: -32px !important}
+}}</includeonly>
