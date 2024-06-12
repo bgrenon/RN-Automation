@@ -1,0 +1,21 @@
+name: Create/Delete/Reset Branch for Pull Request Workflow
+run-name: Create/Delete/Reset Branch for Pull Request Workflow
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - closed
+      - labeled
+
+jobs:
+  neon_branch_management:
+    name: Create/Delete/Reset Branch for Pull Request Job
+    uses: neondatabase/reusable-workflows/.github/workflows/neon-preview-branches-for-pull-requests.yml@main
+    with:
+      project_id: "delicate-rain-33569585"
+      api_url: "https://console.neon.tech/api/v2"
+    secrets:
+      NEON_API_KEY: ${{ secrets.NEON_API_KEY }}
